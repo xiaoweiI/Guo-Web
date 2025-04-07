@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Details - My Pixel Art Portfolio</title>
+    <link rel="stylesheet" href="global-bg.css">
+    <link rel="stylesheet" href="pixel-style.css">
+    <link rel="stylesheet" href="low-poly-bg.css">
+    <link rel="stylesheet" href="retro-crt.css">
+    <link rel="stylesheet" href="controller-pattern.css">
+    <link rel="stylesheet" href="game-detail.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <script src="pixel-script.js" defer></script>
+    <script src="management-game-bg.js" defer></script>
+    <script src="particle-animation.js" defer></script>
+    <script src="typing-effect.js" defer></script>
+    <script src="game-detail.js" defer></script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <h1 class="logo">My Portfolio</h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html#home" data-i18n="nav_home">Home</a></li>
+                    <li><a href="index.html#about" data-i18n="nav_about">About</a></li>
+                    <li><a href="index.html#games" data-i18n="nav_games">Game Portfolio</a></li>
+                    <li><a href="index.html#archive" data-i18n="nav_archive">Archive</a></li>
+                    <li><a href="index.html#skills" data-i18n="nav_skills">Skills</a></li>
+                    <li><a href="index.html#contact" data-i18n="nav_contact">Contact</a></li>
+                </ul>
+                <button id="langSwitcher" class="lang-switcher">中文</button>
+                <div class="hamburger">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Game Detail Page -->
+    <div id="game-detail-page" class="page active">
+        <section class="game-detail">
+            <div class="container">
+                <div class="back-button">
+                    <a href="index.html#games" class="pixel-btn secondary-btn">
+                        <i class="fas fa-arrow-left"></i> <span data-i18n="back_to_portfolio">Back to Portfolio</span>
+                    </a>
+                </div>
+                
+                <div class="game-detail-content">
+                    <div class="game-detail-header">
+                        <h1 id="game-title" class="section-title">Game Title</h1>
+                        <div class="game-categories">
+                            <span id="game-category" class="game-category pixel-border">Category</span>
+                        </div>
+                    </div>
+                    
+                    <div class="game-detail-main">
+                        <div class="game-detail-image pixel-border">
+                            <img id="game-image" src="" alt="Game Screenshot">
+                        </div>
+                        
+                        <div class="game-detail-info pixel-border">
+                            <div class="game-info-section">
+                                <h3 data-i18n="game_description">Description</h3>
+                                <p id="game-description">Game description will be loaded here.</p>
+                            </div>
+                            
+                            <div class="game-info-section">
+                                <h3 data-i18n="game_features">Features</h3>
+                                <ul id="game-features" class="feature-list">
+                                    <!-- Features will be loaded dynamically -->
+                                </ul>
+                            </div>
+                            
+                            <div class="game-info-section">
+                                <h3 data-i18n="game_technologies">Technologies</h3>
+                                <div id="game-technologies" class="tech-tags">
+                                    <!-- Technologies will be loaded dynamically -->
+                                </div>
+                            </div>
+                            
+                            <div class="game-info-section">
+                                <h3 data-i18n="game_links">Links</h3>
+                                <div id="game-links" class="game-links">
+                                    <!-- Links will be loaded dynamically -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="game-detail-gallery pixel-border">
+                        <h3 data-i18n="game_gallery">Gallery</h3>
+                        <div id="game-gallery" class="gallery-grid">
+                            <!-- Gallery images will be loaded dynamically -->
+                            <div class="gallery-placeholder">
+                                <p data-i18n="gallery_coming_soon">Gallery images coming soon!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>My Portfolio</h2>
+                    <p data-i18n="footer_dev">Game Developer & Designer</p>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="index.html#home" data-i18n="nav_home">Home</a></li>
+                        <li><a href="index.html#about" data-i18n="nav_about">About</a></li>
+                        <li><a href="index.html#games" data-i18n="nav_games">Games</a></li>
+                        <li><a href="index.html#archive" data-i18n="nav_archive">Archive</a></li>
+                        <li><a href="index.html#skills" data-i18n="nav_skills">Skills</a></li>
+                        <li><a href="index.html#contact" data-i18n="nav_contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Xiaowei Guo. <span data-i18n="footer_rights">All Rights Reserved.</span></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

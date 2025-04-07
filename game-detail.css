@@ -1,0 +1,197 @@
+/* Game Detail Page Styles */
+
+/* Main layout */
+.game-detail {
+    padding: 60px 0;
+}
+
+.back-button {
+    margin-bottom: 30px;
+}
+
+.game-detail-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Game header */
+.game-detail-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.game-categories {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.game-category {
+    padding: 5px 10px;
+    font-size: 14px;
+    background-color: rgba(147, 118, 224, 0.2);
+    color: #9376e0;
+}
+
+/* Main content layout */
+.game-detail-main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+@media (min-width: 768px) {
+    .game-detail-main {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Game image */
+.game-detail-image {
+    overflow: hidden;
+    position: relative;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.game-detail-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    image-rendering: pixelated;
+}
+
+/* Game info */
+.game-detail-info {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.game-info-section {
+    margin-bottom: 25px;
+}
+
+.game-info-section h3 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #9376e0;
+    position: relative;
+    padding-left: 20px;
+}
+
+.game-info-section h3::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    color: #ff9eaa;
+}
+
+.game-info-section p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Features list */
+.feature-list {
+    list-style: none;
+    padding: 0;
+}
+
+.feature-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.feature-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #ff9eaa;
+    font-size: 18px;
+}
+
+/* Technology tags */
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tech-tag {
+    padding: 5px 10px;
+    font-size: 14px;
+    background-color: rgba(95, 133, 219, 0.2);
+    color: #5f85db;
+}
+
+/* Game links */
+.game-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.game-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 15px;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.game-link i {
+    margin-right: 5px;
+}
+
+/* Gallery section */
+.game-detail-gallery {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.game-detail-gallery h3 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #9376e0;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.gallery-placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    background-color: rgba(255, 255, 255, 0.05);
+    grid-column: 1 / -1;
+    text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+    .game-detail {
+        padding: 40px 0;
+    }
+    
+    .game-detail-header {
+        text-align: center;
+        align-items: center;
+    }
+    
+    .game-detail-image {
+        margin-bottom: 20px;
+    }
+}

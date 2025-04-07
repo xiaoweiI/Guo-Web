@@ -225,7 +225,16 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Navigation buttons
             "nav_prev": "Previous",
-            "nav_next": "Next"
+            "nav_next": "Next",
+            
+            // Game Detail Page
+            "back_to_portfolio": "Back to Portfolio",
+            "game_description": "Description",
+            "game_features": "Features",
+            "game_technologies": "Technologies",
+            "game_links": "Links",
+            "game_gallery": "Gallery",
+            "gallery_coming_soon": "Gallery images coming soon!"
         },
         zh: {
             // Navigation
@@ -369,7 +378,16 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Navigation buttons
             "nav_prev": "上一页",
-            "nav_next": "下一页"
+            "nav_next": "下一页",
+            
+            // Game Detail Page
+            "back_to_portfolio": "返回作品集",
+            "game_description": "描述",
+            "game_features": "特点",
+            "game_technologies": "技术",
+            "game_links": "链接",
+            "game_gallery": "画廊",
+            "gallery_coming_soon": "画廊图片即将推出！"
         }
     };
     
