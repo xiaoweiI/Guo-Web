@@ -252,6 +252,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     },
                     url: 'https://xiaoweii.itch.io/final-project',
                     icon: 'fas fa-gamepad'
+                },
+                {
+                    text: {
+                        en: 'Download Game',
+                        zh: '下载游戏'
+                    },
+                    url: 'Download/Dorm Unpack.zip',
+                    icon: 'fas fa-download'
                 }
             ]
         },
