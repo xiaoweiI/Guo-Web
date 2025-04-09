@@ -50,6 +50,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     },
                     url: '#',
                     icon: 'fas fa-code'
+                },
+                {
+                    text: {
+                        en: 'Download Game',
+                        zh: '下载游戏'
+                    },
+                    url: 'Download/AI Adoption Program Unseen.zip',
+                    icon: 'fas fa-download'
                 }
             ]
         },
@@ -101,6 +109,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     },
                     url: 'https://www.youtube.com/watch?v=AJqIjL--6O8',
                     icon: 'fab fa-youtube'
+                },
+                {
+                    text: {
+                        en: 'Download Game',
+                        zh: '下载游戏'
+                    },
+                    url: 'Download/Quated Out!Exe.zip',
+                    icon: 'fas fa-download'
                 }
             ]
         },
@@ -207,6 +223,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     },
                     url: 'https://docs.google.com/document/d/1KvKhpyxZNfu3qTfZFWq6XhXn9dfFgQJ2uG56p0Py3tc/edit?usp=sharing',
                     icon: 'fas fa-file-alt'
+                },
+                {
+                    text: {
+                        en: 'Download Game',
+                        zh: '下载游戏'
+                    },
+                    url: 'Download/Back Home.zip',
+                    icon: 'fas fa-download'
                 }
             ]
         },
@@ -543,37 +567,27 @@ document.addEventListener('DOMContentLoaded', function() {
         return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
     }
 
-    // Get current language
+    // Function to get current language from localStorage
     function getCurrentLanguage() {
         const savedLang = localStorage.getItem('preferredLanguage');
         return savedLang && (savedLang === 'en' || savedLang === 'zh') ? savedLang : 'en';
     }
 
-    // Function to update language
-    function updateLanguage(lang) {
-        // Update language attribute on html tag
-        document.documentElement.setAttribute('lang', lang);
-        
-        // Update language switcher button text
-        const langBtn = document.getElementById('langSwitcher');
-        if (langBtn) {
-            langBtn.textContent = lang === 'en' ? '中文' : 'English';
-        }
-        
-        // Load game details in the selected language
+    // Listen for language change events from pixel-script.js
+    document.addEventListener('languageChanged', function(event) {
+        const lang = event.detail.language;
         loadGameDetails(currentGameId, lang);
-        
-        // Save language preference to localStorage
-        localStorage.setItem('preferredLanguage', lang);
-    }
+    });
 
-    // Language switcher button click event
-    const langSwitcher = document.getElementById('langSwitcher');
-    if (langSwitcher) {
-        langSwitcher.addEventListener('click', function() {
-            const currentLang = getCurrentLanguage();
-            const newLang = currentLang === 'en' ? 'zh' : 'en';
-            updateLanguage(newLang);
+    // Update all elements with data-i18n attribute
+    function updateI18nElements(lang) {
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+            const key = element.getAttribute('data-i18n');
+            // Get translations from pixel-script.js if available
+            const translations = window.translations || {};
+            if (translations[lang] && translations[lang][key]) {
+                element.textContent = translations[lang][key];
+            }
         });
     }
 

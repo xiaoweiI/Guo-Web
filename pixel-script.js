@@ -391,13 +391,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
     
-    // Current language (default: English)
-    let currentLang = 'en';
+    // Function to get current language from localStorage
+    function getCurrentLanguage() {
+        const savedLang = localStorage.getItem('preferredLanguage');
+        return savedLang && (savedLang === 'en' || savedLang === 'zh') ? savedLang : 'en';
+    }
     
     // Function to update text content based on selected language
     function updateLanguage(lang) {
-        currentLang = lang;
-        
         // Update language attribute on html tag
         document.documentElement.setAttribute('lang', lang);
         
@@ -410,29 +411,31 @@ document.addEventListener('DOMContentLoaded', function() {
         // Update all elements with data-i18n attribute
         document.querySelectorAll('[data-i18n]').forEach(element => {
             const key = element.getAttribute('data-i18n');
-            if (translations[lang][key]) {
+            if (translations[lang] && translations[lang][key]) {
                 element.textContent = translations[lang][key];
             }
         });
         
         // Save language preference to localStorage
         localStorage.setItem('preferredLanguage', lang);
+        
+        // Dispatch a custom event for other scripts to listen to
+        const event = new CustomEvent('languageChanged', { detail: { language: lang } });
+        document.dispatchEvent(event);
     }
     
     // Language switcher button click event
-    document.getElementById('langSwitcher').addEventListener('click', function() {
-        const newLang = currentLang === 'en' ? 'zh' : 'en';
-        updateLanguage(newLang);
-    });
-    
-    // Initialize language based on localStorage or browser preference
-    const savedLang = localStorage.getItem('preferredLanguage');
-    if (savedLang && (savedLang === 'en' || savedLang === 'zh')) {
-        updateLanguage(savedLang);
-    } else {
-        // Default to English if no preference is saved
-        updateLanguage('en');
+    const langSwitcher = document.getElementById('langSwitcher');
+    if (langSwitcher) {
+        langSwitcher.addEventListener('click', function() {
+            const currentLang = getCurrentLanguage();
+            const newLang = currentLang === 'en' ? 'zh' : 'en';
+            updateLanguage(newLang);
+        });
     }
+    
+    // Initialize language based on localStorage or default to English
+    updateLanguage(getCurrentLanguage());
     
     // Mobile Navigation Toggle
     const hamburger = document.querySelector('.hamburger');
