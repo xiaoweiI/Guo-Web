@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
             image: 'party paidui.png',
             description: {
                 en: 'A chaotic and fun party management game where players must organize the ultimate party while dealing with unexpected events and demanding guests. Balance resources, manage the queue, and ensure everyone has a good time in this fast-paced simulation game.',
-                zh: '一款混乱而有趣的派对管理游戏，玩家必须在应对意外事件和要求苛刻的客人的同时组织终极派对。在这款快节奏的模拟游戏中，平衡资源，管理队列，确保每个人都玩得开心。'
+                zh: '一款混乱而有趣的派对管理游戏，玩家必须在应对意外事件和要求苛刻的客人的同时组织终极派对。在这款快节奏的模拟游戏中，平衡资源，管理队列，确保每个人都玩得开心。如果无法点开itch.io的链接，可以点击最后的下载按钮。'
             },
             features: {
                 en: [
@@ -170,6 +170,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     },
                     url: 'https://docs.google.com/document/d/1mYObztv9K2MpnWNcOTlbD0vit0fEi5UNTJSMXR29Y7Y/edit?usp=sharing',
                     icon: 'fas fa-file-alt'
+                },
+                {
+                    text: {
+                        en: 'Download Game',
+                        zh: '下载游戏'
+                    },
+                    url: 'https://pan.baidu.com/s/1J9IwgQwitRc8VcBPdQRyPA?pwd=8ibs',
+                    icon: 'fas fa-download'
                 }
             ]
         },
