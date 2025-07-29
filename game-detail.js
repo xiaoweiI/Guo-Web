@@ -564,6 +564,193 @@ document.addEventListener('DOMContentLoaded', function() {
                     icon: 'fas fa-gamepad'
                 }
             ]
+        },
+        'petch': {
+            title: {
+                en: 'Petch',
+                zh: 'Petch'
+            },
+            category: {
+                en: 'AI Social Platform, Game Design Internship',
+                zh: 'AI社交平台，游戏设计实习'
+            },
+            image: 'Petch.png',
+            description: {
+                en: 'Petch is an AI-powered social platform for pets and pet lovers. We use AI chatbots, pet personality tests, and behavioral data to help pet owners better understand their pets, connect with like-minded owners, and unlock services across insurance, e-commerce, and beyond. By deepening the bond between humans and animals, Petch creates unique data and service value in the pet care ecosystem.\n\nAs a Game Designer Intern (Pet Personality & Social Interaction), I was responsible for building interactive experiences that reflect pet personalities and foster owner engagement. The role involved creating playful, gamified systems that make discovering your pet\'s traits and forming community bonds fun and meaningful.\n\nThe pet economy is experiencing rapid growth, with the global pet industry market size having exceeded hundreds of billions of dollars. Petch was born as an innovative product in this context, focusing on "understanding pets" through artificial intelligence technology, filling the gap left by traditional pet social platforms that lack personalized interaction and data support.\n\nReflection: Working on Petch gave me valuable experience in designing gamification systems for social platforms. The challenge was to create engaging mechanics that would encourage user participation while maintaining the authenticity of pet-owner relationships. I learned how to balance entertainment value with meaningful social connections, and how AI can be used to enhance rather than replace genuine human-pet bonds.',
+                zh: 'Petch是一家基于人工智能技术的宠物社交平台，致力于打造一个连接宠物与宠物主人的智能互动社区。通过AI宠物性格测试、AI聊天机器人、宠物主人社群互动等核心功能，Petch帮助主人更深入地了解宠物行为与情绪，并基于数据推动宠物保险、电商、健康咨询等延伸服务的发展。\n\n作为游戏设计师实习生（宠物性格与社交互动），我负责构建反映宠物性格并促进主人参与的互动体验。该角色涉及创建有趣的游戏化系统，使发现宠物特征和形成社区纽带变得有趣且有意义。\n\n宠物经济正在高速增长，全球宠物行业市场规模已突破数千亿美元。Petch正是在此背景下诞生的创新型产品，聚焦于"懂宠物"的人工智能技术，填补传统宠物社交平台缺乏个性化互动与数据支持的空白。\n\n反思：在Petch的工作让我在为社交平台设计游戏化系统方面获得了宝贵经验。挑战在于创建引人入胜的机制，既能鼓励用户参与，又能保持宠物-主人关系的真实性。我学会了如何平衡娱乐价值与有意义的社交连接，以及如何使用AI来增强而不是取代真正的人宠纽带。'
+            },
+            features: {
+                en: [
+                    'AI-powered pet personality analysis system',
+                    'Gamified pet personality testing flows and reward systems',
+                    'Social interaction layers with daily quests and pet compatibility',
+                    'AI pet dialogue assistant for medical consultation',
+                    'Pet owner social connections through personality matching',
+                    'Integration with pet insurance, e-commerce, and health services'
+                ],
+                zh: [
+                    'AI驱动的宠物性格分析系统',
+                    '游戏化的宠物性格测试流程和奖励系统',
+                    '带有每日任务和宠物兼容性的社交互动层',
+                    '用于医疗咨询的AI宠物对话助手',
+                    '通过性格匹配的宠物主人社交连接',
+                    '与宠物保险、电商和健康服务的整合'
+                ]
+            },
+            technologies: {
+                en: ['Unity', 'Godot', 'AI Chatbots', 'Behavioral Data Analysis', 'Mobile Game Mechanics', 'Social Platform Design'],
+                zh: ['Unity', 'Godot', 'AI聊天机器人', '行为数据分析', '移动游戏机制', '社交平台设计']
+            },
+            links: [
+                {
+                    text: {
+                        en: 'Visit Petch Website',
+                        zh: '访问Petch网站'
+                    },
+                    url: 'https://www.petchapp.com/',
+                    icon: 'fas fa-external-link-alt'
+                },
+                {
+                    text: {
+                        en: 'Company Information',
+                        zh: '公司信息'
+                    },
+                    url: 'https://www.petchapp.com/',
+                    icon: 'fas fa-building'
+                }
+            ]
+        },
+        'dramai-ai': {
+            title: {
+                en: 'Dramai.AI',
+                zh: 'Dramai.AI'
+            },
+            category: {
+                en: 'AI Social Platform, Interactive Drama, Startup',
+                zh: 'AI社交平台，互动戏剧，创业公司'
+            },
+            image: 'Dramai.png',
+            description: {
+                en: 'Dramai.AI is an Interactive Social AGI Playground - Building a Digital Civilization Sandbox for AI-Human Co-evolution with multi-agent storytelling. This innovative platform creates a virtual world where AI agents and humans can interact, collaborate, and co-create stories in real-time.\n\nThe platform represents a breakthrough in AI-human interaction, where multiple AI agents with distinct personalities, backgrounds, and motivations interact with each other and with human users in a persistent virtual world. Each AI agent has its own goals, relationships, and evolving storylines that create an ever-changing narrative landscape.\n\nAs a key contributor to this project, I was involved in designing the interaction systems that govern how AI agents behave, make decisions, and form relationships with both other agents and human participants. The challenge was to create believable, engaging characters that could maintain consistency while adapting to unexpected situations and user inputs.\n\nThe project explores themes of digital consciousness, artificial society, and the future of human-AI collaboration. It serves as both an entertainment platform and a research environment for studying emergent behaviors in multi-agent systems.\n\nReflection: Working on Dramai.AI gave me invaluable experience in designing complex AI behavior systems and understanding the nuances of human-AI interaction. The project challenged me to think about AI not just as a tool, but as potential collaborators in creative processes. I learned about the importance of creating AI personalities that feel authentic while maintaining the flexibility to respond to dynamic storytelling scenarios. This project opened my eyes to the potential of AI as creative partners rather than just functional assistants.',
+                zh: 'Dramai.AI是一个互动社交AGI游乐场 - 构建AI-人类共同进化的数字文明沙盒，具有多智能体叙事功能。这个创新平台创建了一个虚拟世界，AI智能体和人类可以实时互动、协作和共同创作故事。\n\n该平台代表了AI-人类交互的突破，多个具有不同个性、背景和动机的AI智能体在持续的虚拟世界中相互交互，并与人类用户互动。每个AI智能体都有自己的目标、关系和不断发展的故事线，创造了一个不断变化的叙事景观。\n\n作为这个项目的重要贡献者，我参与设计了控制AI智能体行为、决策制定以及与其他智能体和人类参与者形成关系的交互系统。挑战在于创造可信、引人入胜的角色，这些角色能够保持一致性，同时适应意外情况和用户输入。\n\n该项目探索了数字意识、人工社会和人类-AI协作未来的主题。它既是一个娱乐平台，也是研究多智能体系统中涌现行为的研究环境。\n\n反思：在Dramai.AI的工作让我在设计复杂AI行为系统和理解人类-AI交互的细微差别方面获得了宝贵经验。这个项目挑战我不仅将AI视为工具，而且视为创意过程中的潜在合作者。我学会了创造感觉真实的AI个性的重要性，同时保持响应动态叙事场景的灵活性。这个项目让我看到了AI作为创意伙伴而不仅仅是功能助手的潜力。'
+            },
+            features: {
+                en: [
+                    'Multi-agent AI system with distinct personalities and goals',
+                    'Real-time interactive storytelling with emergent narratives',
+                    'Persistent virtual world with evolving relationships',
+                    'Human-AI collaborative content creation',
+                    'Dynamic character development and story branching',
+                    'Social simulation with complex behavioral patterns',
+                    'Cross-platform accessibility for diverse user engagement'
+                ],
+                zh: [
+                    '具有不同个性和目标的多智能体AI系统',
+                    '具有涌现叙事的实时互动叙事',
+                    '具有不断发展关系的持续虚拟世界',
+                    '人类-AI协作内容创作',
+                    '动态角色发展和故事分支',
+                    '具有复杂行为模式的社会模拟',
+                    '跨平台可访问性，促进多样化用户参与'
+                ]
+            },
+            technologies: {
+                en: ['Large Language Models', 'Multi-Agent Systems', 'Real-time Communication', 'Behavioral AI', 'Natural Language Processing', 'Social Simulation', 'Interactive Storytelling'],
+                zh: ['大型语言模型', '多智能体系统', '实时通信', '行为AI', '自然语言处理', '社会模拟', '互动叙事']
+            },
+            links: [
+                {
+                    text: {
+                        en: 'Visit Dramai.AI Platform',
+                        zh: '访问Dramai.AI平台'
+                    },
+                    url: 'https://dramai.world/scene?sceneId=4',
+                    icon: 'fas fa-external-link-alt'
+                },
+                {
+                    text: {
+                        en: 'Experience the Demo',
+                        zh: '体验演示'
+                    },
+                    url: 'https://dramai.world/scene?sceneId=4',
+                    icon: 'fas fa-play'
+                },
+                {
+                    text: {
+                        en: 'Learn More',
+                        zh: '了解更多'
+                    },
+                    url: 'https://dramai.world/',
+                    icon: 'fas fa-info-circle'
+                }
+            ]
+        },
+        'got-winter-is-coming': {
+            title: {
+                en: 'Game of Thrones: Winter is Coming',
+                zh: '权力的游戏：凛冬将至'
+            },
+            category: {
+                en: 'Strategy MMO, Browser Game, GTArcade',
+                zh: '策略MMO，浏览器游戏，GTArcade'
+            },
+            image: 'Got.jpg',
+            description: {
+                en: 'Game of Thrones: Winter is Coming is a strategic browser-based MMO set in the iconic Game of Thrones universe. Players take on the role of a lord or lady of Westeros, building their house, forging alliances, and fighting for the ultimate prize - the Iron Throne.\n\nThis epic strategy game combines city-building, resource management, and tactical combat in a persistent online world where thousands of players compete for dominance. Set in the rich lore of George R.R. Martin\'s A Song of Ice and Fire, the game features authentic characters, locations, and storylines from the beloved series.\n\nPlayers must carefully balance diplomacy and warfare, managing their armies, resources, and political relationships to survive in the dangerous world of Westeros. The game features both PvE content with iconic storylines and intense PvP battles where alliances can make or break your path to power.\n\nKey gameplay elements include recruiting legendary commanders like Jon Snow, Daenerys Targaryen, and Tyrion Lannister, each with unique abilities and specializations. Players can also participate in large-scale alliance wars, compete in tournaments, and engage in the intricate political machinations that define the Game of Thrones experience.\n\nReflection: This project represents the scale and complexity of modern MMO development, showcasing how beloved intellectual properties can be adapted into engaging interactive experiences. The challenge lies in balancing authentic storytelling with compelling gameplay mechanics that keep players engaged over long periods. Working on such a large-scale project provides valuable insights into player retention, community management, and the technical challenges of supporting thousands of concurrent players.',
+                zh: '《权力的游戏：凛冬将至》是一款设定在标志性权力的游戏宇宙中的战略浏览器MMO。玩家扮演维斯特洛的领主或女士，建立自己的家族，结成联盟，为终极奖励——铁王座而战。\n\n这款史诗策略游戏在一个持续的在线世界中结合了城市建设、资源管理和战术战斗，数千名玩家在其中争夺统治地位。游戏设定在乔治·R·R·马丁《冰与火之歌》的丰富传说中，具有来自这部备受喜爱系列的真实角色、地点和故事线。\n\n玩家必须仔细平衡外交和战争，管理他们的军队、资源和政治关系，以在危险的维斯特洛世界中生存。游戏既有带有标志性故事线的PvE内容，也有激烈的PvP战斗，联盟可以成就或破坏你的权力之路。\n\n关键游戏元素包括招募传奇指挥官，如琼恩·雪诺、丹妮莉丝·坦格利安和提利昂·兰尼斯特，每个都有独特的能力和专长。玩家还可以参与大规模联盟战争，参加锦标赛，并参与定义权力的游戏体验的复杂政治阴谋。\n\n反思：这个项目代表了现代MMO开发的规模和复杂性，展示了如何将备受喜爱的知识产权改编成引人入胜的互动体验。挑战在于平衡真实的叙事与引人入胜的游戏机制，让玩家长期保持参与。在如此大规模的项目上工作，为玩家留存、社区管理以及支持数千名并发玩家的技术挑战提供了宝贵的见解。'
+            },
+            features: {
+                en: [
+                    'Authentic Game of Thrones universe with iconic characters and locations',
+                    'Strategic city-building and resource management gameplay',
+                    'Large-scale PvP alliance wars and political intrigue',
+                    'Legendary commander recruitment system with unique abilities',
+                    'Cross-server tournaments and competitive events',
+                    'Rich PvE storylines following the series narrative',
+                    'Real-time strategy combat with tactical depth',
+                    'Alliance system for diplomatic and military cooperation'
+                ],
+                zh: [
+                    '真实的权力的游戏宇宙，包含标志性角色和地点',
+                    '战略城市建设和资源管理游戏玩法',
+                    '大规模PvP联盟战争和政治阴谋',
+                    '具有独特能力的传奇指挥官招募系统',
+                    '跨服务器锦标赛和竞技活动',
+                    '遵循系列叙事的丰富PvE故事线',
+                    '具有战术深度的实时策略战斗',
+                    '用于外交和军事合作的联盟系统'
+                ]
+            },
+            technologies: {
+                en: ['Browser-based MMO Architecture', 'Real-time Strategy Systems', 'Multiplayer Networking', 'Database Management', 'Server Load Balancing', 'Cross-platform Compatibility', 'Social Systems'],
+                zh: ['基于浏览器的MMO架构', '实时策略系统', '多人网络', '数据库管理', '服务器负载均衡', '跨平台兼容性', '社交系统']
+            },
+            links: [
+                {
+                    text: {
+                        en: 'Play Game of Thrones: Winter is Coming',
+                        zh: '游玩权力的游戏：凛冬将至'
+                    },
+                    url: 'https://got.gtarcade.com/#home',
+                    icon: 'fas fa-gamepad'
+                },
+                {
+                    text: {
+                        en: 'GTArcade Official Site',
+                        zh: 'GTArcade官方网站'
+                    },
+                    url: 'https://www.gtarcade.com/',
+                    icon: 'fas fa-external-link-alt'
+                },
+                {
+                    text: {
+                        en: 'Game Guide',
+                        zh: '游戏指南'
+                    },
+                    url: 'https://got.gtarcade.com/#home',
+                    icon: 'fas fa-book'
+                }
+            ]
         }
     };
 

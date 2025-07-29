@@ -57,28 +57,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const initialPage = window.location.hash.substring(1) || 'home';
     navigateTo(initialPage);
     
-    // Floating Pixel Boxes
+    // Floating Pixel Boxes - Disabled
     function createFloatingBoxes() {
         // Remove any existing floating boxes
         document.querySelectorAll('.pixel-box').forEach(box => box.remove());
         
-        // Create new floating boxes for the current page
-        const currentPageElement = pages[currentPage];
-        if (!currentPageElement) return;
-        
-        const boxContents = [
-            '<i class="fas fa-gamepad"></i>',
-            '<i class="fas fa-code"></i>',
-            '<i class="fas fa-palette"></i>',
-            '<i class="fas fa-star"></i>'
-        ];
-        
-        for (let i = 0; i < 4; i++) {
-            const box = document.createElement('div');
-            box.className = `pixel-box pixel-border pixel-box-${i+1}`;
-            box.innerHTML = boxContents[i];
-            currentPageElement.appendChild(box);
-        }
+        // Floating boxes functionality has been disabled to improve readability
+        // No new floating boxes will be created
     }
     
     // Language translations (from original script.js)
@@ -113,6 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Game Portfolio section
             "games_title": "Game Portfolio",
             "filter_all": "All",
+            "filter_business": "Business",
             "filter_pc": "PC Games",
             "filter_board": "Board Games",
             "filter_jam": "Game Jam",
@@ -141,6 +127,20 @@ document.addEventListener('DOMContentLoaded', function() {
             "game_silent_majority_title": "The Silent Majority",
             "game_silent_majority_desc": "Social experiment visual novel exploring cyber violence and online mob mentality. Features moral dilemmas with no clear right answers.",
             
+            // Business projects
+            "game_dramai_title": "Dramai.AI",
+            "game_dramai_desc": "Interactive Social AGI Playground - Building a Digital Civilization Sandbox for AI-Human Co-evolution with multi-agent storytelling.",
+            "game_got_title": "Game of Thrones: Winter is Coming",
+            "game_got_desc": "Strategic browser-based MMO set in the Game of Thrones universe. Build your house, forge alliances, and fight for the Iron Throne in this epic strategy game.",
+            "game_petch_title": "Petch",
+            "game_petch_desc": "AI-powered social platform for pets and pet lovers. Game Designer Intern role focusing on pet personality testing and social interaction systems.",
+            
+            // Featured work descriptions
+            "featured_dramai_desc": "Interactive Social AGI Playground - Building a Digital Civilization Sandbox for AI-Human Co-evolution",
+            "featured_got_desc": "Strategic browser-based MMO set in the Game of Thrones universe. Build your house and fight for the Iron Throne",
+            "featured_petch_desc": "AI-powered social platform for pets and pet lovers. Game Designer Intern focusing on pet personality systems",
+            "featured_ai_adoption_desc": "An emotional journey exploring dystopian themes through AI-human relationships",
+            
             // Archive section
             "archive_title": "Other Archive",
             "archive_gdd": "Game Design Documents",
@@ -156,6 +156,10 @@ document.addEventListener('DOMContentLoaded', function() {
             "archive_procedural_generation": "The Future of Procedural Generation in Games - GDC Talk 2023",
             "archive_balancing_complexity": "Balancing Complexity and Accessibility in Puzzle Games - Article",
             "archive_narrative_design": "Narrative Design in Open World Games - Conference Panel",
+            "archive_uiux": "UI/UX Design",
+            "archive_ecodemand": "EcoDemand System",
+            "archive_cozy_ui": "Cozy Game UI Design",
+            "archive_coming_soon": "Coming Soon",
             
             // Skills section
             "skills_title": "Skills & Expertise",
@@ -266,6 +270,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Game Portfolio section
             "games_title": "游戏作品集",
             "filter_all": "全部",
+            "filter_business": "商业项目",
             "filter_pc": "PC游戏",
             "filter_board": "桌游",
             "filter_jam": "游戏马拉松",
@@ -294,6 +299,20 @@ document.addEventListener('DOMContentLoaded', function() {
             "game_silent_majority_title": "沉默的大多数",
             "game_silent_majority_desc": "探索网络暴力和在线群体心理的社会实验视觉小说。具有没有明确正确答案的道德困境。",
             
+            // Business projects
+            "game_dramai_title": "Dramai.AI",
+            "game_dramai_desc": "互动社交AGI游乐场 - 构建AI-人类共同进化的数字文明沙盒，具有多智能体叙事功能。",
+            "game_got_title": "权力的游戏：凛冬将至",
+            "game_got_desc": "设定在权力的游戏宇宙中的战略浏览器MMO。建立你的家族，结成联盟，为铁王座而战的史诗策略游戏。",
+            "game_petch_title": "Petch",
+            "game_petch_desc": "面向宠物和宠物爱好者的AI驱动社交平台。游戏设计师实习生角色，专注于宠物性格测试和社交互动系统。",
+            
+            // Featured work descriptions
+            "featured_dramai_desc": "互动社交AGI游乐场 - 构建AI-人类共同进化的数字文明沙盒",
+            "featured_got_desc": "设定在权力的游戏宇宙中的战略浏览器MMO。建立你的家族，为铁王座而战",
+            "featured_petch_desc": "面向宠物和宠物爱好者的AI驱动社交平台。游戏设计师实习生专注于宠物性格系统",
+            "featured_ai_adoption_desc": "探索AI-人类关系中反乌托邦主题的情感之旅",
+            
             // Archive section
             "archive_title": "其他档案",
             "archive_gdd": "游戏设计文档",
@@ -302,13 +321,17 @@ document.addEventListener('DOMContentLoaded', function() {
             "archive_view": "查看",
             "archive_back_home_gdd": "回家 - 游戏设计文档",
             "archive_party_paidui_gdd": "派对！排队！嘉年华！- 游戏设计文档",
-            "archive_space_explorers": "太空探索者 - 程序生成系统",
-            "archive_character_concept": "角色概念艺术集",
-            "archive_environment_sketches": "环境草图和渲染",
-            "archive_uiux_portfolio": "UI/UX设计作品集",
+            "archive_space_explorers": "即将更新",
+            "archive_character_concept": "即将更新",
+            "archive_environment_sketches": "即将更新",
+            "archive_uiux_portfolio": "即将更新",
             "archive_procedural_generation": "游戏中程序生成的未来 - GDC演讲2023",
             "archive_balancing_complexity": "平衡解谜游戏中的复杂性和可访问性 - 文章",
             "archive_narrative_design": "开放世界游戏中的叙事设计 - 会议小组讨论",
+            "archive_uiux": "UI/UX设计",
+            "archive_ecodemand": "生态需求系统",
+            "archive_cozy_ui": "舒适游戏UI设计",
+            "archive_coming_soon": "即将更新",
             
             // Skills section
             "skills_title": "技能与专长",
@@ -562,13 +585,28 @@ document.addEventListener('DOMContentLoaded', function() {
             ctx.fillStyle = '#9376e0';
             ctx.font = '16px "Press Start 2P"';
             ctx.textAlign = 'center';
-            ctx.fillText('Click Start Demo', canvas.width / 2, canvas.height / 2 - 10);
-            ctx.fillText('to see skills in action!', canvas.width / 2, canvas.height / 2 + 20);
+            
+            const lang = getCurrentLanguage();
+            if (lang === 'en') {
+                ctx.fillText('Click Start Demo', canvas.width / 2, canvas.height / 2 - 10);
+                ctx.fillText('to see skills in action!', canvas.width / 2, canvas.height / 2 + 20);
+            } else {
+                ctx.fillText('点击开始演示', canvas.width / 2, canvas.height / 2 - 10);
+                ctx.fillText('查看技能展示！', canvas.width / 2, canvas.height / 2 + 20);
+            }
         }
         
         // Create particles
         function createParticles() {
-            const skillNames = ['Unity', 'Unreal', '3D', 'Design', 'Code', 'Art'];
+            const lang = getCurrentLanguage();
+            let skillNames;
+            
+            if (lang === 'en') {
+                skillNames = ['Unity', 'Unreal', '3D', 'Design', 'Code', 'Art'];
+            } else {
+                skillNames = ['Unity', '虚幻', '3D', '设计', '编程', '艺术'];
+            }
+            
             const colors = ['#5f85db', '#9376e0', '#ff9eaa', '#5f85db', '#9376e0', '#ff9eaa'];
             
             for (let i = 0; i < 50; i++) {
@@ -581,21 +619,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 particles.push(new Particle(x, y, size, colors[colorIndex], speedX, speedY));
                 
-                // Add text to some particles
-                if (i % 8 === 0) {
-                    const textParticle = new Particle(x, y, 30, colors[colorIndex], speedX * 0.5, speedY * 0.5);
-                    textParticle.text = skillNames[i % skillNames.length];
-                    textParticle.draw = function() {
-                        ctx.save();
-                        ctx.globalAlpha = this.alpha;
-                        ctx.fillStyle = this.color;
-                        ctx.font = '16px "Press Start 2P"';
-                        ctx.textAlign = 'center';
-                        ctx.fillText(this.text, this.x, this.y);
-                        ctx.restore();
-                    };
-                    particles.push(textParticle);
-                }
+            // Add text to some particles
+            if (i % 8 === 0) {
+                const textParticle = new Particle(x, y, 30, colors[colorIndex], speedX * 0.5, speedY * 0.5);
+                textParticle.text = skillNames[i % skillNames.length];
+                textParticle.draw = function() {
+                    ctx.save();
+                    ctx.globalAlpha = this.alpha;
+                    ctx.fillStyle = this.color;
+                    ctx.font = '16px "Press Start 2P"';
+                    ctx.textAlign = 'center';
+                    ctx.fillText(this.text, this.x, this.y);
+                    ctx.restore();
+                };
+                particles.push(textParticle);
+            }
             }
         }
         
@@ -632,11 +670,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     particles = [];
                     createParticles();
                     animate();
-                    this.textContent = currentLang === 'en' ? 'Pause Demo' : '暂停演示';
+                    this.textContent = getCurrentLanguage() === 'en' ? 'Pause Demo' : '暂停演示';
                 } else {
                     isAnimating = false;
                     cancelAnimationFrame(animationId);
-                    this.textContent = currentLang === 'en' ? 'Start Demo' : '开始演示';
+                    this.textContent = getCurrentLanguage() === 'en' ? 'Start Demo' : '开始演示';
                 }
             });
         }
@@ -645,7 +683,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (resetBtn) {
             resetBtn.addEventListener('click', function() {
                 isAnimating = false;
-                if (startBtn) startBtn.textContent = currentLang === 'en' ? 'Start Demo' : '开始演示';
+                if (startBtn) startBtn.textContent = getCurrentLanguage() === 'en' ? 'Start Demo' : '开始演示';
                 cancelAnimationFrame(animationId);
                 particles = [];
                 initCanvas();
@@ -671,20 +709,20 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Simple validation
             if (name === '' || email === '' || subject === '' || message === '') {
-                alert(currentLang === 'en' ? 'Please fill in all fields' : '请填写所有字段');
+                alert(getCurrentLanguage() === 'en' ? 'Please fill in all fields' : '请填写所有字段');
                 return;
             }
             
             // Email validation
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
-                alert(currentLang === 'en' ? 'Please enter a valid email address' : '请输入有效的电子邮件地址');
+                alert(getCurrentLanguage() === 'en' ? 'Please enter a valid email address' : '请输入有效的电子邮件地址');
                 return;
             }
             
             // If validation passes, show success message
             // In a real application, you would send the form data to a server here
-            alert(currentLang === 'en' ? 'Thank you for your message! I will get back to you soon.' : '感谢您的留言！我会尽快回复您。');
+            alert(getCurrentLanguage() === 'en' ? 'Thank you for your message! I will get back to you soon.' : '感谢您的留言！我会尽快回复您。');
             contactForm.reset();
         });
     }
@@ -696,4 +734,88 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Create initial floating boxes
     createFloatingBoxes();
+    
+    // Featured Works Carousel
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.featured-item');
+    const indicators = document.querySelectorAll('.indicator');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const carouselTrack = document.getElementById('featuredCarousel');
+    
+    if (slides.length > 0) {
+        // Initialize carousel
+        function updateCarousel() {
+            // Update slide visibility
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === currentSlide);
+            });
+            
+            // Update indicators
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentSlide);
+            });
+            
+            // Move carousel track
+            if (carouselTrack) {
+                const translateX = -currentSlide * 25; // 25% per slide
+                carouselTrack.style.transform = `translateX(${translateX}%)`;
+            }
+        }
+        
+        // Next slide function
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateCarousel();
+        }
+        
+        // Previous slide function
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateCarousel();
+        }
+        
+        // Event listeners for navigation buttons
+        if (nextBtn) {
+            nextBtn.addEventListener('click', nextSlide);
+        }
+        
+        if (prevBtn) {
+            prevBtn.addEventListener('click', prevSlide);
+        }
+        
+        // Event listeners for indicators
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentSlide = index;
+                updateCarousel();
+            });
+        });
+        
+        // Auto-play carousel (optional)
+        let autoPlayInterval;
+        
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+        }
+        
+        function stopAutoPlay() {
+            if (autoPlayInterval) {
+                clearInterval(autoPlayInterval);
+            }
+        }
+        
+        // Start auto-play when page loads
+        startAutoPlay();
+        
+        // Pause auto-play on hover
+        const carouselContainer = document.querySelector('.carousel-container');
+        if (carouselContainer) {
+            carouselContainer.addEventListener('mouseenter', stopAutoPlay);
+            carouselContainer.addEventListener('mouseleave', startAutoPlay);
+        }
+        
+        // Initialize carousel on page load
+        updateCarousel();
+    }
 });

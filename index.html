@@ -119,13 +119,208 @@
         <section class="games">
             <div class="container">
                 <h2 class="section-title" data-i18n="games_title">Game Portfolio</h2>
+                
+                <!-- Featured Works Carousel Section -->
+                <section class="featured-works">
+                    <div class="container">
+                        <h3 class="section-subtitle" data-i18n="featured_title">Featured Works</h3>
+                        <div class="carousel-container">
+                            <div class="carousel-wrapper">
+                                <div class="carousel-track" id="featuredCarousel">
+                                    <!-- Featured Work 1: Dramai.AI -->
+                                    <div class="featured-item active">
+                                        <div class="featured-image">
+                                            <img src="Dramai.png" alt="Dramai.AI" class="featured-img">
+                                            <div class="featured-overlay">
+                                                <div class="featured-content">
+                                                    <h3 data-i18n="game_dramai_title">Dramai.AI</h3>
+                                                    <p data-i18n="featured_dramai_desc">Interactive Social AGI Playground - Building a Digital Civilization Sandbox for AI-Human Co-evolution</p>
+                                                    <div class="featured-tags">
+                                                        <span class="tag">AI Social</span>
+                                                        <span class="tag">Multi-Agent</span>
+                                                        <span class="tag">Interactive Drama</span>
+                                                        <span class="tag">Startup</span>
+                                                    </div>
+                                                    <div class="featured-actions">
+                                                        <a href="game-detail.html?id=dramai-ai" class="pixel-btn primary-btn">View Details</a>
+                                                        <a href="https://dramai.world/scene?sceneId=4" target="_blank" class="pixel-btn secondary-btn">Visit Platform</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Featured Work 2: Game of Thrones: Winter is Coming -->
+                                    <div class="featured-item">
+                                        <div class="featured-image">
+                                            <img src="Got.jpg" alt="Game of Thrones: Winter is Coming" class="featured-img">
+                                            <div class="featured-overlay">
+                                                <div class="featured-content">
+                                                    <h3 data-i18n="game_got_title">Game of Thrones: Winter is Coming</h3>
+                                                    <p data-i18n="featured_got_desc">Strategic browser-based MMO set in the Game of Thrones universe. Build your house and fight for the Iron Throne</p>
+                                                    <div class="featured-tags">
+                                                        <span class="tag">Strategy MMO</span>
+                                                        <span class="tag">Browser Game</span>
+                                                        <span class="tag">Game of Thrones</span>
+                                                        <span class="tag">GTArcade</span>
+                                                    </div>
+                                                    <div class="featured-actions">
+                                                        <a href="game-detail.html?id=got-winter-is-coming" class="pixel-btn primary-btn">View Details</a>
+                                                        <a href="https://got.gtarcade.com/#home" target="_blank" class="pixel-btn secondary-btn">Play Game</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Featured Work 3: Petch -->
+                                    <div class="featured-item">
+                                        <div class="featured-image">
+                                            <img src="Petch.png" alt="Petch" class="featured-img">
+                                            <div class="featured-overlay">
+                                                <div class="featured-content">
+                                                    <h3 data-i18n="game_petch_title">Petch</h3>
+                                                    <p data-i18n="featured_petch_desc">AI-powered social platform for pets and pet lovers. Game Designer Intern focusing on pet personality systems</p>
+                                                    <div class="featured-tags">
+                                                        <span class="tag">AI Social</span>
+                                                        <span class="tag">Pet Platform</span>
+                                                        <span class="tag">Game Design</span>
+                                                        <span class="tag">Internship</span>
+                                                    </div>
+                                                    <div class="featured-actions">
+                                                        <a href="game-detail.html?id=petch" class="pixel-btn primary-btn">View Details</a>
+                                                        <a href="https://www.petchapp.com/" target="_blank" class="pixel-btn secondary-btn">Visit Website</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Featured Work 4: AI Adoption Program -->
+                                    <div class="featured-item">
+                                        <div class="featured-image">
+                                            <img src="Ai Adoption.png" alt="AI Adoption Program" class="featured-img">
+                                            <div class="featured-overlay">
+                                                <div class="featured-content">
+                                                    <h3 data-i18n="game_ai_adoption_title">AI Adoption Program</h3>
+                                                    <p data-i18n="featured_ai_adoption_desc">An emotional journey exploring dystopian themes through AI-human relationships</p>
+                                                    <div class="featured-tags">
+                                                        <span class="tag">Dystopian</span>
+                                                        <span class="tag">Emotional</span>
+                                                        <span class="tag">Game Jam</span>
+                                                    </div>
+                                                    <div class="featured-actions">
+                                                        <a href="game-detail.html?id=ai-adoption" class="pixel-btn primary-btn">View Details</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Carousel Controls -->
+                            <div class="carousel-controls">
+                                <button class="carousel-btn prev-btn" id="prevBtn">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <button class="carousel-btn next-btn" id="nextBtn">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                            
+                            <!-- Carousel Indicators -->
+                            <div class="carousel-indicators">
+                                <button class="indicator active" data-slide="0"></button>
+                                <button class="indicator" data-slide="1"></button>
+                                <button class="indicator" data-slide="2"></button>
+                                <button class="indicator" data-slide="3"></button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
                 <div class="filter-buttons">
                     <button class="filter-btn active" data-filter="all" data-i18n="filter_all">All</button>
+                    <button class="filter-btn" data-filter="business" data-i18n="filter_business">Business</button>
                     <button class="filter-btn" data-filter="pc" data-i18n="filter_pc">PC Games</button>
                     <button class="filter-btn" data-filter="board-game" data-i18n="filter_board">Board Games</button>
                     <button class="filter-btn" data-filter="jam" data-i18n="filter_jam">Game Jam</button>
                 </div>
                 <div class="games-grid">
+                    <!-- Dramai.AI -->
+                    <div class="game-card pixel-border" data-category="business">
+                        <div class="game-image">
+                            <div class="image-placeholder">
+                                <img src="Dramai.png" alt="Dramai.AI" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <h3 data-i18n="game_dramai_title">Dramai.AI</h3>
+                            <p data-i18n="game_dramai_desc">Interactive Social AGI Playground - Building a Digital Civilization Sandbox for AI-Human Co-evolution with multi-agent storytelling.</p>
+                            <div class="game-tags">
+                                <span class="tag">AI Social</span>
+                                <span class="tag">Multi-Agent</span>
+                                <span class="tag">Interactive Drama</span>
+                                <span class="tag">Startup</span>
+                            </div>
+                            <a href="game-detail.html?id=dramai-ai" 
+                               class="archive-link">View</a>
+                            <a href="https://dramai.world/scene?sceneId=4" 
+                               target="_blank" 
+                               class="archive-link">Visit Site</a>
+                        </div>
+                    </div>
+
+                    <!-- Game of Thrones: Winter is Coming -->
+                    <div class="game-card pixel-border" data-category="business">
+                        <div class="game-image">
+                            <div class="image-placeholder">
+                                <img src="Got.jpg" alt="Game of Thrones: Winter is Coming" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <h3 data-i18n="game_got_title">Game of Thrones: Winter is Coming</h3>
+                            <p data-i18n="game_got_desc">Strategic browser-based MMO set in the Game of Thrones universe. Build your house, forge alliances, and fight for the Iron Throne in this epic strategy game.</p>
+                            <div class="game-tags">
+                                <span class="tag">Strategy MMO</span>
+                                <span class="tag">Browser Game</span>
+                                <span class="tag">Game of Thrones</span>
+                                <span class="tag">GTArcade</span>
+                            </div>
+                            <a href="game-detail.html?id=got-winter-is-coming" 
+                               class="archive-link">View</a>
+                            <a href="https://got.gtarcade.com/#home" 
+                               target="_blank" 
+                               class="archive-link">Play Game</a>
+                        </div>
+                    </div>
+
+                    <!-- Petch -->
+                    <div class="game-card pixel-border" data-category="business">
+                        <div class="game-image">
+                            <div class="image-placeholder">
+                                <img src="Petch.png" alt="Petch" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <h3 data-i18n="game_petch_title">Petch</h3>
+                            <p data-i18n="game_petch_desc">AI-powered social platform for pets and pet lovers. Game Designer Intern role focusing on pet personality testing and social interaction systems.</p>
+                            <div class="game-tags">
+                                <span class="tag">AI Social</span>
+                                <span class="tag">Pet Platform</span>
+                                <span class="tag">Game Design</span>
+                                <span class="tag">Internship</span>
+                            </div>
+                            <a href="game-detail.html?id=petch" 
+                               class="archive-link">View</a>
+                            <a href="https://www.petchapp.com/" 
+                               target="_blank" 
+                               class="archive-link">Visit Site</a>
+                        </div>
+                    </div>
+
+
                     <!-- AI Adoption Program -->
                     <div class="game-card pixel-border" data-category="jam pc">
                         <div class="game-image">
@@ -336,17 +531,17 @@
                         <ul class="archive-list">
                             <li>
                                 <i class="fas fa-desktop"></i>
-                                <span>EcoDemand System</span>
+                                <span data-i18n="archive_ecodemand">EcoDemand System</span>
                                 <a href="https://www.figma.com/design/EbXcmTf5nWJZzNq7WUkGMd/Eco-Savvy?node-id=0-1&t=sNFS96g9RNZXjXqe-1" class="archive-link" data-i18n="archive_view">View</a>
                             </li>
                             <li>
                                 <i class="fas fa-desktop"></i>
-                                <span>Cozy Game UI Design</span>
+                                <span data-i18n="archive_cozy_ui">Cozy Game UI Design</span>
                                 <a href="#" class="archive-link" data-i18n="archive_view">View</a>
                             </li>
                             <li>
                                 <i class="fas fa-desktop"></i>
-                                <span>Coming Soon</span>
+                                <span data-i18n="archive_coming_soon">Coming Soon</span>
                                 <a href="#" class="archive-link" data-i18n="archive_view">View</a>
                             </li>
                         </ul>
