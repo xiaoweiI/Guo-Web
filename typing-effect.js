@@ -7,10 +7,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Store original text content for both languages
     const originalTexts = {
         en: {
-            hello: "Hello, I'm Xiaowei"
+            hello: "Hello, I'm Violet"
         },
         zh: {
-            hello: "你好，我是Xiaowei"
+            hello: "你好，我是Violet"
         }
     };
     
@@ -22,9 +22,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Split the text at the name part
         let parts;
-        if (text.includes("Xiaowei")) {
-            parts = text.split("Xiaowei");
-            parts[1] = "Xiaowei";
+        if (text.includes("Violet")) {
+            parts = text.split("Violet");
+            parts[1] = "Violet";
         } else {
             parts = [text, ""];
         }

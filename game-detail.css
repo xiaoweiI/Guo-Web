@@ -23,17 +23,55 @@
     margin-bottom: 20px;
 }
 
+.game-detail-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+/* Game Role Detail - Subtle and elegant */
+.game-role-detail {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+    background: rgba(147, 118, 224, 0.1);
+    border: 2px solid #9376e0;
+    border-radius: 0;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.game-role-detail .role-label {
+    font-family: 'VT323', monospace;
+    font-size: 1.1rem;
+    color: #9376e0;
+    font-weight: bold;
+}
+
+.game-role-detail .role-value {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.9rem;
+    color: #5f85db;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
 .game-categories {
     display: flex;
     gap: 10px;
-    margin-top: 10px;
 }
 
 .game-category {
-    padding: 5px 10px;
+    padding: 8px 15px;
     font-size: 14px;
     background-color: rgba(147, 118, 224, 0.2);
     color: #9376e0;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.7rem;
 }
 
 /* Main content layout */

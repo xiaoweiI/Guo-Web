@@ -7,6 +7,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 en: 'AI Adoption Program',
                 zh: 'AI领养计划'
             },
+            role: {
+                en: 'Main Designer + Team Leader',
+                zh: '主设计师 + 团队领导'
+            },
             category: {
                 en: 'Game Jam, PC Game',
                 zh: '游戏马拉松, PC游戏'
@@ -66,6 +70,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 en: 'Quoted Out!',
                 zh: '引述出来！'
             },
+            role: {
+                en: 'Main Designer + Team Leader',
+                zh: '主设计师 + 团队领导'
+            },
             category: {
                 en: 'Game Jam, PC Game',
                 zh: '游戏马拉松, PC游戏'
@@ -124,6 +132,10 @@ document.addEventListener('DOMContentLoaded', function() {
             title: {
                 en: 'Party! Paidui! Fiesta!',
                 zh: '派对！排队！嘉年华！'
+            },
+            role: {
+                en: 'Co-designer & Developer',
+                zh: '联合设计师 & 开发者'
             },
             category: {
                 en: 'PC Game',
@@ -186,6 +198,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 en: 'Back Home',
                 zh: '回家'
             },
+            role: {
+                en: 'Sole Developer',
+                zh: '独立开发者'
+            },
             category: {
                 en: 'PC Game',
                 zh: 'PC游戏'
@@ -247,6 +263,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 en: 'Dorm Unpacking',
                 zh: '宿舍整理'
             },
+            role: {
+                en: 'Sole Developer',
+                zh: '独立开发者'
+            },
             category: {
                 en: 'PC Game',
                 zh: 'PC游戏'
@@ -300,6 +320,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 en: 'Zombie Juice',
                 zh: '僵尸果汁'
             },
+            role: {
+                en: 'Co-designer & Developer',
+                zh: '联合设计师 & 开发者'
+            },
             category: {
                 en: 'Board Game',
                 zh: '桌游'
@@ -344,6 +368,10 @@ document.addEventListener('DOMContentLoaded', function() {
             title: {
                 en: 'Beneath the Ruins',
                 zh: '废墟之下'
+            },
+            role: {
+                en: 'Sole Developer',
+                zh: '独立开发者'
             },
             category: {
                 en: 'Board Game',
@@ -390,6 +418,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 en: 'Wallet War',
                 zh: '钱包战争'
             },
+            role: {
+                en: 'Sole Developer',
+                zh: '独立开发者'
+            },
             category: {
                 en: 'Board Game',
                 zh: '桌游'
@@ -434,6 +466,10 @@ document.addEventListener('DOMContentLoaded', function() {
             title: {
                 en: 'Princess Lianan',
                 zh: '莲安公主'
+            },
+            role: {
+                en: 'Sole Developer',
+                zh: '独立开发者'
             },
             category: {
                 en: 'PC Game',
@@ -480,6 +516,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 en: 'Above the Fountain',
                 zh: '喷泉之上'
             },
+            role: {
+                en: 'Sole Developer',
+                zh: '独立开发者'
+            },
             category: {
                 en: 'PC Game',
                 zh: 'PC游戏'
@@ -525,6 +565,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 en: 'The Silent Majority',
                 zh: '沉默的大多数'
             },
+            role: {
+                en: 'Sole Developer',
+                zh: '独立开发者'
+            },
             category: {
                 en: 'PC Game',
                 zh: 'PC游戏'
@@ -569,6 +613,10 @@ document.addEventListener('DOMContentLoaded', function() {
             title: {
                 en: 'Petch',
                 zh: 'Petch'
+            },
+            role: {
+                en: 'Main Game Designer',
+                zh: '主游戏设计师'
             },
             category: {
                 en: 'AI Social Platform, Game Design Internship',
@@ -624,6 +672,10 @@ document.addEventListener('DOMContentLoaded', function() {
             title: {
                 en: 'Dramai.AI',
                 zh: 'Dramai.AI'
+            },
+            role: {
+                en: 'Main Game Designer',
+                zh: '主游戏设计师'
             },
             category: {
                 en: 'AI Social Platform, Interactive Drama, Startup',
@@ -689,6 +741,10 @@ document.addEventListener('DOMContentLoaded', function() {
             title: {
                 en: 'Game of Thrones: Winter is Coming',
                 zh: '权力的游戏：凛冬将至'
+            },
+            role: {
+                en: 'Game Designer',
+                zh: '游戏设计师'
             },
             category: {
                 en: 'Strategy MMO, Browser Game, GTArcade',
@@ -808,6 +864,11 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('game-image').src = game.image;
         document.getElementById('game-image').alt = game.title[lang];
         document.getElementById('game-description').textContent = game.description[lang];
+        
+        // Update role if it exists
+        if (game.role && game.role[lang]) {
+            document.getElementById('role-value').textContent = game.role[lang];
+        }
         
         // Update features list
         const featuresList = document.getElementById('game-features');
