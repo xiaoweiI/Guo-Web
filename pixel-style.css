@@ -671,6 +671,75 @@ header .container {
     gap: 30px;
 }
 
+/* Section Dividers for Project Categories */
+.section-divider {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px 20px 20px;
+    margin: 20px 0;
+    border-top: 4px solid var(--secondary-color-purple);
+    border-bottom: 2px solid var(--secondary-color-blue);
+    background: linear-gradient(135deg, 
+        rgba(147, 118, 224, 0.1) 0%, 
+        rgba(95, 133, 219, 0.1) 50%, 
+        rgba(255, 158, 170, 0.1) 100%);
+    position: relative;
+}
+
+.section-divider::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: var(--secondary-color-pink);
+}
+
+.category-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.5rem;
+    color: var(--secondary-color-purple);
+    text-shadow: 2px 2px 0 var(--secondary-color-blue);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.category-desc {
+    font-family: 'VT323', monospace;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.4;
+}
+
+/* Skills Category Sections */
+.skills-category {
+    margin-bottom: 50px;
+}
+
+.skills-category .category-title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.3rem;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.skills-category .category-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--secondary-color-purple);
+}
+
 .game-card {
     background-color: var(--primary-color);
     overflow: hidden;
