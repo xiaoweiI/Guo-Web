@@ -54,8 +54,8 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Skills section
             "skills_title": "Skills & Expertise",
-            "skills_p1": "I've developed a diverse set of skills throughout my career in game development. Below you can see my proficiency in various technologies and disciplines relevant to game creation.",
-            "skills_p2": "Click on any skill to see more details about my experience with that technology or discipline.",
+            "skills_p1": "I've developed a diverse set of skills throughout my career in game development. My expertise spans across technical software, creative tools, and essential soft skills.",
+            "skills_p2": "Here are the technologies and tools I work with.",
             "skills_demo": "Interactive Skill Demo",
             "skills_start": "Start Demo",
             "skills_reset": "Reset",
@@ -72,7 +72,11 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Footer
             "footer_dev": "Game Developer & Designer",
-            "footer_rights": "All Rights Reserved."
+            "footer_rights": "All Rights Reserved.",
+            
+            // Game Detail Page
+            "next_game": "Next Game",
+            "back_to_portfolio": "Back to Portfolio"
         },
         zh: {
             // Navigation
@@ -126,8 +130,8 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Skills section
             "skills_title": "技能与专长",
-            "skills_p1": "在我的游戏开发职业生涯中，我培养了多样化的技能。以下是我在与游戏创作相关的各种技术和学科中的熟练程度。",
-            "skills_p2": "点击任何技能，查看有关我在该技术或学科方面的经验的更多详细信息。",
+            "skills_p1": "在我的游戏开发职业生涯中，我培养了多样化的技能。我的专长涵盖技术软件、创意工具和重要的软技能。",
+            "skills_p2": "以下是我使用的技术和工具。",
             "skills_demo": "互动技能演示",
             "skills_start": "开始演示",
             "skills_reset": "重置",
@@ -144,7 +148,11 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Footer
             "footer_dev": "游戏开发者 & 设计师",
-            "footer_rights": "版权所有。"
+            "footer_rights": "版权所有。",
+            
+            // Game Detail Page
+            "next_game": "下一个游戏",
+            "back_to_portfolio": "返回作品集"
         }
     };
     
@@ -205,10 +213,23 @@ document.addEventListener('DOMContentLoaded', function() {
     // Close mobile menu when clicking on a nav link
     const navItems = document.querySelectorAll('.nav-links a');
     navItems.forEach(item => {
-        item.addEventListener('click', function() {
+        item.addEventListener('click', function(e) {
             if (hamburger.classList.contains('active')) {
                 hamburger.classList.remove('active');
                 navLinks.classList.remove('active');
+            }
+            
+            // Handle navigation for game-detail.html page
+            if (window.location.pathname.includes('game-detail.html')) {
+                const href = this.getAttribute('href');
+                if (href && href.startsWith('index.html#')) {
+                    // Allow the default behavior to navigate to index.html with anchor
+                    return;
+                } else if (href && href.startsWith('#')) {
+                    // Convert relative anchor to absolute path
+                    e.preventDefault();
+                    window.location.href = 'index.html' + href;
+                }
             }
         });
     });

@@ -16,6 +16,7 @@
     <script src="management-game-bg.js" defer></script>
     <script src="particle-animation.js" defer></script>
     <script src="typing-effect.js" defer></script>
+    <script src="script.js" defer></script>
     <script src="game-detail.js" defer></script>
 </head>
 <body>
@@ -50,6 +51,9 @@
                     <a href="index.html#games" class="pixel-btn secondary-btn">
                         <i class="fas fa-arrow-left"></i> <span data-i18n="back_to_portfolio">Back to Portfolio</span>
                     </a>
+                    <button id="nextGameBtn" class="pixel-btn primary-btn" style="margin-left: 15px;">
+                        <span data-i18n="next_game">Next Game</span> <i class="fas fa-arrow-right"></i>
+                    </button>
                 </div>
                 
                 <div class="game-detail-content">
@@ -57,7 +61,7 @@
                         <h1 id="game-title" class="section-title">Game Title</h1>
                         <div class="game-detail-meta">
                             <div id="game-role" class="game-role-detail">
-                                <span class="role-label">My Role:</span>
+                                <span class="role-label">My Title:</span>
                                 <span class="role-value" id="role-value">Main Designer</span>
                             </div>
                             <div class="game-categories">
@@ -67,8 +71,18 @@
                     </div>
                     
                     <div class="game-detail-main">
-                        <div class="game-detail-image pixel-border">
-                            <img id="game-image" src="" alt="Game Screenshot">
+                        <div class="game-detail-left">
+                            <div class="game-detail-image pixel-border">
+                                <img id="game-image" src="" alt="Game Screenshot">
+                            </div>
+                            
+                            <!-- Gallery section for specific games -->
+                            <div id="game-gallery" class="game-gallery pixel-border" style="display: none;">
+                                <h3 data-i18n="game_gallery">Gallery</h3>
+                                <div class="gallery-images">
+                                    <!-- Gallery images will be loaded dynamically -->
+                                </div>
+                            </div>
                         </div>
                         
                         <div class="game-detail-info pixel-border">
@@ -110,7 +124,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <h2>My Portfolio</h2>
+                    <h2><span class="highlight">violet</span> Portfolio</h2>
                     <p data-i18n="footer_dev">Game Developer & Designer</p>
                 </div>
                 <div class="footer-links">
@@ -125,7 +139,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Violet Guo. <span data-i18n="footer_rights">All Rights Reserved.</span></p>
+                <p>&copy; 2025 <strong class="highlight">Violet Guo</strong>. <span data-i18n="footer_rights">All Rights Reserved.</span></p>
             </div>
         </div>
     </footer>

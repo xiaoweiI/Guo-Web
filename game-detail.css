@@ -87,6 +87,13 @@
     }
 }
 
+/* Left side container */
+.game-detail-left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 /* Game image */
 .game-detail-image {
     overflow: hidden;
@@ -190,22 +197,80 @@
 }
 
 /* Gallery section */
-.game-detail-gallery {
+.game-gallery {
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.05);
 }
 
-.game-detail-gallery h3 {
+.game-gallery h3 {
     font-family: 'Press Start 2P', cursive;
-    font-size: 18px;
+    font-size: 16px;
     margin-bottom: 20px;
     color: #9376e0;
+    position: relative;
+    padding-left: 20px;
 }
 
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+.game-gallery h3::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    color: #ff9eaa;
+}
+
+.gallery-images {
+    display: flex;
+    flex-direction: column;
     gap: 15px;
+    max-height: 1400px;
+    overflow-y: auto;
+}
+
+.gallery-item {
+    overflow: hidden;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 5px;
+    flex-shrink: 0;
+}
+
+.gallery-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    image-rendering: pixelated;
+    transition: transform 0.3s ease;
+}
+
+.gallery-image:hover {
+    transform: scale(1.05);
+}
+
+/* 自定义滚动条样式 */
+.gallery-images::-webkit-scrollbar {
+    width: 8px;
+}
+
+.gallery-images::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.gallery-images::-webkit-scrollbar-thumb {
+    background: #9376e0;
+    border-radius: 0;
+}
+
+.gallery-images::-webkit-scrollbar-thumb:hover {
+    background: #ff9eaa;
+}
+
+/* 在小屏幕上改为单列 */
+@media (max-width: 768px) {
+    .gallery-images {
+        grid-template-columns: 1fr;
+        max-height: 300px;
+    }
 }
 
 .gallery-placeholder {
@@ -214,7 +279,6 @@
     align-items: center;
     height: 150px;
     background-color: rgba(255, 255, 255, 0.05);
-    grid-column: 1 / -1;
     text-align: center;
 }
 

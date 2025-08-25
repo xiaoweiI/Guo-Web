@@ -15,6 +15,7 @@
     <script src="management-game-bg.js" defer></script>
     <script src="particle-animation.js" defer></script>
     <script src="typing-effect.js" defer></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <!-- Header Section -->
@@ -127,95 +128,89 @@
                         <div class="carousel-container">
                             <div class="carousel-wrapper">
                                 <div class="carousel-track" id="featuredCarousel">
-                                    <!-- Featured Work 1: Dramai.AI -->
-                                    <div class="featured-item active">
-                                        <div class="featured-image">
-                                            <img src="Dramai.png" alt="Dramai.AI" class="featured-img">
-                                            <div class="featured-overlay">
-                                                <div class="featured-content">
-                                                    <h3 data-i18n="game_dramai_title">Dramai.AI</h3>
-                                                    <p data-i18n="featured_dramai_desc">Interactive Social AGI Playground - Building a Digital Civilization Sandbox for AI-Human Co-evolution</p>
-                                                    <div class="featured-tags">
-                                                        <span class="tag">AI Social</span>
-                                                        <span class="tag">Multi-Agent</span>
-                                                        <span class="tag">Interactive Drama</span>
-                                                        <span class="tag">Startup</span>
-                                                    </div>
-                                                    <div class="featured-actions">
-                                                        <a href="game-detail.html?id=dramai-ai" class="pixel-btn primary-btn">View Details</a>
-                                                        <a href="https://dramai.world/scene?sceneId=4" target="_blank" class="pixel-btn secondary-btn">Visit Platform</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                    <!-- Featured Work 1: Dramai.AI -->
+                    <div class="featured-item active" onclick="window.location.href='game-detail.html?id=dramai-ai'" style="cursor: pointer;">
+                        <div class="featured-image">
+                            <img src="Dramai/Dramai.png" alt="Dramai.AI" class="featured-img">
+                            <div class="featured-overlay">
+                                <div class="featured-content">
+                                    <h3 data-i18n="game_dramai_title">Dramai.AI</h3>
+                                    <p data-i18n="featured_dramai_desc">Interactive Social AGI Playground - Building a Digital Civilization Sandbox for AI-Human Co-evolution</p>
+                                    <div class="featured-tags">
+                                        <span class="tag">AI Social</span>
+                                        <span class="tag">Multi-Agent</span>
+                                        <span class="tag">Interactive Drama</span>
+                                        <span class="tag">Startup</span>
                                     </div>
+                                    <div class="featured-actions" onclick="event.stopPropagation();">
+                                        <a href="https://dramai.world/scene?sceneId=4" target="_blank" class="pixel-btn secondary-btn">Visit Platform</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                                     
-                                    <!-- Featured Work 2: Game of Thrones: Winter is Coming -->
-                                    <div class="featured-item">
-                                        <div class="featured-image">
-                                            <img src="Got.jpg" alt="Game of Thrones: Winter is Coming" class="featured-img">
-                                            <div class="featured-overlay">
-                                                <div class="featured-content">
-                                                    <h3 data-i18n="game_got_title">Game of Thrones: Winter is Coming</h3>
-                                                    <p data-i18n="featured_got_desc">Strategic browser-based MMO set in the Game of Thrones universe. Build your house and fight for the Iron Throne</p>
-                                                    <div class="featured-tags">
-                                                        <span class="tag">Strategy MMO</span>
-                                                        <span class="tag">Browser Game</span>
-                                                        <span class="tag">Game of Thrones</span>
-                                                        <span class="tag">GTArcade</span>
-                                                    </div>
-                                                    <div class="featured-actions">
-                                                        <a href="game-detail.html?id=got-winter-is-coming" class="pixel-btn primary-btn">View Details</a>
-                                                        <a href="https://got.gtarcade.com/#home" target="_blank" class="pixel-btn secondary-btn">Play Game</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                    <!-- Featured Work 2: Game of Thrones: Winter is Coming -->
+                    <div class="featured-item" onclick="window.location.href='game-detail.html?id=got-winter-is-coming'" style="cursor: pointer;">
+                        <div class="featured-image">
+                            <img src="Got Winter 1.jpg" alt="Game of Thrones: Winter is Coming" class="featured-img">
+                            <div class="featured-overlay">
+                                <div class="featured-content">
+                                    <h3 data-i18n="game_got_title">Game of Thrones: Winter is Coming</h3>
+                                    <p data-i18n="featured_got_desc">Strategic browser-based MMO set in the Game of Thrones universe. Build your house and fight for the Iron Throne</p>
+                                    <div class="featured-tags">
+                                        <span class="tag">Strategy MMO</span>
+                                        <span class="tag">Browser Game</span>
+                                        <span class="tag">Game of Thrones</span>
+                                        <span class="tag">GTArcade</span>
                                     </div>
-                                    
-                                    <!-- Featured Work 3: Petch -->
-                                    <div class="featured-item">
-                                        <div class="featured-image">
-                                            <img src="Petch.png" alt="Petch" class="featured-img">
-                                            <div class="featured-overlay">
-                                                <div class="featured-content">
-                                                    <h3 data-i18n="game_petch_title">Petch</h3>
-                                                    <p data-i18n="featured_petch_desc">AI-powered social platform for pets and pet lovers. Game Designer Intern focusing on pet personality systems</p>
-                                                    <div class="featured-tags">
-                                                        <span class="tag">AI Social</span>
-                                                        <span class="tag">Pet Platform</span>
-                                                        <span class="tag">Game Design</span>
-                                                        <span class="tag">Internship</span>
-                                                    </div>
-                                                    <div class="featured-actions">
-                                                        <a href="game-detail.html?id=petch" class="pixel-btn primary-btn">View Details</a>
-                                                        <a href="https://www.petchapp.com/" target="_blank" class="pixel-btn secondary-btn">Visit Website</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div class="featured-actions" onclick="event.stopPropagation();">
+                                        <a href="https://got.gtarcade.com/#home" target="_blank" class="pixel-btn secondary-btn">Play Game</a>
                                     </div>
-                                    
-                                    <!-- Featured Work 4: AI Adoption Program -->
-                                    <div class="featured-item">
-                                        <div class="featured-image">
-                                            <img src="Ai Adoption.png" alt="AI Adoption Program" class="featured-img">
-                                            <div class="featured-overlay">
-                                                <div class="featured-content">
-                                                    <h3 data-i18n="game_ai_adoption_title">AI Adoption Program</h3>
-                                                    <p data-i18n="featured_ai_adoption_desc">An emotional journey exploring dystopian themes through AI-human relationships</p>
-                                                    <div class="featured-tags">
-                                                        <span class="tag">Dystopian</span>
-                                                        <span class="tag">Emotional</span>
-                                                        <span class="tag">Game Jam</span>
-                                                    </div>
-                                                    <div class="featured-actions">
-                                                        <a href="game-detail.html?id=ai-adoption" class="pixel-btn primary-btn">View Details</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Featured Work 3: Petch -->
+                    <div class="featured-item" onclick="window.location.href='game-detail.html?id=petch'" style="cursor: pointer;">
+                        <div class="featured-image">
+                            <img src="Petch.png" alt="Petch" class="featured-img">
+                            <div class="featured-overlay">
+                                <div class="featured-content">
+                                    <h3 data-i18n="game_petch_title">Petch</h3>
+                                    <p data-i18n="featured_petch_desc">AI-powered social platform for pets and pet lovers. Game Designer Intern focusing on pet personality systems</p>
+                                    <div class="featured-tags">
+                                        <span class="tag">AI Social</span>
+                                        <span class="tag">Pet Platform</span>
+                                        <span class="tag">Game Design</span>
+                                        <span class="tag">Internship</span>
                                     </div>
+                                    <div class="featured-actions" onclick="event.stopPropagation();">
+                                        <a href="https://www.petchapp.com/" target="_blank" class="pixel-btn secondary-btn">Visit Website</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Featured Work 4: AI Adoption Program -->
+                    <div class="featured-item" onclick="window.location.href='game-detail.html?id=ai-adoption'" style="cursor: pointer;">
+                        <div class="featured-image">
+                            <img src="Ai Adoption.png" alt="AI Adoption Program" class="featured-img">
+                            <div class="featured-overlay">
+                                <div class="featured-content">
+                                    <h3 data-i18n="game_ai_adoption_title">AI Adoption Program</h3>
+                                    <p data-i18n="featured_ai_adoption_desc">An emotional journey exploring dystopian themes through AI-human relationships</p>
+                                    <div class="featured-tags">
+                                        <span class="tag">Dystopian</span>
+                                        <span class="tag">Emotional</span>
+                                        <span class="tag">Game Jam</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                                 </div>
                             </div>
                             
@@ -254,16 +249,16 @@
                     </div>
 
                     <!-- Dramai.AI -->
-                    <div class="game-card pixel-border" data-category="commercial">
+                    <div class="game-card pixel-border" data-category="commercial" onclick="window.location.href='game-detail.html?id=dramai-ai'" style="cursor: pointer;">
                         <div class="game-image">
                             <div class="image-placeholder">
-                                <img src="Dramai.png" alt="Dramai.AI" style="width: 100%; height: 100%; object-fit: cover;">
+                                <img src="Dramai/Dramai.png" alt="Dramai.AI" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                         </div>
                         <div class="game-info">
                             <h3 data-i18n="game_dramai_title">Dramai.AI</h3>
                             <div class="game-role">
-                                <span class="role-label">Role:</span>
+                                <span class="role-label">Title:</span>
                                 <span class="role-value">Main Game Designer</span>
                             </div>
                             <p data-i18n="game_dramai_desc">Interactive Social AGI Playground - Building a Digital Civilization Sandbox for AI-Human Co-evolution with multi-agent storytelling. Responsible for core game design, system design, art direction, and narrative design.</p>
@@ -273,25 +268,25 @@
                                 <span class="tag">Interactive Drama</span>
                                 <span class="tag">Startup</span>
                             </div>
-                            <a href="game-detail.html?id=dramai-ai" 
-                               class="archive-link">View</a>
-                            <a href="https://dramai.world/scene?sceneId=4" 
-                               target="_blank" 
-                               class="archive-link">Visit Site</a>
+                            <div onclick="event.stopPropagation();">
+                                <a href="https://dramai.world/scene?sceneId=4" 
+                                   target="_blank" 
+                                   class="archive-link">Visit Site</a>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Game of Thrones: Winter is Coming -->
-                    <div class="game-card pixel-border" data-category="commercial">
+                    <div class="game-card pixel-border" data-category="commercial" onclick="window.location.href='game-detail.html?id=got-winter-is-coming'" style="cursor: pointer;">
                         <div class="game-image">
                             <div class="image-placeholder">
-                                <img src="Got.jpg" alt="Game of Thrones: Winter is Coming" style="width: 100%; height: 100%; object-fit: cover;">
+                                <img src="Got Winter 1.jpg" alt="Game of Thrones: Winter is Coming" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                         </div>
                         <div class="game-info">
                             <h3 data-i18n="game_got_title">Game of Thrones: Winter is Coming</h3>
                             <div class="game-role">
-                                <span class="role-label">Role:</span>
+                                <span class="role-label">Title:</span>
                                 <span class="role-value">Game Designer</span>
                             </div>
                             <p data-i18n="game_got_desc">Strategic browser-based MMO set in the Game of Thrones universe. Build your house, forge alliances, and fight for the Iron Throne in this epic strategy game. Participated in the design process as part of the development team.</p>
@@ -301,16 +296,16 @@
                                 <span class="tag">Game of Thrones</span>
                                 <span class="tag">GTArcade</span>
                             </div>
-                            <a href="game-detail.html?id=got-winter-is-coming" 
-                               class="archive-link">View</a>
-                            <a href="https://got.gtarcade.com/#home" 
-                               target="_blank" 
-                               class="archive-link">Play Game</a>
+                            <div onclick="event.stopPropagation();">
+                                <a href="https://got.gtarcade.com/#home" 
+                                   target="_blank" 
+                                   class="archive-link">Play Game</a>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Petch -->
-                    <div class="game-card pixel-border" data-category="commercial">
+                    <div class="game-card pixel-border" data-category="commercial" onclick="window.location.href='game-detail.html?id=petch'" style="cursor: pointer;">
                         <div class="game-image">
                             <div class="image-placeholder">
                                 <img src="Petch.png" alt="Petch" style="width: 100%; height: 100%; object-fit: cover;">
@@ -319,7 +314,7 @@
                         <div class="game-info">
                             <h3 data-i18n="game_petch_title">Petch</h3>
                             <div class="game-role">
-                                <span class="role-label">Role:</span>
+                                <span class="role-label">Title:</span>
                                 <span class="role-value">Main Game Designer</span>
                             </div>
                             <p data-i18n="game_petch_desc">AI-powered social platform for pets and pet lovers. Responsible for core game design including system design, art direction, and narrative design for pet personality testing and social interaction systems.</p>
@@ -329,11 +324,11 @@
                                 <span class="tag">Game Design</span>
                                 <span class="tag">Internship</span>
                             </div>
-                            <a href="game-detail.html?id=petch" 
-                               class="archive-link">View</a>
-                            <a href="https://www.petchapp.com/" 
-                               target="_blank" 
-                               class="archive-link">Visit Site</a>
+                            <div onclick="event.stopPropagation();">
+                                <a href="https://www.petchapp.com/" 
+                                   target="_blank" 
+                                   class="archive-link">Visit Site</a>
+                            </div>
                         </div>
                     </div>
 
@@ -345,7 +340,7 @@
                     </div>
 
                     <!-- AI Adoption Program -->
-                    <div class="game-card pixel-border" data-category="jam personal">
+                    <div class="game-card pixel-border" data-category="jam personal" onclick="window.location.href='game-detail.html?id=ai-adoption'" style="cursor: pointer;">
                         <div class="game-image">
                             <div class="image-placeholder">
                                 <img src="Ai Adoption.png" alt="AI Adoption Program" style="width: 100%; height: 100%; object-fit: cover;">
@@ -358,13 +353,17 @@
                                 <span class="role-value">Main Designer + Team Leader</span>
                             </div>
                             <p data-i18n="game_ai_adoption_desc">Emotional interaction game about AI characters adopting humans. 2023 Game Jam Entry exploring dystopian themes. Led the project from concept to delivery, organizing the team and overseeing all major creative and production decisions.</p>
-                            <a href="game-detail.html?id=ai-adoption" 
-                               class="archive-link">View</a>
+                            <div class="game-tags">
+                                <span class="tag">Dystopian</span>
+                                <span class="tag">Emotional</span>
+                                <span class="tag">Game Jam</span>
+                                <span class="tag">Team Leader</span>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Quoted Out! -->
-                    <div class="game-card pixel-border" data-category="jam personal">
+                    <div class="game-card pixel-border" data-category="jam personal" onclick="window.location.href='game-detail.html?id=quoted-out'" style="cursor: pointer;">
                         <div class="game-image">
                             <div class="image-placeholder">
                                 <img src="Quated out.png" alt="Quoted Out!" style="width: 100%; height: 100%; object-fit: cover;">
@@ -377,16 +376,22 @@
                                 <span class="role-value">Main Designer + Team Leader</span>
                             </div>
                             <p data-i18n="game_quoted_out_desc">Dialogue-based party game where players create humorous videos by editing interviews. 2024 Global Game Jam Winner. Led the project from concept to delivery, organizing the team, setting timelines, and overseeing all major creative and production decisions.</p>
-                            <a href="game-detail.html?id=quoted-out" 
-                               class="archive-link">View</a>
-                            <a href="https://www.youtube.com/watch?v=AJqIjL--6O8" 
-                               target="_blank" 
-                               class="archive-link">Video</a>
+                            <div class="game-tags">
+                                <span class="tag">Party Game</span>
+                                <span class="tag">Dialogue</span>
+                                <span class="tag">Game Jam Winner</span>
+                                <span class="tag">Video Creation</span>
+                            </div>
+                            <div onclick="event.stopPropagation();">
+                                <a href="https://www.youtube.com/watch?v=AJqIjL--6O8" 
+                                   target="_blank" 
+                                   class="archive-link">Video</a>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Party! Paidui! Fiesta! -->
-                    <div class="game-card pixel-border" data-category="personal">
+                    <div class="game-card pixel-border" data-category="personal" onclick="window.location.href='game-detail.html?id=party-paidui'" style="cursor: pointer;">
                         <div class="game-image">
                             <div class="image-placeholder">
                                 <img src="party paidui.png" alt="Party! Paidui! Fiesta!" style="width: 100%; height: 100%; object-fit: cover;">
@@ -399,13 +404,17 @@
                                 <span class="role-value">Co-designer & Developer</span>
                             </div>
                             <p data-i18n="game_party_paidui_desc">Collaborative party management game where responsibilities were equally shared among 3-4 team members. Contributed evenly across game design, art, and implementation with the rest of the team.</p>
-                            <a href="game-detail.html?id=party-paidui" 
-                               class="archive-link">View</a>
+                            <div class="game-tags">
+                                <span class="tag">Party Management</span>
+                                <span class="tag">Collaborative</span>
+                                <span class="tag">Team Project</span>
+                                <span class="tag">Co-designer</span>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Back Home -->
-                    <div class="game-card pixel-border" data-category="personal">
+                    <div class="game-card pixel-border" data-category="personal" onclick="window.location.href='game-detail.html?id=back-home'" style="cursor: pointer;">
                         <div class="game-image">
                             <div class="image-placeholder">
                                 <img src="BackHome.png" alt="Back Home" style="width: 100%; height: 100%; object-fit: cover;">
@@ -418,13 +427,17 @@
                                 <span class="role-value">Sole Developer</span>
                             </div>
                             <p data-i18n="game_back_home_desc">Back Home is a life sim where a girl collects daily items with limited money. Your choices shape relationships and unlock multiple endings. Responsible for game design, art, programming, and overall production.</p>
-                            <a href="game-detail.html?id=back-home" 
-                               class="archive-link">View</a>
+                            <div class="game-tags">
+                                <span class="tag">Life Sim</span>
+                                <span class="tag">Multiple Endings</span>
+                                <span class="tag">Resource Management</span>
+                                <span class="tag">Solo Project</span>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Dorm Unpacking -->
-                    <div class="game-card pixel-border" data-category="personal">
+                    <div class="game-card pixel-border" data-category="personal" onclick="window.location.href='game-detail.html?id=dorm-unpacking'" style="cursor: pointer;">
                         <div class="game-image">
                             <div class="image-placeholder">
                                 <img src="dorm unpacking.png" alt="Dorm Unpacking" style="width: 100%; height: 100%; object-fit: cover;">
@@ -437,13 +450,17 @@
                                 <span class="role-value">Sole Developer</span>
                             </div>
                             <p data-i18n="game_dorm_unpacking_desc">Dorm Unpacking is a cozy puzzle game where you unpack and place items in a dorm room to earn points based on thoughtful organization. Handled all aspects of the project independently including game design, art, programming, and production.</p>
-                            <a href="game-detail.html?id=dorm-unpacking" 
-                               class="archive-link">View</a>
+                            <div class="game-tags">
+                                <span class="tag">Cozy Puzzle</span>
+                                <span class="tag">Organization</span>
+                                <span class="tag">Room Design</span>
+                                <span class="tag">Solo Project</span>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Zombie Juice -->
-                    <div class="game-card pixel-border" data-category="personal">
+                    <div class="game-card pixel-border" data-category="personal" onclick="window.location.href='game-detail.html?id=zombie-juice'" style="cursor: pointer;">
                         <div class="game-image">
                             <div class="image-placeholder">
                                 <img src="Zombie Juice.png" alt="Zombie Juice" style="width: 100%; height: 100%; object-fit: cover;">
@@ -456,13 +473,17 @@
                                 <span class="role-value">Co-designer & Developer</span>
                             </div>
                             <p data-i18n="game_zombie_juice_desc">Match-3 board game with day/night cycle mechanics. Run a smoothie shop serving both humans and zombies. Collaborative project where responsibilities were equally shared among 3-4 members, contributing evenly across game design, art, and implementation.</p>
-                            <a href="game-detail.html?id=zombie-juice" 
-                               class="archive-link">View</a>
+                            <div class="game-tags">
+                                <span class="tag">Match-3</span>
+                                <span class="tag">Day/Night Cycle</span>
+                                <span class="tag">Board Game</span>
+                                <span class="tag">Co-designer</span>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Beneath the Ruins -->
-                    <div class="game-card pixel-border" data-category="personal">
+                    <div class="game-card pixel-border" data-category="personal" onclick="window.location.href='game-detail.html?id=beneath-ruins'" style="cursor: pointer;">
                         <div class="game-image">
                             <div class="image-placeholder">
                                 <img src="Beneath the ruins.png" alt="Beneath the Ruins" style="width: 100%; height: 100%; object-fit: cover;">
@@ -475,13 +496,17 @@
                                 <span class="role-value">Sole Developer</span>
                             </div>
                             <p data-i18n="game_beneath_ruins_desc">Post-apocalyptic survival board game with resource management. Survive in a harsh environment after a catastrophic event. Handled all aspects of the project independently including game design, art, programming, and overall production.</p>
-                            <a href="game-detail.html?id=beneath-ruins" 
-                               class="archive-link">View</a>
+                            <div class="game-tags">
+                                <span class="tag">Post-Apocalyptic</span>
+                                <span class="tag">Survival</span>
+                                <span class="tag">Resource Management</span>
+                                <span class="tag">Solo Project</span>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Wallet War -->
-                    <div class="game-card pixel-border" data-category="personal">
+                    <div class="game-card pixel-border" data-category="personal" onclick="window.location.href='game-detail.html?id=wallet-war'" style="cursor: pointer;">
                         <div class="game-image">
                             <div class="image-placeholder">
                                 <img src="Wallet War.png" alt="Wallet War" style="width: 100%; height: 100%; object-fit: cover;">
@@ -494,13 +519,17 @@
                                 <span class="role-value">Sole Developer</span>
                             </div>
                             <p data-i18n="game_wallet_war_desc">Card game about managing finances and competing for wallet space. Adapted from the classic board game "Love Letter". Responsible for game design, art, programming, and overall production.</p>
-                            <a href="game-detail.html?id=wallet-war" 
-                               class="archive-link">View</a>
+                            <div class="game-tags">
+                                <span class="tag">Card Game</span>
+                                <span class="tag">Finance Management</span>
+                                <span class="tag">Love Letter Adaptation</span>
+                                <span class="tag">Solo Project</span>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Princess Lianan -->
-                    <div class="game-card pixel-border" data-category="personal">
+                    <div class="game-card pixel-border" data-category="personal" onclick="window.location.href='game-detail.html?id=princess-lianan'" style="cursor: pointer;">
                         <div class="game-image">
                             <div class="image-placeholder">
                                 <img src="Lianan.png" alt="Princess Lianan" style="width: 100%; height: 100%; object-fit: cover;">
@@ -513,13 +542,17 @@
                                 <span class="role-value">Sole Developer</span>
                             </div>
                             <p data-i18n="game_princess_lianan_desc">Fantasy RPG adventure with princess protagonist. Features turn-based combat and multiple endings based on player choices. Handled all aspects of the project independently including game design, art, programming, and overall production.</p>
-                            <a href="game-detail.html?id=princess-lianan" 
-                               class="archive-link">View</a>
+                            <div class="game-tags">
+                                <span class="tag">Fantasy RPG</span>
+                                <span class="tag">Turn-based Combat</span>
+                                <span class="tag">Multiple Endings</span>
+                                <span class="tag">Solo Project</span>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Above the Fountain -->
-                    <div class="game-card pixel-border" data-category="personal">
+                    <div class="game-card pixel-border" data-category="personal" onclick="window.location.href='game-detail.html?id=above-fountain'" style="cursor: pointer;">
                         <div class="game-image">
                             <div class="image-placeholder">
                                 <img src="Above the Fountain.png" alt="Above the Fountain" style="width: 100%; height: 100%; object-fit: cover;">
@@ -532,13 +565,17 @@
                                 <span class="role-value">Sole Developer</span>
                             </div>
                             <p data-i18n="game_above_fountain_desc">First-person narrative puzzle game where players explore surreal worlds. Features mind-bending puzzles and non-linear exploration. Responsible for game design, art, programming, and overall production.</p>
-                            <a href="game-detail.html?id=above-fountain" 
-                               class="archive-link">View</a>
+                            <div class="game-tags">
+                                <span class="tag">First-Person</span>
+                                <span class="tag">Narrative Puzzle</span>
+                                <span class="tag">Surreal Worlds</span>
+                                <span class="tag">Solo Project</span>
+                            </div>
                         </div>
                     </div>
 
                     <!-- The Silent Majority -->
-                    <div class="game-card pixel-border" data-category="personal">
+                    <div class="game-card pixel-border" data-category="personal" onclick="window.location.href='game-detail.html?id=silent-majority'" style="cursor: pointer;">
                         <div class="game-image">
                             <div class="image-placeholder">
                                 <img src="The Silent Majority.png" alt="The Silent Majority" style="width: 100%; height: 100%; object-fit: cover;">
@@ -551,8 +588,12 @@
                                 <span class="role-value">Sole Developer</span>
                             </div>
                             <p data-i18n="game_silent_majority_desc">Social experiment visual novel exploring cyber violence and online mob mentality. Features moral dilemmas with no clear right answers. Handled all aspects of the project independently including game design, art, programming, and overall production.</p>
-                            <a href="game-detail.html?id=silent-majority" 
-                               class="archive-link">View</a>
+                            <div class="game-tags">
+                                <span class="tag">Visual Novel</span>
+                                <span class="tag">Social Experiment</span>
+                                <span class="tag">Moral Dilemmas</span>
+                                <span class="tag">Solo Project</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -653,7 +694,7 @@
                 <div class="skills-content">
                     <div class="skills-text">
                         <p data-i18n="skills_p1">I've developed a diverse set of skills throughout my career in game development. My expertise spans across technical software, creative tools, and essential soft skills.</p>
-                        <p data-i18n="skills_p2">Click on any skill to see more details about my experience with that technology or discipline.</p>
+                        <p data-i18n="skills_p2">Here are the technologies and tools I work with.</p>
                     </div>
 
                     <!-- Software Skills Section -->
@@ -665,11 +706,8 @@
                                     <i class="fab fa-unity"></i>
                                 </div>
                                 <h3 data-i18n="skill_unity_title">Unity Engine</h3>
-                                <div class="skill-level">
-                                    <div class="skill-bar" style="width: 90%"></div>
-                                </div>
                                 <div class="skill-details">
-                                    <p data-i18n="skill_unity_desc">5+ years of experience developing games with Unity. Proficient in C# programming, shader development, and performance optimization.</p>
+                                    <p data-i18n="skill_unity_desc">Game development with Unity. C# programming, shader work, and optimization.</p>
                                 </div>
                             </div>
                             <div class="skill-card pixel-border" data-skill="unreal">
@@ -677,11 +715,8 @@
                                     <i class="fas fa-gamepad"></i>
                                 </div>
                                 <h3 data-i18n="skill_unreal_title">Unreal Engine</h3>
-                                <div class="skill-level">
-                                    <div class="skill-bar" style="width: 75%"></div>
-                                </div>
                                 <div class="skill-details">
-                                    <p data-i18n="skill_unreal_desc">Experience with Unreal Engine. Familiar with Blueprint visual scripting, C++ programming, and material creation.</p>
+                                    <p data-i18n="skill_unreal_desc">Blueprint scripting, C++ programming, and material creation.</p>
                                 </div>
                             </div>
                             <div class="skill-card pixel-border" data-skill="programming">
@@ -689,11 +724,8 @@
                                     <i class="fas fa-code"></i>
                                 </div>
                                 <h3 data-i18n="skill_programming_title">C# / C++</h3>
-                                <div class="skill-level">
-                                    <div class="skill-bar" style="width: 85%"></div>
-                                </div>
                                 <div class="skill-details">
-                                    <p data-i18n="skill_programming_desc">Strong programming skills in C#, C++, and JavaScript. Experience with game AI, physics systems, and networking.</p>
+                                    <p data-i18n="skill_programming_desc">Programming in C#, C++, and JavaScript. Game AI and physics systems.</p>
                                 </div>
                             </div>
                             <div class="skill-card pixel-border" data-skill="photoshop">
@@ -701,11 +733,8 @@
                                     <i class="fas fa-palette"></i>
                                 </div>
                                 <h3 data-i18n="skill_photoshop_title">Photoshop</h3>
-                                <div class="skill-level">
-                                    <div class="skill-bar" style="width: 80%"></div>
-                                </div>
                                 <div class="skill-details">
-                                    <p data-i18n="skill_photoshop_desc">Proficient in using Photoshop for game art, UI design, and asset creation.</p>
+                                    <p data-i18n="skill_photoshop_desc">Game art, UI design, and asset creation.</p>
                                 </div>
                             </div>
                             <div class="skill-card pixel-border" data-skill="figma">
@@ -713,11 +742,8 @@
                                     <i class="fas fa-pen-nib"></i>
                                 </div>
                                 <h3 data-i18n="skill_figma_title">Figma</h3>
-                                <div class="skill-level">
-                                    <div class="skill-bar" style="width: 85%"></div>
-                                </div>
                                 <div class="skill-details">
-                                    <p data-i18n="skill_figma_desc">Experienced in UI/UX design using Figma for game interfaces and user experience design.</p>
+                                    <p data-i18n="skill_figma_desc">UI/UX design for game interfaces and user experience.</p>
                                 </div>
                             </div>
                             <div class="skill-card pixel-border" data-skill="midjourney">
@@ -725,11 +751,8 @@
                                     <i class="fas fa-robot"></i>
                                 </div>
                                 <h3 data-i18n="skill_midjourney_title">Midjourney</h3>
-                                <div class="skill-level">
-                                    <div class="skill-bar" style="width: 75%"></div>
-                                </div>
                                 <div class="skill-details">
-                                    <p data-i18n="skill_midjourney_desc">Experience using Midjourney for concept art and visual inspiration in game development.</p>
+                                    <p data-i18n="skill_midjourney_desc">Concept art and visual inspiration generation.</p>
                                 </div>
                             </div>
                         </div>
@@ -744,11 +767,8 @@
                                     <i class="fas fa-cube"></i>
                                 </div>
                                 <h3 data-i18n="skill_blender_title">Blender</h3>
-                                <div class="skill-level">
-                                    <div class="skill-bar" style="width: 70%"></div>
-                                </div>
                                 <div class="skill-details">
-                                    <p data-i18n="skill_blender_desc">Proficient in 3D modeling, texturing, and basic animation using Blender for game asset creation.</p>
+                                    <p data-i18n="skill_blender_desc">3D modeling, texturing, and animation for game assets.</p>
                                 </div>
                             </div>
                             <div class="skill-card pixel-border" data-skill="maya">
@@ -756,11 +776,8 @@
                                     <i class="fas fa-shapes"></i>
                                 </div>
                                 <h3 data-i18n="skill_maya_title">Maya</h3>
-                                <div class="skill-level">
-                                    <div class="skill-bar" style="width: 60%"></div>
-                                </div>
                                 <div class="skill-details">
-                                    <p data-i18n="skill_maya_desc">Basic knowledge of Maya for 3D modeling and animation workflows in game development.</p>
+                                    <p data-i18n="skill_maya_desc">3D modeling and animation workflows.</p>
                                 </div>
                             </div>
                             <div class="skill-card pixel-border" data-skill="substance">
@@ -768,11 +785,8 @@
                                     <i class="fas fa-layer-group"></i>
                                 </div>
                                 <h3 data-i18n="skill_substance_title">Substance Painter</h3>
-                                <div class="skill-level">
-                                    <div class="skill-bar" style="width: 65%"></div>
-                                </div>
                                 <div class="skill-details">
-                                    <p data-i18n="skill_substance_desc">Experience with Substance Painter for texturing 3D models and creating realistic materials.</p>
+                                    <p data-i18n="skill_substance_desc">Texturing 3D models and material creation.</p>
                                 </div>
                             </div>
                         </div>
@@ -787,11 +801,8 @@
                                     <i class="fas fa-gamepad"></i>
                                 </div>
                                 <h3 data-i18n="skill_gameplay_title">Gameplay Design</h3>
-                                <div class="skill-level">
-                                    <div class="skill-bar" style="width: 95%"></div>
-                                </div>
                                 <div class="skill-details">
-                                    <p data-i18n="skill_gameplay_desc">Expert in game mechanics design, level design, and balancing gameplay systems for player engagement and retention.</p>
+                                    <p data-i18n="skill_gameplay_desc">Game mechanics design, level design, and gameplay balancing.</p>
                                 </div>
                             </div>
                             <div class="skill-card pixel-border" data-skill="storytelling">
@@ -799,11 +810,8 @@
                                     <i class="fas fa-book-open"></i>
                                 </div>
                                 <h3 data-i18n="skill_storytelling_title">Storytelling</h3>
-                                <div class="skill-level">
-                                    <div class="skill-bar" style="width: 85%"></div>
-                                </div>
                                 <div class="skill-details">
-                                    <p data-i18n="skill_storytelling_desc">Proficient in crafting compelling narratives and story arcs for games.</p>
+                                    <p data-i18n="skill_storytelling_desc">Narrative design and story development for games.</p>
                                 </div>
                             </div>
                             <div class="skill-card pixel-border" data-skill="leadership">
@@ -811,11 +819,8 @@
                                     <i class="fas fa-users"></i>
                                 </div>
                                 <h3 data-i18n="skill_leadership_title">Team Leadership</h3>
-                                <div class="skill-level">
-                                    <div class="skill-bar" style="width: 90%"></div>
-                                </div>
                                 <div class="skill-details">
-                                    <p data-i18n="skill_leadership_desc">Strong leadership skills demonstrated through leading multiple game jam projects and coordinating team efforts.</p>
+                                    <p data-i18n="skill_leadership_desc">Leading game jam projects and team coordination.</p>
                                 </div>
                             </div>
                             <div class="skill-card pixel-border" data-skill="communication">
@@ -823,11 +828,8 @@
                                     <i class="fas fa-comments"></i>
                                 </div>
                                 <h3 data-i18n="skill_communication_title">Communication</h3>
-                                <div class="skill-level">
-                                    <div class="skill-bar" style="width: 90%"></div>
-                                </div>
                                 <div class="skill-details">
-                                    <p data-i18n="skill_communication_desc">Excellent verbal and written communication skills for effective team collaboration and client interaction.</p>
+                                    <p data-i18n="skill_communication_desc">Team collaboration and client interaction.</p>
                                 </div>
                             </div>
                             <div class="skill-card pixel-border" data-skill="organization">
@@ -835,11 +837,8 @@
                                     <i class="fas fa-sitemap"></i>
                                 </div>
                                 <h3 data-i18n="skill_organization_title">Project Management</h3>
-                                <div class="skill-level">
-                                    <div class="skill-bar" style="width: 85%"></div>
-                                </div>
                                 <div class="skill-details">
-                                    <p data-i18n="skill_organization_desc">Strong ability to organize projects, manage tasks, and coordinate team efforts efficiently.</p>
+                                    <p data-i18n="skill_organization_desc">Project organization and task management.</p>
                                 </div>
                             </div>
                             <div class="skill-card pixel-border" data-skill="analytical">
@@ -847,11 +846,8 @@
                                     <i class="fas fa-chart-line"></i>
                                 </div>
                                 <h3 data-i18n="skill_analytical_title">Analytical Thinking</h3>
-                                <div class="skill-level">
-                                    <div class="skill-bar" style="width: 85%"></div>
-                                </div>
                                 <div class="skill-details">
-                                    <p data-i18n="skill_analytical_desc">Strong ability to analyze game data, player behavior, and system performance to make informed design decisions.</p>
+                                    <p data-i18n="skill_analytical_desc">Game data analysis and design decision making.</p>
                                 </div>
                             </div>
                             <div class="skill-card pixel-border" data-skill="creativity">
@@ -859,11 +855,8 @@
                                     <i class="fas fa-lightbulb"></i>
                                 </div>
                                 <h3 data-i18n="skill_creativity_title">Creative Problem Solving</h3>
-                                <div class="skill-level">
-                                    <div class="skill-bar" style="width: 90%"></div>
-                                </div>
                                 <div class="skill-details">
-                                    <p data-i18n="skill_creativity_desc">Innovative approach to game design challenges and ability to find creative solutions to complex problems.</p>
+                                    <p data-i18n="skill_creativity_desc">Creative solutions to game design challenges.</p>
                                 </div>
                             </div>
                             <div class="skill-card pixel-border" data-skill="adaptability">
@@ -871,11 +864,8 @@
                                     <i class="fas fa-sync-alt"></i>
                                 </div>
                                 <h3 data-i18n="skill_adaptability_title">Adaptability</h3>
-                                <div class="skill-level">
-                                    <div class="skill-bar" style="width: 88%"></div>
-                                </div>
                                 <div class="skill-details">
-                                    <p data-i18n="skill_adaptability_desc">Quick to adapt to new technologies, workflows, and changing project requirements in fast-paced development environments.</p>
+                                    <p data-i18n="skill_adaptability_desc">Adapting to new technologies and workflows.</p>
                                 </div>
                             </div>
                         </div>
@@ -904,13 +894,6 @@
                             <div class="contact-details">
                                 <h3 data-i18n="contact_email">Email</h3>
                                 <p>guoxiaowei7@hotmail.com</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <div class="contact-details">
-                                <h3 data-i18n="contact_phone">Phone</h3>
-                                <p>+1 (765) 7018 635</p>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -965,7 +948,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <h2>My Portfolio</h2>
+                    <h2><span class="highlight">violet</span> Portfolio</h2>
                     <p data-i18n="footer_dev">Game Developer & Designer</p>
                 </div>
                 <div class="footer-links">
@@ -980,7 +963,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Violet Guo. <span data-i18n="footer_rights">All Rights Reserved.</span></p>
+                <p>&copy; 2025 <strong class="highlight">Violet Guo</strong>. <span data-i18n="footer_rights">All Rights Reserved.</span></p>
             </div>
         </div>
     </footer>

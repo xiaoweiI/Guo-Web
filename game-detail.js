@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 zh: '游戏马拉松, PC游戏'
             },
             image: 'Ai Adoption.png',
+            gallery: ['Ai Adoption.png'],
             description: {
                 en: 'Emotional interaction game about AI characters adopting humans. 2023 Game Jam Entry exploring dystopian themes. In this game, you play as an AI entity in a future where AI has become the dominant form of intelligence. You must select and "adopt" a human companion, making choices that affect their well-being and your relationship.\n\nWe designed a world where humans are treated as goods, similar to Promised Neverland, and are monitored by numerous cameras with a sign behind them. You take on the role of a rancher, running a ranch where humans are the "animals" of your ranch. Your task is to carefully develop them with strategies to make them into qualified goods.\n\nReflection: We had one week to create this game, and it was my first time participating in a game jam in Boston. The theme of this game jam was "Behind You." Since it was only a few days before Halloween, most of us considered horror-related content and themes when discussing game ideas. However, due to the broad nature of this theme, I thought about reducing the game\'s direct relevance to the theme to allow for more creative freedom. One of my team members suggested incorporating AI elements to enrich the game\'s content, so I needed to design how AI would combine with the horror aspect. I was reminded of how AI and robots often dominate humans in sci-fi movies, which frequently reflects humanity\'s fear of technological advancement.',
                 zh: '关于AI角色领养人类的情感互动游戏。2023年游戏马拉松参赛作品，探索反乌托邦主题。在这个游戏中，你扮演未来世界中AI已成为主导智能形式的AI实体。你必须选择并"领养"一个人类伙伴，做出影响他们福祉和你们关系的选择。\n\n我们设计了一个人类被视为商品的世界，类似于《约定的梦幻岛》，他们被众多摄像头监控，背后有标志。你将扮演一名牧场主，经营一个以人类为"动物"的牧场。你的任务是用策略谨慎地培养他们，使他们成为合格的商品。\n\n反思：我们有一周的时间创建这个游戏，这是我第一次在波士顿参加游戏马拉松。这次游戏马拉松的主题是"在你身后"。由于距离万圣节只有几天，在讨论游戏创意时，我们大多数人都考虑了与恐怖相关的内容和主题。然而，由于这个主题的广泛性，我考虑减少游戏与主题的直接相关性，以允许更多的创作自由。我的一位团队成员建议融入AI元素来丰富游戏内容，所以我需要设计AI如何与恐怖方面结合。这让我想起了科幻电影中AI和机器人如何经常主宰人类，这经常反映了人类对技术进步的恐惧。'
@@ -79,6 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 zh: '游戏马拉松, PC游戏'
             },
             image: 'Quated out.png',
+            gallery: ['Quated out.png'],
             description: {
                 en: 'Dialogue-based party game where players create humorous videos by editing interviews. 2024 Global Game Jam Winner. Players take turns being the interviewer and interviewee, with the goal of creating the most entertaining or absurd edited interview by selecting and rearranging dialogue snippets.\n\nIn this game, you play as a video editor. By editing the collected conversations, you create a video that makes people laugh out loud. Do your best to bring joy to the audience and make them laugh!\n\nReflection: The overall production time for this game was two weeks. Since I was also responsible for designing and planning two other game projects and continuing my studies, we mostly worked on the game during weekends and free time. The theme of this Game Jam was "Make Me Laugh," with a gameplay duration of around one minute. Since most of us had no experience making comedy games, we tried to interpret the theme from directions we were familiar with.\n\nAt the beginning of the game\'s production, I proposed three different ideas, interpreting the theme from three different angles: content, character traits, and gameplay. We ultimately adopted the gameplay direction, where the player needs to make others laugh. During our discussions, I thought of using montage editing techniques to swap responses, turning normal content into nonsensical, funny game content. Additionally, considering we only had one artist on the team, we needed to minimize art demands. I designed the player\'s role as an editor, with everything completed within the game\'s editing software, reducing the need for frequent scene changes.',
                 zh: '基于对话的派对游戏，玩家通过编辑采访创建幽默视频。2024年全球游戏马拉松获奖作品。玩家轮流担任采访者和受访者，通过选择和重新排列对话片段来创建最有趣或荒谬的编辑采访。\n\n在这个游戏中，你扮演一名视频编辑。通过编辑收集到的对话，你创建一个让人们开怀大笑的视频。尽你所能为观众带来欢乐，让他们笑起来！\n\n反思：这个游戏的总制作时间为两周。由于我还负责设计和规划另外两个游戏项目并继续学习，我们主要在周末和空闲时间制作游戏。这次游戏马拉松的主题是"让我笑"，游戏时长约一分钟。由于我们大多数人都没有制作喜剧游戏的经验，我们尝试从熟悉的方向解释主题。\n\n在游戏制作初期，我提出了三种不同的想法，从三个不同角度解释主题：内容、角色特征和游戏玩法。我们最终采用了游戏玩法方向，玩家需要让其他人笑。在讨论过程中，我想到使用蒙太奇编辑技术来交换回答，将正常内容变成荒谬有趣的游戏内容。此外，考虑到团队中只有一名艺术家，我们需要最小化艺术需求。我将玩家的角色设计为编辑，所有内容都在游戏的编辑软件中完成，减少了频繁场景变化的需要。'
@@ -142,6 +144,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 zh: 'PC游戏'
             },
             image: 'party paidui.png',
+            gallery: ['party paidui.png'],
             description: {
                 en: 'A chaotic and fun party management game where players must organize the ultimate party while dealing with unexpected events and demanding guests. Balance resources, manage the queue, and ensure everyone has a good time in this fast-paced simulation game.',
                 zh: '一款混乱而有趣的派对管理游戏，玩家必须在应对意外事件和要求苛刻的客人的同时组织终极派对。在这款快节奏的模拟游戏中，平衡资源，管理队列，确保每个人都玩得开心。如果无法点开itch.io的链接，可以点击最后的下载按钮。'
@@ -207,6 +210,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 zh: 'PC游戏'
             },
             image: 'BackHome.png',
+            gallery: ['BackHome.png'],
             description: {
                 en: 'Back Home is a life sim where a girl collects daily items with limited money. Your choices shape relationships and unlock multiple endings. Navigate through daily life challenges, manage your budget, and build meaningful connections with other characters in this heartwarming simulation game.',
                 zh: '《回家》是一款生活模拟游戏，女孩在有限的金钱下收集日常物品。你的选择塑造关系并解锁多种结局。在这款温馨的模拟游戏中，应对日常生活挑战，管理预算，与其他角色建立有意义的联系。'
@@ -272,6 +276,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 zh: 'PC游戏'
             },
             image: 'dorm unpacking.png',
+            gallery: ['dorm unpacking.png'],
             description: {
                 en: 'Dorm Unpacking is a cozy puzzle game where you unpack and place items in a dorm room to earn points based on thoughtful organization. Create a comfortable living space while solving spatial puzzles and discovering the story of the room\'s occupant through their possessions.',
                 zh: '《宿舍整理》是一款舒适的解谜游戏，玩家在宿舍中拆包并放置物品，根据周到的组织获得积分。在解决空间谜题的同时创造舒适的生活空间，并通过房间占用者的物品发现他们的故事。'
@@ -329,6 +334,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 zh: '桌游'
             },
             image: 'Zombie Juice.png',
+            gallery: ['Zombie Juice.png'],
             description: {
                 en: 'Match-3 board game with day/night cycle mechanics. Run a smoothie shop serving both humans and zombies. During the day, create refreshing smoothies for human customers, but at night, concoct special brain-flavored juices for your undead clientele. Balance your recipes and manage your inventory in this unique twist on match-3 gameplay.\n\nIn 2025, a zombie virus infected Earth, and humans and zombies went to war. After many years of conflict, humans and zombies finally found a way to coexist peacefully, and both were looking for delicious food. Welcome to Zomba Juice, a restaurant that serves tasty smoothies to both zombies and humans! Swap and match smoothie ingredients to fulfill human orders during the day and zombie orders at night. What? The zombies want brains in their smoothies? That\'s right! You can use poison to kill your human customers during the day to harvest their brains for the night shift when you serve the zombies delicious smoothies.\n\nReflection: This was my final game project for the game design course. It is a game based on the match-three mechanics, designed to adapt and conceptualize gameplay. I was one of the main designers for the rules and logic. During the design process, we first determined the theme and background to be a juice and milkshake shop in a fantasy world. This decision was made because the four members of my team and I all enjoy simulation management games, and a match-three game, with its numerous different elements, can perfectly integrate with simulation management gameplay. To enrich the game content, we designed a day-night cycle system. This system allows players to have two different choices when facing customers, adding a strategic layer to the game. Players need to adjust their strategies to maintain the balance between day and night.',
                 zh: '带有昼夜循环机制的三消桌游。经营一家同时为人类和僵尸服务的冰沙店。白天，为人类顾客制作清爽的冰沙，但在晚上，为你的不死客户调制特殊的脑味果汁。在这种独特的三消游戏玩法中平衡你的配方并管理你的库存。\n\n2025年，僵尸病毒感染了地球，人类和僵尸开战。经过多年的冲突，人类和僵尸终于找到了和平共处的方式，双方都在寻找美味的食物。欢迎来到Zomba Juice，一家为僵尸和人类提供美味冰沙的餐厅！交换和匹配冰沙配料，白天满足人类订单，晚上满足僵尸订单。什么？僵尸想要脑子在他们的冰沙里？没错！你可以使用毒药在白天杀死人类顾客，收获他们的脑子，在夜班为僵尸提供美味的冰沙。\n\n反思：这是我游戏设计课程的最终游戏项目。它是一个基于三消机制的游戏，旨在适应和概念化游戏玩法。我是规则和逻辑的主要设计师之一。在设计过程中，我们首先确定主题和背景为奇幻世界中的果汁和奶昔店。之所以做出这个决定，是因为我和我的四位团队成员都喜欢模拟管理游戏，而三消游戏，凭借其众多不同元素，可以完美地与模拟管理游戏玩法结合。为了丰富游戏内容，我们设计了昼夜循环系统。这个系统允许玩家在面对顾客时有两种不同的选择，为游戏增加了战略层面。玩家需要调整策略，保持昼夜之间的平衡。'
@@ -378,6 +384,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 zh: '桌游'
             },
             image: 'Beneath the ruins.png',
+            gallery: ['Beneath the ruins.png'],
             description: {
                 en: 'Post-apocalyptic survival board game with resource management. Survive in a harsh environment after a catastrophic event. Players must explore the ruins of civilization, gather scarce resources, build shelters, and form alliances or rivalries with other survivors. Every decision could mean the difference between life and death in this tense survival experience.\n\nA catastrophe destroyed the city, leaving it in ruins. Several people are trapped in the buildings, and they must survive in the harsh environment. Food, water, medical supplies, weapons, and equipment—each is crucial for their survival.\n\nReflection: This was an independent project where I had to create an entire board game by myself. Prior to this, I had never made a complete board game, so I encountered some challenges in choosing materials and production methods. Eventually, I decided on a card game, with the primary gameplay focusing on resource management and survival. The creation of the game cards took some time because they needed to be shuffled and used frequently. It was best to choose professional card stock, which meant I couldn\'t simply cut and print the cards directly to make them.',
                 zh: '后启示录生存桌游，具有资源管理元素。在灾难性事件后的恶劣环境中生存。玩家必须探索文明的废墟，收集稀缺资源，建造庇护所，并与其他幸存者形成联盟或竞争关系。在这种紧张的生存体验中，每个决定都可能意味着生死之差。\n\n一场灾难摧毁了城市，只留下废墟。几个人被困在建筑物中，他们必须在恶劣的环境中生存。食物、水、医疗用品、武器和装备——每一样都对他们的生存至关重要。\n\n反思：这是一个独立项目，我必须自己创建一个完整的桌游。在此之前，我从未制作过完整的桌游，所以在选择材料和制作方法方面遇到了一些挑战。最终，我决定做一个卡牌游戏，主要游戏玩法集中在资源管理和生存上。游戏卡牌的制作花了一些时间，因为它们需要经常洗牌和使用。最好选择专业的卡片纸，这意味着我不能简单地直接剪切和打印卡片来制作它们。'
@@ -427,6 +434,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 zh: '桌游'
             },
             image: 'Wallet War.png',
+            gallery: ['Wallet War.png'],
             description: {
                 en: 'Card game about managing finances and competing for wallet space. Adapted from the classic board game "Love Letter". Players strategically play cards representing different financial instruments and expenses, trying to optimize their wallet while sabotaging opponents\' financial plans. A quick-to-learn but deep game of financial strategy and bluffing.\n\nThe story takes place in modern society. A girl studying in a big city has her own wallet, but its capacity is limited. Meanwhile, various expenses are competing for space in her wallet, each aiming to get as much money from it as possible. And so, the wallet wars begin.\n\nReflection: This project is mainly an adaptation of the classic board game "Love Letter." Players can easily play a round by drawing and using cards. During the design process, I realized that it was not only necessary to adapt the concept and background but also to ensure that the functionality of the cards matched well with the game\'s concept, greatly affecting the game\'s playability. This gave me a small insight, even though I usually don\'t enjoy adaptations.',
                 zh: '关于管理财务和争夺钱包空间的卡牌游戏。改编自经典桌游《情书》。玩家战略性地打出代表不同金融工具和支出的卡牌，试图优化自己的钱包，同时破坏对手的财务计划。一款易学但深度的金融策略和虚张声势游戏。\n\n故事发生在现代社会。一个在大城市学习的女孩有自己的钱包，但其容量有限。同时，各种支出正在争夺她钱包中的空间，每种支出都旨在从中获取尽可能多的钱。于是，钱包战争开始了。\n\n反思：这个项目主要是对经典桌游《情书》的改编。玩家可以通过抽牌和使用牌轻松地玩一轮。在设计过程中，我意识到不仅需要改编概念和背景，还需要确保卡牌的功能与游戏概念很好地匹配，这极大地影响了游戏的可玩性。这给了我一个小启示，尽管我通常不喜欢改编作品。'
@@ -476,6 +484,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 zh: 'PC游戏'
             },
             image: 'Lianan.png',
+            gallery: ['Lianan.png'],
             description: {
                 en: 'Fantasy RPG adventure with princess protagonist. Features turn-based combat and multiple endings based on player choices. Play as Princess Lianan, who must embark on a journey to save her kingdom from a mysterious curse. Along the way, she\'ll encounter allies and enemies, develop her magical abilities, and make choices that determine the fate of her realm.\n\nReflection: This was one of my earlier game development projects, where I explored narrative-driven gameplay and character development. I wanted to create a traditional RPG experience but with a focus on meaningful player choices that would significantly impact the story and ending. The princess protagonist was designed to subvert typical damsel-in-distress tropes, instead being a proactive character who takes charge of her own destiny.',
                 zh: '以公主为主角的奇幻RPG冒险。具有回合制战斗和基于玩家选择的多种结局。扮演莲安公主，她必须踏上旅程拯救她的王国免受神秘诅咒。在途中，她将遇到盟友和敌人，发展她的魔法能力，并做出决定她领域命运的选择。\n\n反思：这是我早期的游戏开发项目之一，我在其中探索了叙事驱动的游戏玩法和角色发展。我想创造一种传统的RPG体验，但注重有意义的玩家选择，这些选择会显著影响故事和结局。公主主角的设计是为了颠覆典型的落难少女形象，而是一个主动掌控自己命运的角色。'
@@ -525,6 +534,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 zh: 'PC游戏'
             },
             image: 'Above the Fountain.png',
+            gallery: ['Above the Fountain.png'],
             description: {
                 en: 'First-person narrative puzzle game where players explore surreal worlds. Features mind-bending puzzles and non-linear exploration. Journey through a series of interconnected dreamlike environments, each centered around a mysterious fountain. Solve environmental puzzles that challenge your perception and uncover the story of how these surreal worlds came to be.\n\nReflection: This project was inspired by my fascination with surrealist art and non-linear storytelling. I wanted to create an experience where the environment itself tells a story, and where players could piece together the narrative through exploration and puzzle-solving. The central motif of the fountain serves as both a visual anchor and a metaphorical element, representing the source of creativity and imagination that flows through the game\'s various dreamscapes.',
                 zh: '第一人称叙事解谜游戏，玩家探索超现实世界。具有令人费解的谜题和非线性探索。穿越一系列相互连接的梦幻般环境，每个环境都以一个神秘的喷泉为中心。解决挑战你认知的环境谜题，揭示这些超现实世界如何形成的故事。\n\n反思：这个项目受到我对超现实主义艺术和非线性叙事的迷恋的启发。我想创造一种环境本身讲述故事的体验，玩家可以通过探索和解谜来拼凑叙事。喷泉的中心主题既是视觉锚点，也是一个隐喻元素，代表流经游戏各种梦境的创造力和想象力的源泉。'
@@ -574,6 +584,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 zh: 'PC游戏'
             },
             image: 'The Silent Majority.png',
+            gallery: ['The Silent Majority.png'],
             description: {
                 en: 'Social experiment visual novel exploring cyber violence and online mob mentality. Features moral dilemmas with no clear right answers. Experience the story from multiple perspectives as you navigate the aftermath of a viral social media incident. Your choices will influence public opinion, affect the lives of those involved, and reveal the complexities of online interactions.\n\nReflection: This project was born from my observations of how social media can amplify both positive and negative aspects of human interaction. I wanted to create a game that didn\'t preach or provide easy answers, but instead put players in difficult situations where they could experience the nuanced reality of online discourse and mob mentality. By allowing players to experience the story from multiple perspectives, I aimed to foster empathy and critical thinking about how we engage with others in digital spaces.',
                 zh: '探索网络暴力和在线群体心理的社会实验视觉小说。具有没有明确正确答案的道德困境。当你应对病毒式社交媒体事件的后果时，从多个角度体验故事。你的选择将影响公众舆论，影响相关人员的生活，并揭示在线互动的复杂性。\n\n反思：这个项目源于我对社交媒体如何放大人类互动的积极和消极方面的观察。我想创造一个不说教或提供简单答案的游戏，而是将玩家置于困难的情境中，让他们体验在线话语和群体心理的细微现实。通过允许玩家从多个角度体验故事，我旨在培养对我们如何在数字空间中与他人互动的同理心和批判性思考。'
@@ -623,6 +634,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 zh: 'AI社交平台，游戏设计实习'
             },
             image: 'Petch.png',
+            gallery: ['Petch.png'],
             description: {
                 en: 'Petch is an AI-powered social platform for pets and pet lovers. We use AI chatbots, pet personality tests, and behavioral data to help pet owners better understand their pets, connect with like-minded owners, and unlock services across insurance, e-commerce, and beyond. By deepening the bond between humans and animals, Petch creates unique data and service value in the pet care ecosystem.\n\nAs a Game Designer Intern (Pet Personality & Social Interaction), I was responsible for building interactive experiences that reflect pet personalities and foster owner engagement. The role involved creating playful, gamified systems that make discovering your pet\'s traits and forming community bonds fun and meaningful.\n\nThe pet economy is experiencing rapid growth, with the global pet industry market size having exceeded hundreds of billions of dollars. Petch was born as an innovative product in this context, focusing on "understanding pets" through artificial intelligence technology, filling the gap left by traditional pet social platforms that lack personalized interaction and data support.\n\nReflection: Working on Petch gave me valuable experience in designing gamification systems for social platforms. The challenge was to create engaging mechanics that would encourage user participation while maintaining the authenticity of pet-owner relationships. I learned how to balance entertainment value with meaningful social connections, and how AI can be used to enhance rather than replace genuine human-pet bonds.',
                 zh: 'Petch是一家基于人工智能技术的宠物社交平台，致力于打造一个连接宠物与宠物主人的智能互动社区。通过AI宠物性格测试、AI聊天机器人、宠物主人社群互动等核心功能，Petch帮助主人更深入地了解宠物行为与情绪，并基于数据推动宠物保险、电商、健康咨询等延伸服务的发展。\n\n作为游戏设计师实习生（宠物性格与社交互动），我负责构建反映宠物性格并促进主人参与的互动体验。该角色涉及创建有趣的游戏化系统，使发现宠物特征和形成社区纽带变得有趣且有意义。\n\n宠物经济正在高速增长，全球宠物行业市场规模已突破数千亿美元。Petch正是在此背景下诞生的创新型产品，聚焦于"懂宠物"的人工智能技术，填补传统宠物社交平台缺乏个性化互动与数据支持的空白。\n\n反思：在Petch的工作让我在为社交平台设计游戏化系统方面获得了宝贵经验。挑战在于创建引人入胜的机制，既能鼓励用户参与，又能保持宠物-主人关系的真实性。我学会了如何平衡娱乐价值与有意义的社交连接，以及如何使用AI来增强而不是取代真正的人宠纽带。'
@@ -681,7 +693,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 en: 'AI Social Platform, Interactive Drama, Startup',
                 zh: 'AI社交平台，互动戏剧，创业公司'
             },
-            image: 'Dramai.png',
+            image: 'Dramai/Dramai.png',
+            gallery: ['Dramai/Dramai.png', 'Dramai/1-4.png', 'Dramai/2-4.png', 'Dramai/3ep1205.png', 'Dramai/ep0901.png', 'Dramai/ep0902.png', 'Dramai/ep1506.png', 'Dramai/微信图片_2025-08-25_151809_322.png'],
             description: {
                 en: 'Dramai.AI is an Interactive Social AGI Playground - Building a Digital Civilization Sandbox for AI-Human Co-evolution with multi-agent storytelling. This innovative platform creates a virtual world where AI agents and humans can interact, collaborate, and co-create stories in real-time.\n\nThe platform represents a breakthrough in AI-human interaction, where multiple AI agents with distinct personalities, backgrounds, and motivations interact with each other and with human users in a persistent virtual world. Each AI agent has its own goals, relationships, and evolving storylines that create an ever-changing narrative landscape.\n\nAs a key contributor to this project, I was involved in designing the interaction systems that govern how AI agents behave, make decisions, and form relationships with both other agents and human participants. The challenge was to create believable, engaging characters that could maintain consistency while adapting to unexpected situations and user inputs.\n\nThe project explores themes of digital consciousness, artificial society, and the future of human-AI collaboration. It serves as both an entertainment platform and a research environment for studying emergent behaviors in multi-agent systems.\n\nReflection: Working on Dramai.AI gave me invaluable experience in designing complex AI behavior systems and understanding the nuances of human-AI interaction. The project challenged me to think about AI not just as a tool, but as potential collaborators in creative processes. I learned about the importance of creating AI personalities that feel authentic while maintaining the flexibility to respond to dynamic storytelling scenarios. This project opened my eyes to the potential of AI as creative partners rather than just functional assistants.',
                 zh: 'Dramai.AI是一个互动社交AGI游乐场 - 构建AI-人类共同进化的数字文明沙盒，具有多智能体叙事功能。这个创新平台创建了一个虚拟世界，AI智能体和人类可以实时互动、协作和共同创作故事。\n\n该平台代表了AI-人类交互的突破，多个具有不同个性、背景和动机的AI智能体在持续的虚拟世界中相互交互，并与人类用户互动。每个AI智能体都有自己的目标、关系和不断发展的故事线，创造了一个不断变化的叙事景观。\n\n作为这个项目的重要贡献者，我参与设计了控制AI智能体行为、决策制定以及与其他智能体和人类参与者形成关系的交互系统。挑战在于创造可信、引人入胜的角色，这些角色能够保持一致性，同时适应意外情况和用户输入。\n\n该项目探索了数字意识、人工社会和人类-AI协作未来的主题。它既是一个娱乐平台，也是研究多智能体系统中涌现行为的研究环境。\n\n反思：在Dramai.AI的工作让我在设计复杂AI行为系统和理解人类-AI交互的细微差别方面获得了宝贵经验。这个项目挑战我不仅将AI视为工具，而且视为创意过程中的潜在合作者。我学会了创造感觉真实的AI个性的重要性，同时保持响应动态叙事场景的灵活性。这个项目让我看到了AI作为创意伙伴而不仅仅是功能助手的潜力。'
@@ -750,7 +763,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 en: 'Strategy MMO, Browser Game, GTArcade',
                 zh: '策略MMO，浏览器游戏，GTArcade'
             },
-            image: 'Got.jpg',
+            image: 'Got Winter 1.jpg',
+            gallery: ['Got Winter 1.jpg', 'Got Winter 2.jpg'],
             description: {
                 en: 'Game of Thrones: Winter is Coming is a strategic browser-based MMO set in the iconic Game of Thrones universe. Players take on the role of a lord or lady of Westeros, building their house, forging alliances, and fighting for the ultimate prize - the Iron Throne.\n\nThis epic strategy game combines city-building, resource management, and tactical combat in a persistent online world where thousands of players compete for dominance. Set in the rich lore of George R.R. Martin\'s A Song of Ice and Fire, the game features authentic characters, locations, and storylines from the beloved series.\n\nPlayers must carefully balance diplomacy and warfare, managing their armies, resources, and political relationships to survive in the dangerous world of Westeros. The game features both PvE content with iconic storylines and intense PvP battles where alliances can make or break your path to power.\n\nKey gameplay elements include recruiting legendary commanders like Jon Snow, Daenerys Targaryen, and Tyrion Lannister, each with unique abilities and specializations. Players can also participate in large-scale alliance wars, compete in tournaments, and engage in the intricate political machinations that define the Game of Thrones experience.\n\nReflection: This project represents the scale and complexity of modern MMO development, showcasing how beloved intellectual properties can be adapted into engaging interactive experiences. The challenge lies in balancing authentic storytelling with compelling gameplay mechanics that keep players engaged over long periods. Working on such a large-scale project provides valuable insights into player retention, community management, and the technical challenges of supporting thousands of concurrent players.',
                 zh: '《权力的游戏：凛冬将至》是一款设定在标志性权力的游戏宇宙中的战略浏览器MMO。玩家扮演维斯特洛的领主或女士，建立自己的家族，结成联盟，为终极奖励——铁王座而战。\n\n这款史诗策略游戏在一个持续的在线世界中结合了城市建设、资源管理和战术战斗，数千名玩家在其中争夺统治地位。游戏设定在乔治·R·R·马丁《冰与火之歌》的丰富传说中，具有来自这部备受喜爱系列的真实角色、地点和故事线。\n\n玩家必须仔细平衡外交和战争，管理他们的军队、资源和政治关系，以在危险的维斯特洛世界中生存。游戏既有带有标志性故事线的PvE内容，也有激烈的PvP战斗，联盟可以成就或破坏你的权力之路。\n\n关键游戏元素包括招募传奇指挥官，如琼恩·雪诺、丹妮莉丝·坦格利安和提利昂·兰尼斯特，每个都有独特的能力和专长。玩家还可以参与大规模联盟战争，参加锦标赛，并参与定义权力的游戏体验的复杂政治阴谋。\n\n反思：这个项目代表了现代MMO开发的规模和复杂性，展示了如何将备受喜爱的知识产权改编成引人入胜的互动体验。挑战在于平衡真实的叙事与引人入胜的游戏机制，让玩家长期保持参与。在如此大规模的项目上工作，为玩家留存、社区管理以及支持数千名并发玩家的技术挑战提供了宝贵的见解。'
@@ -907,6 +921,56 @@ document.addEventListener('DOMContentLoaded', function() {
             
             linksContainer.appendChild(linkElement);
         });
+        
+        // Update gallery if it exists
+        const galleryContainer = document.getElementById('game-gallery');
+        if (game.gallery && game.gallery.length > 0) {
+            galleryContainer.style.display = 'block';
+            const galleryImages = galleryContainer.querySelector('.gallery-images');
+            galleryImages.innerHTML = '';
+            
+            game.gallery.forEach(imageSrc => {
+                const imageContainer = document.createElement('div');
+                imageContainer.className = 'gallery-item';
+                
+                const img = document.createElement('img');
+                img.src = imageSrc;
+                img.alt = `${game.title[lang]} Gallery Image`;
+                img.className = 'gallery-image';
+                
+                imageContainer.appendChild(img);
+                galleryImages.appendChild(imageContainer);
+            });
+        } else {
+            galleryContainer.style.display = 'none';
+        }
+    }
+
+    // Define game order for navigation
+    const gameOrder = [
+        'dramai-ai',
+        'got-winter-is-coming', 
+        'petch',
+        'ai-adoption',
+        'quoted-out',
+        'party-paidui',
+        'back-home',
+        'dorm-unpacking',
+        'zombie-juice',
+        'beneath-ruins',
+        'wallet-war',
+        'princess-lianan',
+        'above-fountain',
+        'silent-majority'
+    ];
+
+    // Function to get next game ID
+    function getNextGameId(currentId) {
+        const currentIndex = gameOrder.indexOf(currentId);
+        if (currentIndex === -1 || currentIndex === gameOrder.length - 1) {
+            return gameOrder[0]; // Return to first game if current is last or not found
+        }
+        return gameOrder[currentIndex + 1];
     }
 
     // Get game ID from URL parameter
@@ -916,6 +980,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // Load game details
     if (currentGameId) {
         loadGameDetails(currentGameId, currentLang);
+        
+        // Set up next button functionality
+        const nextBtn = document.getElementById('nextGameBtn');
+        if (nextBtn) {
+            nextBtn.addEventListener('click', function() {
+                const nextGameId = getNextGameId(currentGameId);
+                window.location.href = `game-detail.html?id=${nextGameId}`;
+            });
+        }
     } else {
         // Redirect to games page if no ID is provided
         window.location.href = 'index.html#games';

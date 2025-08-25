@@ -22,6 +22,9 @@
     src: url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 }
 
+/* Import additional gaming fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@400;600;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -30,16 +33,33 @@
 }
 
 html, body {
-    font-family: 'VT323', monospace;
+    font-family: 'VT323', 'Orbitron', 'Microsoft YaHei', '微软雅黑', 'SimHei', '黑体', monospace;
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--primary-color);
     overflow-x: hidden;
+    font-size: 18px; /* Increased base font size for better Chinese readability */
+}
+
+/* Enhanced Chinese font support */
+html[lang="zh"], html[lang="zh"] * {
+    font-family: 'Exo 2', 'Orbitron', 'Microsoft YaHei', '微软雅黑', 'PingFang SC', 'Hiragino Sans GB', 'SimHei', '黑体', sans-serif;
+    font-size: 1.1em; /* 10% larger for Chinese text */
+    font-weight: 600; /* Slightly bolder for better readability */
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Press Start 2P', cursive;
+    font-family: 'Press Start 2P', 'Orbitron', 'Microsoft YaHei', '微软雅黑', cursive;
     line-height: 1.3;
+}
+
+/* Chinese headings with gaming font */
+html[lang="zh"] h1, html[lang="zh"] h2, html[lang="zh"] h3, 
+html[lang="zh"] h4, html[lang="zh"] h5, html[lang="zh"] h6 {
+    font-family: 'Orbitron', 'Exo 2', 'Microsoft YaHei', '微软雅黑', sans-serif;
+    font-weight: 900;
+    font-size: 1.2em; /* 20% larger for Chinese headings */
+    letter-spacing: 1px;
 }
 
 .container {
@@ -167,6 +187,14 @@ header .container {
     position: relative;
 }
 
+/* Enhanced Chinese navigation font */
+html[lang="zh"] .nav-links a {
+    font-family: 'Orbitron', 'Exo 2', 'Microsoft YaHei', '微软雅黑', sans-serif;
+    font-size: 0.9rem; /* Larger for Chinese navigation */
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
 .nav-links a:hover {
     color: var(--secondary-color-purple);
 }
@@ -286,6 +314,21 @@ header .container {
     display: flex;
     justify-content: center;
     gap: 20px;
+}
+
+/* Smaller CTA buttons for better proportion */
+.cta-buttons .pixel-btn {
+    padding: 10px 20px; /* Reduced from 12px 30px */
+    font-size: 0.7rem; /* Reduced from 0.8rem */
+}
+
+/* Enhanced Chinese CTA button styling */
+html[lang="zh"] .cta-buttons .pixel-btn {
+    font-family: 'Orbitron', 'Exo 2', 'Microsoft YaHei', '微软雅黑', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 10px 25px;
 }
 
 /* Floating Pixel Boxes - Removed for better readability */
@@ -817,10 +860,54 @@ header .container {
 }
 
 .tag {
-    padding: 5px 10px;
-    background-color: var(--light-color);
+    padding: 8px 15px;
+    background: linear-gradient(135deg, var(--secondary-color-purple) 0%, var(--secondary-color-blue) 100%);
+    color: white;
     font-size: 0.8rem;
-    font-weight: 600;
+    font-weight: 700;
+    font-family: 'Press Start 2P', cursive;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 2px solid var(--secondary-color-pink);
+    position: relative;
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    box-shadow: 
+        2px 2px 0 0 var(--secondary-color-pink),
+        4px 4px 0 0 rgba(0, 0, 0, 0.2);
+}
+
+.tag:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        3px 3px 0 0 var(--secondary-color-pink),
+        6px 6px 0 0 rgba(0, 0, 0, 0.2);
+}
+
+.tag::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 2px,
+        rgba(255, 255, 255, 0.1) 2px,
+        rgba(255, 255, 255, 0.1) 4px
+    );
+    pointer-events: none;
+}
+
+/* Featured tags styling */
+.featured-tags .tag {
+    background: linear-gradient(135deg, var(--secondary-color-blue) 0%, var(--secondary-color-purple) 100%);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+        2px 2px 0 0 rgba(255, 255, 255, 0.2),
+        4px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Archive Section */
@@ -931,6 +1018,19 @@ header .container {
     margin-bottom: 15px;
     color: var(--dark-color);
     font-size: 1.2rem;
+}
+
+/* Adjust font size for all soft skills titles to be consistent and smaller */
+.skill-card[data-skill="gameplay"] h3,
+.skill-card[data-skill="storytelling"] h3,
+.skill-card[data-skill="leadership"] h3,
+.skill-card[data-skill="communication"] h3,
+.skill-card[data-skill="organization"] h3,
+.skill-card[data-skill="analytical"] h3,
+.skill-card[data-skill="creativity"] h3,
+.skill-card[data-skill="adaptability"] h3 {
+    font-size: 0.9rem;
+    line-height: 1.2;
 }
 
 .skill-level {
@@ -1132,6 +1232,33 @@ footer {
     text-align: center;
     padding-top: 20px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Highlight style for name */
+.highlight {
+    color: var(--secondary-color-pink);
+    text-shadow: 2px 2px 0 var(--secondary-color-blue);
+    font-weight: bold;
+}
+
+/* Enhanced Chinese font support for footer - subtle increase */
+html[lang="zh"] footer {
+    font-family: 'Press Start 2P', 'Orbitron', 'Microsoft YaHei', '微软雅黑', cursive;
+}
+
+html[lang="zh"] .footer-logo h2 {
+    font-size: 1.6rem; /* Slightly larger footer logo for Chinese */
+    font-family: 'Press Start 2P', 'Orbitron', cursive;
+}
+
+html[lang="zh"] .footer-links a {
+    font-size: 0.7rem; /* Slightly larger footer links for Chinese */
+    font-family: 'Press Start 2P', cursive;
+}
+
+html[lang="zh"] .footer-bottom p {
+    font-size: 1rem; /* Slightly larger footer bottom text for Chinese */
+    font-family: 'VT323', 'Orbitron', monospace;
 }
 
 /* Navigation Buttons */
