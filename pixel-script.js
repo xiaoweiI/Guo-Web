@@ -79,16 +79,16 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Hero section
             "hero_hello": "Hello, I'm",
-            "hero_title": "Game Developer & Designer",
-            "hero_welcome": "Welcome to my personal portfolio website showcasing my work and passion for game development.",
+            "hero_title": "Creative Designer & System Builder",
+            "hero_welcome": "Welcome to my personal portfolio website showcasing my work and passion for creative design and systematic thinking.",
             "hero_view_work": "View My Work",
             "hero_contact": "Contact Me",
             
             // About section
             "about_title": "About Me",
-            "about_p1": "Hello! I'm a passionate game developer with a strong background in both design and programming. I love creating immersive experiences that engage players and tell compelling stories.",
-            "about_p2": "With several years of experience in the gaming industry, I've worked on a variety of projects ranging from mobile games to PC titles. My expertise includes game mechanics design, level design, and implementing engaging gameplay systems.",
-            "about_p3": "When I'm not coding or designing games, you can find me exploring new game releases, participating in game jams, or experimenting with new technologies and tools in the game development space.",
+            "about_p1": "Hello! I'm a passionate creative designer with a strong background in both design and development. I love crafting meaningful experiences through thoughtful design and building well-structured systems.",
+            "about_p2": "With diverse project experience spanning interactive media, product design, and system architecture, I've developed expertise in experience design, visual storytelling, and creating robust, scalable solutions.",
+            "about_p3": "When I'm not designing or building systems, you can find me exploring emerging creative tools, participating in design challenges, or experimenting with new technologies to push the boundaries of interactive experiences.",
             "info_name": "Name:",
             "info_email": "Email:",
             "info_location": "Location:",
@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Skills section
             "skills_title": "Skills & Expertise",
-            "skills_p1": "I've developed a diverse set of skills throughout my career in game development. Below you can see my proficiency in various technologies and disciplines relevant to game creation.",
+            "skills_p1": "I've developed a diverse set of skills throughout my career in creative design and system building. Below you can see my proficiency in various technologies and disciplines relevant to my work.",
             "skills_p2": "Click on any skill to see more details about my experience with that technology or discipline.",
             "skills_demo": "Interactive Skill Demo",
             "skills_start": "Start Demo",
@@ -224,7 +224,7 @@ document.addEventListener('DOMContentLoaded', function() {
             "contact_send": "Send Message",
             
             // Footer
-            "footer_dev": "Game Developer & Designer",
+            "footer_dev": "Creative Designer & System Builder",
             "footer_rights": "All Rights Reserved.",
             
             // Navigation buttons
@@ -251,16 +251,16 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Hero section
             "hero_hello": "你好，我是",
-            "hero_title": "游戏开发者 & 设计师",
-            "hero_welcome": "欢迎来到我的个人作品集网站，这里展示了我的作品和对游戏开发的热情。",
+            "hero_title": "创意设计师 & 系统构建者",
+            "hero_welcome": "欢迎来到我的个人作品集网站，这里展示了我的作品和对创意设计与系统建设的热情。",
             "hero_view_work": "查看作品",
             "hero_contact": "联系我",
             
             // About section
             "about_title": "关于我",
-            "about_p1": "你好！我是一位热情的游戏开发者，在设计和编程方面都有扎实的背景。我喜欢创造能够吸引玩家并讲述引人入胜故事的沉浸式体验。",
-            "about_p2": "凭借在游戏行业多年的经验，我参与过从手机游戏到PC游戏的各种项目。我的专长包括游戏机制设计、关卡设计和实现引人入胜的游戏系统。",
-            "about_p3": "当我不在编码或设计游戏时，你可以看到我在探索新游戏发布、参与游戏开发马拉松，或者在游戏开发领域尝试新技术和工具。",
+            "about_p1": "你好！我是一位充满热情的创意设计师，在设计和开发方面都有扎实的背景。我热衷于通过精心的设计打造有意义的体验，并构建结构良好的系统。",
+            "about_p2": "凭借在互动媒体、产品设计和系统架构等多元领域的项目经验，我在体验设计、视觉叙事以及构建稳健可扩展的解决方案方面积累了深厚的专业能力。",
+            "about_p3": "当我不在做设计或构建系统时，你会发现我在探索新兴的创意工具、参与设计挑战，或者尝试新技术来突破互动体验的边界。",
             "info_name": "姓名：",
             "info_email": "邮箱：",
             "info_location": "地点：",
@@ -335,7 +335,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Skills section
             "skills_title": "技能与专长",
-            "skills_p1": "在我的游戏开发职业生涯中，我培养了多样化的技能。以下是我在与游戏创作相关的各种技术和学科中的熟练程度。",
+            "skills_p1": "在创意设计与系统建设的职业生涯中，我培养了多样化的技能。以下是我在各种技术和学科中的熟练程度。",
             "skills_p2": "点击任何技能，查看有关我在该技术或学科方面的经验的更多详细信息。",
             "skills_demo": "互动技能演示",
             "skills_start": "开始演示",
@@ -396,7 +396,7 @@ document.addEventListener('DOMContentLoaded', function() {
             "contact_send": "发送留言",
             
             // Footer
-            "footer_dev": "游戏开发者 & 设计师",
+            "footer_dev": "创意设计师 & 系统构建者",
             "footer_rights": "版权所有。",
             
             // Navigation buttons
