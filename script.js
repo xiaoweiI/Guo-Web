@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Navigation
             "nav_home": "Home",
             "nav_about": "About",
-            "nav_games": "Game Portfolio",
+            "nav_games": "Portfolio",
             "nav_archive": "Archive",
             "nav_skills": "Skills",
             "nav_contact": "Contact",
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
             "experience_years": "5+ Years",
             
             // Game Portfolio section
-            "games_title": "Game Portfolio",
+            "games_title": "Portfolio",
             "filter_all": "All",
             "filter_commercial": "Commercial Projects",
             "filter_personal": "Personal Projects",
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Navigation
             "nav_home": "首页",
             "nav_about": "关于我",
-            "nav_games": "游戏作品",
+            "nav_games": "作品集",
             "nav_archive": "档案",
             "nav_skills": "技能",
             "nav_contact": "联系方式",
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
             "experience_years": "5年以上",
             
             // Game Portfolio section
-            "games_title": "游戏作品集",
+            "games_title": "作品集",
             "filter_all": "全部",
             "filter_commercial": "商业项目",
             "filter_personal": "个人项目",
