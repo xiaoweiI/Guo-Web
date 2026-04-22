@@ -706,38 +706,9 @@ document.addEventListener('DOMContentLoaded', function() {
         initCanvas();
     }
 
-    // Contact Form Validation
-    const contactForm = document.getElementById('contactForm');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form values
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const subject = document.getElementById('subject').value.trim();
-            const message = document.getElementById('message').value.trim();
-            
-            // Simple validation
-            if (name === '' || email === '' || subject === '' || message === '') {
-                alert(getCurrentLanguage() === 'en' ? 'Please fill in all fields' : '请填写所有字段');
-                return;
-            }
-            
-            // Email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert(getCurrentLanguage() === 'en' ? 'Please enter a valid email address' : '请输入有效的电子邮件地址');
-                return;
-            }
-            
-            // If validation passes, show success message
-            // In a real application, you would send the form data to a server here
-            alert(getCurrentLanguage() === 'en' ? 'Thank you for your message! I will get back to you soon.' : '感谢您的留言！我会尽快回复您。');
-            contactForm.reset();
-        });
-    }
+    // Contact form submission is handled natively by Formsubmit.co via the form's
+    // action attribute. Browser enforces `required` and `type="email"` validation,
+    // and Formsubmit handles delivery + its own spam protection.
 
     // Pixel Art Effect for Images
     document.querySelectorAll('.image-placeholder').forEach(placeholder => {

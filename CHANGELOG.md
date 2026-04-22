@@ -9,6 +9,10 @@
 ### Added
 - 在 Skills 页面的 "Software & Technical Skills" 分类新增三张技能卡片：Python、React Native、Mobile UI/UX，并补充中英文文案（`index.html`、`pixel-script.js`）
 - 引入中文像素字体 Zpix（最像素，SolidZORO 出品，MIT 协议）：通过 jsDelivr CDN（`@v3.1.11/website/zpix.woff2`）加载 `@font-face`，和英文的 Press Start 2P 统一像素风格语言，无需本地下载字体包
+- Contact 表单接通 Formsubmit.co，提交直接发到 `guoxiaowei7@hotmail.com`；附带隐藏字段 `_subject` / `_honey`（蜜罐反垃圾）/ `_template=table`；移除了 `pixel-script.js` 与 `script.js` 里只弹 alert 不发送的假提交逻辑，改为浏览器原生 `required` + `type="email"` 校验 + Formsubmit 后端接收（`index.html`、`pixel-script.js`、`script.js`）
+
+### Removed
+- Contact 页面右侧的社交图标只保留 LinkedIn，指向 `https://www.linkedin.com/in/xiaowei-guo`（`target="_blank"` + `rel="noopener noreferrer"`）；移除原占位的 Twitter / GitHub / Instagram 空链接（`index.html`）
 
 ### Changed
 - 导航栏与首页标题：英文 "Game Portfolio" → "Portfolio"，中文 "游戏作品 / 游戏作品集" → "作品集"（`index.html`、`game-detail.html`、`script.js`、`pixel-script.js`）
