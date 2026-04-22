@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Update language switcher button text
         const langBtn = document.getElementById('langSwitcher');
         if (langBtn) {
-            langBtn.textContent = lang === 'en' ? '中文' : 'English';
+            langBtn.textContent = lang === 'en' ? '中文' : 'EN';
         }
         
         // Update all elements with data-i18n attribute

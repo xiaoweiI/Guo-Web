@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Set up navigation event listeners
-    document.querySelectorAll('.nav-links a, .page-nav-btn').forEach(link => {
+    document.querySelectorAll('a[data-page], .page-nav-btn').forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const pageId = this.getAttribute('data-page');
@@ -206,6 +206,12 @@ document.addEventListener('DOMContentLoaded', function() {
             "skill_photoshop_desc": "Proficient in using Photoshop for game art, UI design, and asset creation.",
             "skill_midjourney_title": "Midjourney",
             "skill_midjourney_desc": "Experience using Midjourney for concept art and visual inspiration in game development.",
+            "skill_python_title": "Python",
+            "skill_python_desc": "Scripting, automation, data processing, and building internal tools.",
+            "skill_react_native_title": "React Native",
+            "skill_react_native_desc": "Cross-platform mobile app development with React Native and the React ecosystem.",
+            "skill_mobile_uiux_title": "Mobile UI/UX",
+            "skill_mobile_uiux_desc": "Designing mobile interfaces and user experiences across iOS and Android, focused on usability and visual polish.",
             "skill_documentation_title": "Documentation",
             "skill_documentation_desc": "Skilled in creating comprehensive game design documents and technical documentation.",
             "skill_motivation_title": "Self-Motivation",
@@ -378,6 +384,12 @@ document.addEventListener('DOMContentLoaded', function() {
             "skill_photoshop_desc": "精通使用Photoshop进行游戏美术、UI设计和资产创建。",
             "skill_midjourney_title": "Midjourney",
             "skill_midjourney_desc": "有使用Midjourney进行游戏开发中概念艺术和视觉灵感的经验。",
+            "skill_python_title": "Python",
+            "skill_python_desc": "擅长使用 Python 进行脚本编写、自动化、数据处理以及内部工具搭建。",
+            "skill_react_native_title": "React Native",
+            "skill_react_native_desc": "使用 React Native 与 React 生态进行跨平台移动应用开发。",
+            "skill_mobile_uiux_title": "移动端 UI/UX",
+            "skill_mobile_uiux_desc": "面向 iOS 与 Android 的移动端界面与体验设计，注重可用性与视觉表现。",
             "skill_documentation_title": "文档编写",
             "skill_documentation_desc": "擅长创建全面的游戏设计文档和技术文档。",
             "skill_motivation_title": "自我激励",
@@ -428,7 +440,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Update language switcher button text
         const langBtn = document.getElementById('langSwitcher');
         if (langBtn) {
-            langBtn.textContent = lang === 'en' ? '中文' : 'English';
+            langBtn.textContent = lang === 'en' ? '中文' : 'EN';
         }
         
         // Update all elements with data-i18n attribute

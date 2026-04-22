@@ -25,6 +25,13 @@
 /* Import additional gaming fonts */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@400;600;700&display=swap');
 
+/* Chinese pixel font — Zpix (最像素) by SolidZORO, MIT licensed */
+@font-face {
+    font-family: 'Zpix';
+    src: url('https://cdn.jsdelivr.net/gh/SolidZORO/zpix-pixel-font@v3.1.11/website/zpix.woff2') format('woff2');
+    font-display: swap;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -43,9 +50,11 @@ html, body {
 
 /* Enhanced Chinese font support */
 html[lang="zh"], html[lang="zh"] * {
-    font-family: 'Exo 2', 'Orbitron', 'Microsoft YaHei', '微软雅黑', 'PingFang SC', 'Hiragino Sans GB', 'SimHei', '黑体', sans-serif;
-    font-size: 1.1em; /* 10% larger for Chinese text */
-    font-weight: 600; /* Slightly bolder for better readability */
+    font-family: 'Zpix', 'Press Start 2P', 'Microsoft YaHei', '微软雅黑', 'PingFang SC', 'Hiragino Sans GB', 'SimHei', '黑体', monospace;
+    font-weight: 400;
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: grayscale;
+    font-smooth: never;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -53,13 +62,13 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.3;
 }
 
-/* Chinese headings with gaming font */
-html[lang="zh"] h1, html[lang="zh"] h2, html[lang="zh"] h3, 
+/* Chinese headings with pixel font */
+html[lang="zh"] h1, html[lang="zh"] h2, html[lang="zh"] h3,
 html[lang="zh"] h4, html[lang="zh"] h5, html[lang="zh"] h6 {
-    font-family: 'Orbitron', 'Exo 2', 'Microsoft YaHei', '微软雅黑', sans-serif;
-    font-weight: 900;
-    font-size: 1.2em; /* 20% larger for Chinese headings */
-    letter-spacing: 1px;
+    font-family: 'Zpix', 'Press Start 2P', 'Microsoft YaHei', '微软雅黑', monospace;
+    font-weight: 400;
+    font-size: 1.2em;
+    letter-spacing: 2px;
 }
 
 .container {
@@ -149,11 +158,13 @@ header {
     left: 0;
     width: 100%;
     z-index: 1000;
-    padding: 20px 0;
+    height: 90px;
+    box-sizing: border-box;
     border-bottom: var(--pixel-size) solid var(--secondary-color-purple);
 }
 
 header .container {
+    height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -187,12 +198,12 @@ header .container {
     position: relative;
 }
 
-/* Enhanced Chinese navigation font */
+/* Chinese navigation font (pixel) */
 html[lang="zh"] .nav-links a {
-    font-family: 'Orbitron', 'Exo 2', 'Microsoft YaHei', '微软雅黑', sans-serif;
-    font-size: 0.9rem; /* Larger for Chinese navigation */
-    font-weight: 700;
-    letter-spacing: 0.5px;
+    font-family: 'Zpix', 'Press Start 2P', 'Microsoft YaHei', '微软雅黑', monospace;
+    font-size: 0.95rem;
+    font-weight: 400;
+    letter-spacing: 1px;
 }
 
 .nav-links a:hover {
@@ -231,21 +242,47 @@ html[lang="zh"] .nav-links a {
 }
 
 .lang-switcher {
-    padding: 8px 15px;
+    position: fixed;
+    top: 22px;
+    right: 24px;
+    z-index: 1001;
+    width: 72px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    line-height: 1;
     background-color: var(--secondary-color-blue);
     color: white;
     border: none;
     cursor: pointer;
     font-weight: 600;
     font-family: 'Press Start 2P', cursive;
-    font-size: 0.7rem;
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+    text-align: center;
+    box-sizing: border-box;
     transition: var(--transition);
-    margin-left: 20px;
+    box-shadow: 3px 3px 0 var(--secondary-color-purple);
 }
 
 .lang-switcher:hover {
     background-color: var(--secondary-color-purple);
-    transform: translateY(-2px);
+    box-shadow: 3px 3px 0 var(--secondary-color-blue);
+    transform: translate(-2px, -2px);
+}
+
+.lang-switcher:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0 var(--secondary-color-purple);
+}
+
+html[lang="zh"] .lang-switcher,
+html[lang="en"] .lang-switcher {
+    font-family: 'Press Start 2P', 'Zpix', 'Microsoft YaHei', '微软雅黑', monospace;
+    font-size: 0.65rem;
+    font-weight: 400;
 }
 
 /* Page Styles */
@@ -324,10 +361,10 @@ html[lang="zh"] .nav-links a {
 
 /* Enhanced Chinese CTA button styling */
 html[lang="zh"] .cta-buttons .pixel-btn {
-    font-family: 'Orbitron', 'Exo 2', 'Microsoft YaHei', '微软雅黑', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 1px;
+    font-family: 'Zpix', 'Press Start 2P', 'Microsoft YaHei', '微软雅黑', monospace;
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 2px;
     padding: 10px 25px;
 }
 
@@ -1243,22 +1280,22 @@ footer {
 
 /* Enhanced Chinese font support for footer - subtle increase */
 html[lang="zh"] footer {
-    font-family: 'Press Start 2P', 'Orbitron', 'Microsoft YaHei', '微软雅黑', cursive;
+    font-family: 'Zpix', 'Press Start 2P', 'Microsoft YaHei', '微软雅黑', monospace;
 }
 
 html[lang="zh"] .footer-logo h2 {
-    font-size: 1.6rem; /* Slightly larger footer logo for Chinese */
-    font-family: 'Press Start 2P', 'Orbitron', cursive;
+    font-size: 1.6rem;
+    font-family: 'Zpix', 'Press Start 2P', monospace;
 }
 
 html[lang="zh"] .footer-links a {
-    font-size: 0.7rem; /* Slightly larger footer links for Chinese */
-    font-family: 'Press Start 2P', cursive;
+    font-size: 0.85rem;
+    font-family: 'Zpix', 'Press Start 2P', monospace;
 }
 
 html[lang="zh"] .footer-bottom p {
-    font-size: 1rem; /* Slightly larger footer bottom text for Chinese */
-    font-family: 'VT323', 'Orbitron', monospace;
+    font-size: 1rem;
+    font-family: 'Zpix', 'Press Start 2P', monospace;
 }
 
 /* Navigation Buttons */
@@ -1298,10 +1335,10 @@ html[lang="zh"] .footer-bottom p {
 @media (max-width: 768px) {
     .nav-links {
         position: fixed;
-        top: 80px;
+        top: 90px;
         left: -100%;
         width: 100%;
-        height: calc(100vh - 80px);
+        height: calc(100vh - 90px);
         background-color: var(--primary-color);
         flex-direction: column;
         align-items: center;
@@ -1322,10 +1359,8 @@ html[lang="zh"] .footer-bottom p {
     }
     
     .lang-switcher {
-        position: absolute;
-        top: 20px;
+        top: 22px;
         right: 70px;
-        margin-left: 0;
     }
     
     .hamburger.active .bar:nth-child(1) {
