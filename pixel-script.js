@@ -167,6 +167,9 @@ document.addEventListener('DOMContentLoaded', function() {
             "archive_cozy_ui_desc": "UI mockups for a cozy-style game — menus, HUD, and in-world interaction panels.",
             "archive_web_uiux": "Web UI",
             "archive_mobile_uiux": "Mobile UI",
+            "archive_carbcycle": "CarbCycle",
+            "archive_carbcycle_title": "CarbCycle — Carb Cycling Calculator",
+            "archive_carbcycle_desc": "Mobile nutrition app for carb cycling diets. Generates a 7-day High / Med / Low carb meal plan (manual presets or AI-powered via Claude, OpenAI, or DeepSeek), tracks per-meal protein / carb / fat against ring-based macro targets, and maintains a reusable food and meal template library. The Profile tab manages personal stats, cycling config, and a day-streak counter. Dark-first native UI with English / Español / 中文 support.",
             "archive_coming_desc": "Entry under development — check back soon.",
             
             // Skills section
@@ -353,6 +356,9 @@ document.addEventListener('DOMContentLoaded', function() {
             "archive_cozy_ui_desc": "Cozy 风格游戏的 UI 草案 —— 菜单、HUD 与世界内交互面板。",
             "archive_web_uiux": "网页端",
             "archive_mobile_uiux": "移动端",
+            "archive_carbcycle": "CarbCycle",
+            "archive_carbcycle_title": "CarbCycle —— 碳水循环计算器",
+            "archive_carbcycle_desc": "面向碳水循环饮食的移动端营养 App。自动生成 7 天高 / 中 / 低碳水餐计划（内置规则生成或基于 Claude / OpenAI / DeepSeek 的 AI 生成），按餐拆解蛋白质 / 碳水 / 脂肪并以环形目标可视化，配备可复用的食物与餐单模板库。Profile 页面管理个人数据、循环配置与连续坚持天数。深色原生 UI，支持英语、西班牙语、中文三语切换。",
             "archive_coming_desc": "条目建设中，敬请期待。",
             
             // Skills section
