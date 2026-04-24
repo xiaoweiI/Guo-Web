@@ -160,6 +160,14 @@ document.addEventListener('DOMContentLoaded', function() {
             "archive_ecodemand": "EcoDemand System",
             "archive_cozy_ui": "Cozy Game UI Design",
             "archive_coming_soon": "Coming Soon",
+            "archive_open": "Open Document",
+            "archive_back_home_desc": "Full design document for Back Home: narrative direction, core mechanics, progression loops, and level breakdowns.",
+            "archive_party_paidui_desc": "GDD for a multiplayer party game — rule systems, minigame structure, and session-level pacing.",
+            "archive_ecodemand_desc": "UI/UX design system for a sustainability-driven service platform — Figma source with component library, flows, and interaction specs.",
+            "archive_cozy_ui_desc": "UI mockups for a cozy-style game — menus, HUD, and in-world interaction panels.",
+            "archive_web_uiux": "Web UI",
+            "archive_mobile_uiux": "Mobile UI",
+            "archive_coming_desc": "Entry under development — check back soon.",
             
             // Skills section
             "skills_title": "Skills & Expertise",
@@ -338,6 +346,14 @@ document.addEventListener('DOMContentLoaded', function() {
             "archive_ecodemand": "生态需求系统",
             "archive_cozy_ui": "舒适游戏UI设计",
             "archive_coming_soon": "即将更新",
+            "archive_open": "打开文档",
+            "archive_back_home_desc": "《Back Home》完整游戏设计文档：叙事方向、核心机制、进度循环以及关卡拆解。",
+            "archive_party_paidui_desc": "多人派对游戏设计文档 —— 规则系统、小游戏结构以及整局节奏安排。",
+            "archive_ecodemand_desc": "围绕可持续服务平台的 UI/UX 设计系统 —— 包含组件库、用户流程与交互规范的 Figma 源文件。",
+            "archive_cozy_ui_desc": "Cozy 风格游戏的 UI 草案 —— 菜单、HUD 与世界内交互面板。",
+            "archive_web_uiux": "网页端",
+            "archive_mobile_uiux": "移动端",
+            "archive_coming_desc": "条目建设中，敬请期待。",
             
             // Skills section
             "skills_title": "技能与专长",
@@ -709,6 +725,87 @@ document.addEventListener('DOMContentLoaded', function() {
     // Contact form submission is handled natively by Formsubmit.co via the form's
     // action attribute. Browser enforces `required` and `type="email"` validation,
     // and Formsubmit handles delivery + its own spam protection.
+
+    // Archive wiki-style navigation
+    const archiveItems = document.querySelectorAll('.archive-item');
+    const archiveEntries = document.querySelectorAll('.archive-entry');
+    archiveItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const id = this.getAttribute('data-archive-id');
+            archiveItems.forEach(i => i.classList.remove('active'));
+            archiveEntries.forEach(e => e.classList.remove('active'));
+            this.classList.add('active');
+            const entry = document.querySelector(`[data-archive-entry="${id}"]`);
+            if (entry) entry.classList.add('active');
+        });
+    });
+
+    // Archive gallery lightbox (with prev/next navigation)
+    const lightbox = document.getElementById('archive-lightbox');
+    const lightboxImg = document.getElementById('archive-lightbox-img');
+    const lightboxCounter = document.getElementById('archive-lightbox-counter');
+    if (lightbox && lightboxImg) {
+        let currentGroup = [];
+        let currentIndex = 0;
+
+        function showImage(index) {
+            if (!currentGroup.length) return;
+            currentIndex = (index + currentGroup.length) % currentGroup.length;
+            const thumb = currentGroup[currentIndex];
+            lightboxImg.src = thumb.src;
+            lightboxImg.alt = thumb.alt || '';
+            if (lightboxCounter) {
+                lightboxCounter.textContent = `${currentIndex + 1} / ${currentGroup.length}`;
+            }
+        }
+
+        function openLightbox(group, index) {
+            currentGroup = Array.from(group);
+            showImage(index);
+            lightbox.classList.add('active');
+            lightbox.setAttribute('aria-hidden', 'false');
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            lightbox.setAttribute('aria-hidden', 'true');
+            lightboxImg.src = '';
+            currentGroup = [];
+        }
+
+        document.querySelectorAll('.archive-gallery').forEach(gallery => {
+            const thumbs = gallery.querySelectorAll('.archive-gallery-thumb');
+            thumbs.forEach((thumb, i) => {
+                thumb.addEventListener('click', function() {
+                    openLightbox(thumbs, i);
+                });
+            });
+        });
+
+        const prevBtn = lightbox.querySelector('.archive-lightbox-prev');
+        const nextBtn = lightbox.querySelector('.archive-lightbox-next');
+        if (prevBtn) prevBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            showImage(currentIndex - 1);
+        });
+        if (nextBtn) nextBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            showImage(currentIndex + 1);
+        });
+
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox || e.target.classList.contains('archive-lightbox-close')) {
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            else if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
+            else if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+        });
+    }
 
     // Pixel Art Effect for Images
     document.querySelectorAll('.image-placeholder').forEach(placeholder => {

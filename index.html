@@ -613,67 +613,69 @@
         <section class="archive">
             <div class="container">
                 <h2 class="section-title" data-i18n="archive_title">Other Archive</h2>
-                <div class="archive-content">
-                    <div class="archive-category pixel-border">
-                        <h3 data-i18n="archive_gdd">Game Design Documents</h3>
-                        <ul class="archive-list">
-                            <li>
-                                <i class="fas fa-file-alt"></i>
-                                <span data-i18n="archive_back_home_gdd">Back Home - Game Design Document</span>
-                                <a href="https://docs.google.com/document/d/1KvKhpyxZNfu3qTfZFWq6XhXn9dfFgQJ2uG56p0Py3tc/edit?usp=sharing" class="archive-link" data-i18n="archive_view">View</a>
-                            </li>
-                            <li>
-                                <i class="fas fa-file-alt"></i>
-                                <span data-i18n="archive_party_paidui_gdd">Party! Paidui! Fiesta! - Game Design Document</span>
-                                <a href="https://docs.google.com/document/d/1mYObztv9K2MpnWNcOTlbD0vit0fEi5UNTJSMXR29Y7Y/edit?usp=sharing" class="archive-link" data-i18n="archive_view">View</a>
-                            </li>
-                            <li>
-                                <i class="fas fa-file-alt"></i>
-                                <span data-i18n="archive_space_explorers">Coming Soon</span>
-                                <a href="#" class="archive-link" data-i18n="archive_view">View</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="archive-category pixel-border">
-                        <h3 data-i18n="archive_uiux">UI/UX Design</h3>
-                        <ul class="archive-list">
-                            <li>
-                                <i class="fas fa-desktop"></i>
-                                <span data-i18n="archive_ecodemand">EcoDemand System</span>
-                                <a href="https://www.figma.com/design/EbXcmTf5nWJZzNq7WUkGMd/Eco-Savvy?node-id=0-1&t=sNFS96g9RNZXjXqe-1" class="archive-link" data-i18n="archive_view">View</a>
-                            </li>
-                            <li>
-                                <i class="fas fa-desktop"></i>
-                                <span data-i18n="archive_cozy_ui">Cozy Game UI Design</span>
-                                <a href="#" class="archive-link" data-i18n="archive_view">View</a>
-                            </li>
-                            <li>
-                                <i class="fas fa-desktop"></i>
-                                <span data-i18n="archive_coming_soon">Coming Soon</span>
-                                <a href="#" class="archive-link" data-i18n="archive_view">View</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="archive-category pixel-border">
-                        <h3 data-i18n="archive_art">Art & Concept Work</h3>
-                        <ul class="archive-list">
-                            <li>
-                                <i class="fas fa-image"></i>
-                                <span data-i18n="archive_character_concept">Coming Soon</span>
-                                <a href="#" class="archive-link" data-i18n="archive_view">View</a>
-                            </li>
-                            <li>
-                                <i class="fas fa-image"></i>
-                                <span data-i18n="archive_environment_sketches">Coming Soon</span>
-                                <a href="#" class="archive-link" data-i18n="archive_view">View</a>
-                            </li>
-                            <li>
-                                <i class="fas fa-image"></i>
-                                <span data-i18n="archive_uiux_portfolio">Coming Soon</span>
-                                <a href="#" class="archive-link" data-i18n="archive_view">View</a>
-                            </li>
-                        </ul>
-                    </div>
+                <div class="archive-wiki">
+                    <aside class="archive-sidebar pixel-border">
+                        <nav class="archive-nav">
+                            <div class="archive-group">
+                                <h3 class="archive-group-title" data-i18n="archive_uiux">UI/UX Design</h3>
+                                <div class="archive-subgroup">
+                                    <h4 class="archive-subgroup-title"><i class="fas fa-laptop-code"></i><span data-i18n="archive_web_uiux">Web UI</span></h4>
+                                    <ul class="archive-items">
+                                        <li><button type="button" class="archive-item active" data-archive-id="ecodemand"><i class="fas fa-desktop"></i><span data-i18n="archive_ecodemand">EcoDemand System</span></button></li>
+                                    </ul>
+                                </div>
+                                <div class="archive-subgroup">
+                                    <h4 class="archive-subgroup-title"><i class="fas fa-mobile-alt"></i><span data-i18n="archive_mobile_uiux">Mobile UI</span></h4>
+                                    <ul class="archive-items"></ul>
+                                </div>
+                            </div>
+                            <div class="archive-group">
+                                <h3 class="archive-group-title" data-i18n="archive_gdd">Game Design Documents</h3>
+                                <ul class="archive-items">
+                                    <li><button type="button" class="archive-item" data-archive-id="back-home"><i class="fas fa-file-alt"></i><span data-i18n="archive_back_home_gdd">Back Home - Game Design Document</span></button></li>
+                                    <li><button type="button" class="archive-item" data-archive-id="party-paidui"><i class="fas fa-file-alt"></i><span data-i18n="archive_party_paidui_gdd">Party! Paidui! Fiesta! - Game Design Document</span></button></li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </aside>
+
+                    <article class="archive-viewer pixel-border">
+                        <div class="archive-entry active" data-archive-entry="ecodemand">
+                            <span class="archive-entry-tag" data-i18n="archive_uiux">UI/UX Design</span>
+                            <h3 class="archive-entry-title" data-i18n="archive_ecodemand">EcoDemand System</h3>
+                            <div class="archive-entry-body">
+                                <p data-i18n="archive_ecodemand_desc">UI/UX design system for a sustainability-driven service platform — Figma source with component library, flows, and interaction specs.</p>
+                            </div>
+                            <div class="archive-gallery">
+                                <img class="archive-gallery-thumb" src="Ecodemand/dashboard-1.png" alt="EcoDemand dashboard screen 1" loading="lazy">
+                                <img class="archive-gallery-thumb" src="Ecodemand/dashboard-2.png" alt="EcoDemand dashboard screen 2" loading="lazy">
+                                <img class="archive-gallery-thumb" src="Ecodemand/dashboard-3.png" alt="EcoDemand dashboard screen 3" loading="lazy">
+                                <img class="archive-gallery-thumb" src="Ecodemand/dashboard-4.png" alt="EcoDemand dashboard screen 4" loading="lazy">
+                                <img class="archive-gallery-thumb" src="Ecodemand/dashboard-5.png" alt="EcoDemand dashboard screen 5" loading="lazy">
+                                <img class="archive-gallery-thumb" src="Ecodemand/dashboard-6.png" alt="EcoDemand dashboard screen 6" loading="lazy">
+                            </div>
+                            <a href="https://www.figma.com/design/EbXcmTf5nWJZzNq7WUkGMd/Eco-Savvy?node-id=0-1&t=sNFS96g9RNZXjXqe-1" class="archive-entry-link pixel-btn primary-btn" target="_blank" rel="noopener noreferrer" data-i18n="archive_open">Open in Figma</a>
+                        </div>
+
+                        <div class="archive-entry" data-archive-entry="back-home">
+                            <span class="archive-entry-tag" data-i18n="archive_gdd">Game Design Documents</span>
+                            <h3 class="archive-entry-title" data-i18n="archive_back_home_gdd">Back Home - Game Design Document</h3>
+                            <div class="archive-entry-body">
+                                <p data-i18n="archive_back_home_desc">Full design document for Back Home: narrative direction, core mechanics, progression loops, and level breakdowns.</p>
+                            </div>
+                            <a href="https://docs.google.com/document/d/1KvKhpyxZNfu3qTfZFWq6XhXn9dfFgQJ2uG56p0Py3tc/edit?usp=sharing" class="archive-entry-link pixel-btn primary-btn" target="_blank" rel="noopener noreferrer" data-i18n="archive_open">Open Document</a>
+                        </div>
+
+                        <div class="archive-entry" data-archive-entry="party-paidui">
+                            <span class="archive-entry-tag" data-i18n="archive_gdd">Game Design Documents</span>
+                            <h3 class="archive-entry-title" data-i18n="archive_party_paidui_gdd">Party! Paidui! Fiesta! - Game Design Document</h3>
+                            <div class="archive-entry-body">
+                                <p data-i18n="archive_party_paidui_desc">GDD for a multiplayer party game — rule systems, minigame structure, and session-level pacing.</p>
+                            </div>
+                            <a href="https://docs.google.com/document/d/1mYObztv9K2MpnWNcOTlbD0vit0fEi5UNTJSMXR29Y7Y/edit?usp=sharing" class="archive-entry-link pixel-btn primary-btn" target="_blank" rel="noopener noreferrer" data-i18n="archive_open">Open Document</a>
+                        </div>
+
+                    </article>
                 </div>
             </div>
         </section>
@@ -994,3 +996,12 @@
             </div>
         </div>
     </footer>
+
+    <!-- Image Lightbox (used by archive gallery) -->
+    <div id="archive-lightbox" class="archive-lightbox" role="dialog" aria-modal="true" aria-hidden="true">
+        <button type="button" class="archive-lightbox-close" aria-label="Close">×</button>
+        <button type="button" class="archive-lightbox-nav archive-lightbox-prev" aria-label="Previous image">‹</button>
+        <img id="archive-lightbox-img" class="archive-lightbox-img" alt="">
+        <button type="button" class="archive-lightbox-nav archive-lightbox-next" aria-label="Next image">›</button>
+        <div class="archive-lightbox-counter" id="archive-lightbox-counter"></div>
+    </div>

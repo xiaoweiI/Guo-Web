@@ -13,6 +13,18 @@
 
 ### Removed
 - Contact 页面右侧的社交图标只保留 LinkedIn，指向 `https://www.linkedin.com/in/xiaowei-guo`（`target="_blank"` + `rel="noopener noreferrer"`）；移除原占位的 Twitter / GitHub / Instagram 空链接（`index.html`）
+- Archive 旧的三列网格卡片布局（`.archive-content` / `.archive-category` / `.archive-list` / `.archive-link`）CSS 全部删除，HTML 也随之替换（`index.html`、`pixel-style.css`）
+
+### Changed（续）
+- Archive 页面改造为维基式双栏布局：左侧 `.archive-sidebar` 是按 GDD / UI/UX / Art 分组的条目列表（`.archive-item` 为可点击按钮），右侧 `.archive-viewer` 常驻展示所选条目的详情（分类 tag、标题、描述段、外链按钮）；沿用站点 `pixel-border`、粉/紫/蓝三色、`Press Start 2P` / `Zpix` 字体保持风格一致；默认激活第一条 "Back Home"；左侧 sticky、内部可滚动；移动端自动折叠为单列（`index.html`、`pixel-style.css`、`pixel-script.js`）
+- Archive 新增 i18n 键：`archive_open`（打开文档）以及各真实条目的 `*_desc` 简介与通用 `archive_coming_desc`，中英文双语（`pixel-script.js`）
+- Archive 的 UI/UX 分组新增两个条目：**Web UI/UX**（`fa-laptop-code` 图标）与 **Mobile UI/UX**（`fa-mobile-alt` 图标），放在 EcoDemand / Cozy UI 之后、Coming Soon 之前；中英文标题 + 描述双语 i18n（`index.html`、`pixel-script.js`）
+- Archive 全面清理 Coming Soon 占位：GDD 组内移除 `space-explorers`、UI/UX 组内移除 `uiux-coming`；由于 Art & Concept Work 分类下所有三条都是 Coming Soon，整个分组（标题 + 三个条目 + 三个详情面板）直接删除；之前常驻在 `archive-viewer` 的对应 5 个详情 `<div>` 一并清除。未引用的 i18n 键（`archive_coming_soon` / `archive_coming_desc` / `archive_art` / `archive_space_explorers` / `archive_character_concept` / `archive_environment_sketches` / `archive_uiux_portfolio`）保留在字典中，便于后续重新启用（`index.html`）
+- Archive 分组顺序调整：UI/UX Design 提到前面，Game Design Documents 移到后面；默认激活条目相应从 `back-home` 切换到 `ecodemand`（侧栏 `active` 类与右侧 `archive-entry active` 类同步更新，viewer 内 DOM 顺序也一并对齐到侧栏顺序）（`index.html`）
+- Archive EcoDemand 条目加入 6 张实际设计截图画廊：`Ecodemand/` 目录下原文件名 `Dashboard  #N.png`（含空格与 `#`，URL 不安全）重命名为 `dashboard-1..6.png`；在 `.archive-entry` 内新增 `.archive-gallery` 响应式缩略图网格（像素风紫边 + 蓝色偏移阴影，hover 漂移换粉色阴影，`image-rendering: auto` 覆盖全局 pixelated 防止 UI 截图糊掉）；新增轻量 lightbox 覆盖层（`#archive-lightbox`）：点击缩略图打开全尺寸、点击遮罩 / 关闭按钮 / ESC 键关闭（`index.html`、`pixel-style.css`、`pixel-script.js`、`Ecodemand/*.png` 文件重命名）
+- Lightbox 增加上一张 / 下一张导航：左右两侧蓝色像素风 `‹` / `›` 方向按钮（hover 漂移、粉色阴影），底部居中显示 `1 / 6` 当前进度计数器；键盘 ← / → 循环切换、ESC 关闭；点击缩略图时记录该缩略图所在的 `.archive-gallery` 组与索引，后续 prev/next 在组内循环（`index.html`、`pixel-style.css`、`pixel-script.js`）
+- Archive UI/UX 分组移除 Cozy Game UI Design 条目（侧栏按钮 + 右侧详情面板）；i18n 键 `archive_cozy_ui` / `archive_cozy_ui_desc` 保留在字典中备用（`index.html`）
+- Archive UI/UX 分组重构为两级分类：**Web UI** 与 **Mobile UI** 改为 `.archive-subgroup` 子分类标题（蓝色 + 虚线下划线，比 group-title 小一号），不再是可点击项目；EcoDemand System 移到 Web UI 子分类下；Mobile UI 子分类暂无项目，保留标题占位；移除原来作为条目存在的 `web-uiux` / `mobile-uiux` 详情面板；i18n `archive_web_uiux` / `archive_mobile_uiux` 改为 "Web UI" / "Mobile UI"（中文："网页端" / "移动端"），删除不再用的 `*_desc` 键（`index.html`、`pixel-style.css`、`pixel-script.js`）
 
 ### Changed
 - 导航栏与首页标题：英文 "Game Portfolio" → "Portfolio"，中文 "游戏作品 / 游戏作品集" → "作品集"（`index.html`、`game-detail.html`、`script.js`、`pixel-script.js`）

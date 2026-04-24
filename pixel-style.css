@@ -947,68 +947,352 @@ html[lang="zh"] .cta-buttons .pixel-btn {
         4px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Archive Section */
-.archive-content {
+/* Archive — Wiki Layout */
+.archive-wiki {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: 300px 1fr;
     gap: 30px;
+    align-items: start;
 }
 
-.archive-category {
+.archive-sidebar {
     background-color: var(--primary-color);
-    padding: 20px;
+    padding: 24px 20px;
+    max-height: calc(100vh - 220px);
+    overflow-y: auto;
+    position: sticky;
+    top: 110px;
 }
 
-.archive-category h3 {
-    margin-bottom: 20px;
+.archive-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.archive-group-title {
+    margin-bottom: 12px;
+    padding-bottom: 8px;
     color: var(--secondary-color-purple);
     border-bottom: var(--pixel-size) solid var(--light-color);
-    padding-bottom: 10px;
-    font-size: 1.2rem;
+    font-family: 'Press Start 2P', 'Zpix', cursive;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
 }
 
-.archive-list {
-    list-style: none;
+html[lang="zh"] .archive-group-title {
+    font-family: 'Zpix', 'Press Start 2P', monospace;
+    font-size: 1rem;
 }
 
-.archive-list li {
+.archive-subgroup {
+    margin-top: 10px;
+}
+
+.archive-subgroup + .archive-subgroup {
+    margin-top: 16px;
+}
+
+.archive-subgroup-title {
+    margin: 0 0 8px 4px;
+    padding-bottom: 4px;
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid var(--light-color);
-}
-
-.archive-list li:last-child {
-    margin-bottom: 0;
-    padding-bottom: 0;
-    border-bottom: none;
-}
-
-.archive-list i {
-    margin-right: 10px;
+    gap: 8px;
     color: var(--secondary-color-blue);
-    font-size: 1.2rem;
+    border-bottom: 2px dashed var(--light-color);
+    font-family: 'Press Start 2P', 'Zpix', cursive;
+    font-size: 0.6rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
-.archive-list span {
+html[lang="zh"] .archive-subgroup-title {
+    font-family: 'Zpix', 'Press Start 2P', monospace;
+    font-size: 0.9rem;
+    text-transform: none;
+}
+
+.archive-subgroup-title i {
+    color: var(--secondary-color-blue);
+    font-size: 0.8rem;
+}
+
+.archive-subgroup .archive-item {
+    padding-left: 20px;
+}
+
+.archive-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+}
+
+.archive-items li {
+    margin: 0;
+}
+
+.archive-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    background: transparent;
+    border: none;
+    border-left: var(--pixel-size) solid transparent;
+    color: var(--dark-color);
+    font-family: 'Press Start 2P', 'Zpix', cursive;
+    font-size: 0.55rem;
+    line-height: 1.7;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+html[lang="zh"] .archive-item {
+    font-family: 'Zpix', 'Press Start 2P', monospace;
+    font-size: 0.85rem;
+}
+
+.archive-item i {
+    flex-shrink: 0;
+    color: var(--secondary-color-blue);
+    font-size: 0.95rem;
+}
+
+.archive-item span {
     flex: 1;
 }
 
-.archive-link {
-    padding: 5px 10px;
+.archive-item:hover {
     background-color: var(--light-color);
-    text-decoration: none;
-    color: var(--dark-color);
-    font-weight: 600;
-    transition: var(--transition);
-    font-family: 'Press Start 2P', cursive;
-    font-size: 0.6rem;
+    color: var(--secondary-color-purple);
 }
 
-.archive-link:hover {
-    background-color: var(--secondary-color-purple);
+.archive-item.active {
+    background-color: var(--light-color);
+    border-left-color: var(--secondary-color-pink);
+    color: var(--secondary-color-purple);
+}
+
+.archive-item.active i {
+    color: var(--secondary-color-pink);
+}
+
+/* Viewer (right pane) */
+.archive-viewer {
+    background-color: var(--primary-color);
+    padding: 32px;
+    min-height: 420px;
+}
+
+.archive-entry {
+    display: none;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.archive-entry.active {
+    display: flex;
+}
+
+.archive-entry-tag {
+    align-self: flex-start;
+    padding: 5px 12px;
+    background-color: var(--secondary-color-pink);
     color: white;
+    font-family: 'Press Start 2P', 'Zpix', cursive;
+    font-size: 0.55rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+html[lang="zh"] .archive-entry-tag {
+    font-family: 'Zpix', 'Press Start 2P', monospace;
+    font-size: 0.8rem;
+    text-transform: none;
+}
+
+.archive-entry-title {
+    margin: 0;
+    color: var(--dark-color);
+    font-size: 1.3rem;
+    line-height: 1.4;
+    letter-spacing: 0.5px;
+}
+
+.archive-entry-body {
+    padding: 18px 0;
+    border-top: 2px dashed var(--light-color);
+    border-bottom: 2px dashed var(--light-color);
+    color: var(--text-color);
+    line-height: 1.8;
+}
+
+.archive-entry-body p {
+    margin: 0;
+}
+
+.archive-entry-link {
+    align-self: flex-start;
+    margin-top: 4px;
+    text-decoration: none;
+    font-size: 0.7rem;
+}
+
+html[lang="zh"] .archive-entry-link {
+    font-family: 'Zpix', 'Press Start 2P', monospace;
+    font-size: 0.95rem;
+}
+
+/* Archive gallery (screenshots inside an entry) */
+.archive-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+    margin-top: 4px;
+}
+
+.archive-gallery-thumb {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border: var(--pixel-size) solid var(--secondary-color-purple);
+    box-shadow: 4px 4px 0 var(--secondary-color-blue);
+    cursor: zoom-in;
+    image-rendering: auto;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.archive-gallery-thumb:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--secondary-color-pink);
+}
+
+/* Lightbox overlay */
+.archive-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 18, 30, 0.92);
+    z-index: 10000;
+    padding: 60px 40px;
+    align-items: center;
+    justify-content: center;
+}
+
+.archive-lightbox.active {
+    display: flex;
+}
+
+.archive-lightbox-img {
+    max-width: 100%;
+    max-height: 100%;
+    image-rendering: auto;
+    border: var(--pixel-size) solid var(--secondary-color-purple);
+    box-shadow:
+        var(--pixel-size) var(--pixel-size) 0 var(--secondary-color-blue),
+        calc(var(--pixel-size) * -1) calc(var(--pixel-size) * -1) 0 var(--secondary-color-pink);
+}
+
+.archive-lightbox-close {
+    position: fixed;
+    top: 24px;
+    right: 32px;
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--secondary-color-pink);
+    color: white;
+    border: none;
+    font-family: 'Press Start 2P', 'Zpix', cursive;
+    font-size: 1.2rem;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 3px 3px 0 var(--secondary-color-purple);
+    z-index: 10001;
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.archive-lightbox-close:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 var(--secondary-color-blue);
+}
+
+.archive-lightbox-close:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0 var(--secondary-color-purple);
+}
+
+.archive-lightbox-nav {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 56px;
+    height: 56px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--secondary-color-blue);
+    color: white;
+    border: none;
+    font-family: 'Press Start 2P', 'Zpix', cursive;
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 3px 3px 0 var(--secondary-color-purple);
+    z-index: 10001;
+    transition: transform 0.1s, box-shadow 0.1s, background 0.15s;
+}
+
+.archive-lightbox-prev { left: 24px; }
+.archive-lightbox-next { right: 24px; }
+
+.archive-lightbox-nav:hover {
+    background: var(--secondary-color-purple);
+    box-shadow: 5px 5px 0 var(--secondary-color-pink);
+}
+
+.archive-lightbox-nav:active {
+    box-shadow: 1px 1px 0 var(--secondary-color-purple);
+}
+
+.archive-lightbox-prev:hover { transform: translate(-2px, -50%); }
+.archive-lightbox-next:hover { transform: translate(2px, -50%); }
+.archive-lightbox-prev:active { transform: translate(1px, -50%); }
+.archive-lightbox-next:active { transform: translate(-1px, -50%); }
+
+.archive-lightbox-counter {
+    position: fixed;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 6px 14px;
+    background: var(--secondary-color-purple);
+    color: white;
+    font-family: 'Press Start 2P', 'Zpix', cursive;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    box-shadow: 3px 3px 0 var(--secondary-color-blue);
+    z-index: 10001;
+}
+
+@media (max-width: 640px) {
+    .archive-lightbox-nav {
+        width: 44px;
+        height: 44px;
+        font-size: 1.2rem;
+    }
+    .archive-lightbox-prev { left: 12px; }
+    .archive-lightbox-next { right: 12px; }
 }
 
 /* Skills Section */
@@ -1406,8 +1690,13 @@ html[lang="zh"] .footer-bottom p {
     }
     
     .games-grid,
-    .archive-content,
+    .archive-wiki,
     .skills-grid {
         grid-template-columns: 1fr;
+    }
+
+    .archive-sidebar {
+        position: static;
+        max-height: none;
     }
 }
