@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Xiaowei Guo — Game Designer Résumé</title>
+<style>
+    :root {
+        --ink: #1a1a1a;
+        --dim: #444;
+        --accent: #3b3b8f;
+        --rule: #c9c9c9;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body {
+        font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        color: var(--ink);
+        font-size: 9.7pt;
+        line-height: 1.38;
+        background: #f0f0f0;
+    }
+    .sheet {
+        width: 8.5in;
+        min-height: 11in;
+        margin: 24px auto;
+        padding: 0.48in 0.55in;
+        background: #fff;
+        box-shadow: 0 2px 14px rgba(0,0,0,0.18);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* header */
+    h1 {
+        font-size: 21pt;
+        letter-spacing: 0.5px;
+        text-align: center;
+        line-height: 1.15;
+    }
+    .headline {
+        text-align: center;
+        font-size: 10.5pt;
+        color: var(--accent);
+        font-weight: 600;
+        margin-top: 2px;
+        letter-spacing: 0.3px;
+    }
+    .contact {
+        text-align: center;
+        font-size: 8.8pt;
+        color: var(--dim);
+        margin-top: 4px;
+    }
+    .contact span { white-space: nowrap; }
+    .contact .sep { color: #999; margin: 0 5px; }
+
+    /* sections */
+    h2 {
+        font-size: 10.5pt;
+        text-transform: uppercase;
+        letter-spacing: 1.2px;
+        color: var(--ink);
+        border-bottom: 1.4px solid var(--ink);
+        padding-bottom: 2px;
+        margin: 11px 0 6px;
+    }
+    .entry { margin-bottom: 7px; }
+    .entry-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 10px;
+    }
+    .entry-title { font-size: 10pt; }
+    .entry-title strong { font-weight: 700; }
+    .entry-title .role { color: var(--accent); font-weight: 600; }
+    .entry-title .loc { color: var(--dim); font-weight: 400; }
+    .dates {
+        font-size: 8.8pt;
+        color: var(--dim);
+        white-space: nowrap;
+        font-weight: 600;
+    }
+    ul { margin: 2px 0 0 16px; }
+    li { margin-bottom: 1.5px; }
+    li::marker { color: var(--accent); }
+    .reflink { font-size: 8.6pt; }
+
+    /* two-column bottom block */
+    .cols {
+        display: flex;
+        gap: 28px;
+    }
+    .cols > div { flex: 1; }
+    .skills-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 18px;
+        row-gap: 1.5px;
+        font-size: 9.3pt;
+    }
+    .skills-grid .lead { font-weight: 600; }
+    .plist { list-style: none; margin-left: 0; }
+    .plist li { margin-bottom: 2px; }
+    .plist .tagline { color: var(--dim); }
+
+    /* screen-only helper bar */
+    .printbar {
+        max-width: 8.5in;
+        margin: 18px auto 0;
+        padding: 10px 16px;
+        background: #fff8e1;
+        border: 1px solid #e6c860;
+        border-radius: 6px;
+        font-size: 13px;
+        color: #6b5900;
+    }
+    .printbar b { color: #4a3e00; }
+
+    @media print {
+        body { background: #fff; }
+        .sheet { margin: 0; box-shadow: none; width: auto; min-height: auto; padding: 0; }
+        .printbar { display: none; }
+        @page { size: letter; margin: 0.45in 0.5in; }
+        a { color: var(--accent); }
+    }
+</style>
+</head>
+<body>
+<div class="printbar">
+    🖨️ <b>转成 PDF：</b>Ctrl+P → 目标选 "另存为 PDF / Save as PDF" → 勾选"背景图形" → 保存为 <b>resume.pdf</b>，放进网站的 <b>assets/</b> 文件夹即可。这个黄条不会被打印。
+</div>
+<div class="sheet">
+
+    <h1>Xiaowei (Violet) Guo</h1>
+    <div class="headline">Game Designer — AI-Native Play · Systems &amp; Narrative Design</div>
+    <div class="contact">
+        <span><a href="mailto:guoxiaowei723@gmail.com">guoxiaowei723@gmail.com</a></span><span class="sep">|</span>
+        <span>Portfolio: <a href="https://xiaoweii.github.io/Guo-Web/">xiaoweii.github.io/Guo-Web</a></span><span class="sep">|</span>
+        <span><a href="https://www.linkedin.com/in/xiaowei-guo">linkedin.com/in/xiaowei-guo</a></span><span class="sep">|</span>
+        <span>+1 765 701 8635</span><span class="sep">|</span>
+        <span>Boston, MA (open to relocate)</span>
+    </div>
+
+    <h2>Education</h2>
+    <div class="entry">
+        <div class="entry-head">
+            <div class="entry-title"><strong>Northeastern University</strong> — MS, Game Design</div>
+            <div class="dates">Sept 2023 – Dec 2025</div>
+        </div>
+    </div>
+    <div class="entry">
+        <div class="entry-head">
+            <div class="entry-title"><strong>Purdue University</strong> — BS, Applied Mathematics</div>
+            <div class="dates">Sept 2018 – June 2023</div>
+        </div>
+    </div>
+
+    <h2>Work Experience</h2>
+
+    <div class="entry">
+        <div class="entry-head">
+            <div class="entry-title"><strong>Petch</strong> <span class="loc">| Irvine, CA |</span> <span class="role">Game Designer</span> <span class="reflink"><a href="https://xiaoweii.github.io/Guo-Web/game-detail.html?id=petch">Case Study ↗</a></span></div>
+            <div class="dates">Jul 2025 – Present</div>
+        </div>
+        <ul>
+            <li><b>Architected</b> pet personality and MBTI-based systems (<b>16 personality archetypes</b>), introducing a roguelike PvP mode combined with a 16-tile match-style mechanic — personality-driven builds, strategic trait pairing, and high replayability in social PvP.</li>
+            <li><b>Prototyped</b> personality-driven interactions in Unity, React Native, and C#, with UI/UX flows designed in Figma and Canvas.</li>
+            <li><b>Playtested</b> with <b>~1,000 players</b> in the first year; iterated systems on live feedback with product managers, gameplay engineers, and UI/UX designers.</li>
+        </ul>
+    </div>
+
+    <div class="entry">
+        <div class="entry-head">
+            <div class="entry-title"><strong>DraMai.AI</strong> <span class="loc">| Burlingame, CA |</span> <span class="role">AI Game Designer (Cuboid.AI)</span> <span class="reflink"><a href="https://xiaoweii.github.io/Guo-Web/game-detail.html?id=dramai-ai">Case Study ↗</a></span></div>
+            <div class="dates">Apr – Jul 2025</div>
+        </div>
+        <ul>
+            <li><b>Designed and prototyped</b> multi-agent interactive narrative systems (<b>~10 agents across 2 live scenes</b>), defining emotional logic, role constraints, and conflict rules; developed prompt guardrails that reduced hallucination and out-of-character behavior, keeping narration aligned with gameplay objectives.</li>
+            <li><b>Collaborated</b> with the AI developer team on the platform's storytelling and gameplay foundation; produced image/art via Lovart, Veo3, Keling, and GPT; flowcharts and UX planning in Figma.</li>
+        </ul>
+    </div>
+
+    <div class="entry">
+        <div class="entry-head">
+            <div class="entry-title"><strong>Game of Thrones: Winter is Coming</strong> <span class="loc">| Hangzhou, China |</span> <span class="role">NetEase Games — AI Designer</span> <span class="reflink"><a href="https://xiaoweii.github.io/Guo-Web/game-detail.html?id=got-winter-is-coming">Case Study ↗</a></span></div>
+            <div class="dates">Aug – Sept 2024</div>
+        </div>
+        <ul>
+            <li><b>Designed and tuned</b> combat AI for NPCs and bots — decision-making logic, threat evaluation, and combat pacing across multiple encounter types.</li>
+            <li><b>Implemented</b> AI behaviors in Unity (C#); mapped feature flows and communication artifacts in Figma; reviewed progress with AI engineers, combat system designers, and project leads.</li>
+        </ul>
+    </div>
+
+    <div class="entry">
+        <div class="entry-head">
+            <div class="entry-title"><strong>Revelation</strong> <span class="loc">| Hangzhou, China |</span> <span class="role">NetEase Games — Game Narrative Designer</span> <span class="reflink"><a href="https://xiaoweii.github.io/Guo-Web/game-detail.html?id=revelation">Case Study ↗</a></span></div>
+            <div class="dates">Jan – Mar 2021</div>
+        </div>
+        <ul>
+            <li><b>Developed</b> character kits and narrative arcs for a mobile MMO RPG, aligning story, abilities, and worldbuilding with narrative directors and gameplay designers.</li>
+            <li><b>Authored and maintained</b> narrative documentation in Excel, Twine, and in-house scripting tools.</li>
+        </ul>
+    </div>
+
+    <div class="entry">
+        <div class="entry-head">
+            <div class="entry-title"><strong>New Smiling Proud Wanderer</strong> <span class="loc">| Hangzhou, China |</span> <span class="role">JOYPORT Tech. — Game Tester</span></div>
+            <div class="dates">Dec 2019 – Jan 2020</div>
+        </div>
+        <ul>
+            <li><b>Conducted</b> structured playtests — logged bugs with repro steps and severity in proprietary tools and Excel; delivered balance and UX feedback to QA leads and developers.</li>
+        </ul>
+    </div>
+
+    <h2>Project Experience</h2>
+
+    <div class="entry">
+        <div class="entry-head">
+            <div class="entry-title"><strong>Quoted Out!</strong> — Global Game Jam 2024 <span class="loc">|</span> <span class="role">Main Designer / Team Lead</span> <span class="reflink"><a href="https://xiaoweii.github.io/Guo-Web/game-detail.html?id=quoted-out">Case Study ↗</a></span></div>
+            <div class="dates">2024</div>
+        </div>
+        <ul>
+            <li>Designed the montage-editing core mechanic and full gameplay/narrative systems for a comedy party game; led a small team (single artist) across all non-technical work.</li>
+        </ul>
+    </div>
+
+    <div class="entry">
+        <div class="entry-head">
+            <div class="entry-title"><strong>AI Adoption</strong> — Global Game Jam 2023 <span class="loc">|</span> <span class="role">Main Designer / Team Lead</span> <span class="reflink"><a href="https://xiaoweii.github.io/Guo-Web/game-detail.html?id=ai-adoption">Case Study ↗</a></span></div>
+            <div class="dates">2023</div>
+        </div>
+        <ul>
+            <li>Created story and core mechanics for a suspense game under the "Behind You" theme; managed design vision and team execution.</li>
+        </ul>
+    </div>
+
+    <div class="cols" style="margin-top: 4px;">
+        <div>
+            <h2>Other Projects</h2>
+            <ul class="plist">
+                <li><a href="https://xiaoweii.github.io/Guo-Web/game-detail.html?id=princess-lianan"><b>Princess Lianan</b></a> <span class="tagline">— Published</span></li>
+                <li><a href="https://xiaoweii.github.io/Guo-Web/game-detail.html?id=above-fountain"><b>Above the Fountain</b></a> <span class="tagline">— Published</span></li>
+                <li><a href="https://xiaoweii.github.io/Guo-Web/game-detail.html?id=silent-majority"><b>The Silent Majority</b></a> <span class="tagline">— Published</span></li>
+                <li><a href="https://xiaoweii.github.io/Guo-Web/game-detail.html?id=beneath-ruins"><b>Beneath the Ruins</b></a> <span class="tagline">— Physical Board Game</span></li>
+                <li><a href="https://xiaoweii.github.io/Guo-Web/game-detail.html?id=falling-kingdom"><b>Falling Kingdom</b></a> <span class="tagline">— Physical Board Game</span></li>
+            </ul>
+            <h2>Languages</h2>
+            <div>Chinese (native) · English (fluent)</div>
+        </div>
+        <div>
+            <h2>Skills &amp; Programs</h2>
+            <div class="skills-grid">
+                <span class="lead">Gameplay Design</span><span>Unity Engine</span>
+                <span class="lead">Mechanics Design</span><span>Unreal Engine</span>
+                <span class="lead">AI Behavior &amp; Agents</span><span>C# / C++</span>
+                <span class="lead">Interactive Storytelling</span><span>Figma</span>
+                <span class="lead">Level Design</span><span>Photoshop</span>
+                <span class="lead">Storytelling</span><span>Blender</span>
+                <span class="lead">Prototyping</span><span>Midjourney</span>
+                <span class="lead">Organizational Skill</span><span>Twine</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

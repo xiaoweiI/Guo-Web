@@ -6,6 +6,21 @@
 
 ## [Unreleased]
 
+### Changed
+- 像素风 2.0（精致化重做，忠于原版粉彩语言，保留翻页式导航）：`pixel-style.css` 从头重写为一套有纪律的设计系统 —— 沿用原版的淡紫纸底（`#e9e6f7`）+ 菱形几何背景 + 白色卡片 + **紫边（`#9376e0`）粉影（`#ff9eaa`）签名描边** + 蓝（`#5f85db`）/粉双色按钮，调色板以 CSS 变量锁定；4px 网格（所有边框/阴影偏移/间距均为 4px 倍数）、统一硬阴影（无模糊）、`steps()` 像素化过渡、hover 时粉影翻蓝
+- 新增复古 OS 窗口组件：任何带 `data-win` 属性的元素自动获得像素标题栏（渐变紫 + 文件名 + 三个窗口按钮）；作品卡、轮播、Archive 阅读器、联系表单、About 照片均窗口化（如 `dramai.exe`、`send_message.exe`、`violet_guo.png`）
+- 字体分层：Press Start 2P 仅用于标题/按钮/窗口标题，正文改用 VT323（可读性大幅提升）；中文整体走 Zpix；`--f-head` / `--f-body` 变量按语言切换
+- 首屏改为"开机画面"：保留打字机效果，定位语改为 "GAME DESIGNER · AI-NATIVE PLAY"，副文案一句话概括 Dramai.AI 主设计师 + 5 年经验，新增三个精选作品迷你窗口直达详情页；About 自我介绍同步改为具体的求职向文案（中英双语）
+- 特效收敛：CRT 扫描线降为全局低强度静态叠加；删除页面对 `low-poly-bg.css`、`controller-pattern.css`、`global-bg.css`、`retro-crt.css`、`management-game-bg.js`、`particle-animation.js` 的引用（文件保留未删）；`prefers-reduced-motion` 下关闭全部动画
+- 卸载遗留的 `script.js`（与 `pixel-script.js` 完全重复的旧版：旧翻译字典会覆盖新文案、汉堡菜单被双重绑定抵消）
+- 全部图片压缩至 `assets/img/`（首页资源 30MB+ 降到约 4MB，10MB 头像降到 57KB），原图保留在原位；`index.html` 与 `game-detail.js` 引用已切换
+- SEO 补全：两页语义化 `<title>`、meta description、Open Graph 卡片、canonical、像素风 SVG favicon（`assets/favicon.svg`）
+- 详情页 `game-detail.css` 按新令牌重写；画廊不再重复展示主图（单图项目自动隐藏画廊）；跳过 `#` 占位链接
+- i18n：`?lang=zh|en` URL 参数可直接指定语言（便于分享中文版链接）；修正 Party! Paidui! Fiesta! 过期的"开发中"描述
+
+### Fixed
+- 修复 `header nav` 选择器误伤 Archive 侧栏 `<nav class="archive-nav">` 导致分组并排挤压的问题
+
 ## [1.0.0] - 2026-04-23
 
 本版本为个人作品集站点从旧版三列卡片布局到像素风维基式 Archive + 中文像素字体 + 可工作的 Contact 表单的整体跃迁，奠定 1.0 形态。

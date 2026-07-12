@@ -3,27 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Pixel Art Portfolio</title>
-    <link rel="stylesheet" href="global-bg.css">
+    <title>Violet Guo · Game Designer</title>
+    <meta name="description" content="Pixel portfolio of Violet Guo, game designer crafting AI-native play. Currently at Petch; credits across NetEase Games (GoT: Winter is Coming, Revelation), Dramai.AI, and award-winning game jams.">
+    <link rel="canonical" href="https://xiaoweii.github.io/Guo-Web/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Violet Guo · Game Designer">
+    <meta property="og:description" content="Game designer crafting AI-native play. Currently at Petch; credits across NetEase Games, Dramai.AI, and award-winning game jams.">
+    <meta property="og:url" content="https://xiaoweii.github.io/Guo-Web/">
+    <meta property="og:image" content="https://xiaoweii.github.io/Guo-Web/assets/img/dramai.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="pixel-style.css">
-    <link rel="stylesheet" href="low-poly-bg.css">
-    <link rel="stylesheet" href="retro-crt.css">
-    <link rel="stylesheet" href="controller-pattern.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
     <script src="pixel-script.js" defer></script>
-    <script src="management-game-bg.js" defer></script>
-    <script src="particle-animation.js" defer></script>
     <script src="typing-effect.js" defer></script>
-    <script src="script.js" defer></script>
 </head>
 <body>
     <!-- Header Section -->
     <header>
         <div class="container">
-            <h1 class="logo">My Portfolio</h1>
-            <nav>
-                <ul class="nav-links">
+            <a class="logo" href="#home" aria-label="Violet Guo, Home">VIOLET GUO</a>
+            <nav aria-label="Primary navigation">
+                <ul id="primary-navigation" class="nav-links">
                     <li><a href="#home" data-page="home" data-i18n="nav_home">Home</a></li>
                     <li><a href="#about" data-page="about" data-i18n="nav_about">About</a></li>
                     <li><a href="#games" data-page="games" data-i18n="nav_games">Portfolio</a></li>
@@ -31,32 +35,46 @@
                     <li><a href="#skills" data-page="skills" data-i18n="nav_skills">Skills</a></li>
                     <li><a href="#contact" data-page="contact" data-i18n="nav_contact">Contact</a></li>
                 </ul>
-                <button id="langSwitcher" class="lang-switcher">中文</button>
-                <div class="hamburger">
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                </div>
+                <button id="langSwitcher" class="lang-switcher" type="button" aria-label="Switch language">中文</button>
+                <button class="hamburger" type="button" aria-label="Open navigation" aria-controls="primary-navigation" aria-expanded="false">
+                    <span class="bar" aria-hidden="true"></span>
+                    <span class="bar" aria-hidden="true"></span>
+                    <span class="bar" aria-hidden="true"></span>
+                </button>
             </nav>
         </div>
     </header>
 
+    <main id="main-content">
     <!-- Home Page -->
     <div id="home-page" class="page active">
         <section class="hero">
             <div class="container">
                 <div class="hero-content">
                     <h1><span data-i18n="hero_hello">Hello, I'm</span> <span class="highlight">violet</span></h1>
-                    <h2 data-i18n="hero_title">Creative Designer & System Builder</h2>
-                    <p data-i18n="hero_welcome">Welcome to my personal portfolio website showcasing my work and passion for creative design and systematic thinking.</p>
+                    <h2 data-i18n="hero_title">GAME DESIGNER · AI-NATIVE PLAY</h2>
+                    <p data-i18n="hero_welcome">Game designer at Petch. Credits across NetEase Games, AI-native startups, and award-winning game jams.</p>
                     <div class="cta-buttons">
                         <a href="#games" data-page="games" class="pixel-btn primary-btn" data-i18n="hero_view_work">View My Work</a>
+                        <a href="assets/resume.pdf" class="pixel-btn secondary-btn" data-i18n="hero_resume" download>Download Résumé</a>
                         <a href="#contact" data-page="contact" class="pixel-btn secondary-btn" data-i18n="hero_contact">Contact Me</a>
+                    </div>
+                    <div class="hero-featured">
+                        <a class="mini-win" data-win="dramai.exe" href="game-detail.html?id=dramai-ai">
+                            <img src="assets/img/dramai.jpg" alt="Dramai.AI">
+                            <span data-i18n="game_dramai_title">Dramai.AI</span>
+                        </a>
+                        <a class="mini-win" data-win="got_winter.exe" href="game-detail.html?id=got-winter-is-coming">
+                            <img src="assets/img/got-1.jpg" alt="Game of Thrones: Winter is Coming">
+                            <span data-i18n="game_got_title">Game of Thrones: Winter is Coming</span>
+                        </a>
+                        <a class="mini-win" data-win="petch.exe" href="game-detail.html?id=petch">
+                            <img src="assets/img/petch.jpg" alt="Petch">
+                            <span data-i18n="game_petch_title">Petch</span>
+                        </a>
                     </div>
                 </div>
             </div>
-            
-            <!-- Floating pixel boxes will be added by JavaScript -->
         </section>
         
         <div class="container">
@@ -73,15 +91,15 @@
                 <h2 class="section-title" data-i18n="about_title">About Me</h2>
                 <div class="about-content">
                     <div class="about-image">
-                        <div class="image-placeholder profile-photo-container">
-                            <img src="profile photo pixel.png" alt="Pixelated Profile Photo" class="profile-photo pixel-photo" style="width: 100%; height: 100%; object-fit: cover;">
-                            <img src="Profile Photo.jpg" alt="Profile Photo" class="profile-photo real-photo" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="image-placeholder profile-photo-container" data-win="violet_guo.png">
+                            <img src="assets/img/profile-pixel.jpg" alt="Pixelated Profile Photo" class="profile-photo pixel-photo" style="width: 100%; height: 100%; object-fit: cover;">
+                            <img src="assets/img/profile.jpg" alt="Profile Photo" class="profile-photo real-photo" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                     </div>
                     <div class="about-text">
-                        <p data-i18n="about_p1">Hello! I'm a passionate creative designer with a strong background in both design and development. I love crafting meaningful experiences through thoughtful design and building well-structured systems.</p>
-                        <p data-i18n="about_p2">With diverse project experience spanning interactive media, product design, and system architecture, I've developed expertise in experience design, visual storytelling, and creating robust, scalable solutions.</p>
-                        <p data-i18n="about_p3">When I'm not designing or building systems, you can find me exploring emerging creative tools, participating in design challenges, or experimenting with new technologies to push the boundaries of interactive experiences.</p>
+                        <p data-i18n="about_p1">I'm Violet Guo (Xiaowei Guo), a game designer currently at Petch, designing personality-driven social PvP systems. Before that I built multi-agent narrative systems at Dramai.AI (Cuboid.AI), tuned combat AI on Game of Thrones: Winter is Coming at NetEase, and wrote character arcs for Revelation. MS in Game Design, Northeastern University.</p>
+                        <p data-i18n="about_p2">I care about systems that stay legible as they grow, and stories that emerge from play instead of cutscenes. The same craft carries into my AI-native and product work — I design multi-agent experiences, and ship mobile products end to end, from Figma to React Native.</p>
+                        <p data-i18n="about_p3">Based in Boston, also at home in Hangzhou. I work in English and Chinese.</p>
                         <div class="personal-info">
                             <div class="info-item">
                                 <span class="info-label" data-i18n="info_name">Name:</span>
@@ -89,17 +107,16 @@
                             </div>
                             <div class="info-item">
                                 <span class="info-label" data-i18n="info_email">Email:</span>
-                                <span class="info-value">guoxiaowei7@hotmail.com</span>
                                 <span class="info-value">guoxiaowei723@gmail.com</span>
                             </div>
                             <div class="info-item">
                                 <span class="info-label" data-i18n="info_location">Location:</span>
-                                <span class="info-value">Boston, US</span>
-                                <span class="info-value">Hangzhou, Zhejiang</span>
+                                <span class="info-value">Boston, MA</span>
+                                <span class="info-value" data-i18n="info_location_note">Open to remote & relocation</span>
                             </div>
                             <div class="info-item">
-                                <span class="info-label" data-i18n="info_experience">Experience:</span>
-                                <span class="info-value" data-i18n="experience_years">5+ Years</span>
+                                <span class="info-label" data-i18n="info_experience">Education:</span>
+                                <span class="info-value" data-i18n="experience_years">MS Game Design · Northeastern</span>
                             </div>
                         </div>
                     </div>
@@ -126,12 +143,12 @@
                     <div class="container">
                         <h3 class="section-subtitle" data-i18n="featured_title">Featured Works</h3>
                         <div class="carousel-container">
-                            <div class="carousel-wrapper">
+                            <div class="carousel-wrapper" data-win="featured_works.exe">
                                 <div class="carousel-track" id="featuredCarousel">
                     <!-- Featured Work 1: Dramai.AI -->
                     <div class="featured-item active" onclick="window.location.href='game-detail.html?id=dramai-ai'" style="cursor: pointer;">
                         <div class="featured-image">
-                            <img src="Dramai/Dramai.png" alt="Dramai.AI" class="featured-img">
+                            <img src="assets/img/dramai.jpg" alt="Dramai.AI" class="featured-img">
                             <div class="featured-overlay">
                                 <div class="featured-content">
                                     <h3 data-i18n="game_dramai_title">Dramai.AI</h3>
@@ -153,16 +170,16 @@
                     <!-- Featured Work 2: Game of Thrones: Winter is Coming -->
                     <div class="featured-item" onclick="window.location.href='game-detail.html?id=got-winter-is-coming'" style="cursor: pointer;">
                         <div class="featured-image">
-                            <img src="Got Winter 1.jpg" alt="Game of Thrones: Winter is Coming" class="featured-img">
+                            <img src="assets/img/got-1.jpg" alt="Game of Thrones: Winter is Coming" class="featured-img">
                             <div class="featured-overlay">
                                 <div class="featured-content">
                                     <h3 data-i18n="game_got_title">Game of Thrones: Winter is Coming</h3>
-                                    <p data-i18n="featured_got_desc">Strategic browser-based MMO set in the Game of Thrones universe. Build your house and fight for the Iron Throne</p>
+                                    <p data-i18n="featured_got_desc">Strategy MMO in the Game of Thrones universe — I designed and tuned combat AI for NPCs and bots at NetEase Games</p>
                                     <div class="featured-tags">
                                         <span class="tag">Strategy MMO</span>
-                                        <span class="tag">Browser Game</span>
+                                        <span class="tag">Combat AI</span>
                                         <span class="tag">Game of Thrones</span>
-                                        <span class="tag">GTArcade</span>
+                                        <span class="tag">NetEase</span>
                                     </div>
                                     <div class="featured-actions" onclick="event.stopPropagation();">
                                         <a href="https://got.gtarcade.com/#home" target="_blank" class="pixel-btn secondary-btn">Play Game</a>
@@ -175,16 +192,16 @@
                     <!-- Featured Work 3: Petch -->
                     <div class="featured-item" onclick="window.location.href='game-detail.html?id=petch'" style="cursor: pointer;">
                         <div class="featured-image">
-                            <img src="Petch.png" alt="Petch" class="featured-img">
+                            <img src="assets/img/petch.jpg" alt="Petch" class="featured-img">
                             <div class="featured-overlay">
                                 <div class="featured-content">
                                     <h3 data-i18n="game_petch_title">Petch</h3>
-                                    <p data-i18n="featured_petch_desc">AI-powered social platform for pets and pet lovers. Game Designer Intern focusing on pet personality systems</p>
+                                    <p data-i18n="featured_petch_desc">AI-powered pet social platform — I architect the MBTI personality systems and a roguelike social PvP mode</p>
                                     <div class="featured-tags">
                                         <span class="tag">AI Social</span>
-                                        <span class="tag">Pet Platform</span>
-                                        <span class="tag">Game Design</span>
-                                        <span class="tag">Internship</span>
+                                        <span class="tag">Social PvP</span>
+                                        <span class="tag">MBTI Systems</span>
+                                        <span class="tag">Roguelike</span>
                                     </div>
                                     <div class="featured-actions" onclick="event.stopPropagation();">
                                         <a href="https://www.petchapp.com/" target="_blank" class="pixel-btn secondary-btn">Visit Website</a>
@@ -197,7 +214,7 @@
                     <!-- Featured Work 4: AI Adoption Program -->
                     <div class="featured-item" onclick="window.location.href='game-detail.html?id=ai-adoption'" style="cursor: pointer;">
                         <div class="featured-image">
-                            <img src="Ai Adoption.png" alt="AI Adoption Program" class="featured-img">
+                            <img src="assets/img/ai-adoption.jpg" alt="AI Adoption Program" class="featured-img">
                             <div class="featured-overlay">
                                 <div class="featured-content">
                                     <h3 data-i18n="game_ai_adoption_title">AI Adoption Program</h3>
@@ -216,20 +233,20 @@
                             
                             <!-- Carousel Controls -->
                             <div class="carousel-controls">
-                                <button class="carousel-btn prev-btn" id="prevBtn">
-                                    <i class="fas fa-chevron-left"></i>
+                                <button class="carousel-btn prev-btn" id="prevBtn" type="button" aria-label="Previous featured project">
+                                    <i class="fas fa-chevron-left" aria-hidden="true"></i>
                                 </button>
-                                <button class="carousel-btn next-btn" id="nextBtn">
-                                    <i class="fas fa-chevron-right"></i>
+                                <button class="carousel-btn next-btn" id="nextBtn" type="button" aria-label="Next featured project">
+                                    <i class="fas fa-chevron-right" aria-hidden="true"></i>
                                 </button>
                             </div>
                             
                             <!-- Carousel Indicators -->
-                            <div class="carousel-indicators">
-                                <button class="indicator active" data-slide="0"></button>
-                                <button class="indicator" data-slide="1"></button>
-                                <button class="indicator" data-slide="2"></button>
-                                <button class="indicator" data-slide="3"></button>
+                            <div class="carousel-indicators" aria-label="Featured project selection">
+                                <button class="indicator active" type="button" data-slide="0" aria-label="Show featured project 1" aria-current="true"></button>
+                                <button class="indicator" type="button" data-slide="1" aria-label="Show featured project 2" aria-current="false"></button>
+                                <button class="indicator" type="button" data-slide="2" aria-label="Show featured project 3" aria-current="false"></button>
+                                <button class="indicator" type="button" data-slide="3" aria-label="Show featured project 4" aria-current="false"></button>
                             </div>
                         </div>
                     </div>
@@ -241,7 +258,7 @@
                     <button class="filter-btn" data-filter="personal" data-i18n="filter_personal">Personal Projects</button>
                     <button class="filter-btn" data-filter="jam" data-i18n="filter_jam">Game Jam</button>
                 </div>
-                <div class="games-grid">
+                <div class="games-grid games-grid--flagship">
                     <!-- Commercial Projects Section -->
                     <div class="section-divider commercial-section">
                         <h3 class="category-title" data-i18n="category_commercial">Commercial Projects</h3>
@@ -249,17 +266,17 @@
                     </div>
 
                     <!-- Dramai.AI -->
-                    <div class="game-card pixel-border" data-category="commercial" onclick="window.location.href='game-detail.html?id=dramai-ai'" style="cursor: pointer;">
+                    <div class="game-card pixel-border" data-category="commercial" data-win="dramai.exe" onclick="window.location.href='game-detail.html?id=dramai-ai'" style="cursor: pointer;">
                         <div class="game-image">
                             <div class="image-placeholder">
-                                <img src="Dramai/Dramai.png" alt="Dramai.AI" style="width: 100%; height: 100%; object-fit: cover;">
+                                <img src="assets/img/dramai.jpg" alt="Dramai.AI" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                         </div>
                         <div class="game-info">
                             <h3 data-i18n="game_dramai_title">Dramai.AI</h3>
                             <div class="game-role">
                                 <span class="role-label">Title:</span>
-                                <span class="role-value">Main Game Designer</span>
+                                <span class="role-value">AI Game Designer · Cuboid.AI</span>
                             </div>
                             <p data-i18n="game_dramai_desc">Interactive Social AGI Playground - Building a Digital Civilization Sandbox for AI-Human Co-evolution with multi-agent storytelling. Responsible for core game design, system design, art direction, and narrative design.</p>
                             <div class="game-tags">
@@ -277,24 +294,24 @@
                     </div>
 
                     <!-- Game of Thrones: Winter is Coming -->
-                    <div class="game-card pixel-border" data-category="commercial" onclick="window.location.href='game-detail.html?id=got-winter-is-coming'" style="cursor: pointer;">
+                    <div class="game-card pixel-border" data-category="commercial" data-win="got_winter.exe" onclick="window.location.href='game-detail.html?id=got-winter-is-coming'" style="cursor: pointer;">
                         <div class="game-image">
                             <div class="image-placeholder">
-                                <img src="Got Winter 1.jpg" alt="Game of Thrones: Winter is Coming" style="width: 100%; height: 100%; object-fit: cover;">
+                                <img src="assets/img/got-1.jpg" alt="Game of Thrones: Winter is Coming" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                         </div>
                         <div class="game-info">
                             <h3 data-i18n="game_got_title">Game of Thrones: Winter is Coming</h3>
                             <div class="game-role">
                                 <span class="role-label">Title:</span>
-                                <span class="role-value">Game Designer</span>
+                                <span class="role-value">AI Designer · NetEase Games</span>
                             </div>
-                            <p data-i18n="game_got_desc">Strategic browser-based MMO set in the Game of Thrones universe. Build your house, forge alliances, and fight for the Iron Throne in this epic strategy game. Participated in the design process as part of the development team.</p>
+                            <p data-i18n="game_got_desc">Strategy MMO in the Game of Thrones universe. At NetEase Games I designed and tuned combat AI for NPCs and bots — decision-making logic, threat evaluation, and combat pacing across encounter types.</p>
                             <div class="game-tags">
                                 <span class="tag">Strategy MMO</span>
-                                <span class="tag">Browser Game</span>
+                                <span class="tag">Combat AI</span>
                                 <span class="tag">Game of Thrones</span>
-                                <span class="tag">GTArcade</span>
+                                <span class="tag">NetEase</span>
                             </div>
                             <div onclick="event.stopPropagation();">
                                 <a href="https://got.gtarcade.com/#home" 
@@ -305,24 +322,24 @@
                     </div>
 
                     <!-- Petch -->
-                    <div class="game-card pixel-border" data-category="commercial" onclick="window.location.href='game-detail.html?id=petch'" style="cursor: pointer;">
+                    <div class="game-card pixel-border" data-category="commercial" data-win="petch.exe" onclick="window.location.href='game-detail.html?id=petch'" style="cursor: pointer;">
                         <div class="game-image">
                             <div class="image-placeholder">
-                                <img src="Petch.png" alt="Petch" style="width: 100%; height: 100%; object-fit: cover;">
+                                <img src="assets/img/petch.jpg" alt="Petch" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                         </div>
                         <div class="game-info">
                             <h3 data-i18n="game_petch_title">Petch</h3>
                             <div class="game-role">
                                 <span class="role-label">Title:</span>
-                                <span class="role-value">Main Game Designer</span>
+                                <span class="role-value">Game Designer</span>
                             </div>
-                            <p data-i18n="game_petch_desc">AI-powered social platform for pets and pet lovers. Responsible for core game design including system design, art direction, and narrative design for pet personality testing and social interaction systems.</p>
+                            <p data-i18n="game_petch_desc">AI-powered pet social platform. I architect the pet personality (MBTI) systems and a roguelike social PvP mode with a 16-tile match mechanic — personality-driven builds and strategic trait pairing.</p>
                             <div class="game-tags">
                                 <span class="tag">AI Social</span>
-                                <span class="tag">Pet Platform</span>
-                                <span class="tag">Game Design</span>
-                                <span class="tag">Internship</span>
+                                <span class="tag">Social PvP</span>
+                                <span class="tag">MBTI Systems</span>
+                                <span class="tag">Roguelike</span>
                             </div>
                             <div onclick="event.stopPropagation();">
                                 <a href="https://www.petchapp.com/" 
@@ -333,17 +350,70 @@
                     </div>
 
 
+                    <!-- Revelation -->
+                    <div class="game-card pixel-border" data-category="commercial" data-win="revelation.exe" onclick="window.location.href='game-detail.html?id=revelation'" style="cursor: pointer;">
+                        <div class="game-image">
+                            <div class="image-placeholder">
+                                <img src="assets/img/revelation.jpg" alt="Revelation" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <h3 data-i18n="game_revelation_title">Revelation</h3>
+                            <div class="game-role">
+                                <span class="role-label">Title:</span>
+                                <span class="role-value">Game Narrative Designer · NetEase Games</span>
+                            </div>
+                            <p data-i18n="game_revelation_desc">Mobile MMO RPG by NetEase. I developed character kits and narrative arcs — aligning story, abilities, and worldbuilding.</p>
+                            <div class="game-tags">
+                                <span class="tag">Mobile MMO RPG</span>
+                                <span class="tag">Narrative Design</span>
+                                <span class="tag">Character Kits</span>
+                                <span class="tag">NetEase</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="games-grid">
                     <!-- Personal Projects Section -->
                     <div class="section-divider personal-section">
                         <h3 class="category-title" data-i18n="category_personal">Personal Projects</h3>
                         <p class="category-desc" data-i18n="category_personal_desc">Independent projects and creative explorations showcasing personal vision and skills</p>
                     </div>
 
-                    <!-- AI Adoption Program -->
-                    <div class="game-card pixel-border" data-category="jam personal" onclick="window.location.href='game-detail.html?id=ai-adoption'" style="cursor: pointer;">
+                    <!-- Quoted Out! -->
+                    <div class="game-card pixel-border" data-category="jam personal" data-win="quoted_out.exe" onclick="window.location.href='game-detail.html?id=quoted-out'" style="cursor: pointer;">
                         <div class="game-image">
                             <div class="image-placeholder">
-                                <img src="Ai Adoption.png" alt="AI Adoption Program" style="width: 100%; height: 100%; object-fit: cover;">
+                                <img src="assets/img/quoted-out.jpg" alt="Quoted Out!" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <h3 data-i18n="game_quoted_out_title">Quoted Out!</h3>
+                            <div class="game-role">
+                                <span class="role-label">Role:</span>
+                                <span class="role-value">Main Designer + Team Leader</span>
+                            </div>
+                            <p data-i18n="game_quoted_out_desc">Dialogue-based party game where players create humorous videos by editing interviews. 2024 Global Game Jam Winner. Led the project from concept to delivery, organizing the team, setting timelines, and overseeing all major creative and production decisions.</p>
+                            <div class="game-tags">
+                                <span class="tag">Party Game</span>
+                                <span class="tag">Dialogue</span>
+                                <span class="tag">Game Jam Winner</span>
+                                <span class="tag">Video Creation</span>
+                            </div>
+                            <div onclick="event.stopPropagation();">
+                                <a href="https://www.youtube.com/watch?v=AJqIjL--6O8"
+                                   target="_blank"
+                                   class="archive-link">Video</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AI Adoption Program -->
+                    <div class="game-card pixel-border" data-category="jam personal" data-win="ai_adoption.exe" onclick="window.location.href='game-detail.html?id=ai-adoption'" style="cursor: pointer;">
+                        <div class="game-image">
+                            <div class="image-placeholder">
+                                <img src="assets/img/ai-adoption.jpg" alt="AI Adoption Program" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                         </div>
                         <div class="game-info">
@@ -362,39 +432,11 @@
                         </div>
                     </div>
 
-                    <!-- Quoted Out! -->
-                    <div class="game-card pixel-border" data-category="jam personal" onclick="window.location.href='game-detail.html?id=quoted-out'" style="cursor: pointer;">
-                        <div class="game-image">
-                            <div class="image-placeholder">
-                                <img src="Quated out.png" alt="Quoted Out!" style="width: 100%; height: 100%; object-fit: cover;">
-                            </div>
-                        </div>
-                        <div class="game-info">
-                            <h3 data-i18n="game_quoted_out_title">Quoted Out!</h3>
-                            <div class="game-role">
-                                <span class="role-label">Role:</span>
-                                <span class="role-value">Main Designer + Team Leader</span>
-                            </div>
-                            <p data-i18n="game_quoted_out_desc">Dialogue-based party game where players create humorous videos by editing interviews. 2024 Global Game Jam Winner. Led the project from concept to delivery, organizing the team, setting timelines, and overseeing all major creative and production decisions.</p>
-                            <div class="game-tags">
-                                <span class="tag">Party Game</span>
-                                <span class="tag">Dialogue</span>
-                                <span class="tag">Game Jam Winner</span>
-                                <span class="tag">Video Creation</span>
-                            </div>
-                            <div onclick="event.stopPropagation();">
-                                <a href="https://www.youtube.com/watch?v=AJqIjL--6O8" 
-                                   target="_blank" 
-                                   class="archive-link">Video</a>
-                            </div>
-                        </div>
-                    </div>
-
                     <!-- Party! Paidui! Fiesta! -->
-                    <div class="game-card pixel-border" data-category="personal" onclick="window.location.href='game-detail.html?id=party-paidui'" style="cursor: pointer;">
+                    <div class="game-card pixel-border" data-category="personal" data-win="party_paidui.exe" onclick="window.location.href='game-detail.html?id=party-paidui'" style="cursor: pointer;">
                         <div class="game-image">
                             <div class="image-placeholder">
-                                <img src="party paidui.png" alt="Party! Paidui! Fiesta!" style="width: 100%; height: 100%; object-fit: cover;">
+                                <img src="assets/img/party-paidui.jpg" alt="Party! Paidui! Fiesta!" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                         </div>
                         <div class="game-info">
@@ -414,10 +456,10 @@
                     </div>
 
                     <!-- Back Home -->
-                    <div class="game-card pixel-border" data-category="personal" onclick="window.location.href='game-detail.html?id=back-home'" style="cursor: pointer;">
+                    <div class="game-card pixel-border" data-category="personal" data-win="back_home.exe" onclick="window.location.href='game-detail.html?id=back-home'" style="cursor: pointer;">
                         <div class="game-image">
                             <div class="image-placeholder">
-                                <img src="BackHome.png" alt="Back Home" style="width: 100%; height: 100%; object-fit: cover;">
+                                <img src="assets/img/back-home.jpg" alt="Back Home" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                         </div>
                         <div class="game-info">
@@ -437,10 +479,10 @@
                     </div>
 
                     <!-- Dorm Unpacking -->
-                    <div class="game-card pixel-border" data-category="personal" onclick="window.location.href='game-detail.html?id=dorm-unpacking'" style="cursor: pointer;">
+                    <div class="game-card pixel-border" data-category="personal" data-win="dorm_unpack.exe" onclick="window.location.href='game-detail.html?id=dorm-unpacking'" style="cursor: pointer;">
                         <div class="game-image">
                             <div class="image-placeholder">
-                                <img src="dorm unpacking.png" alt="Dorm Unpacking" style="width: 100%; height: 100%; object-fit: cover;">
+                                <img src="assets/img/dorm-unpacking.jpg" alt="Dorm Unpacking" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                         </div>
                         <div class="game-info">
@@ -460,10 +502,10 @@
                     </div>
 
                     <!-- Zombie Juice -->
-                    <div class="game-card pixel-border" data-category="personal" onclick="window.location.href='game-detail.html?id=zombie-juice'" style="cursor: pointer;">
+                    <div class="game-card pixel-border" data-category="personal" data-win="zombie_juice.exe" onclick="window.location.href='game-detail.html?id=zombie-juice'" style="cursor: pointer;">
                         <div class="game-image">
                             <div class="image-placeholder">
-                                <img src="Zombie Juice.png" alt="Zombie Juice" style="width: 100%; height: 100%; object-fit: cover;">
+                                <img src="assets/img/zombie-juice.jpg" alt="Zombie Juice" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                         </div>
                         <div class="game-info">
@@ -483,10 +525,10 @@
                     </div>
 
                     <!-- Beneath the Ruins -->
-                    <div class="game-card pixel-border" data-category="personal" onclick="window.location.href='game-detail.html?id=beneath-ruins'" style="cursor: pointer;">
+                    <div class="game-card pixel-border" data-category="personal" data-win="beneath_ruins.exe" onclick="window.location.href='game-detail.html?id=beneath-ruins'" style="cursor: pointer;">
                         <div class="game-image">
                             <div class="image-placeholder">
-                                <img src="Beneath the ruins.png" alt="Beneath the Ruins" style="width: 100%; height: 100%; object-fit: cover;">
+                                <img src="assets/img/beneath-ruins.jpg" alt="Beneath the Ruins" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                         </div>
                         <div class="game-info">
@@ -505,11 +547,33 @@
                         </div>
                     </div>
 
-                    <!-- Wallet War -->
-                    <div class="game-card pixel-border" data-category="personal" onclick="window.location.href='game-detail.html?id=wallet-war'" style="cursor: pointer;">
+                    <!-- Falling Kingdom -->
+                    <div class="game-card pixel-border" data-category="personal" data-win="falling_kingdom.exe" onclick="window.location.href='game-detail.html?id=falling-kingdom'" style="cursor: pointer;">
                         <div class="game-image">
                             <div class="image-placeholder">
-                                <img src="Wallet War.png" alt="Wallet War" style="width: 100%; height: 100%; object-fit: cover;">
+                                <img src="assets/img/falling-kingdom.svg" alt="Falling Kingdom" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <h3 data-i18n="game_falling_kingdom_title">Falling Kingdom</h3>
+                            <div class="game-role">
+                                <span class="role-label">Role:</span>
+                                <span class="role-value">Sole Designer</span>
+                            </div>
+                            <p data-i18n="game_falling_kingdom_desc">Physical board game designed and produced independently.</p>
+                            <div class="game-tags">
+                                <span class="tag">Board Game</span>
+                                <span class="tag">Physical</span>
+                                <span class="tag">Solo Project</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Wallet War -->
+                    <div class="game-card pixel-border" data-category="personal" data-win="wallet_war.exe" onclick="window.location.href='game-detail.html?id=wallet-war'" style="cursor: pointer;">
+                        <div class="game-image">
+                            <div class="image-placeholder">
+                                <img src="assets/img/wallet-war.jpg" alt="Wallet War" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                         </div>
                         <div class="game-info">
@@ -529,10 +593,10 @@
                     </div>
 
                     <!-- Princess Lianan -->
-                    <div class="game-card pixel-border" data-category="personal" onclick="window.location.href='game-detail.html?id=princess-lianan'" style="cursor: pointer;">
+                    <div class="game-card pixel-border" data-category="personal" data-win="lianan.exe" onclick="window.location.href='game-detail.html?id=princess-lianan'" style="cursor: pointer;">
                         <div class="game-image">
                             <div class="image-placeholder">
-                                <img src="Lianan.png" alt="Princess Lianan" style="width: 100%; height: 100%; object-fit: cover;">
+                                <img src="assets/img/princess-lianan.jpg" alt="Princess Lianan" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                         </div>
                         <div class="game-info">
@@ -552,10 +616,10 @@
                     </div>
 
                     <!-- Above the Fountain -->
-                    <div class="game-card pixel-border" data-category="personal" onclick="window.location.href='game-detail.html?id=above-fountain'" style="cursor: pointer;">
+                    <div class="game-card pixel-border" data-category="personal" data-win="fountain.exe" onclick="window.location.href='game-detail.html?id=above-fountain'" style="cursor: pointer;">
                         <div class="game-image">
                             <div class="image-placeholder">
-                                <img src="Above the Fountain.png" alt="Above the Fountain" style="width: 100%; height: 100%; object-fit: cover;">
+                                <img src="assets/img/above-fountain.jpg" alt="Above the Fountain" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                         </div>
                         <div class="game-info">
@@ -575,10 +639,10 @@
                     </div>
 
                     <!-- The Silent Majority -->
-                    <div class="game-card pixel-border" data-category="personal" onclick="window.location.href='game-detail.html?id=silent-majority'" style="cursor: pointer;">
+                    <div class="game-card pixel-border" data-category="personal" data-win="silent_majority.exe" onclick="window.location.href='game-detail.html?id=silent-majority'" style="cursor: pointer;">
                         <div class="game-image">
                             <div class="image-placeholder">
-                                <img src="The Silent Majority.png" alt="The Silent Majority" style="width: 100%; height: 100%; object-fit: cover;">
+                                <img src="assets/img/silent-majority.jpg" alt="The Silent Majority" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                         </div>
                         <div class="game-info">
@@ -641,7 +705,7 @@
                         </nav>
                     </aside>
 
-                    <article class="archive-viewer pixel-border">
+                    <article class="archive-viewer pixel-border" data-win="archive_reader.exe">
                         <div class="archive-entry active" data-archive-entry="ecodemand">
                             <span class="archive-entry-tag" data-i18n="archive_uiux">UI/UX Design</span>
                             <h3 class="archive-entry-title" data-i18n="archive_ecodemand">EcoDemand System</h3>
@@ -649,12 +713,12 @@
                                 <p data-i18n="archive_ecodemand_desc">UI/UX design system for a sustainability-driven service platform — Figma source with component library, flows, and interaction specs.</p>
                             </div>
                             <div class="archive-gallery">
-                                <img class="archive-gallery-thumb" src="Ecodemand/dashboard-1.png" alt="EcoDemand dashboard screen 1" loading="lazy">
-                                <img class="archive-gallery-thumb" src="Ecodemand/dashboard-2.png" alt="EcoDemand dashboard screen 2" loading="lazy">
-                                <img class="archive-gallery-thumb" src="Ecodemand/dashboard-3.png" alt="EcoDemand dashboard screen 3" loading="lazy">
-                                <img class="archive-gallery-thumb" src="Ecodemand/dashboard-4.png" alt="EcoDemand dashboard screen 4" loading="lazy">
-                                <img class="archive-gallery-thumb" src="Ecodemand/dashboard-5.png" alt="EcoDemand dashboard screen 5" loading="lazy">
-                                <img class="archive-gallery-thumb" src="Ecodemand/dashboard-6.png" alt="EcoDemand dashboard screen 6" loading="lazy">
+                                <img class="archive-gallery-thumb" src="assets/img/ecodemand-1.jpg" alt="EcoDemand dashboard screen 1" loading="lazy">
+                                <img class="archive-gallery-thumb" src="assets/img/ecodemand-2.jpg" alt="EcoDemand dashboard screen 2" loading="lazy">
+                                <img class="archive-gallery-thumb" src="assets/img/ecodemand-3.jpg" alt="EcoDemand dashboard screen 3" loading="lazy">
+                                <img class="archive-gallery-thumb" src="assets/img/ecodemand-4.jpg" alt="EcoDemand dashboard screen 4" loading="lazy">
+                                <img class="archive-gallery-thumb" src="assets/img/ecodemand-5.jpg" alt="EcoDemand dashboard screen 5" loading="lazy">
+                                <img class="archive-gallery-thumb" src="assets/img/ecodemand-6.jpg" alt="EcoDemand dashboard screen 6" loading="lazy">
                             </div>
                             <a href="https://www.figma.com/design/EbXcmTf5nWJZzNq7WUkGMd/Eco-Savvy?node-id=0-1&t=sNFS96g9RNZXjXqe-1" class="archive-entry-link pixel-btn primary-btn" target="_blank" rel="noopener noreferrer" data-i18n="archive_open">Open in Figma</a>
                         </div>
@@ -666,13 +730,13 @@
                                 <p data-i18n="archive_carbcycle_desc">Mobile nutrition app for carb cycling diets. Generates a 7-day High / Med / Low carb meal plan (manual presets or AI-powered via Claude, OpenAI, or DeepSeek), tracks per-meal protein / carb / fat against ring-based macro targets, and maintains a reusable food and meal template library. The Profile tab manages personal stats, cycling config, and a day-streak counter. Dark-first native UI with English / Español / 中文 support.</p>
                             </div>
                             <div class="archive-gallery">
-                                <img class="archive-gallery-thumb" src="Carbcycle/carb1.jpg" alt="CarbCycle Today screen with macro rings and meal list" loading="lazy">
-                                <img class="archive-gallery-thumb" src="Carbcycle/carb2.jpg" alt="CarbCycle Auto Meal Plan sheet with 7-day carb pattern" loading="lazy">
-                                <img class="archive-gallery-thumb" src="Carbcycle/carb3.jpg" alt="CarbCycle Preview Plan with per-day macros" loading="lazy">
-                                <img class="archive-gallery-thumb" src="Carbcycle/carb4.jpg" alt="CarbCycle Meals page grouped by breakfast and lunch" loading="lazy">
-                                <img class="archive-gallery-thumb" src="Carbcycle/carb5.jpg" alt="CarbCycle Profile with personal info and cycling config" loading="lazy">
-                                <img class="archive-gallery-thumb" src="Carbcycle/carb6.jpg" alt="CarbCycle Foods library with searchable food database" loading="lazy">
-                                <img class="archive-gallery-thumb" src="Carbcycle/carb7.jpg" alt="CarbCycle Settings with language and AI provider options" loading="lazy">
+                                <img class="archive-gallery-thumb" src="assets/img/carbcycle-1.jpg" alt="CarbCycle Today screen with macro rings and meal list" loading="lazy">
+                                <img class="archive-gallery-thumb" src="assets/img/carbcycle-2.jpg" alt="CarbCycle Auto Meal Plan sheet with 7-day carb pattern" loading="lazy">
+                                <img class="archive-gallery-thumb" src="assets/img/carbcycle-3.jpg" alt="CarbCycle Preview Plan with per-day macros" loading="lazy">
+                                <img class="archive-gallery-thumb" src="assets/img/carbcycle-4.jpg" alt="CarbCycle Meals page grouped by breakfast and lunch" loading="lazy">
+                                <img class="archive-gallery-thumb" src="assets/img/carbcycle-5.jpg" alt="CarbCycle Profile with personal info and cycling config" loading="lazy">
+                                <img class="archive-gallery-thumb" src="assets/img/carbcycle-6.jpg" alt="CarbCycle Foods library with searchable food database" loading="lazy">
+                                <img class="archive-gallery-thumb" src="assets/img/carbcycle-7.jpg" alt="CarbCycle Settings with language and AI provider options" loading="lazy">
                             </div>
                         </div>
 
@@ -716,6 +780,94 @@
                     <div class="skills-text">
                         <p data-i18n="skills_p1">I've developed a diverse set of skills throughout my career in game development. My expertise spans across technical software, creative tools, and essential soft skills.</p>
                         <p data-i18n="skills_p2">Here are the technologies and tools I work with.</p>
+                    </div>
+
+                    <!-- Game Design Expertise Section -->
+                    <div class="skills-category">
+                        <h3 class="category-title" data-i18n="category_soft">Game Design Expertise</h3>
+                        <div class="skills-grid">
+                            <div class="skill-card pixel-border" data-skill="gameplay">
+                                <div class="skill-icon">
+                                    <i class="fas fa-gamepad"></i>
+                                </div>
+                                <h3 data-i18n="skill_gameplay_title">Gameplay Design</h3>
+                                <div class="skill-details">
+                                    <p data-i18n="skill_gameplay_desc">Game mechanics design, level design, and gameplay balancing.</p>
+                                </div>
+                            </div>
+                            <div class="skill-card pixel-border" data-skill="storytelling">
+                                <div class="skill-icon">
+                                    <i class="fas fa-book-open"></i>
+                                </div>
+                                <h3 data-i18n="skill_storytelling_title">Storytelling</h3>
+                                <div class="skill-details">
+                                    <p data-i18n="skill_storytelling_desc">Narrative design and story development for games.</p>
+                                </div>
+                            </div>
+                            <div class="skill-card pixel-border" data-skill="ai">
+                                <div class="skill-icon">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <h3 data-i18n="skill_ai_title">AI Behavior & Agents</h3>
+                                <div class="skill-details">
+                                    <p data-i18n="skill_ai_desc">Combat AI, agent behavior, and multi-agent LLM systems — from behavior trees to prompt guardrails.</p>
+                                </div>
+                            </div>
+                            <div class="skill-card pixel-border" data-skill="leadership">
+                                <div class="skill-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <h3 data-i18n="skill_leadership_title">Team Leadership</h3>
+                                <div class="skill-details">
+                                    <p data-i18n="skill_leadership_desc">Leading game jam projects and team coordination.</p>
+                                </div>
+                            </div>
+                            <div class="skill-card pixel-border" data-skill="communication">
+                                <div class="skill-icon">
+                                    <i class="fas fa-comments"></i>
+                                </div>
+                                <h3 data-i18n="skill_communication_title">Communication</h3>
+                                <div class="skill-details">
+                                    <p data-i18n="skill_communication_desc">Team collaboration and client interaction.</p>
+                                </div>
+                            </div>
+                            <div class="skill-card pixel-border" data-skill="organization">
+                                <div class="skill-icon">
+                                    <i class="fas fa-sitemap"></i>
+                                </div>
+                                <h3 data-i18n="skill_organization_title">Project Management</h3>
+                                <div class="skill-details">
+                                    <p data-i18n="skill_organization_desc">Project organization and task management.</p>
+                                </div>
+                            </div>
+                            <div class="skill-card pixel-border" data-skill="analytical">
+                                <div class="skill-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <h3 data-i18n="skill_analytical_title">Analytical Thinking</h3>
+                                <div class="skill-details">
+                                    <p data-i18n="skill_analytical_desc">Game data analysis and design decision making.</p>
+                                </div>
+                            </div>
+                            <div class="skill-card pixel-border" data-skill="creativity">
+                                <div class="skill-icon">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                                <h3 data-i18n="skill_creativity_title">Creative Problem Solving</h3>
+                                <div class="skill-details">
+                                    <p data-i18n="skill_creativity_desc">Creative solutions to game design challenges.</p>
+                                </div>
+                            </div>
+                            <div class="skill-card pixel-border" data-skill="adaptability">
+                                <div class="skill-icon">
+                                    <i class="fas fa-sync-alt"></i>
+                                </div>
+                                <h3 data-i18n="skill_adaptability_title">Adaptability</h3>
+                                <div class="skill-details">
+                                    <p data-i18n="skill_adaptability_desc">Adapting to new technologies and workflows.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Software Skills Section -->
@@ -840,84 +992,6 @@
                         </div>
                     </div>
 
-                    <!-- Soft Skills Section -->
-                    <div class="skills-category">
-                        <h3 class="category-title" data-i18n="category_soft">Soft Skills & Design Expertise</h3>
-                        <div class="skills-grid">
-                            <div class="skill-card pixel-border" data-skill="gameplay">
-                                <div class="skill-icon">
-                                    <i class="fas fa-gamepad"></i>
-                                </div>
-                                <h3 data-i18n="skill_gameplay_title">Gameplay Design</h3>
-                                <div class="skill-details">
-                                    <p data-i18n="skill_gameplay_desc">Game mechanics design, level design, and gameplay balancing.</p>
-                                </div>
-                            </div>
-                            <div class="skill-card pixel-border" data-skill="storytelling">
-                                <div class="skill-icon">
-                                    <i class="fas fa-book-open"></i>
-                                </div>
-                                <h3 data-i18n="skill_storytelling_title">Storytelling</h3>
-                                <div class="skill-details">
-                                    <p data-i18n="skill_storytelling_desc">Narrative design and story development for games.</p>
-                                </div>
-                            </div>
-                            <div class="skill-card pixel-border" data-skill="leadership">
-                                <div class="skill-icon">
-                                    <i class="fas fa-users"></i>
-                                </div>
-                                <h3 data-i18n="skill_leadership_title">Team Leadership</h3>
-                                <div class="skill-details">
-                                    <p data-i18n="skill_leadership_desc">Leading game jam projects and team coordination.</p>
-                                </div>
-                            </div>
-                            <div class="skill-card pixel-border" data-skill="communication">
-                                <div class="skill-icon">
-                                    <i class="fas fa-comments"></i>
-                                </div>
-                                <h3 data-i18n="skill_communication_title">Communication</h3>
-                                <div class="skill-details">
-                                    <p data-i18n="skill_communication_desc">Team collaboration and client interaction.</p>
-                                </div>
-                            </div>
-                            <div class="skill-card pixel-border" data-skill="organization">
-                                <div class="skill-icon">
-                                    <i class="fas fa-sitemap"></i>
-                                </div>
-                                <h3 data-i18n="skill_organization_title">Project Management</h3>
-                                <div class="skill-details">
-                                    <p data-i18n="skill_organization_desc">Project organization and task management.</p>
-                                </div>
-                            </div>
-                            <div class="skill-card pixel-border" data-skill="analytical">
-                                <div class="skill-icon">
-                                    <i class="fas fa-chart-line"></i>
-                                </div>
-                                <h3 data-i18n="skill_analytical_title">Analytical Thinking</h3>
-                                <div class="skill-details">
-                                    <p data-i18n="skill_analytical_desc">Game data analysis and design decision making.</p>
-                                </div>
-                            </div>
-                            <div class="skill-card pixel-border" data-skill="creativity">
-                                <div class="skill-icon">
-                                    <i class="fas fa-lightbulb"></i>
-                                </div>
-                                <h3 data-i18n="skill_creativity_title">Creative Problem Solving</h3>
-                                <div class="skill-details">
-                                    <p data-i18n="skill_creativity_desc">Creative solutions to game design challenges.</p>
-                                </div>
-                            </div>
-                            <div class="skill-card pixel-border" data-skill="adaptability">
-                                <div class="skill-icon">
-                                    <i class="fas fa-sync-alt"></i>
-                                </div>
-                                <h3 data-i18n="skill_adaptability_title">Adaptability</h3>
-                                <div class="skill-details">
-                                    <p data-i18n="skill_adaptability_desc">Adapting to new technologies and workflows.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -936,12 +1010,12 @@
             <div class="container">
                 <h2 class="section-title" data-i18n="contact_title">Contact Me</h2>
                 <div class="contact-content">
-                    <div class="contact-info pixel-border">
+                    <div class="contact-info pixel-border" data-win="contact_info.txt">
                         <div class="contact-item">
                             <i class="fas fa-envelope"></i>
                             <div class="contact-details">
                                 <h3 data-i18n="contact_email">Email</h3>
-                                <p>guoxiaowei7@hotmail.com</p>
+                                <p>guoxiaowei723@gmail.com</p>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -951,15 +1025,23 @@
                                 <p>Boston, MA</p>
                             </div>
                         </div>
+                        <div class="contact-item">
+                            <i class="fas fa-file-pdf"></i>
+                            <div class="contact-details">
+                                <h3 data-i18n="contact_resume">Résumé</h3>
+                                <p><a href="assets/resume.pdf" class="archive-link" download data-i18n="hero_resume">Download Résumé</a></p>
+                            </div>
+                        </div>
                         <div class="social-links">
                             <a href="https://www.linkedin.com/in/xiaowei-guo" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                         </div>
                     </div>
-                    <div class="contact-form pixel-border">
-                        <form id="contactForm" action="https://formsubmit.co/guoxiaowei7@hotmail.com" method="POST">
+                    <div class="contact-form pixel-border" data-win="send_message.exe">
+                        <form id="contactForm" action="https://formsubmit.co/guoxiaowei723@gmail.com" method="POST">
                             <input type="hidden" name="_subject" value="New message from your Portfolio site">
                             <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
                             <input type="hidden" name="_template" value="table">
+                            <input type="hidden" name="_next" value="https://xiaoweii.github.io/Guo-Web/thanks.html">
                             <div class="form-group">
                                 <label for="name" data-i18n="contact_name">Name</label>
                                 <input type="text" id="name" name="name" required>
@@ -991,13 +1073,15 @@
         </div>
     </div>
 
+    </main>
+
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
                     <h2><span class="highlight">violet</span> Portfolio</h2>
-                    <p data-i18n="footer_dev">Creative Designer & System Builder</p>
+                    <p data-i18n="footer_dev">Game Designer · AI-Native Play</p>
                 </div>
                 <div class="footer-links">
                     <ul>
@@ -1011,7 +1095,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 <strong class="highlight">Violet Guo</strong>. <span data-i18n="footer_rights">All Rights Reserved.</span></p>
+                <p>&copy; <span class="copyright-year">2026</span> <strong class="highlight">Violet Guo</strong>. <span data-i18n="footer_rights">All Rights Reserved.</span></p>
             </div>
         </div>
     </footer>
@@ -1024,3 +1108,5 @@
         <button type="button" class="archive-lightbox-nav archive-lightbox-next" aria-label="Next image">›</button>
         <div class="archive-lightbox-counter" id="archive-lightbox-counter"></div>
     </div>
+</body>
+</html>

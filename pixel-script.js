@@ -66,6 +66,11 @@ document.addEventListener('DOMContentLoaded', function() {
         // No new floating boxes will be created
     }
     
+    // Keep footer copyright year current
+    document.querySelectorAll('.copyright-year').forEach(el => {
+        el.textContent = new Date().getFullYear();
+    });
+
     // Language translations (from original script.js)
     const translations = {
         en: {
@@ -79,29 +84,35 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Hero section
             "hero_hello": "Hello, I'm",
-            "hero_title": "Creative Designer & System Builder",
-            "hero_welcome": "Welcome to my personal portfolio website showcasing my work and passion for creative design and systematic thinking.",
+            "hero_title": "GAME DESIGNER · AI-NATIVE PLAY",
+            "hero_welcome": "Game designer at Petch. Credits across NetEase Games, AI-native startups, and award-winning game jams.",
             "hero_view_work": "View My Work",
+            "hero_resume": "Download Résumé",
             "hero_contact": "Contact Me",
             
             // About section
             "about_title": "About Me",
-            "about_p1": "Hello! I'm a passionate creative designer with a strong background in both design and development. I love crafting meaningful experiences through thoughtful design and building well-structured systems.",
-            "about_p2": "With diverse project experience spanning interactive media, product design, and system architecture, I've developed expertise in experience design, visual storytelling, and creating robust, scalable solutions.",
-            "about_p3": "When I'm not designing or building systems, you can find me exploring emerging creative tools, participating in design challenges, or experimenting with new technologies to push the boundaries of interactive experiences.",
+            "about_p1": "I'm Violet Guo (Xiaowei Guo), a game designer currently at Petch, designing personality-driven social PvP systems. Before that I built multi-agent narrative systems at Dramai.AI (Cuboid.AI), tuned combat AI on Game of Thrones: Winter is Coming at NetEase, and wrote character arcs for Revelation. MS in Game Design, Northeastern University.",
+            "about_p2": "I care about systems that stay legible as they grow, and stories that emerge from play instead of cutscenes. The same craft carries into my AI-native and product work — I design multi-agent experiences, and ship mobile products end to end, from Figma to React Native.",
+            "about_p3": "Based in Boston, also at home in Hangzhou. I work in English and Chinese.",
             "info_name": "Name:",
             "info_email": "Email:",
             "info_location": "Location:",
-            "info_experience": "Experience:",
-            "experience_years": "5+ Years",
+            "info_location_note": "Open to remote & relocation",
+            "info_experience": "Education:",
+            "experience_years": "MS Game Design · Northeastern",
             
             // Game Portfolio section
             "games_title": "Portfolio",
             "filter_all": "All",
-            "filter_business": "Business",
-            "filter_pc": "PC Games",
-            "filter_board": "Board Games",
+            "filter_commercial": "Commercial Projects",
+            "filter_personal": "Personal Projects",
             "filter_jam": "Game Jam",
+            "featured_title": "Featured Works",
+            "category_commercial": "Commercial Projects",
+            "category_commercial_desc": "Professional projects developed for companies and commercial release",
+            "category_personal": "Personal Projects",
+            "category_personal_desc": "Independent projects and creative explorations showcasing personal vision and skills",
             
             // Game cards
             "game_ai_adoption_title": "AI Adoption Program",
@@ -109,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function() {
             "game_quoted_out_title": "Quoted Out!",
             "game_quoted_out_desc": "Dialogue-based party game where players create humorous videos by editing interviews. 2024 Global Game Jam Winner.",
             "game_party_paidui_title": "Party! Paidui! Fiesta!",
-            "game_party_paidui_desc": "New project in development. Details will be announced soon.",
+            "game_party_paidui_desc": "Chaotic party management game about organizing the ultimate party, built with a 3-4 person team.",
             "game_back_home_title": "Back Home",
             "game_back_home_desc": "Back Home is a life sim where a girl collects daily items with limited money. Your choices shape relationships and unlock multiple endings.",
             "game_dorm_unpacking_title": "Dorm Unpacking",
@@ -131,14 +142,18 @@ document.addEventListener('DOMContentLoaded', function() {
             "game_dramai_title": "Dramai.AI",
             "game_dramai_desc": "Interactive Social AGI Playground - Building a Digital Civilization Sandbox for AI-Human Co-evolution with multi-agent storytelling.",
             "game_got_title": "Game of Thrones: Winter is Coming",
-            "game_got_desc": "Strategic browser-based MMO set in the Game of Thrones universe. Build your house, forge alliances, and fight for the Iron Throne in this epic strategy game.",
+            "game_got_desc": "Strategy MMO in the Game of Thrones universe. At NetEase Games I designed and tuned combat AI for NPCs and bots — decision-making logic, threat evaluation, and combat pacing across encounter types.",
             "game_petch_title": "Petch",
-            "game_petch_desc": "AI-powered social platform for pets and pet lovers. Game Designer Intern role focusing on pet personality testing and social interaction systems.",
+            "game_petch_desc": "AI-powered pet social platform. I architect the pet personality (MBTI) systems and a roguelike social PvP mode with a 16-tile match mechanic — personality-driven builds and strategic trait pairing.",
+            "game_revelation_title": "Revelation",
+            "game_revelation_desc": "Mobile MMO RPG by NetEase. I developed character kits and narrative arcs — aligning story, abilities, and worldbuilding.",
+            "game_falling_kingdom_title": "Falling Kingdom",
+            "game_falling_kingdom_desc": "Physical board game designed and produced independently.",
             
             // Featured work descriptions
             "featured_dramai_desc": "Interactive Social AGI Playground - Building a Digital Civilization Sandbox for AI-Human Co-evolution",
-            "featured_got_desc": "Strategic browser-based MMO set in the Game of Thrones universe. Build your house and fight for the Iron Throne",
-            "featured_petch_desc": "AI-powered social platform for pets and pet lovers. Game Designer Intern focusing on pet personality systems",
+            "featured_got_desc": "Strategy MMO in the Game of Thrones universe — I designed and tuned combat AI for NPCs and bots at NetEase Games",
+            "featured_petch_desc": "AI-powered pet social platform — I architect the MBTI personality systems and a roguelike social PvP mode",
             "featured_ai_adoption_desc": "An emotional journey exploring dystopian themes through AI-human relationships",
             
             // Archive section
@@ -174,8 +189,11 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Skills section
             "skills_title": "Skills & Expertise",
-            "skills_p1": "I've developed a diverse set of skills throughout my career in creative design and system building. Below you can see my proficiency in various technologies and disciplines relevant to my work.",
-            "skills_p2": "Click on any skill to see more details about my experience with that technology or discipline.",
+            "skills_p1": "I've developed a diverse set of skills throughout my career in game development. My expertise spans across game design disciplines, technical software, and creative tools.",
+            "skills_p2": "Here are the technologies and tools I work with.",
+            "category_soft": "Game Design Expertise",
+            "category_software": "Software & Technical Skills",
+            "category_3d": "3D Software & Modeling",
             "skills_demo": "Interactive Skill Demo",
             "skills_start": "Start Demo",
             "skills_reset": "Reset",
@@ -217,6 +235,20 @@ document.addEventListener('DOMContentLoaded', function() {
             "skill_photoshop_desc": "Proficient in using Photoshop for game art, UI design, and asset creation.",
             "skill_midjourney_title": "Midjourney",
             "skill_midjourney_desc": "Experience using Midjourney for concept art and visual inspiration in game development.",
+            "skill_figma_title": "Figma",
+            "skill_figma_desc": "UI/UX design for game interfaces and user experience.",
+            "skill_blender_title": "Blender",
+            "skill_blender_desc": "3D modeling, texturing, and animation for game assets.",
+            "skill_maya_title": "Maya",
+            "skill_maya_desc": "3D modeling and animation workflows.",
+            "skill_substance_title": "Substance Painter",
+            "skill_substance_desc": "Texturing 3D models and material creation.",
+            "skill_leadership_title": "Team Leadership",
+            "skill_leadership_desc": "Leading game jam projects and team coordination.",
+            "skill_creativity_title": "Creative Problem Solving",
+            "skill_creativity_desc": "Creative solutions to game design challenges.",
+            "skill_adaptability_title": "Adaptability",
+            "skill_adaptability_desc": "Adapting to new technologies and workflows.",
             "skill_python_title": "Python",
             "skill_python_desc": "Scripting, automation, data processing, and building internal tools.",
             "skill_react_native_title": "React Native",
@@ -227,8 +259,8 @@ document.addEventListener('DOMContentLoaded', function() {
             "skill_documentation_desc": "Skilled in creating comprehensive game design documents and technical documentation.",
             "skill_motivation_title": "Self-Motivation",
             "skill_motivation_desc": "Highly self-motivated with strong initiative and ability to work independently.",
-            "skill_ai_title": "AI",
-            "skill_ai_desc": "Experience with AI systems in games, including behavior trees, pathfinding, and decision making.",
+            "skill_ai_title": "AI Behavior & Agents",
+            "skill_ai_desc": "Combat AI, agent behavior, and multi-agent LLM systems — from behavior trees to prompt guardrails.",
             
             // Contact section
             "contact_title": "Contact Me",
@@ -236,12 +268,18 @@ document.addEventListener('DOMContentLoaded', function() {
             "contact_phone": "Phone",
             "contact_location": "Location",
             "contact_name": "Name",
+            "contact_resume": "Résumé",
             "contact_subject": "Subject",
             "contact_message": "Message",
             "contact_send": "Send Message",
-            
+
+            // Thanks page
+            "thanks_title": "Message Sent!",
+            "thanks_body": "Thanks for reaching out — your message is on its way. I usually reply within a day or two.",
+            "thanks_back": "Back to Home",
+
             // Footer
-            "footer_dev": "Creative Designer & System Builder",
+            "footer_dev": "Game Designer · AI-Native Play",
             "footer_rights": "All Rights Reserved.",
             
             // Navigation buttons
@@ -250,8 +288,12 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Game Detail Page
             "back_to_portfolio": "Back to Portfolio",
-            "game_description": "Description",
-            "game_features": "Features",
+            "next_game": "Next Game",
+            "game_description": "Overview",
+            "game_role_team": "My Role & Team",
+            "game_challenge": "The Challenge",
+            "game_features": "What I Designed",
+            "game_outcome": "Outcome",
             "game_technologies": "Technologies",
             "game_links": "Links",
             "game_gallery": "Gallery",
@@ -268,29 +310,35 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Hero section
             "hero_hello": "你好，我是",
-            "hero_title": "创意设计师 & 系统构建者",
-            "hero_welcome": "欢迎来到我的个人作品集网站，这里展示了我的作品和对创意设计与系统建设的热情。",
+            "hero_title": "游戏设计师 · AI 原生玩法",
+            "hero_welcome": "现任 Petch 游戏设计师。履历横跨网易游戏、AI 原生创业公司与获奖 Game Jam 作品。",
             "hero_view_work": "查看作品",
+            "hero_resume": "下载简历",
             "hero_contact": "联系我",
             
             // About section
             "about_title": "关于我",
-            "about_p1": "你好！我是一位充满热情的创意设计师，在设计和开发方面都有扎实的背景。我热衷于通过精心的设计打造有意义的体验，并构建结构良好的系统。",
-            "about_p2": "凭借在互动媒体、产品设计和系统架构等多元领域的项目经验，我在体验设计、视觉叙事以及构建稳健可扩展的解决方案方面积累了深厚的专业能力。",
-            "about_p3": "当我不在做设计或构建系统时，你会发现我在探索新兴的创意工具、参与设计挑战，或者尝试新技术来突破互动体验的边界。",
+            "about_p1": "我是 Violet Guo（Xiaowei Guo），现任 Petch 游戏设计师，负责性格驱动的社交 PvP 系统。此前在 Dramai.AI（Cuboid.AI）搭建多智能体叙事系统，在网易《权力的游戏：凛冬将至》设计并调校战斗 AI，并为《天谕》撰写角色叙事。美国东北大学游戏设计硕士。",
+            "about_p2": "我在意系统在扩张中保持清晰，也在意从玩法中自然生长、而非依赖过场动画的故事。这套设计功力同样延伸到我的 AI 原生与产品工作中——我设计多智能体体验，也从 Figma 到 React Native 端到端地设计并上线移动产品。",
+            "about_p3": "长居波士顿，也常回杭州，中英双语工作。",
             "info_name": "姓名：",
             "info_email": "邮箱：",
             "info_location": "地点：",
-            "info_experience": "经验：",
-            "experience_years": "5年以上",
+            "info_location_note": "可远程 / 可搬迁",
+            "info_experience": "教育：",
+            "experience_years": "游戏设计硕士 · 美国东北大学",
             
             // Game Portfolio section
             "games_title": "作品集",
             "filter_all": "全部",
-            "filter_business": "商业项目",
-            "filter_pc": "PC游戏",
-            "filter_board": "桌游",
+            "filter_commercial": "商业项目",
+            "filter_personal": "个人项目",
             "filter_jam": "游戏马拉松",
+            "featured_title": "精选作品",
+            "category_commercial": "商业项目",
+            "category_commercial_desc": "为公司开发并商业发行的专业项目",
+            "category_personal": "个人项目",
+            "category_personal_desc": "展现个人视野与能力的独立项目与创意探索",
             
             // Game cards
             "game_ai_adoption_title": "AI领养计划",
@@ -298,7 +346,7 @@ document.addEventListener('DOMContentLoaded', function() {
             "game_quoted_out_title": "引述出来！",
             "game_quoted_out_desc": "基于对话的派对游戏，玩家通过编辑采访创建幽默视频。2024年全球游戏马拉松获奖作品。",
             "game_party_paidui_title": "派对！排队！嘉年华！",
-            "game_party_paidui_desc": "正在开发的新项目。详情将很快公布。",
+            "game_party_paidui_desc": "与 3-4 人团队合作开发的混乱派对经营游戏，目标是办成一场终极派对。",
             "game_back_home_title": "回家",
             "game_back_home_desc": "《回家》是一款生活模拟游戏，女孩在有限的金钱下收集日常物品。你的选择塑造关系并解锁多种结局。",
             "game_dorm_unpacking_title": "宿舍整理",
@@ -320,14 +368,18 @@ document.addEventListener('DOMContentLoaded', function() {
             "game_dramai_title": "Dramai.AI",
             "game_dramai_desc": "互动社交AGI游乐场 - 构建AI-人类共同进化的数字文明沙盒，具有多智能体叙事功能。",
             "game_got_title": "权力的游戏：凛冬将至",
-            "game_got_desc": "设定在权力的游戏宇宙中的战略浏览器MMO。建立你的家族，结成联盟，为铁王座而战的史诗策略游戏。",
+            "game_got_desc": "权力的游戏宇宙中的策略 MMO。我在网易游戏负责设计并调校 NPC 与机器人战斗 AI——决策逻辑、威胁评估，以及多种遭遇战类型的战斗节奏。",
             "game_petch_title": "Petch",
-            "game_petch_desc": "面向宠物和宠物爱好者的AI驱动社交平台。游戏设计师实习生角色，专注于宠物性格测试和社交互动系统。",
+            "game_petch_desc": "AI 宠物社交平台。我负责宠物性格（MBTI）系统与 roguelike 社交 PvP 模式的架构设计，结合 16 格消除式机制，实现性格驱动的构筑与特质搭配策略。",
+            "game_revelation_title": "天谕",
+            "game_revelation_desc": "网易旗下移动 MMORPG。我负责开发角色配套叙事与故事线——让剧情、技能与世界观设定保持一致。",
+            "game_falling_kingdom_title": "Falling Kingdom",
+            "game_falling_kingdom_desc": "独立设计并制作的实体桌游。",
             
             // Featured work descriptions
             "featured_dramai_desc": "互动社交AGI游乐场 - 构建AI-人类共同进化的数字文明沙盒",
-            "featured_got_desc": "设定在权力的游戏宇宙中的战略浏览器MMO。建立你的家族，为铁王座而战",
-            "featured_petch_desc": "面向宠物和宠物爱好者的AI驱动社交平台。游戏设计师实习生专注于宠物性格系统",
+            "featured_got_desc": "权力的游戏宇宙中的策略 MMO——我在网易游戏设计并调校 NPC 与机器人战斗 AI",
+            "featured_petch_desc": "AI 宠物社交平台——我负责 MBTI 性格系统与 roguelike 社交 PvP 模式的架构设计",
             "featured_ai_adoption_desc": "探索AI-人类关系中反乌托邦主题的情感之旅",
             
             // Archive section
@@ -363,8 +415,11 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Skills section
             "skills_title": "技能与专长",
-            "skills_p1": "在创意设计与系统建设的职业生涯中，我培养了多样化的技能。以下是我在各种技术和学科中的熟练程度。",
-            "skills_p2": "点击任何技能，查看有关我在该技术或学科方面的经验的更多详细信息。",
+            "skills_p1": "在游戏开发的职业生涯中，我培养了多样化的技能，涵盖游戏设计专业能力、技术软件与创意工具。",
+            "skills_p2": "以下是我使用的技术与工具。",
+            "category_soft": "游戏设计专长",
+            "category_software": "软件与技术技能",
+            "category_3d": "3D软件与建模",
             "skills_demo": "互动技能演示",
             "skills_start": "开始演示",
             "skills_reset": "重置",
@@ -406,6 +461,20 @@ document.addEventListener('DOMContentLoaded', function() {
             "skill_photoshop_desc": "精通使用Photoshop进行游戏美术、UI设计和资产创建。",
             "skill_midjourney_title": "Midjourney",
             "skill_midjourney_desc": "有使用Midjourney进行游戏开发中概念艺术和视觉灵感的经验。",
+            "skill_figma_title": "Figma",
+            "skill_figma_desc": "游戏界面与用户体验的UI/UX设计。",
+            "skill_blender_title": "Blender",
+            "skill_blender_desc": "面向游戏资产的3D建模、贴图与动画。",
+            "skill_maya_title": "Maya",
+            "skill_maya_desc": "3D建模与动画工作流。",
+            "skill_substance_title": "Substance Painter",
+            "skill_substance_desc": "3D模型贴图与材质创建。",
+            "skill_leadership_title": "团队领导力",
+            "skill_leadership_desc": "带领游戏马拉松项目并协调团队工作。",
+            "skill_creativity_title": "创意解难",
+            "skill_creativity_desc": "为游戏设计挑战提供创造性解决方案。",
+            "skill_adaptability_title": "适应能力",
+            "skill_adaptability_desc": "快速适应新技术与新工作流。",
             "skill_python_title": "Python",
             "skill_python_desc": "擅长使用 Python 进行脚本编写、自动化、数据处理以及内部工具搭建。",
             "skill_react_native_title": "React Native",
@@ -416,8 +485,8 @@ document.addEventListener('DOMContentLoaded', function() {
             "skill_documentation_desc": "擅长创建全面的游戏设计文档和技术文档。",
             "skill_motivation_title": "自我激励",
             "skill_motivation_desc": "高度自我激励，有强烈的主动性和独立工作的能力。",
-            "skill_ai_title": "人工智能",
-            "skill_ai_desc": "有游戏中AI系统的经验，包括行为树、寻路和决策制定。",
+            "skill_ai_title": "AI 行为与智能体",
+            "skill_ai_desc": "战斗 AI、智能体行为与多智能体 LLM 系统——从行为树到 Prompt 护栏。",
             
             // Contact section
             "contact_title": "联系我",
@@ -425,12 +494,18 @@ document.addEventListener('DOMContentLoaded', function() {
             "contact_phone": "电话",
             "contact_location": "地点",
             "contact_name": "姓名",
+            "contact_resume": "简历",
             "contact_subject": "主题",
             "contact_message": "留言",
             "contact_send": "发送留言",
-            
+
+            // Thanks page
+            "thanks_title": "消息已发送！",
+            "thanks_body": "感谢你的来信——消息已经在路上了。我通常会在一两天内回复。",
+            "thanks_back": "返回首页",
+
             // Footer
-            "footer_dev": "创意设计师 & 系统构建者",
+            "footer_dev": "游戏设计师 · AI 原生玩法",
             "footer_rights": "版权所有。",
             
             // Navigation buttons
@@ -439,8 +514,12 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Game Detail Page
             "back_to_portfolio": "返回作品集",
-            "game_description": "描述",
-            "game_features": "特点",
+            "next_game": "下一个游戏",
+            "game_description": "项目概览",
+            "game_role_team": "角色与团队",
+            "game_challenge": "设计挑战",
+            "game_features": "我的设计",
+            "game_outcome": "成果",
             "game_technologies": "技术",
             "game_links": "链接",
             "game_gallery": "画廊",
@@ -448,12 +527,21 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
     
-    // Function to get current language from localStorage
+    // Function to get current language: ?lang=zh / ?lang=en overrides localStorage
     function getCurrentLanguage() {
+        const fromUrl = new URLSearchParams(location.search).get('lang');
+        if (fromUrl === 'zh' || fromUrl === 'en') return fromUrl;
         const savedLang = localStorage.getItem('preferredLanguage');
         return savedLang && (savedLang === 'en' || savedLang === 'zh') ? savedLang : 'en';
     }
-    
+
+    function syncLanguageUrl(lang) {
+        const url = new URL(location.href);
+        if (!url.searchParams.has('lang')) return;
+        url.searchParams.set('lang', lang);
+        history.replaceState(history.state, '', url);
+    }
+
     // Function to update text content based on selected language
     function updateLanguage(lang) {
         // Update language attribute on html tag
@@ -475,6 +563,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Save language preference to localStorage
         localStorage.setItem('preferredLanguage', lang);
+        syncLanguageUrl(lang);
         
         // Dispatch a custom event for other scripts to listen to
         const event = new CustomEvent('languageChanged', { detail: { language: lang } });
@@ -485,7 +574,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const langSwitcher = document.getElementById('langSwitcher');
     if (langSwitcher) {
         langSwitcher.addEventListener('click', function() {
-            const currentLang = getCurrentLanguage();
+            const currentLang = document.documentElement.lang === 'zh' ? 'zh' : 'en';
             const newLang = currentLang === 'en' ? 'zh' : 'en';
             updateLanguage(newLang);
         });
@@ -498,10 +587,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
 
-    if (hamburger) {
+    function setMobileMenu(open) {
+        if (!hamburger || !navLinks) return;
+        hamburger.classList.toggle('active', open);
+        navLinks.classList.toggle('active', open);
+        hamburger.setAttribute('aria-expanded', String(open));
+        hamburger.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+    }
+
+    if (hamburger && navLinks) {
         hamburger.addEventListener('click', function() {
-            hamburger.classList.toggle('active');
-            navLinks.classList.toggle('active');
+            setMobileMenu(!hamburger.classList.contains('active'));
         });
     }
 
@@ -509,11 +605,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const navItems = document.querySelectorAll('.nav-links a');
     navItems.forEach(item => {
         item.addEventListener('click', function() {
-            if (hamburger.classList.contains('active')) {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
-            }
+            setMobileMenu(false);
         });
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') setMobileMenu(false);
+    });
+
+    window.matchMedia('(min-width: 769px)').addEventListener('change', (event) => {
+        if (event.matches) setMobileMenu(false);
     });
 
     // Game Portfolio Filtering
@@ -529,17 +630,34 @@ document.addEventListener('DOMContentLoaded', function() {
             this.classList.add('active');
             
             const filterValue = this.getAttribute('data-filter');
-            
+
             // Show/hide game cards based on filter
             gameCards.forEach(card => {
                 if (filterValue === 'all') {
-                    card.style.display = 'block';
+                    card.style.display = '';
                 } else if (card.getAttribute('data-category').includes(filterValue)) {
-                    card.style.display = 'block';
+                    card.style.display = '';
                 } else {
                     card.style.display = 'none';
                 }
             });
+
+            // Section dividers only make sense in the unfiltered view
+            document.querySelectorAll('.section-divider').forEach(divider => {
+                divider.style.display = filterValue === 'all' ? '' : 'none';
+            });
+        });
+    });
+
+    // Keyboard access for clickable cards (they navigate like links)
+    document.querySelectorAll('.game-card[onclick], .featured-item[onclick]').forEach(card => {
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('role', 'link');
+        card.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                card.click();
+            }
         });
     });
 
@@ -782,8 +900,16 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('.archive-gallery').forEach(gallery => {
             const thumbs = gallery.querySelectorAll('.archive-gallery-thumb');
             thumbs.forEach((thumb, i) => {
-                thumb.addEventListener('click', function() {
-                    openLightbox(thumbs, i);
+                thumb.setAttribute('role', 'button');
+                thumb.tabIndex = 0;
+                thumb.setAttribute('aria-label', `Open ${thumb.alt || 'archive image'} in lightbox`);
+                const activateThumb = () => openLightbox(thumbs, i);
+                thumb.addEventListener('click', activateThumb);
+                thumb.addEventListener('keydown', function(event) {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        activateThumb();
+                    }
                 });
             });
         });
@@ -828,18 +954,27 @@ document.addEventListener('DOMContentLoaded', function() {
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
     const carouselTrack = document.getElementById('featuredCarousel');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let autoPlayInterval = null;
+    let pointerOverCarousel = false;
+    let focusWithinCarousel = false;
     
     if (slides.length > 0) {
         // Initialize carousel
         function updateCarousel() {
             // Update slide visibility
             slides.forEach((slide, index) => {
-                slide.classList.toggle('active', index === currentSlide);
+                const active = index === currentSlide;
+                slide.classList.toggle('active', active);
+                slide.setAttribute('aria-hidden', String(!active));
+                slide.toggleAttribute('inert', !active);
             });
             
             // Update indicators
             indicators.forEach((indicator, index) => {
-                indicator.classList.toggle('active', index === currentSlide);
+                const active = index === currentSlide;
+                indicator.classList.toggle('active', active);
+                indicator.setAttribute('aria-current', String(active));
             });
             
             // Move carousel track
@@ -878,16 +1013,15 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
         
-        // Auto-play carousel (optional)
-        let autoPlayInterval;
-        
-        function startAutoPlay() {
-            autoPlayInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
-        }
-        
         function stopAutoPlay() {
-            if (autoPlayInterval) {
-                clearInterval(autoPlayInterval);
+            if (autoPlayInterval !== null) window.clearInterval(autoPlayInterval);
+            autoPlayInterval = null;
+        }
+
+        function startAutoPlay() {
+            stopAutoPlay();
+            if (!reducedMotion.matches && !pointerOverCarousel && !focusWithinCarousel) {
+                autoPlayInterval = window.setInterval(nextSlide, 5000);
             }
         }
         
@@ -897,9 +1031,28 @@ document.addEventListener('DOMContentLoaded', function() {
         // Pause auto-play on hover
         const carouselContainer = document.querySelector('.carousel-container');
         if (carouselContainer) {
+            carouselContainer.addEventListener('mouseenter', () => {
+                pointerOverCarousel = true;
+            });
             carouselContainer.addEventListener('mouseenter', stopAutoPlay);
+            carouselContainer.addEventListener('mouseleave', () => {
+                pointerOverCarousel = false;
+            });
             carouselContainer.addEventListener('mouseleave', startAutoPlay);
+            carouselContainer.addEventListener('focusin', () => {
+                focusWithinCarousel = true;
+            });
+            carouselContainer.addEventListener('focusin', stopAutoPlay);
+            carouselContainer.addEventListener('focusout', (event) => {
+                focusWithinCarousel = carouselContainer.contains(event.relatedTarget);
+            });
+            carouselContainer.addEventListener('focusout', startAutoPlay);
         }
+
+        reducedMotion.addEventListener('change', (event) => {
+            if (event.matches) stopAutoPlay();
+            else startAutoPlay();
+        });
         
         // Initialize carousel on page load
         updateCarousel();

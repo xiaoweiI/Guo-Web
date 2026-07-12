@@ -1,0 +1,454 @@
+/* Game Detail Page — uses the tokens from pixel-style.css */
+
+.game-detail {
+    padding: 48px 0;
+}
+
+.back-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+}
+
+.back-button .pixel-btn {
+    margin: 0 !important;
+}
+
+.game-detail-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* header */
+
+.game-detail-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.game-detail-header .section-title {
+    margin-bottom: 20px;
+}
+
+.game-detail-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+}
+
+.game-role-detail {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 10px;
+    padding: 10px 14px;
+    background: var(--panel);
+    border: 4px solid var(--border);
+    box-shadow: 4px 4px 0 var(--hard);
+}
+
+.game-role-detail .role-label {
+    font-size: 18px;
+    color: var(--dim);
+}
+
+.game-role-detail .role-value {
+    font-family: var(--f-head);
+    font-size: 10px;
+    color: var(--pink);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+html[lang="zh"] .game-role-detail .role-value {
+    font-size: 14px;
+    letter-spacing: 0;
+}
+
+.game-categories {
+    display: flex;
+    gap: 10px;
+}
+
+.game-category {
+    padding: 10px 14px;
+    font-family: var(--f-head);
+    font-size: 8px;
+    line-height: 1.6;
+    color: var(--purple);
+    background: var(--bg);
+    box-shadow: 4px 4px 0 var(--hard);
+}
+
+html[lang="zh"] .game-category {
+    font-size: 12px;
+}
+
+/* layout */
+
+.game-detail-main {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+    align-items: start;
+}
+
+@media (min-width: 1100px) {
+    .game-detail-main {
+        grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+    }
+}
+
+.game-detail-main,
+.game-detail-left,
+.game-detail-info,
+.game-detail-meta,
+.game-role-detail,
+.game-category,
+.tech-tags {
+    min-width: 0;
+}
+
+.game-detail-left {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* main image window */
+
+.game-detail-image {
+    overflow: hidden;
+}
+
+.game-detail-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* info window */
+
+.game-detail-info {
+    padding: 24px;
+}
+
+[data-win].game-detail-info {
+    padding: 0 24px 24px;
+}
+
+.game-info-section {
+    margin-top: 24px;
+}
+
+.game-info-section h3 {
+    font-family: var(--f-head);
+    font-size: 12px;
+    line-height: 1.7;
+    margin-bottom: 14px;
+    color: var(--purple);
+    position: relative;
+    padding-left: 22px;
+}
+
+html[lang="zh"] .game-info-section h3 {
+    font-size: 15px;
+}
+
+.game-info-section h3::before {
+    content: '►';
+    position: absolute;
+    left: 0;
+    color: var(--pink);
+}
+
+.game-info-section p {
+    color: var(--dim);
+    margin-bottom: 14px;
+    white-space: pre-line;
+}
+
+.game-info-section p,
+.feature-list,
+.fact-value,
+.fact-tile-value,
+.game-outcome-summary p {
+    font-family: var(--f-reading);
+    overflow-wrap: anywhere;
+}
+
+.game-info-section p,
+.game-outcome-summary p {
+    max-width: 68ch;
+}
+
+.game-outcome-summary {
+    margin-top: 20px;
+    padding: 16px;
+    width: min(100%, 760px);
+    background: var(--panel);
+    border: 4px solid var(--border);
+    box-shadow: 4px 4px 0 var(--hard);
+}
+
+.game-outcome-summary[hidden] {
+    display: none;
+}
+
+.outcome-label {
+    display: block;
+    margin-bottom: 10px;
+    font-family: var(--f-head);
+    font-size: 10px;
+    line-height: 1.7;
+    color: var(--purple);
+    text-transform: uppercase;
+}
+
+.outcome-label::before {
+    content: '►';
+    margin-right: 10px;
+    color: var(--pink);
+}
+
+/* at-a-glance fact tiles */
+
+.fact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+}
+
+.fact-tile {
+    background: var(--bg);
+    border: 2px solid var(--purple-deep);
+    padding: 10px 12px;
+}
+
+.fact-label {
+    display: block;
+    font-family: var(--f-head);
+    font-size: 8px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--purple);
+    margin-bottom: 6px;
+}
+
+html[lang="zh"] .fact-label {
+    font-size: 12px;
+    letter-spacing: 0;
+}
+
+.fact-value {
+    color: var(--ink);
+    font-size: 18px;
+    line-height: 1.35;
+}
+
+html[lang="zh"] .fact-value {
+    font-size: 15px;
+}
+
+/* "What I Designed" entries: bold lead + short note */
+.feature-list li strong {
+    color: var(--ink);
+}
+
+/* collapsed overview paragraphs */
+.desc-more[hidden] {
+    display: none;
+}
+
+.desc-toggle {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    color: var(--blue);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.desc-toggle:hover {
+    color: var(--pink);
+}
+
+/* features */
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+}
+
+.feature-list li {
+    position: relative;
+    padding-left: 22px;
+    margin-bottom: 10px;
+    color: var(--dim);
+}
+
+.feature-list li::before {
+    content: '▪';
+    position: absolute;
+    left: 0;
+    color: var(--pink);
+}
+
+/* tech tags */
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* tech tags shown in the header meta row get their own line */
+.game-detail-meta .tech-tags {
+    width: 100%;
+}
+
+.tech-tag {
+    padding: 4px 10px;
+    font-size: 16px;
+    background: var(--bg);
+    border: 2px solid var(--purple-deep);
+    color: var(--blue);
+}
+
+html[lang="zh"] .tech-tag {
+    font-size: 13px;
+}
+
+/* links */
+
+.game-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.game-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--f-head);
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: var(--panel-2);
+    border: 4px solid var(--border);
+    box-shadow: 4px 4px 0 var(--hard);
+    padding: 12px 16px;
+    transition: transform 0.1s steps(2), box-shadow 0.1s steps(2);
+}
+
+html[lang="zh"] .game-link {
+    font-size: 13px;
+    letter-spacing: 0;
+}
+
+.game-link:hover {
+    color: var(--pink);
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 rgba(95, 133, 219, 0.5);
+}
+
+.game-link:active {
+    transform: translate(4px, 4px);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+
+/* gallery window */
+
+.game-gallery {
+    padding: 0 20px 20px;
+}
+
+.game-gallery h3 {
+    font-family: var(--f-head);
+    font-size: 12px;
+    margin: 20px 0 16px;
+    color: var(--purple);
+    position: relative;
+    padding-left: 22px;
+}
+
+html[lang="zh"] .game-gallery h3 {
+    font-size: 15px;
+}
+
+.game-gallery h3::before {
+    content: '►';
+    position: absolute;
+    left: 0;
+    color: var(--pink);
+}
+
+.gallery-images {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-height: 1200px;
+    overflow-y: auto;
+}
+
+.gallery-item {
+    flex-shrink: 0;
+    border: 4px solid var(--border);
+    background: var(--bg);
+}
+
+.gallery-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.gallery-images::-webkit-scrollbar {
+    width: 12px;
+}
+
+.gallery-images::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+
+.gallery-images::-webkit-scrollbar-thumb {
+    background: var(--purple);
+    border: 4px solid var(--bg);
+}
+
+.gallery-images::-webkit-scrollbar-thumb:hover {
+    background: var(--pink);
+}
+
+/* responsive */
+
+@media (max-width: 767px) {
+    .game-detail {
+        padding: 32px 0;
+    }
+
+    .gallery-images {
+        max-height: 480px;
+    }
+
+    .back-button,
+    .game-role-detail,
+    .game-categories,
+    .game-category,
+    .tech-tags,
+    .tech-tag {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+    }
+}
