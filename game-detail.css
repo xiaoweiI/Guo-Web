@@ -193,6 +193,23 @@ html[lang="zh"] .game-category {
     gap: 24px;
 }
 
+/* two-column layout only: the preview follows the reader down the long text column
+   and stops at the bottom of .game-detail-main, so it never reaches the footer */
+@media (min-width: 1100px) {
+    .game-detail-left {
+        position: sticky;
+        top: 100px; /* sticky site header (76px) + 24px */
+        z-index: 1;
+    }
+
+    /* Paint order only, nothing overlaps: Chrome draws text that is painted after a sticky
+       box without subpixel antialiasing. Keeping the column last in its container (z-index
+       above) and the container after the footer leaves all other text rendered as before. */
+    .game-detail > .container {
+        z-index: 3;
+    }
+}
+
 /* main image window */
 
 .game-detail-image {
@@ -213,6 +230,11 @@ html[lang="zh"] .game-category {
 
 [data-win].game-detail-info {
     padding: 0 24px 24px;
+}
+
+/* title bar spans the window, not just the padded content box */
+[data-win].game-detail-info::before {
+    margin: 0 -24px;
 }
 
 .game-info-section {

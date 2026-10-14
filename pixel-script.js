@@ -13,49 +13,71 @@ document.addEventListener('DOMContentLoaded', function() {
     // Set home page as active by default
     let currentPage = 'home';
     
-    // Function to navigate to a page
-    function navigateTo(pageId) {
+    // Check that this document contains the section for a page
+    function hasPage(pageId) {
+        return Object.prototype.hasOwnProperty.call(pages, pageId) && pages[pageId] !== null;
+    }
+    
+    // Read the page from the URL hash (unknown hashes fall back to home)
+    function getPageFromHash() {
+        const pageId = window.location.hash.substring(1).toLowerCase();
+        return hasPage(pageId) ? pageId : 'home';
+    }
+    
+    // Function to show the page the URL hash points to
+    function renderPage() {
+        const pageId = getPageFromHash();
+        if (!hasPage(pageId)) return;
+        
+        // Correct an empty, unknown or wrongly-cased hash without adding a history entry
+        if (window.location.hash !== `#${pageId}`) {
+            history.replaceState(history.state, '', `#${pageId}`);
+        }
+        
         // Hide all pages
         Object.values(pages).forEach(page => {
             if (page) page.classList.remove('active');
         });
         
         // Show the selected page
-        if (pages[pageId]) {
-            pages[pageId].classList.add('active');
-            currentPage = pageId;
-            
-            // Scroll to top when changing pages
-            window.scrollTo(0, 0);
-            
-            // Update URL hash without scrolling
+        pages[pageId].classList.add('active');
+        currentPage = pageId;
+        
+        // Scroll to top when changing pages
+        window.scrollTo(0, 0);
+        
+        // Create floating pixel boxes for the current page
+        createFloatingBoxes();
+    }
+    
+    // Function to navigate to a page
+    function navigateTo(pageId) {
+        // Update URL hash without scrolling (only when the page actually changes)
+        if (pageId !== getPageFromHash()) {
             history.pushState(null, null, `#${pageId}`);
-            
-            // Create floating pixel boxes for the current page
-            createFloatingBoxes();
         }
+        
+        renderPage();
     }
     
     // Set up navigation event listeners
     document.querySelectorAll('a[data-page], .page-nav-btn').forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
             const pageId = this.getAttribute('data-page');
-            if (pageId) {
-                navigateTo(pageId);
-            }
+            // A page that is not in this document is reached through the link's own href
+            if (!hasPage(pageId)) return;
+            e.preventDefault();
+            navigateTo(pageId);
         });
     });
     
     // Handle browser back/forward buttons
     window.addEventListener('popstate', function() {
-        const pageId = window.location.hash.substring(1) || 'home';
-        navigateTo(pageId);
+        renderPage();
     });
     
     // Initialize based on URL hash or default to home
-    const initialPage = window.location.hash.substring(1) || 'home';
-    navigateTo(initialPage);
+    renderPage();
     
     // Floating Pixel Boxes - Disabled
     function createFloatingBoxes() {
@@ -78,6 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
             "nav_home": "Home",
             "nav_about": "About",
             "nav_games": "Portfolio",
+            "nav_systems": "Systems",
             "nav_archive": "Archive",
             "nav_skills": "Skills",
             "nav_contact": "Contact",
@@ -149,6 +172,31 @@ document.addEventListener('DOMContentLoaded', function() {
             "game_revelation_desc": "Mobile MMO RPG by NetEase. I developed character kits and narrative arcs — aligning story, abilities, and worldbuilding.",
             "game_falling_kingdom_title": "Falling Kingdom",
             "game_falling_kingdom_desc": "Physical board game designed and produced independently.",
+            
+            // Game card roles and links
+            "role_label_title": "Title:",
+            "role_label_role": "Role:",
+            "game_ai_adoption_role": "Main Designer + Team Leader",
+            "game_quoted_out_role": "Main Designer + Team Leader",
+            "game_party_paidui_role": "Co-designer & Developer",
+            "game_back_home_role": "Sole Developer",
+            "game_dorm_unpacking_role": "Sole Developer",
+            "game_zombie_juice_role": "Co-designer & Developer",
+            "game_beneath_ruins_role": "Sole Developer",
+            "game_wallet_war_role": "Sole Developer",
+            "game_princess_lianan_role": "Sole Developer",
+            "game_above_fountain_role": "Sole Developer",
+            "game_silent_majority_role": "Sole Developer",
+            "game_dramai_role": "AI Game Designer · Cuboid.AI",
+            "game_got_role": "AI Designer · NetEase Games",
+            "game_petch_role": "Game Designer",
+            "game_revelation_role": "Game Narrative Designer · NetEase Games",
+            "game_falling_kingdom_role": "Sole Designer",
+            "link_visit_platform": "Visit Platform",
+            "link_play_game": "Play Game",
+            "link_visit_website": "Visit Website",
+            "link_visit_site": "Visit Site",
+            "link_video": "Video",
             
             // Featured work descriptions
             "featured_dramai_desc": "Interactive Social AGI Playground - Building a Digital Civilization Sandbox for AI-Human Co-evolution",
@@ -289,6 +337,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Game Detail Page
             "back_to_portfolio": "Back to Portfolio",
             "next_game": "Next Game",
+            "role_label_my_title": "My Title:",
             "game_description": "Overview",
             "game_role_team": "My Role & Team",
             "game_challenge": "The Challenge",
@@ -304,6 +353,7 @@ document.addEventListener('DOMContentLoaded', function() {
             "nav_home": "首页",
             "nav_about": "关于我",
             "nav_games": "作品集",
+            "nav_systems": "系统图谱",
             "nav_archive": "档案",
             "nav_skills": "技能",
             "nav_contact": "联系方式",
@@ -375,6 +425,31 @@ document.addEventListener('DOMContentLoaded', function() {
             "game_revelation_desc": "网易旗下移动 MMORPG。我负责开发角色配套叙事与故事线——让剧情、技能与世界观设定保持一致。",
             "game_falling_kingdom_title": "Falling Kingdom",
             "game_falling_kingdom_desc": "独立设计并制作的实体桌游。",
+            
+            // Game card roles (same wording as role.zh in game-detail.js) and links
+            "role_label_title": "职位：",
+            "role_label_role": "角色：",
+            "game_ai_adoption_role": "主设计师 + 团队领导",
+            "game_quoted_out_role": "主设计师 + 团队领导",
+            "game_party_paidui_role": "联合设计师 & 开发者",
+            "game_back_home_role": "独立开发者",
+            "game_dorm_unpacking_role": "独立开发者",
+            "game_zombie_juice_role": "联合设计师 & 开发者",
+            "game_beneath_ruins_role": "独立开发者",
+            "game_wallet_war_role": "独立开发者",
+            "game_princess_lianan_role": "独立开发者",
+            "game_above_fountain_role": "独立开发者",
+            "game_silent_majority_role": "独立开发者",
+            "game_dramai_role": "AI 游戏设计师 — Cuboid.AI",
+            "game_got_role": "AI 设计师 — 网易游戏",
+            "game_petch_role": "游戏设计师",
+            "game_revelation_role": "游戏叙事设计师 — 网易游戏",
+            "game_falling_kingdom_role": "独立设计",
+            "link_visit_platform": "访问平台",
+            "link_play_game": "开始游玩",
+            "link_visit_website": "访问网站",
+            "link_visit_site": "访问网站",
+            "link_video": "观看视频",
             
             // Featured work descriptions
             "featured_dramai_desc": "互动社交AGI游乐场 - 构建AI-人类共同进化的数字文明沙盒",
@@ -515,6 +590,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Game Detail Page
             "back_to_portfolio": "返回作品集",
             "next_game": "下一个游戏",
+            "role_label_my_title": "职位：",
             "game_description": "项目概览",
             "game_role_team": "角色与团队",
             "game_challenge": "设计挑战",
@@ -958,6 +1034,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let autoPlayInterval = null;
     let pointerOverCarousel = false;
     let focusWithinCarousel = false;
+    let visitorTookControl = false; // this page load only, deliberately not persisted
     
     if (slides.length > 0) {
         // Initialize carousel
@@ -996,19 +1073,34 @@ document.addEventListener('DOMContentLoaded', function() {
             updateCarousel();
         }
         
+        // A slide change made by the visitor (arrow or dot, by pointer or keyboard)
+        // ends auto-play for the rest of this page load
+        function takeControl() {
+            visitorTookControl = true;
+            stopAutoPlay();
+        }
+        
         // Event listeners for navigation buttons
         if (nextBtn) {
-            nextBtn.addEventListener('click', nextSlide);
+            nextBtn.addEventListener('click', () => {
+                takeControl();
+                nextSlide();
+            });
         }
         
         if (prevBtn) {
-            prevBtn.addEventListener('click', prevSlide);
+            prevBtn.addEventListener('click', () => {
+                takeControl();
+                prevSlide();
+            });
         }
         
-        // Event listeners for indicators
+        // Event listeners for indicators (each one names its slide in data-slide)
         indicators.forEach((indicator, index) => {
             indicator.addEventListener('click', () => {
-                currentSlide = index;
+                const slide = Number.parseInt(indicator.getAttribute('data-slide'), 10);
+                takeControl();
+                currentSlide = Number.isNaN(slide) ? index : slide;
                 updateCarousel();
             });
         });
@@ -1020,7 +1112,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         function startAutoPlay() {
             stopAutoPlay();
-            if (!reducedMotion.matches && !pointerOverCarousel && !focusWithinCarousel) {
+            if (!visitorTookControl && !reducedMotion.matches && !pointerOverCarousel && !focusWithinCarousel) {
                 autoPlayInterval = window.setInterval(nextSlide, 5000);
             }
         }
@@ -1047,6 +1139,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 focusWithinCarousel = carouselContainer.contains(event.relatedTarget);
             });
             carouselContainer.addEventListener('focusout', startAutoPlay);
+        }
+
+        // The slide images are lazy so that other pages do not fetch them, but a slide waiting
+        // off to the side is clipped and would only start loading while it slides in.
+        // Load them all once the carousel itself is on screen.
+        if (carouselContainer && 'IntersectionObserver' in window) {
+            new IntersectionObserver((entries, observer) => {
+                if (!entries.some(entry => entry.isIntersecting)) return;
+                slides.forEach(slide => {
+                    const image = slide.querySelector('.featured-img');
+                    if (image) image.loading = 'eager';
+                });
+                observer.disconnect();
+            }).observe(carouselContainer);
         }
 
         reducedMotion.addEventListener('change', (event) => {

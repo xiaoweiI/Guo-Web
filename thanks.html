@@ -12,8 +12,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
     <script src="pixel-script.js" defer></script>
-    <!-- GoatCounter analytics — replace TODO-your-code with your goatcounter.com code -->
-    <script data-goatcounter="https://TODO-your-code.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
     <!-- Header Section -->
@@ -21,20 +19,21 @@
         <div class="container">
             <h1 class="logo">VIOLET GUO</h1>
             <nav>
-                <ul class="nav-links">
+                <ul id="primary-navigation" class="nav-links">
                     <li><a href="index.html#home" data-i18n="nav_home">Home</a></li>
                     <li><a href="index.html#about" data-i18n="nav_about">About</a></li>
                     <li><a href="index.html#games" data-i18n="nav_games">Portfolio</a></li>
+                    <li><a href="systems/" data-i18n="nav_systems">Systems</a></li>
                     <li><a href="index.html#archive" data-i18n="nav_archive">Archive</a></li>
                     <li><a href="index.html#skills" data-i18n="nav_skills">Skills</a></li>
                     <li><a href="index.html#contact" data-i18n="nav_contact">Contact</a></li>
                 </ul>
-                <button id="langSwitcher" class="lang-switcher">中文</button>
-                <div class="hamburger">
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                </div>
+                <button id="langSwitcher" class="lang-switcher" type="button">中文</button>
+                <button class="hamburger" type="button" aria-label="Open navigation" aria-controls="primary-navigation" aria-expanded="false">
+                    <span class="bar" aria-hidden="true"></span>
+                    <span class="bar" aria-hidden="true"></span>
+                    <span class="bar" aria-hidden="true"></span>
+                </button>
             </nav>
         </div>
     </header>
@@ -70,6 +69,7 @@
                         <li><a href="index.html#home" data-page="home" data-i18n="nav_home">Home</a></li>
                         <li><a href="index.html#about" data-page="about" data-i18n="nav_about">About</a></li>
                         <li><a href="index.html#games" data-page="games" data-i18n="nav_games">Games</a></li>
+                        <li><a href="systems/" data-i18n="nav_systems">Systems</a></li>
                         <li><a href="index.html#archive" data-page="archive" data-i18n="nav_archive">Archive</a></li>
                         <li><a href="index.html#skills" data-page="skills" data-i18n="nav_skills">Skills</a></li>
                         <li><a href="index.html#contact" data-page="contact" data-i18n="nav_contact">Contact</a></li>

@@ -1221,11 +1221,16 @@ document.addEventListener('DOMContentLoaded', function() {
             const galleryImages = galleryContainer.querySelector('.gallery-images');
             galleryImages.innerHTML = '';
 
-            extraImages.forEach(imageSrc => {
+            extraImages.forEach((imageSrc, index) => {
                 const imageContainer = document.createElement('div');
                 imageContainer.className = 'gallery-item';
                 
                 const img = document.createElement('img');
+                // Only the first gallery image loads up front; the rest wait until they are near the viewport
+                if (index > 0) {
+                    img.loading = 'lazy';
+                    img.decoding = 'async';
+                }
                 img.src = imageSrc;
                 img.alt = `${game.title[lang]} Gallery Image`;
                 img.className = 'gallery-image';
