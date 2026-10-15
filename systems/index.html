@@ -132,33 +132,49 @@ body{background:var(--desk);color:var(--navy);font-family:var(--fb);overflow:hid
    pieces are drawn once; the departing picture is laid flat in one layer with light shadows (#txold) */
 #scene>*,#scene>.txcam>*{will-change:transform,opacity}
 #cam{position:relative}
-#txov,#txfxv{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;transform-origin:0 0}
-#txov{will-change:transform,opacity;opacity:.01}
-#txov>svg,#txfxv>svg{display:block;width:100%;height:100%;overflow:visible}
-#txold .f2{filter:url(#lp)}#txold .f3{filter:url(#ll)}#txold .f4{filter:url(#lh)}#txold .f5{filter:url(#lv)}
+#txov,#txov2,#txfxv{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;transform-origin:0 0}
+#txov,#txov2{will-change:transform,opacity;opacity:.01}
+#txov>svg,#txov2>svg,#txfxv>svg{display:block;width:100%;height:100%;overflow:visible}
+#txold .f2,#txold2 .f2{filter:url(#lp)}#txold .f3,#txold2 .f3{filter:url(#ll)}#txold .f4,#txold2 .f4{filter:url(#lh)}#txold .f5,#txold2 .f5{filter:url(#lv)}
 /* a picture backed out of keeps its pieces (no flat copy), carried away with the same light shadows */
 #scene>.txlt .f1,#scene>.txlt.f1,#scene>.txlt .f2,#scene>.txlt.f2{filter:url(#lp)}#scene>.txlt .f3,#scene>.txlt.f3{filter:url(#ll)}#scene>.txlt .f4,#scene>.txlt.f4{filter:url(#lh)}#scene>.txlt .f5,#scene>.txlt.f5{filter:url(#lv)}
 #card[data-still]{animation:none}
 #cam[data-still]{transition:none}
 
-/* things you can click: the paper lifts a little and its shadow deepens */
-.go,.nd{cursor:pointer;outline:none;transition:transform .12s ease-out}
+/* things you can click: the paper lifts a little (ease-out) and its shadow falls further and softer with it; it is put down
+   again with ease-in. The lift shadow is one soft drop shadow on the whole piece, so it can grow and shrink with the lift
+   (a swap of the paper's own shadow filter cannot be animated: it would jump) */
+.go,.nd{cursor:pointer;outline:none;transition:transform .17s cubic-bezier(.5,0,.9,.55),filter .17s cubic-bezier(.5,0,.9,.55)}
+.go:hover,.go:focus-visible,.nd:hover,.nd:focus-visible{transition-duration:.15s;transition-timing-function:cubic-bezier(.15,.6,.3,1)}
 .go:hover,.go:focus-visible,.nd:hover,.nd:focus-visible,.nd.on{transform:translate(-1px,-2px)}
+.go:not(.flat):hover,.go:not(.flat):focus-visible,.nd:hover,.nd:focus-visible{filter:drop-shadow(1.4px 2.6px 2.4px rgba(20,28,22,.22))}
 .go.flat:hover,.go.flat:focus-visible{transform:none}
-.go:hover>.f2,.go:focus-visible>.f2,.go:hover>g>.f2,.go:focus-visible>g>.f2,.nd:hover>.f2,.nd:focus-visible>.f2,.nd.on>.f2,.nd:hover>g>.f2,.nd:focus-visible>g>.f2,.nd.on>g>.f2{filter:url(#pcu)}
-.go:not(.flat):hover>.f1,.go:not(.flat):focus-visible>.f1{filter:url(#pcsu)}
+.nd.on>.f2,.nd.on>g>.f2{filter:url(#pcu)}
 .go:focus-visible,.nd:focus-visible{outline:3px solid var(--must);outline-offset:3px}
-.veil{fill:var(--cream);opacity:.62;cursor:pointer}
+.veil{fill:var(--cream);opacity:.62;cursor:pointer;animation:veilin .18s cubic-bezier(.2,.6,.4,1)}
+.veil[data-still]{animation:none}
+/* the pieces lifted above it come up with it (copies of pieces lying beneath: only the lift shows) */
+#hi>:not(.veil):not(.run){animation:veilin .16s cubic-bezier(.2,.6,.4,1)}
+#hi>[data-still]:not(.run){animation:none}
+@keyframes veilin{from{opacity:0}}
+/* a sliding dot comes up out of the strip's start (from nothing to full size) and sinks into its end, every round */
 .run{offset-rotate:0deg;animation:slide 2.4s linear infinite}
+.run>*{animation:pop 2.4s linear infinite}
 .run use{filter:none}
 @keyframes slide{from{offset-distance:0%}to{offset-distance:100%}}
+@keyframes pop{0%{scale:0}7%{scale:1}93%{scale:1}100%{scale:0}}
 
 /* the card: a sheet of cream paper lying on the picture */
-#card{position:absolute;right:2.2%;top:10%;width:min(360px,34%);max-height:80%;display:flex;filter:drop-shadow(5px 7px 6px var(--shade));animation:cardin .22s ease-out}
+#card{position:absolute;right:2.2%;top:10%;width:min(360px,34%);max-height:80%;display:flex;filter:drop-shadow(5px 7px 6px var(--shade));animation:cardin .27s cubic-bezier(.2,.75,.3,1.02);transform-origin:60% 0}
+#card[data-closing]{pointer-events:none}
+/* the previous concept's words, fading off the card while the new lines come in (inert, never clickable) */
+.cardold{position:absolute;inset:0;pointer-events:none;overflow:hidden;padding:22px 24px 26px;font-size:15px;line-height:1.55}
 #cardBody{flex:1;min-width:0;overflow:auto;overscroll-behavior:contain;padding:22px 24px 26px;background-color:var(--cream);
  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='2' seed='3'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .46 -.19'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
  clip-path:polygon(0 14px,18px 0,calc(100% - 4px) 3px,100% calc(100% - 26px),calc(100% - 30px) 100%,5px calc(100% - 3px));font-size:15px;line-height:1.55}
-@keyframes cardin{from{transform:translateX(26px);opacity:0}to{transform:none;opacity:1}}
+/* the card is put down from the right: a little tilted and higher above the picture (a longer, softer shadow), turning
+   straight and settling as it lands */
+@keyframes cardin{from{transform:translate(34px,-6px) rotate(1.4deg);opacity:0;filter:drop-shadow(12px 18px 14px rgba(20,28,22,.3))}55%{opacity:1}to{transform:none;opacity:1;filter:drop-shadow(5px 7px 6px var(--shade))}}
 #card h2{font-family:var(--fh);font-weight:400;font-size:25px;line-height:1.25;margin:0 56px 10px 0}
 #card h3{font-family:var(--fh);font-weight:400;font-size:15px;margin:18px 0 6px;display:flex;align-items:center;gap:8px}
 #card .cnt{font-family:var(--ft);font-size:12px;min-width:20px;height:20px;line-height:20px;text-align:center;border-radius:50%;background:var(--navy);color:var(--cream)}
@@ -193,13 +209,13 @@ button.tg{cursor:pointer;background:var(--sagel)}
 
 @media (max-width:720px){
  #card{left:3%;right:3%;top:auto;bottom:0;width:auto;max-height:55%;animation-name:cardup}
- #cardBody{padding:18px 18px 22px}
+ #cardBody,.cardold{padding:18px 18px 22px}
  #search{left:4%;right:4%;top:3%;width:auto}
 }
-@keyframes cardup{from{transform:translateY(30px);opacity:0}to{transform:none;opacity:1}}
+@keyframes cardup{from{transform:translateY(34px) rotate(-1.2deg);opacity:0;filter:drop-shadow(8px 16px 14px rgba(20,28,22,.3))}55%{opacity:1}to{transform:none;opacity:1;filter:drop-shadow(5px 7px 6px var(--shade))}}
 @media (prefers-reduced-motion:reduce){
  .run{animation:none;offset-distance:50%}
- #card{animation:none}
+ .run>*,.veil,#card,#hi>*,#hi>:not(.veil):not(.run){animation:none}
  .go,.nd,#cam{transition:none}
 }
 </style>
@@ -243,8 +259,24 @@ button.tg{cursor:pointer;background:var(--sagel)}
    back-out timing tables     | EXEMPT (TX: ribLeave, ribStart, | change out: when each departing strip goes, each arriving strip / sheet
                               |   drop, sideIn, child, C, Bh,   | comes, where the paper is at the hand-over; computed per change from
                               |   grow, two)                    | #meta (registered boxes and centres), never measured, never saved
-   first-paint stillness      | EXEMPT (data-still attribute)   | on #card / #cam while the first picture (or a language switch) is
-                              |                                 | laid: no entrance animation, no picture slide; dropped afterwards
+   in / sideways plan         | EXEMPT (TX: Q, dropAt, landAt,  | change in / sideways: when each arriving sheet, corner and strip comes,
+                              |   cornerAt, ribStart, same,     | which old piece grows into the new sheet (clicked), which new corner the
+                              |   oldSame, clicked, becomes,    | old sheet shrinks into (becomes, Cb), which pieces are one paper in both
+                              |   Cb, split)                    | pictures (same / oldSame); from #meta per change, never measured or saved
+   sideways departing layers  | EXEMPT (#txov + #txov2, TX)     | the old picture as two flat layers (on the sheet / around it) sliding
+                              |                                 | away; removed at the end of the change like #txov
+   light shadows while moving | EXEMPT (class txlt, TX.light /  | arriving pieces that move or grow carry the light shadows; the big sheet
+                              |   TX.lightEnd)                  | gets its paper back when the camera stops (camDone), the rest at endTx
+                              |                                 | (also on interruption), so no class outlives a change
+   language cross-fade        | EXEMPT (langFade: #txlang)      | the old language's picture fading over the new one (200 ms); dropped by
+                              |                                 | any render or change, removed when faded
+   tracing paper taken off    | EXEMPT (hiFade: #hiold)         | the previous selection's paper / lifted pieces fading off (160 ms);
+                              |                                 | dropped by the next one or any change, removed when faded
+   card closing / old words   | EXEMPT (cardOut, cardOld;       | the card's closing animation (data-closing while it runs) and the fading
+                              |   data-closing on #card)        | copy of the previous concept's words (.cardold, inert); never saved
+   first-paint stillness      | EXEMPT (data-still attribute)   | on #card / #cam (and the tracing paper / lifted pieces laid with them)
+                              |                                 | while the first picture (or a language switch) is laid: no entrance
+                              |                                 | animation, no picture slide; dropped afterwards
    ---------------------------------------------------------------------------------------------------------------
    The page has no doctype (host requirement) so it runs in quirks mode: class names are matched case-insensitively,
    which is why every class name here and in the scenes is unique regardless of case.
@@ -318,9 +350,11 @@ button.tg{cursor:pointer;background:var(--sagel)}
     if (!st.ok) { history.replaceState(null, '', location.pathname + location.search); }
     var how = pending; pending = null;
     if (TX) endTx(false);                                    /* a running change lands at once; the new one starts from there */
+    dropLang();
     if (shown.scene === st.scene && shown.lang === lang) { select(st.node); shown.node = st.node; return; }
     var kind = shown.scene === null || shown.lang !== lang ? null : decide(shown.scene, st.scene, how);
     if (!kind || reduce.matches || !sceneG.animate || !document.timeline) {
+      if (kind === null && shown.scene !== null && shown.lang !== lang) langOver();
       putScene(st);
       select(st.node);
       shown = { scene: st.scene, lang: lang, node: st.node };
@@ -330,6 +364,23 @@ button.tg{cursor:pointer;background:var(--sagel)}
     startTx(kind, shown.scene, st);
   }
 
+  /* language switch: the picture in the old language is laid over the new one and fades (200 ms) -- the pieces lie where they
+     lay, so what changes is the words and their slips. EXEMPT state: langFade = { g: #txlang, a: its fade } (memory + an inert
+     <g> beside #scene), dropped by any render or change and removed when faded; reduced motion: none */
+  var langFade = null;
+  function dropLang() { if (!langFade) return; langFade.a.onfinish = null; langFade.a.cancel(); if (langFade.g.parentNode) langFade.g.parentNode.removeChild(langFade.g); langFade = null; }
+  function langGone(e) { if (!langFade || e.target !== langFade.a) return; var g = langFade.g; langFade = null; if (g.parentNode) g.parentNode.removeChild(g); }
+  function langOver() {
+    if (reduce.matches || !sceneG.animate || !sceneG.firstChild) return;
+    var g = svgEl('g', 'txlang');
+    g.setAttribute('aria-hidden', 'true'); g.setAttribute('inert', ''); g.setAttribute('pointer-events', 'none');
+    while (sceneG.firstChild) g.appendChild(sceneG.firstChild);
+    sceneG.parentNode.insertBefore(g, sceneG.nextSibling);
+    var a = g.animate([{ opacity: 1 }, { opacity: 0 }], { delay: 90, duration: 200, easing: 'cubic-bezier(.4,0,.6,1)', fill: 'both' });   /* held through the frame that lays the new picture */
+    a.onfinish = langGone;
+    langFade = { g: g, a: a };
+  }
+
   /* ------------------------------------------------------------------ scene transitions
      What moves, where from and where to, comes from #meta: MT[lang][scene] = { frame, targets, kids, ribs, dots | nodes }.
      kids[i] marks the i-th top-level child of the scene: u desk controls (swapped at once), c breadcrumb (cross-faded),
@@ -337,16 +388,17 @@ button.tg{cursor:pointer;background:var(--sagel)}
      m little sheet on a corner [side, id], x neighbour concept on a corner [side], s piece on the sheet [id, cx, cy],
      r strip leg [strip, leg], h strip head [strip, head], e near strip with its legs inside [strip], k number / verb slip [strip],
      t title letter, y key / note. ribs[strip] = [[x0, y0, x1, y1, from share, to share] per leg, [tip x, y] per head].
-     Every effect is a Web Animation of translate / scale / opacity on a whole layer, all on one clock (TX.tl0); going in or
-     sideways the departing picture is laid flat in one layer (#txold, light shadows); going back out, the departing children
+     Every effect is a Web Animation of translate / scale / opacity on a whole layer, all on one clock (TX.tl0); going in and on
+     any other jump the departing picture is laid flat in one layer (#txold, light shadows), sideways in two (#txold, #txold2:
+     the pieces on the sheet and its surroundings, sliding at two speeds); going back out, the departing children
      leave one by one on a shared camera (.txcam groups) and the arriving ones are laid down one by one (arriveOut), with no
      flat copy of either picture; at the end every animation is cancelled and the
      helpers removed, so the scene's markup is the prebuilt fragment again. No closure carries meaning: the clock's finish
      and the insertion pump look the running TX up by its id. */
   var TX = null, txSeq = 0;
-  var EASE = 'cubic-bezier(.25,.75,.3,1)', OUTE = 'cubic-bezier(.2,.7,.35,1)', INE = 'cubic-bezier(.4,0,.9,.6)';
+  var OUTE = 'cubic-bezier(.2,.7,.35,1)', INE = 'cubic-bezier(.4,0,.9,.6)';
   var SIDEV = { L: [-1, 0], R: [1, 0], T: [0, -1], B: [0, 1] };
-  var CAM = 460, DR = 190, CHUNK = 8;
+  var CHUNK = 8;
   /* a change back out (kind 'out'), the way in played backwards: the details are taken off (0-~330 ms), the big sheet shrinks back
      into the piece it was (BK.cam0 .. BK.hand, on the departing details' "camera"), and the picture around it is laid down again
      piece by piece (blocks / sheets ending with BK.dropLast, strips from BK.rib0, numbers last) */
@@ -358,6 +410,15 @@ button.tg{cursor:pointer;background:var(--sagel)}
      large sheet would be drawn only after it was due and appear in one frame (measured on the far view's biggest block) */
   var LAY = 0.01;
   var CAMB = [0.45, 0.05, 0.3, 1], CAME = 'cubic-bezier(' + CAMB.join(',') + ')', DROPE = 'cubic-bezier(.3,.55,.4,1)', HANDE = 'cubic-bezier(.25,.55,.4,1)', LIFTE = 'cubic-bezier(.45,0,.75,.6)';
+  /* a change in (BI) or sideways (BS), and any other jump (BF), ms -- see planIn / arriveIn / leaveSide. Going in, the camera
+     starts slowly (CAME) and the corners start sliding in with it; the sheets come down from drop0 on (handTimes), each strip
+     grows from under its sheet once that has landed, number / verb slips last. Sideways the old pieces lying on the sheet slide
+     away faster (near) than its surroundings (far). DROPI: put down, landing with at most ~2 % overshoot; AWAYE: taken away */
+  var BI = { total: 700, cam: 460, corner0: 40, cornerD: 320, drop0: 230, dropW: 200, dropD: 230, base: 320, label: 380, DR: 150 };
+  var BS = { total: 560, cam: 420, corner0: 40, cornerD: 280, drop0: 160, dropW: 150, dropD: 220, base: 260, label: 280, DR: 140, near: 300, far: 150 };
+  var BF = { total: 300 };
+  var DROPI = 'cubic-bezier(.3,.6,.35,1.03)', AWAYE = 'cubic-bezier(.5,0,.85,.6)', SLIDEE = 'cubic-bezier(.35,0,.65,.6)';
+  var CAMIB = [0.3, 0.2, 0.2, 1], CAMI = 'cubic-bezier(' + CAMIB.join(',') + ')';   /* the camera going in / sideways: slow start, but moving from the first frames */
 
   function kf(tx, ty, sx, sy, o) { var k = { translate: r2(tx) + 'px ' + r2(ty) + 'px', scale: r4(sx) + ' ' + r4(sy) }; if (o != null) k.opacity = o; return k; }
   function r2(v) { return Math.round(v * 100) / 100; }
@@ -372,9 +433,9 @@ button.tg{cursor:pointer;background:var(--sagel)}
   function camN(P, F) { var s = Math.min(F[2] / P[2], F[3] / P[3]); return [F[0] + F[2] / 2 - s * (P[0] + P[2] / 2), F[1] + F[3] / 2 - s * (P[1] + P[3] / 2), s]; }
   /* the departing / arriving flat picture is moved from script, frame by frame: a compositor animation of a big scale would
      make the browser re-draw that whole layer at the largest scale first (a long stall); moved this way it keeps the drawing it has */
-  function ghostMove(Tx, a, b, delay, dur, now) { Tx.gh = { a: a, b: b, delay: delay, dur: dur }; if (now) ghostAt(Tx); requestAnimationFrame(tick); }
+  function ghostMove(Tx, a, b, delay, dur, now, c) { Tx.gh = { a: a, b: b, delay: delay, dur: dur, c: c || [0.25, 0.75, 0.3, 1] }; if (now) ghostAt(Tx); requestAnimationFrame(tick); }
   function ghostAt(Tx) {
-    var g = Tx.gh, u = (document.timeline.currentTime - Tx.tl0 - g.delay) / g.dur, e = camEase(u < 0 ? 0 : u > 1 ? 1 : u);
+    var g = Tx.gh, u = (document.timeline.currentTime - Tx.tl0 - g.delay) / g.dur, e = bez(g.c[0], g.c[1], g.c[2], g.c[3], u < 0 ? 0 : u > 1 ? 1 : u);
     var w = stage.clientWidth, h = stage.clientHeight, k = Math.min(w / 1600, h / 950), ox = (w - 1600 * k) / 2, oy = (h - 950 * k) / 2;   /* picture units -> layer px */
     var s_ = g.a[2] + (g.b[2] - g.a[2]) * e, tx = g.a[0] + (g.b[0] - g.a[0]) * e, ty = g.a[1] + (g.b[1] - g.a[1]) * e;
     Tx.ov.style.transform = 'translate(' + r2(ox * (1 - s_) + k * tx) + 'px,' + r2(oy * (1 - s_) + k * ty) + 'px) scale(' + r4(s_) + ')';
@@ -398,7 +459,6 @@ button.tg{cursor:pointer;background:var(--sagel)}
     }
     return 3 * t * (1 - t) * (1 - t) * y1 + 3 * t * t * (1 - t) * y2 + t * t * t;
   }
-  function camEase(x) { return bez(0.25, 0.75, 0.3, 1, x); }   /* the same curve as EASE */
   function legK(L, grow) { var hz = Math.abs(L[3] - L[1]) <= Math.abs(L[2] - L[0]), sx = hz ? 0.001 : 1, sy = hz ? 1 : 0.001; return grow ? kf(L[0] * (1 - sx), L[1] * (1 - sy), sx, sy) : idK(); }
   function run(Tx, el, frames, delay, dur, easing, fill, list) {
     var a = el.animate(frames, { delay: Math.max(0, delay), duration: Math.max(1, dur), easing: easing || 'linear', fill: fill || 'both' });
@@ -437,7 +497,8 @@ button.tg{cursor:pointer;background:var(--sagel)}
   function startTx(kind, from, st) {
     var L = lang, mF = MT[L][from], mT = MT[L][st.scene], to = st.scene;
     if (linger) { dropFx(linger); linger = null; }
-    var Tx = TX = { id: 'tx' + (++txSeq), kind: kind, from: from, to: to, lang: L, mF: mF, mT: mT, anims: [], fxAnims: [], old: [], queue: [], anchor: null, ord: [], cnt: {}, sideDelay: {}, ribStart: [], dots: null };
+    dropLang(); dropHi();
+    var Tx = TX = { id: 'tx' + (++txSeq), kind: kind, from: from, to: to, lang: L, mF: mF, mT: mT, anims: [], fxAnims: [], old: [], queue: [], anchor: null, split: Infinity, ord: [], cnt: {}, sideDelay: {}, ribStart: [], dots: null, same: {}, oldSame: {}, clicked: -1, becomes: -1, light: [], lightEnd: [] };
     closeCard(true);
     hi.innerHTML = '';
     var z0 = pan.style.transform, zoomed = Z.k !== 1 || Z.x !== 0 || Z.y !== 0;
@@ -465,13 +526,14 @@ button.tg{cursor:pointer;background:var(--sagel)}
     }
     else { Tx.P = mT.frame; Tx.F = mT.frame; }
 
-    /* two layers over the stage: the flat picture that is carried away (#txov, moved as one HTML layer; changes in, sideways
-       and fades only -- a change back out lays the arriving picture down piece by piece instead), and above it the flying dots
-       and the focus box (#txfxv, still) -- both in picture units through the same viewBox as the stage */
-    var reuse = kind !== 'out' && !!(idle && idle.key === L + '|' + from), ov = null, ghost = null, fxv = Tx.fxv = overlay('txfxv'), fx = Tx.fx = svgEl('g', 'txfx');
+    /* two layers over the stage: the flat picture that is carried away (#txov, moved as one HTML layer; changes in and other
+       jumps only -- a change sideways or back out moves the departing pieces themselves), and above it the flying dots and the
+       focus box (#txfxv, still) -- both in picture units through the same viewBox as the stage */
+    var flatOld = kind !== 'out';
+    var reuse = flatOld && !!(idle && idle.key === L + '|' + from), ov = null, ghost = null, fxv = Tx.fxv = overlay('txfxv'), fx = Tx.fx = svgEl('g', 'txfx');
     if (reuse) { ov = idle.ov; ghost = ov.firstChild.firstChild; idle = null; }
     dropIdle();
-    if (!reuse && kind !== 'out') { ov = overlay('txov'); ghost = svgEl('g', 'txold'); ov.firstChild.appendChild(ghost); cam.appendChild(ov); }
+    if (!reuse && flatOld) { ov = overlay('txov'); ghost = svgEl('g', 'txold'); ov.firstChild.appendChild(ghost); cam.appendChild(ov); }
     Tx.ov = ov; Tx.ghost = ghost;
     fxv.firstChild.appendChild(fx);
     cam.appendChild(fxv);
@@ -481,14 +543,38 @@ button.tg{cursor:pointer;background:var(--sagel)}
     var mini = kind === 'in' && mF.dots && mF.dots[to] ? mF.dots[to] : kind === 'out' && mT.dots && mT.dots[from] ? mT.dots[from] : null;
     Tx.dots = mini;
 
-    /* the departing picture */
+    /* the arriving picture, parsed off stage (put in over the first frames, in document order, each child with its entrance) */
+    var box = svgEl('g');
+    box.innerHTML = SC[L][to];
+    var nk = Array.prototype.slice.call(box.children), nd = mT.kids.length === nk.length ? mT.kids : nk.map(function () { return ['y']; });
+    Tx.nk = nk; Tx.nd = nd;
     var oldKids = Array.prototype.slice.call(sceneG.children), od = mF.kids.length === oldKids.length ? mF.kids : null;
-    if (kind === 'out') {
+
+    /* sideways: which old piece grows into the new big sheet (clicked), which new corner the old big sheet becomes, and which
+       pieces are the same paper in both pictures (moved from one place to the other, never shown twice) -- by id and registered box */
+    if (kind === 'side') {
+      var olds = {};
+      (od || []).forEach(function (d, i) { var id = pieceId(d), b = id != null && boxOf(mF, d); if (id === to && (d[0] === 'n' || d[0] === 'm')) { if (Tx.clicked < 0) Tx.clicked = i; } else if (b && id !== from) olds[d[0] + '|' + id] = [i, b]; });
+      nd.forEach(function (d, i) {
+        var id = pieceId(d), o = id != null ? olds[d[0] + '|' + id] : null;
+        if (id === from && (d[0] === 'n' || d[0] === 'm') && boxOf(mT, d)) { if (Tx.becomes < 0) Tx.becomes = i; }   /* the first corner of that id: its registered box is that one */
+        else if (o && boxOf(mT, d)) { Tx.same[i] = o[1]; Tx.oldSame[o[0]] = true; }
+      });
+      Tx.Cb = Tx.becomes >= 0 ? boxOf(mT, nd[Tx.becomes]) : null;
+      for (var si = 0; si < nd.length && (nd[si][0] === 'u' || nd[si][0] === 'c' || nd[si][0] === 'w'); si++);
+      Tx.split = si;                                          /* the underlay and what comes before it go under the departing picture, the rest over it */
+    }
+
+    /* the departing picture */
+    if (kind === 'side') {
       tallies(Tx, od || []);
-      /* everything lying on the turning paper rides on its camera: consecutive such children share one plain <g> (.txcam), so
-         the order of the picture is kept exactly; the neighbour corners and the breadcrumb stay out and leave by themselves.
-         Every departing piece is carried with the light shadows of the flat copy (.txlt): re-drawing the full paper shadow on
-         pieces that move every frame was the costliest part of the change (measured: the mean frame gap about halved) */
+      leaveSideways(Tx, oldKids, od, reuse);
+    } else if (kind === 'out') {
+      tallies(Tx, od || []);
+      /* out: everything lying on the turning paper rides on its camera; sideways: on a fast group that slides away first.
+         Consecutive such children share one plain <g> (.txcam), so the order of the picture is kept exactly; the rest leave by
+         themselves. Every departing piece is carried with the light shadows of the flat copy (.txlt): re-drawing the full paper
+         shadow on pieces that move every frame was the costliest part of the change (measured: the mean frame gap about halved) */
       var wrap = null;
       oldKids.forEach(function (el, i) {
         var d = od ? od[i] : ['y'], g = d[0];
@@ -506,28 +592,31 @@ button.tg{cursor:pointer;background:var(--sagel)}
       oldKids.forEach(function (el, i) {
         var g = od ? od[i][0] : 'y';
         if (g === 'u') el.parentNode.removeChild(el);
-        else if (g === 'c') { Tx.old.push(el); run(Tx, el, [{ opacity: 1 }, { opacity: 0 }], 0, 140, 'linear', 'forwards'); }
-        else if (reuse) el.parentNode.removeChild(el);          /* its copy is already drawn in the layer */
+        else if (g === 'c' && kind === 'in') { Tx.old.push(el); run(Tx, el, [{ opacity: 1 }, { opacity: 0 }], 0, 140, 'linear', 'forwards'); }
+        else if (reuse && g !== 'c') el.parentNode.removeChild(el);   /* its copy is already drawn in the layer */
         else ghost.appendChild(el);
       });
-      /* in: the copy of the piece that is turning into the new big sheet is cut out of the flat picture (its sheet only; its
-         words stay and ride away with the picture), so only one such paper is ever on screen: the new sheet, from the first frame */
       if (kind === 'in') {
+        /* in: the copy of the piece that is turning into the new big sheet is cut out of the flat picture (its sheet only; its
+           words stay and ride away with the picture), so only one such paper is ever on screen: the new sheet, from the first
+           frame. The picture is carried on the same camera curve as the new sheet (slow start, settles at the end) */
         for (var gi = 0, gc = ghost.children; gi < gc.length; gi++) if (gc[gi].getAttribute('data-go') === to) { if (gc[gi].firstElementChild) gc[gi].firstElementChild.setAttribute('visibility', 'hidden'); break; }
+        run(Tx, ov, [{ opacity: 1 }, { opacity: 0 }], 40, 260, 'cubic-bezier(.3,0,.6,1)');   /* thins out early: the corners coming in under it are seen */
+        ghostMove(Tx, [0, 0, 1], camN(Tx.P, Tx.F), 0, BI.cam, true, CAMIB);
+      } else {
+        /* any other jump: the old picture steps back a little (shrinks about the middle) as it fades; the new one comes down
+           from a little larger onto the desk (#scene as one piece) */
+        run(Tx, ov, [{ opacity: 1 }, { opacity: 0 }], 0, 210, 'cubic-bezier(.35,0,.75,.75)', 'forwards');
+        ghostMove(Tx, [0, 0, 1], [800 * 0.03, 475 * 0.03, 0.97], 0, 240, true, [0.35, 0, 0.75, 0.75]);
+        var sg = about(800, 475, 1, 0, -5);
+        sg.offset = 0.3; sg.opacity = 0.85;                   /* the size settles while it fades in; then it only comes down (cheap) */
+        run(Tx, sceneG, [about(800, 475, 1.03, 0, -8, LAY), sg, idK(1)], 0, BF.total, DROPI);
       }
-      if (kind === 'in') { run(Tx, ov, [{ opacity: 1 }, { opacity: 0 }], 110, 250); ghostMove(Tx, [0, 0, 1], camN(Tx.P, Tx.F), 0, CAM, true); }
-      else if (kind === 'side') { var dd = Tx.V[0] ? 520 : 380; run(Tx, ov, [{ opacity: 1 }, { opacity: 0 }], 30, 200); ghostMove(Tx, [0, 0, 1], [-Tx.V[0] * dd, -Tx.V[1] * dd, 1], 0, 420, true); }
-      else { run(Tx, ov, [{ opacity: 1 }, { opacity: 0 }], 0, 220, 'ease-in', 'forwards'); ghostMove(Tx, [0, 0, 1], [800 * -0.03, 475 * -0.03, 1.03], 0, 220, true); }
     }
+    if (kind === 'in' || kind === 'side') { tallies(Tx, nd); planIn(Tx); }
 
-    /* the arriving picture: parsed off stage, put in over the first frames (document order), each child with its entrance */
-    var box = svgEl('g');
-    box.innerHTML = SC[L][to];
-    var nk = Array.prototype.slice.call(box.children), nd = mT.kids.length === nk.length ? mT.kids : nk.map(function () { return ['y']; });
-    if (kind !== 'out') tallies(Tx, nd);
     var first = 0;
     nd.forEach(function (d, i) { Tx.queue.push(i); if (d[0] === 'u' || d[0] === 'c' || d[0] === 'b' || d[0] === 'w') first = i + 1; });
-    Tx.nk = nk; Tx.nd = nd;
 
     /* flying dots: mid -> near (the miniature becomes the concepts), near -> mid (back into the miniature) */
     if (mini) {
@@ -545,7 +634,7 @@ button.tg{cursor:pointer;background:var(--sagel)}
         });
         fx.appendChild(g);
         var away = kf(m[0] - k * n[0], m[1] - k * n[1], k, k);
-        if (kind === 'in') run(Tx, g, [away, idK()], 0, CAM, EASE, 'both', Tx.fxAnims);
+        if (kind === 'in') run(Tx, g, [away, idK()], 0, BI.cam, CAMI, 'both', Tx.fxAnims);
         else run(Tx, g, [idK(), away], BK.cam0, BK.camD, CAME, 'both', Tx.fxAnims);
       });
     }
@@ -555,8 +644,8 @@ button.tg{cursor:pointer;background:var(--sagel)}
     mark.setAttribute('x', fb[0]); mark.setAttribute('y', fb[1]); mark.setAttribute('width', fb[2]); mark.setAttribute('height', fb[3]);
     mark.setAttribute('fill', 'none'); mark.setAttribute('data-tx-focus', kind);
     fx.appendChild(mark);
-    if (kind === 'in') run(Tx, mark, [fitK(Tx.P, Tx.F), idK()], 0, CAM, EASE, 'both', Tx.fxAnims);
-    else if (kind === 'side') run(Tx, mark, [fitK(Tx.P, Tx.F), idK()], 0, 440, EASE, 'both', Tx.fxAnims);
+    if (kind === 'in') run(Tx, mark, [fitK(Tx.P, Tx.F), idK()], 0, BI.cam, CAMI, 'both', Tx.fxAnims);
+    else if (kind === 'side') run(Tx, mark, [fitK(Tx.P, Tx.F), idK()], 0, BS.cam, CAMI, 'both', Tx.fxAnims);
     else if (kind === 'out') run(Tx, mark, [idK(), Tx.C], BK.cam0, BK.camD, CAME, 'both', Tx.fxAnims);
 
     /* the legend: comes in with a near scene, fades out when leaving one */
@@ -566,11 +655,13 @@ button.tg{cursor:pointer;background:var(--sagel)}
     else if (!want && open_) run(Tx, lg, [{ opacity: 1 }, { opacity: 0 }], 0, 150, 'linear', 'forwards');
 
     /* one clock for the whole change */
-    var total = { 'in': 800, out: BK.total, side: 560, fade: 320 }[kind];
+    var total = { 'in': BI.total, out: BK.total, side: BS.total, fade: BF.total }[kind];
     var clock = run(Tx, fx, [{ opacity: 1 }, { opacity: 1 }], 0, total, 'linear', 'none', Tx.fxAnims);
     clock.id = Tx.id;
     clock.onfinish = onClock;
+    if (kind === 'in' || kind === 'side') { var cc = run(Tx, fx, [{ opacity: 1 }, { opacity: 1 }], 0, Tx.Q.cam, 'linear', 'none', Tx.fxAnims); cc.id = Tx.id + '-cam'; cc.onfinish = camDone; }
 
+    if (kind === 'fade') first = 0;                          /* another jump: the new picture is at 1 % for its first frames anyway; all of it is laid by the pump */
     while (Tx.queue.length && Tx.queue[0] < Math.max(first, 1)) putKid(Tx, true);
     if (Tx.queue.length || Tx.ghostLater) requestAnimationFrame(pump);
   }
@@ -601,6 +692,55 @@ button.tg{cursor:pointer;background:var(--sagel)}
     var step = Math.max(22, Math.min(45, BK.dropSpan / Math.max(1, ds.length - 1)));
     ds.forEach(function (p, r) { Tx.drop[p[0]] = BK.dropLast - (ds.length - 1 - r) * step; });
   }
+  /* a registered box (picture units) for a piece of a scene: a sheet, a corner, a little sheet on a corner, a concept, the
+     underlay -- read from #meta (targets, nodes, the centre in the mark), never measured */
+  function pieceId(d) { var g = d[0]; return g === 's' || g === 'w' ? d[1] : g === 'n' || g === 'm' ? d[2] : null; }
+  function boxOf(m, d) {
+    var id = pieceId(d), t;
+    if (id == null) return null;
+    if (m.targets && (t = m.targets[id])) return t;
+    if (d[0] === 's' && m.nodes && (t = m.nodes[id])) return [t[0] - t[2] - 4, t[1] - t[2] - 4, 2 * t[2] + 8, 2 * t[2] + 8];
+    if (d[0] === 's' && d.length > 3) return [d[2] - 20, d[3] - 20, 40, 40];
+    return null;
+  }
+  /* n start times from t0, the way a hand lays pieces: close together first, further apart later (25 -> 45 ms), squeezed
+     into w when there are many */
+  function handTimes(n, t0, w) {
+    var gaps = [], s = 0, k, out = [];
+    for (k = 0; k < n - 1; k++) { gaps.push(25 + 20 * (n > 2 ? k / (n - 2) : 0)); s += gaps[k]; }
+    var f = s > w ? w / s : 1, t = t0;
+    for (k = 0; k < n; k++) { out.push(t); if (k < n - 1) t += gaps[k] * f; }
+    return out;
+  }
+  /* in / sideways: when each arriving piece comes. Sheets come down nearest the middle first (sideways: nearest the edge
+     they come in from); corners slide in with the camera; each strip starts growing when the sheet it starts under has
+     landed (the sheet whose registered box holds the strip's first point); its number / verb slip comes after it */
+  function planIn(Tx) {
+    var Q = Tx.kind === 'in' ? BI : BS, m = Tx.mT, kids = Tx.nd, F = Tx.F, V = Tx.kind === 'side' ? Tx.V : null;
+    var cx = F[0] + F[2] / 2, cy = F[1] + F[3] / 2, drops = [], sides = {}, ns = 0, cand = [], per = {};
+    Tx.Q = Q; Tx.dropAt = {}; Tx.landAt = {}; Tx.cornerAt = {};
+    kids.forEach(function (d, i) {
+      if ((d[0] === 'n' || d[0] === 'm' || d[0] === 'x') && !(d[1] in sides)) sides[d[1]] = ns++;
+      if (d[0] === 's' && d.length > 3 && !(Tx.dots && Tx.dots[d[1]])) drops.push([i, V ? -(d[2] * V[0] + d[3] * V[1]) : Math.hypot(d[2] - cx, d[3] - cy)]);
+    });
+    drops.sort(function (a, b) { return a[1] - b[1] || a[0] - b[0]; });
+    var ts = handTimes(drops.length, Q.drop0, Q.dropW);
+    drops.forEach(function (p, r) { Tx.dropAt[p[0]] = ts[r]; Tx.landAt[p[0]] = ts[r] + 0.65 * Q.dropD; });
+    kids.forEach(function (d, i) {
+      if (d[0] === 'n' || d[0] === 'm' || d[0] === 'x') { Tx.cornerAt[i] = Q.corner0 + (sides[d[1]] || 0) * 30; Tx.landAt[i] = Tx.cornerAt[i] + 0.5 * Q.cornerD; }
+      else if (d[0] === 's' && Tx.dots && Tx.dots[d[1]]) Tx.landAt[i] = Q.cam - 60;
+      var b = (d[0] === 's' || d[0] === 'n' || d[0] === 'm') && boxOf(m, d);
+      if (b) cand.push([i, b]);
+    });
+    var maxS = Q.total - Q.DR - 70;
+    m.ribs.forEach(function (R, j) {
+      var p = R[0][0], best = null, ba = Infinity;
+      if (p) cand.forEach(function (c) { var b = c[1], a = b[2] * b[3]; if (p[0] >= b[0] - 14 && p[0] <= b[0] + b[2] + 14 && p[1] >= b[1] - 14 && p[1] <= b[1] + b[3] + 14 && a < ba) { ba = a; best = c[0]; } });
+      var t = best != null && Tx.landAt[best] != null ? Tx.landAt[best] : Q.base;
+      per[best] = (per[best] || 0) + 1;
+      Tx.ribStart[j] = Math.min(maxS, t + (per[best] - 1) * 14);
+    });
+  }
   function onClock(e) { if (TX && e && e.target && e.target.id === TX.id) endTx(true); }
   function fillGhost(Tx) {
     var g = Tx.ghost, m = Tx.mT;
@@ -618,52 +758,110 @@ button.tg{cursor:pointer;background:var(--sagel)}
   }
   function putKid(Tx, animate) {
     var i = Tx.queue.shift(), el = Tx.nk[i];
-    sceneG.insertBefore(el, Tx.anchor);
+    sceneG.insertBefore(el, i < Tx.split ? Tx.anchor : null);
     if (animate) enterKid(Tx, el, Tx.nd[i], i);
   }
   /* one arriving child */
   function enterKid(Tx, el, d, i) {
-    var g = d[0], kind = Tx.kind, k, j, R, a;
-    if (g === 'u') return;
+    if (d[0] === 'u') return;
+    if (Tx.kind === 'fade') { stripLight(Tx, el); return; }   /* another jump: the arriving picture comes down as one (#scene), with light shadows until it lies */
+    if (Tx.kind === 'out') arriveOut(Tx, el, d, i);
+    else arriveIn(Tx, el, d, i);
+  }
+  /* a big arriving piece that changes size on the camera carries the light shadows (.txlt) until the camera stops (camDone):
+     the full paper shadow re-drawn at a new size every frame on the largest sheet was the costliest part of a change in */
+  function light(Tx, el) { el.classList.add('txlt'); Tx.light.push(el); }
+  function unlight(Tx, all) { Tx.light.forEach(unclass); Tx.light = []; if (all) { Tx.lightEnd.forEach(unclass); Tx.lightEnd = []; } }
+  /* the piece's markup is the prebuilt fragment again: a class attribute the piece did not have goes too */
+  function unclass(el) { el.classList.remove('txlt'); if (!el.getAttribute('class')) el.removeAttribute('class'); }
+  function stripLight(Tx, el) { el.classList.add('txlt'); Tx.lightEnd.push(el); }
+  function camDone(e) { if (TX && e && e.target && e.target.id === TX.id + '-cam') unlight(TX); }
+  /* one arriving child, going in or sideways (when: planIn) */
+  function arriveIn(Tx, el, d, i) {
+    var g = d[0], Q = Tx.Q, side = Tx.kind === 'side', R, j, k, a, v, t, b;
     if (g === 'c') { run(Tx, el, [{ opacity: 0 }, { opacity: 1 }], 0, 160); return; }
-    if (kind === 'fade') { run(Tx, el, [{ opacity: 0 }, { opacity: 1 }], 90, 220); return; }
-    if (kind === 'out') { arriveOut(Tx, el, d, i); return; }
-    /* the new big sheet is there from the first frame on, exactly over the piece it comes from (that piece's copy is cut out of
-       the flat picture); the underlay fades in under it */
-    if (g === 'b' && kind === 'in') { run(Tx, el, [fitK(Tx.P, Tx.F, 1), idK(1)], 0, CAM, EASE); return; }
-    if (g === 'b' || g === 'w') { run(Tx, el, [fitK(Tx.P, Tx.F, 0), { offset: 0.2, opacity: 1 }, idK(1)], 0, kind === 'in' ? CAM : 440, EASE); return; }
-    if (kind === 'side') {
-      var dd = Tx.V[0] ? 520 : 380, off = kf(Tx.V[0] * dd * 0.5, Tx.V[1] * dd * 0.5, 1, 1, 0);
-      var dl = { n: 80, m: 80, x: 80, s: 120 + Tx.ord[i] * Math.min(14, 90 / Math.max(1, (Tx.cnt.s || 1) - 1)), l: 140, r: 200, e: 200, h: 200 }[g];
-      run(Tx, el, [off, { offset: 0.45, opacity: 1 }, idK(1)], dl == null ? 260 : dl, 300, OUTE);
+    /* the new big sheet is there from the first frame on, exactly over the piece it comes from (going in, that piece's copy is
+       cut out of the flat picture; sideways, the clicked corner's own sheet is hidden), and grows on the camera curve */
+    if (g === 'b') { run(Tx, el, [fitK(Tx.P, Tx.F, 1), idK(1)], 0, Q.cam, CAMI); light(Tx, el); return; }
+    /* sideways: a piece that is the same paper in both pictures moves from its old place to its new one; its old copy went
+       at once (leaveSide) */
+    if (side && (b = Tx.same[i])) { run(Tx, el, [fitK(b, boxOf(Tx.mT, d), 1), idK(1)], 0, Q.cam, CAMI); light(Tx, el); return; }
+    if (side && i === Tx.becomes) {                           /* the corner the old big sheet shrinks into: takes over when it lands */
+      run(Tx, el, [{ opacity: LAY }, { opacity: LAY }], 0, Q.cam, 'linear', 'backwards');
+      for (k = 1; k < el.children.length; k++) run(Tx, el.children[k], [{ opacity: 0 }, { opacity: 1 }], Q.cam, 130);
       return;
     }
-    /* kind 'in' */
-    if (g === 'l' || g === 't' || g === 'y') { run(Tx, el, [{ opacity: 0, translate: '0px -6px' }, { opacity: 1, translate: '0px 0px' }], 300, 180, OUTE); return; }
+    if (g === 'w') { run(Tx, el, [fitK(Tx.P, Tx.F, 0), { offset: 0.2, opacity: 1 }, idK(1)], 0, Q.cam, CAMI); return; }   /* in: the underlay comes up under the new sheet */
     if (g === 'n' || g === 'm' || g === 'x') {
-      var v = SIDEV[d[1]] || [0, 0], sd = Tx.sideDelay[d[1]] || 0;
-      run(Tx, el, [kf(v[0] * 90, v[1] * 70, 1, 1, 0), { offset: 0.4, opacity: 1 }, idK(1)], 240 + sd * 45, 320, OUTE);
+      v = SIDEV[d[1]] || [0, 0];
+      run(Tx, el, [kf(v[0] * 90, v[1] * 70, 1, 1, LAY), { offset: 0.4, opacity: 1 }, idK(1)], Tx.cornerAt[i], Q.cornerD, OUTE);
       return;
     }
     if (g === 's') {
-      if (Tx.dots && Tx.dots[d[1]]) { run(Tx, el, [{ opacity: 0 }, { opacity: 1 }], CAM - 40 + Tx.ord[i] * 8, 110); return; }
-      var st = Math.min(45, 200 / Math.max(1, (Tx.cnt.s || 1) - 1));
-      run(Tx, el, [about(d[2], d[3], 1.07, -4, -14, 0), { offset: 0.35, opacity: 1 }, about(d[2], d[3], 1, 0, 0, 1)], 330 + Tx.ord[i] * st, 250, OUTE);
+      if (Tx.dots && Tx.dots[d[1]]) { run(Tx, el, [{ opacity: 0 }, { opacity: 1 }], Q.cam - 40 + Tx.ord[i] * 6, 110); stripLight(Tx, el); return; }   /* its dot flies in as a copy; the name slip comes with it */
+      /* put down: from higher (further from its shadow) and a little larger, getting smaller all the way down and landing with
+         at most ~2 % overshoot; sideways it also comes in from the side the new picture enters from. It carries light shadows
+         while it comes (stripLight): a piece whose scale changes has its paper shadow re-drawn every frame */
+      t = Tx.dropAt[i] != null ? Tx.dropAt[i] : Q.drop0;
+      var sx = side ? Tx.V[0] * 70 : 0, sy = side ? Tx.V[1] * 70 : 0, m1 = about(d[2], d[3], 1.025, sx * 0.4 - 2.4, sy * 0.4 - 8.4);
+      m1.offset = 0.3;
+      run(Tx, el, [about(d[2], d[3], 1.06, sx - 4, sy - 14), m1, idK()], t, Q.dropD, DROPI); stripLight(Tx, el);
+      run(Tx, el, [{ opacity: LAY }, { opacity: 1 }], t, 90);
       return;
     }
-    if (g === 'r') { R = Tx.mT.ribs[d[1]][0][d[2]]; run(Tx, el, [legK(R, true), idK()], Tx.ribStart[d[1]] + R[4] * DR, (R[5] - R[4]) * DR); return; }
-    if (g === 'h') { R = Tx.mT.ribs[d[1]][1][d[2]]; run(Tx, el, [about(R[0], R[1], 0.3, 0, 0, 0), about(R[0], R[1], 1, 0, 0, 1)], Tx.ribStart[d[1]] + DR - 25, 110, OUTE); return; }
+    /* a strip grows with light shadows (stripLight) and gets its full paper shadow back when the change is over (endTx, when
+       nothing moves any more): a strip whose length changes has its shadow re-drawn every frame, and a near scene grows dozens
+       at once (measured: the mean frame gap about a third on the busiest one). The same for a sheet being put down and a concept
+       fading in; giving each its shadow back the moment it lands re-drew dozens in one frame mid-change (measured: ~100 ms) */
+    if (g === 'r') { R = Tx.mT.ribs[d[1]][0][d[2]]; run(Tx, el, [legK(R, true), idK()], Tx.ribStart[d[1]] + R[4] * Q.DR, (R[5] - R[4]) * Q.DR); stripLight(Tx, el); return; }
+    if (g === 'h') { R = Tx.mT.ribs[d[1]][1][d[2]]; run(Tx, el, [about(R[0], R[1], 0.3, 0, 0, 0), about(R[0], R[1], 1, 0, 0, 1)], Tx.ribStart[d[1]] + Q.DR - 25, 100, OUTE); return; }
     if (g === 'e') {
       R = Tx.mT.ribs[d[1]]; j = 0;
       for (k = 0; k < el.children.length; k++) {
         a = el.children[k];
-        if (k < R[0].length) run(Tx, a, [legK(R[0][k], true), idK()], Tx.ribStart[d[1]] + R[0][k][4] * DR, (R[0][k][5] - R[0][k][4]) * DR);
-        else if (R[1][j]) { run(Tx, a, [about(R[1][j][0], R[1][j][1], 0.3, 0, 0, 0), about(R[1][j][0], R[1][j][1], 1, 0, 0, 1)], Tx.ribStart[d[1]] + DR - 25, 110, OUTE); j++; }
+        if (k < R[0].length) run(Tx, a, [legK(R[0][k], true), idK()], Tx.ribStart[d[1]] + R[0][k][4] * Q.DR, (R[0][k][5] - R[0][k][4]) * Q.DR);
+        else if (R[1][j]) { run(Tx, a, [about(R[1][j][0], R[1][j][1], 0.3, 0, 0, 0), about(R[1][j][0], R[1][j][1], 1, 0, 0, 1)], Tx.ribStart[d[1]] + Q.DR - 25, 100, OUTE); j++; }
       }
+      stripLight(Tx, el);
       return;
     }
-    if (g === 'k') { run(Tx, el, [{ opacity: 0, translate: '0px -5px' }, { opacity: 1, translate: '0px 0px' }], (Tx.ribStart[d[1]] || 420) + DR * 0.75, 100, OUTE); return; }
-    run(Tx, el, [{ opacity: 0 }, { opacity: 1 }], 300, 200);
+    if (g === 'k') { run(Tx, el, [{ opacity: 0, translate: '0px -5px' }, { opacity: 1, translate: '0px 0px' }], (Tx.ribStart[d[1]] || Q.base) + Q.DR * 0.8, 100, OUTE); return; }
+    if (g === 'l' || g === 't' || g === 'y') { run(Tx, el, [{ opacity: 0, translate: '0px -6px' }, { opacity: 1, translate: '0px 0px' }], Q.label, 180, OUTE); return; }
+    run(Tx, el, [{ opacity: 0 }, { opacity: 1 }], Q.label, 200);
+  }
+  /* the departing picture, sideways: two flat layers that slide away on the compositor -- the pieces lying on the old sheet
+     (nearer the eye: faster, #txov) and the sheet's surroundings (the corners: slower, #txov2) -- while the old big sheet itself
+     shrinks into the corner it is in the new picture (a real piece, light shadows), the clicked corner's sheet is the new big
+     sheet from the first frame (its copy hidden), and pieces that are the same paper in both pictures are moved by their new
+     copy (old copies hidden). With a pre-drawn copy of the picture (idle) its pieces are hidden there instead of moved. */
+  function leaveSideways(Tx, oldKids, od, reuse) {
+    var A = Tx.ghost, ov2 = Tx.ov2 = overlay('txov2'), B = svgEl('g', 'txold2'), V = Tx.V, gk = reuse ? Array.prototype.slice.call(A.children) : null, k = 0;
+    ov2.firstChild.appendChild(B);
+    cam.insertBefore(ov2, Tx.ov);                             /* under the faster layer */
+    oldKids.forEach(function (el, i) {
+      var d = od ? od[i] : ['y'], g = d[0], copy = null;
+      if (g === 'u') { el.parentNode.removeChild(el); return; }
+      if (g === 'c') { Tx.old.push(el); gone(Tx, el, 0, 140); return; }
+      if (reuse) copy = gk[k++] || null;
+      var hide = function (x) { if (x) x.setAttribute('visibility', 'hidden'); };
+      if (g === 'b' && Tx.Cb) {                               /* the old big sheet shrinks into its corner, then the corner takes over */
+        hide(copy); Tx.old.push(el); el.classList.add('txlt');
+        run(Tx, el, [idK(), fitK(Tx.Cb, Tx.mF.frame)], 0, BS.cam, CAMI, 'forwards');
+        run(Tx, el, [{ opacity: 0 }, { opacity: 0 }], BS.cam, 1, 'linear', 'forwards');
+        return;
+      }
+      if (Tx.oldSame[i]) { hide(copy); el.parentNode.removeChild(el); return; }   /* its new copy moves from here */
+      if (i === Tx.clicked) {                                 /* grows into the new big sheet: only its words ride away */
+        if (reuse) { if (copy) hide(copy.firstElementChild); el.parentNode.removeChild(el); }
+        else { hide(el.firstElementChild); A.appendChild(el); }
+        return;
+      }
+      if (g === 'n' || g === 'm' || g === 'x' || g === 'b' || g === 'w') { hide(copy); B.appendChild(el); return; }
+      if (reuse) el.parentNode.removeChild(el); else A.appendChild(el);
+    });
+    var w = stage.clientWidth, h = stage.clientHeight, s = Math.min(w / 1600, h / 950);   /* picture units -> layer px */
+    run(Tx, Tx.ov, [{ transform: 'none', opacity: 1 }, { offset: 0.1, opacity: 1 }, { offset: 0.75, opacity: 0 }, { transform: 'translate(' + r2(-V[0] * BS.near * s) + 'px,' + r2(-V[1] * BS.near * s) + 'px)', opacity: 0 }], 0, 260, SLIDEE, 'forwards');
+    run(Tx, ov2, [{ transform: 'none', opacity: 1 }, { offset: 0.4, opacity: 1 }, { transform: 'translate(' + r2(-V[0] * BS.far * s) + 'px,' + r2(-V[1] * BS.far * s) + 'px)', opacity: 0 }], 0, 360, SLIDEE, 'forwards');
   }
   /* one departing child of a scene we are backing out of (kind 'out'); the camera it may ride on is its .txcam parent */
   function gone(Tx, el, delay, dur) { run(Tx, el, [{ opacity: 1 }, { opacity: 0 }], delay, dur, 'linear', 'forwards'); }
@@ -672,7 +870,7 @@ button.tg{cursor:pointer;background:var(--sagel)}
     if (g === 'c') { gone(Tx, el, 0, 140); return; }
     if (g === 'b' || g === 'w') {
       /* the paper that turns back: rides its camera down towards the piece; at BK.hand the piece itself takes over in one frame */
-      if (g === 'w' && Tx.grow) { run(Tx, el, [{ opacity: 0 }, { opacity: 0 }], 0, 1, 'linear', 'forwards'); return; }   /* the arriving block sheet takes its place at once */
+      if (g === 'w' && Tx.grow) { run(Tx, el, [{ opacity: 0 }, { opacity: 0 }], 0, 1, 'linear', 'both'); return; }   /* the arriving block sheet takes its place at once ('both': also in a frame that began before the press) */
       if (g === 'b' && Tx.two) { gone(Tx, el, 180, 240); return; }                        /* near -> far: the sheet is on the underlay that turns */
       run(Tx, el, [{ opacity: 0 }, { opacity: 0 }], BK.hand, 1, 'linear', 'forwards');
       return;
@@ -720,6 +918,7 @@ button.tg{cursor:pointer;background:var(--sagel)}
       var m1 = about(d[2], d[3], 1, -2.4, -8.4);
       m1.offset = 0.3;
       run(Tx, el, [about(d[2], d[3], 1.06, -4, -14), m1, idK()], dl, BK.dropD, DROPE);
+      stripLight(Tx, el);                                     /* light shadows until the change is over, as going in */
       /* its opacity on a clock of its own: on the eased clock above a sheet the size of a block would appear in one frame */
       run(Tx, el, [{ opacity: LAY }, { opacity: 1 }], dl, 80);
       return;
@@ -729,7 +928,7 @@ button.tg{cursor:pointer;background:var(--sagel)}
       run(Tx, el, [kf(v[0] * 90, v[1] * 70, 1, 1, LAY), { offset: 0.4, opacity: 1 }, idK(1)], 300 + sd * 40, 280, OUTE);
       return;
     }
-    if (g === 'r') { R = Tx.mT.ribs[d[1]][0][d[2]]; run(Tx, el, [legK(R, true), idK()], Tx.ribStart[d[1]] + R[4] * BK.DR, (R[5] - R[4]) * BK.DR); return; }
+    if (g === 'r') { R = Tx.mT.ribs[d[1]][0][d[2]]; run(Tx, el, [legK(R, true), idK()], Tx.ribStart[d[1]] + R[4] * BK.DR, (R[5] - R[4]) * BK.DR); stripLight(Tx, el); return; }
     if (g === 'h') { R = Tx.mT.ribs[d[1]][1][d[2]]; run(Tx, el, [about(R[0], R[1], 0.3, 0, 0, 0), about(R[0], R[1], 1, 0, 0, 1)], Tx.ribStart[d[1]] + BK.DR - 25, 90, OUTE); return; }
     if (g === 'e') {
       R = Tx.mT.ribs[d[1]]; j = 0;
@@ -750,10 +949,12 @@ button.tg{cursor:pointer;background:var(--sagel)}
     if (!Tx) return;
     TX = null;
     while (Tx.queue.length) putKid(Tx, false);
+    unlight(Tx, true);
     Tx.ghostLater = false;
     Tx.anims.forEach(function (a) { a.cancel(); });
     Tx.old.forEach(function (el) { if (el.parentNode) el.parentNode.removeChild(el); });
     if (Tx.ov && Tx.ov.parentNode) Tx.ov.parentNode.removeChild(Tx.ov);
+    if (Tx.ov2 && Tx.ov2.parentNode) Tx.ov2.parentNode.removeChild(Tx.ov2);
     applyLegend();
     shown = { scene: Tx.to, lang: Tx.lang, node: null };
     app.removeAttribute('data-tx');
@@ -769,10 +970,13 @@ button.tg{cursor:pointer;background:var(--sagel)}
 
   /* ------------------------------------------------------------------ selection: tracing-paper veil, lifted pieces, sliding dots */
   function select(id) {
+    var had = !!hi.querySelector('.veil');                    /* the tracing paper was already down: it stays (no second fade) */
+    hiOut(!!id && had);
     hi.innerHTML = '';
     if (!id || !NODE[id]) { closeCard(true); return; }
     var veil = document.createElementNS(NS, 'rect');
     veil.setAttribute('class', 'veil'); veil.setAttribute('width', '1600'); veil.setAttribute('height', '950'); veil.setAttribute('data-action', 'deselect');
+    if (had || cam.hasAttribute('data-still')) veil.setAttribute('data-still', '');
     hi.appendChild(veil);
     var edges = Array.prototype.filter.call(sceneG.querySelectorAll('g.ed'), function (el) { return el.getAttribute('data-s') === id || el.getAttribute('data-t') === id; });
     var near = {}; near[id] = 1;
@@ -791,7 +995,29 @@ button.tg{cursor:pointer;background:var(--sagel)}
     Array.prototype.forEach.call(sceneG.querySelectorAll('g.vb'), function (el) {
       if (el.getAttribute('data-s') === id || el.getAttribute('data-t') === id) hi.appendChild(el.cloneNode(true));
     });
+    /* laid with the first picture or a language switch: no lift-in (the attribute stays, so dropping the still mark later
+       does not start one) */
+    if (cam.hasAttribute('data-still')) Array.prototype.forEach.call(hi.children, function (el) { el.setAttribute('data-still', ''); });
     openCard(id);
+  }
+
+  /* what was lifted above the tracing paper (and the paper itself, when nothing stays selected) is taken off as it fades,
+     not switched off: it is moved into a <g id="hiold"> beside #hi (inert) that fades and is removed. EXEMPT state: hiFade =
+     { g, a } (memory + that group), dropped by the next one and by any scene change; reduced motion / first paint: none */
+  var hiFade = null;
+  function dropHi() { if (!hiFade) return; hiFade.a.onfinish = null; hiFade.a.cancel(); if (hiFade.g.parentNode) hiFade.g.parentNode.removeChild(hiFade.g); hiFade = null; }
+  function hiGone(e) { if (!hiFade || e.target !== hiFade.a) return; var g = hiFade.g; hiFade = null; if (g.parentNode) g.parentNode.removeChild(g); }
+  function hiOut(keepVeil) {
+    dropHi();
+    if (reduce.matches || !hi.firstChild || TX || cam.hasAttribute('data-still') || !hi.animate) return;
+    var g = svgEl('g', 'hiold'), k = Array.prototype.slice.call(hi.children);
+    g.setAttribute('aria-hidden', 'true'); g.setAttribute('inert', ''); g.setAttribute('pointer-events', 'none');
+    k.forEach(function (el) { if (!(keepVeil && el.getAttribute('class') === 'veil')) g.appendChild(el); });
+    if (!g.firstChild) return;
+    hi.parentNode.insertBefore(g, hi);
+    var a = g.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 160, easing: 'cubic-bezier(.35,0,.75,.65)', fill: 'forwards' });
+    a.onfinish = hiGone;
+    hiFade = { g: g, a: a };
   }
 
   /* ------------------------------------------------------------------ the paper card */
@@ -816,23 +1042,66 @@ button.tg{cursor:pointer;background:var(--sagel)}
     if (i.length) h += '<h3>' + esc(T('pointed_by')) + '<span class="cnt">' + i.length + '</span></h3><ul>' + i.map(function (e) { return relLine(e, e[0], false); }).join('') + '</ul>';
     h += '</div>';
     if (n.src && n.src.length) h += '<details><summary>' + esc(T('code')) + '</summary><ul class="src">' + n.src.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></details>';
-    $('cardBody').innerHTML = h;
-    $('cardBody').scrollTop = 0;
+    var body = $('cardBody'), swap = !card.hasAttribute('hidden') && !!body.firstChild && !cam.hasAttribute('data-still') && !reduce.matches && !!card.animate;   /* not while a first picture / a language is being laid */
+    if (cardOut) { cardOut.onfinish = null; cardOut.cancel(); cardOut = null; card.removeAttribute('data-closing'); }   /* reopened while closing: it stays */
+    dropCardOld();
+    if (swap) {
+      /* another concept while the card is open: the old words fade off the paper while the new lines slide in one after another */
+      var old = document.createElement('div');
+      old.className = 'cardold'; old.setAttribute('aria-hidden', 'true'); old.setAttribute('inert', '');
+      old.innerHTML = body.innerHTML;
+      card.appendChild(old);
+      cardOld = { el: old, a: old.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 110, easing: 'linear', fill: 'forwards' }), lines: [] };
+      cardOld.a.onfinish = cardOldGone;
+    }
+    body.innerHTML = h;
+    body.scrollTop = 0;
+    if (swap) Array.prototype.forEach.call(body.children, function (c, i) {
+      cardOld.lines.push(c.animate([{ opacity: 0, transform: 'translateY(8px)' }, { opacity: 1, transform: 'none' }], { delay: 40 + Math.min(i, 5) * 16, duration: 170, easing: 'cubic-bezier(.2,.7,.3,1)', fill: 'backwards' }));
+    });
     card.setAttribute('aria-label', nm(n));
     card.removeAttribute('hidden');
     nudge();
     if (window.requestAnimationFrame) window.requestAnimationFrame(nudge);
   }
+  /* closing: the card is lifted off to the right, tilting a little, its shadow growing (the opening, played backwards); quiet
+     keeps its words (it is closing because the picture changes). EXEMPT state: cardOut (the closing animation, memory only;
+     data-closing on #card while it runs) and cardOld (the fading copy of the previous words, removed when faded) */
+  var cardOut = null, cardOld = null;
+  var narrow = window.matchMedia ? window.matchMedia('(max-width:720px)') : { matches: false };
   function closeCard(quiet) {
+    dropCardOld();
+    if (card.hasAttribute('hidden')) { card.removeAttribute('data-still'); if (!quiet) $('cardBody').innerHTML = ''; nudge(); return; }
+    if (cardOut) { if (!quiet) cardOut.id = 'card-clear'; return; }
+    if (reduce.matches || !card.animate) { hideCard(quiet); return; }
+    card.setAttribute('data-closing', '');
+    cardOut = card.animate([{ transform: 'none', opacity: 1, filter: 'drop-shadow(5px 7px 6px rgba(20,28,22,.34))' },
+      { transform: narrow.matches ? 'translateY(30px) rotate(-1.2deg)' : 'translate(30px,-5px) rotate(1.3deg)', opacity: 0, filter: 'drop-shadow(12px 18px 14px rgba(20,28,22,.3))' }],
+      { duration: 230, easing: 'cubic-bezier(.35,0,.75,.65)', fill: 'forwards' });   /* lifted off: ease-in, but moving from the first frames */
+    cardOut.id = quiet ? 'card-quiet' : 'card-clear';
+    cardOut.onfinish = cardGone;
+    nudge();
+  }
+  function cardGone(e) { if (!cardOut || e.target !== cardOut) return; var q = cardOut.id === 'card-quiet', a = cardOut; cardOut = null; a.cancel(); hideCard(q); }
+  function hideCard(quiet) {
+    card.removeAttribute('data-closing');
     card.setAttribute('hidden', '');
     card.removeAttribute('data-still');                       /* the next time it opens, it slides in */
     if (!quiet) $('cardBody').innerHTML = '';
     nudge();
   }
+  function cardOldGone(e) { if (cardOld && e.target === cardOld.a && cardOld.el.parentNode) cardOld.el.parentNode.removeChild(cardOld.el); }
+  function dropCardOld() {
+    if (!cardOld) return;
+    cardOld.a.onfinish = null; cardOld.a.cancel();
+    cardOld.lines.forEach(function (a) { a.cancel(); });
+    if (cardOld.el.parentNode) cardOld.el.parentNode.removeChild(cardOld.el);
+    cardOld = null;
+  }
   /* the card lies on the picture; if it would cover the chosen concept, slide the picture out from under it */
   function nudge() {
     var t = [0, 0], sel = hi.querySelector('.nd.on');
-    if (sel && !card.hasAttribute('hidden')) {
+    if (sel && !card.hasAttribute('hidden') && !card.hasAttribute('data-closing')) {
       /* geometry from layout boxes only (no animated transforms), so reopening a link lands on the same shift */
       var v = view.getBoundingClientRect(), bb = sel.getBBox(), s = Math.min(v.width / 1600, v.height / 950);
       var right = v.left + Z.x + Z.k * ((v.width - 1600 * s) / 2 + (bb.x + bb.width) * s), bottom = v.top + Z.y + Z.k * ((v.height - 950 * s) / 2 + (bb.y + bb.height) * s);
