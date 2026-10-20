@@ -9,7 +9,6 @@
     <rect x="452" y="160" width="48" height="48"/>
     <rect x="512" y="220" width="48" height="48"/>
   </g>
-  <text x="320" y="165" text-anchor="middle" font-family="'Courier New', monospace" font-size="44" font-weight="bold" fill="#fab1a0">FALLING KINGDOM</text>
-  <text x="320" y="205" text-anchor="middle" font-family="'Courier New', monospace" font-size="24" fill="#81ecec">Physical Board Game</text>
-  <text x="320" y="320" text-anchor="middle" font-family="'Courier New', monospace" font-size="16" fill="#636e72">[ placeholder — replace with photo ]</text>
+  <text x="320" y="178" text-anchor="middle" font-family="'Courier New', monospace" font-size="44" font-weight="bold" fill="#fab1a0">FALLING KINGDOM</text>
+  <text x="320" y="218" text-anchor="middle" font-family="'Courier New', monospace" font-size="24" fill="#81ecec">Physical board game</text>
 </svg>

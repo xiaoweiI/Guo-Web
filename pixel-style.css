@@ -300,13 +300,12 @@ html:not([lang="zh"]) .lang-switcher {
     animation: page-in 0.35s steps(6);
 }
 
+/* slide only: content stays fully opaque from the first frame (no fade-out/fade-in) */
 @keyframes page-in {
     from {
-        opacity: 0;
         transform: translateY(12px);
     }
     to {
-        opacity: 1;
         transform: none;
     }
 }
@@ -813,6 +812,34 @@ html[lang="zh"] .featured-content p {
     font-size: 12px;
     line-height: 1.8;
     color: var(--ink);
+}
+
+/* the card title is a real link stretched over the whole card (keyboard + middle-click work);
+   the card's own external links sit above the stretched area */
+.card-link {
+    color: inherit;
+}
+
+.card-link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.card-link:focus-visible {
+    outline: none;
+    box-shadow: none;
+}
+
+.card-link:focus-visible::after {
+    outline: 4px solid var(--purple-deep);
+    outline-offset: -8px;
+}
+
+.game-card .archive-link {
+    position: relative;
+    z-index: 2;
 }
 
 .game-role {
@@ -1671,7 +1698,33 @@ html[lang="zh"] .footer-bottom {
     }
 
     .logo {
-        font-size: 11px;
+        font-size: 12px;
+    }
+
+    /* phone legibility: nothing below 12px. Short pixel labels keep the pixel head font at 12px;
+       longer meta text switches to the narrower VT323 body font so nothing overflows */
+    .hero-content h2,
+    .nav-links a,
+    .lang-switcher,
+    .pixel-btn,
+    .nav-button,
+    .filter-btn,
+    .archive-group-title,
+    .skill-card h3,
+    .contact-details h3 {
+        font-size: 12px;
+    }
+
+    [data-win]::before,
+    .mini-win span,
+    .archive-link,
+    .archive-entry-tag,
+    .archive-lightbox-counter,
+    .info-label,
+    .form-group label {
+        font-family: var(--f-body);
+        font-size: 18px;
+        letter-spacing: 0;
     }
 
     .lang-switcher {

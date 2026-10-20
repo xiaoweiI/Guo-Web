@@ -554,3 +554,19 @@ html[lang="zh"] .game-gallery h3 {
         overflow-wrap: anywhere;
     }
 }
+
+/* phone legibility: nothing below 12px on the detail page either */
+@media (max-width: 480px) {
+    .game-link {
+        font-size: 12px;
+    }
+
+    .game-category,
+    .fact-label,
+    .outcome-label,
+    .game-role-detail .role-value {
+        font-family: var(--f-body);
+        font-size: 18px;
+        letter-spacing: 0;
+    }
+}

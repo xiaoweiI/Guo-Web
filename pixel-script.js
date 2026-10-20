@@ -640,6 +640,12 @@ document.addEventListener('DOMContentLoaded', function() {
         // Save language preference to localStorage
         localStorage.setItem('preferredLanguage', lang);
         syncLanguageUrl(lang);
+
+        // The Systems atlas reads ?lang= before anything else: hand it the current language
+        // (static href stays "systems/" in the HTML; the atlas only reads 'preferredLanguage', never writes it)
+        document.querySelectorAll('a[href^="systems/"]').forEach(link => {
+            link.setAttribute('href', `systems/?lang=${lang}`);
+        });
         
         // Dispatch a custom event for other scripts to listen to
         const event = new CustomEvent('languageChanged', { detail: { language: lang } });

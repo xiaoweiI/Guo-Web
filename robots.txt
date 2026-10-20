@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pumpkinscone.com/Guo-Web/sitemap.xml

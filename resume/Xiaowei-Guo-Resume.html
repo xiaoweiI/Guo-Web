@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
 <title>Xiaowei Guo — Game Designer Résumé</title>
 <style>
     :root {
@@ -22,6 +23,7 @@
     }
     .sheet {
         width: 8.5in;
+        max-width: 100%;
         min-height: 11in;
         margin: 24px auto;
         padding: 0.48in 0.55in;
@@ -105,32 +107,26 @@
     .plist li { margin-bottom: 2px; }
     .plist .tagline { color: var(--dim); }
 
-    /* screen-only helper bar */
-    .printbar {
-        max-width: 8.5in;
-        margin: 18px auto 0;
-        padding: 10px 16px;
-        background: #fff8e1;
-        border: 1px solid #e6c860;
-        border-radius: 6px;
-        font-size: 13px;
-        color: #6b5900;
+
+    /* narrow screens only: the sheet reflows instead of overflowing (print is untouched) */
+    @media screen and (max-width: 8.5in) {
+        .sheet { margin: 0; min-height: 0; padding: 20px 16px; box-shadow: none; }
+        body { overflow-wrap: anywhere; word-break: break-word; }
+        .contact span { white-space: normal; }
+        .entry-head { flex-wrap: wrap; }
+        .cols { flex-direction: column; gap: 0; }
+        .skills-grid { grid-template-columns: 1fr; }
     }
-    .printbar b { color: #4a3e00; }
 
     @media print {
         body { background: #fff; }
         .sheet { margin: 0; box-shadow: none; width: auto; min-height: auto; padding: 0; }
-        .printbar { display: none; }
         @page { size: letter; margin: 0.45in 0.5in; }
         a { color: var(--accent); }
     }
 </style>
 </head>
 <body>
-<div class="printbar">
-    🖨️ <b>转成 PDF：</b>Ctrl+P → 目标选 "另存为 PDF / Save as PDF" → 勾选"背景图形" → 保存为 <b>resume.pdf</b>，放进网站的 <b>assets/</b> 文件夹即可。这个黄条不会被打印。
-</div>
 <div class="sheet">
 
     <h1>Xiaowei (Violet) Guo</h1>

@@ -50,14 +50,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 {
                     text: {
-                        en: 'Source Code',
-                        zh: '源代码'
-                    },
-                    url: '#',
-                    icon: 'fas fa-code'
-                },
-                {
-                    text: {
                         en: 'Download Game',
                         zh: '下载游戏'
                     },
@@ -487,16 +479,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 en: ['Card Game Design', 'Game Balance', 'Probability Analysis', 'Graphic Design'],
                 zh: ['卡牌游戏设计', '游戏平衡', '概率分析', '图形设计']
             },
-            links: [
-                {
-                    text: {
-                        en: 'View Rules Document',
-                        zh: '查看规则文档'
-                    },
-                    url: 'https://docs.google.com/document/d/18dWQ4Yt_3UwC83mGMStgjUxLmIV_rFY94Vv1zG62ZE/edit',
-                    icon: 'fas fa-file-alt'
-                }
-            ]
+            links: []
         },
         'princess-lianan': {
             title: {
@@ -1083,6 +1066,38 @@ document.addEventListener('DOMContentLoaded', function() {
         container.appendChild(toggle);
     }
 
+    // Share/SEO tags derived from the game entry: description = first sentence of the overview
+    const SITE_ROOT = 'https://pumpkinscone.com/Guo-Web/';
+    function setMeta(attr, key, content) {
+        let el = document.head.querySelector(`meta[${attr}="${key}"]`);
+        if (!el) {
+            el = document.createElement('meta');
+            el.setAttribute(attr, key);
+            document.head.appendChild(el);
+        }
+        el.setAttribute('content', content);
+    }
+    function updateShareMeta(game, lang) {
+        const firstPara = String(game.description[lang] || '').split('\n')[0];
+        const match = firstPara.match(/^.*?(?:[。！？]|[.!?](?=\s|$))/);
+        const summary = (match ? match[0] : firstPara).trim();
+        const title = `${game.title[lang]} · Violet Guo`;
+        const pageUrl = `${SITE_ROOT}game-detail.html?id=${encodeURIComponent(currentGameId)}`;
+        setMeta('name', 'description', summary);
+        setMeta('property', 'og:type', 'article');
+        setMeta('property', 'og:title', title);
+        setMeta('property', 'og:description', summary);
+        setMeta('property', 'og:url', pageUrl);
+        setMeta('property', 'og:image', new URL(game.image, SITE_ROOT).href);
+        let canonical = document.head.querySelector('link[rel="canonical"]');
+        if (!canonical) {
+            canonical = document.createElement('link');
+            canonical.rel = 'canonical';
+            document.head.appendChild(canonical);
+        }
+        canonical.href = pageUrl;
+    }
+
     // Function to load game details
     function loadGameDetails(gameId, lang) {
         const game = gameData[gameId];
@@ -1096,8 +1111,9 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
-        // Set page title
+        // Set page title and share metadata (the gameData entry is the source of truth)
         document.title = `${game.title[lang]} · Violet Guo`;
+        updateShareMeta(game, lang);
         
         // Update game details
         document.getElementById('game-title').textContent = game.title[lang];
