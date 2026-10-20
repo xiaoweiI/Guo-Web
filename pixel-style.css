@@ -462,6 +462,52 @@ html[lang="zh"] .hero-content h2 {
     font-size: clamp(15px, 2vw, 19px);
 }
 
+/* positioning lane: two pixel keys under the h2 (pixel-script.js swaps the h2 / p copy) */
+.lane-switch {
+    display: inline-flex;
+    margin: -4px auto 24px;
+    border: 4px solid var(--border);
+    box-shadow: 4px 4px 0 var(--hard);
+    background: var(--bg);
+}
+
+.lane-btn {
+    padding: 6px 16px;
+    font-family: var(--f-body);
+    font-size: 20px;
+    line-height: 1.2;
+    color: var(--dim);
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+.lane-btn + .lane-btn {
+    border-left: 4px solid var(--border);
+}
+
+.lane-btn[aria-pressed="true"] {
+    color: #ffffff;
+    background: var(--purple);
+}
+
+.lane-btn:hover {
+    color: var(--pink-text);
+}
+
+.lane-btn[aria-pressed="true"]:hover {
+    color: #ffffff;
+}
+
+.lane-btn:focus-visible {
+    outline: 4px solid var(--blue);
+    outline-offset: 2px;
+}
+
+html[lang="zh"] .lane-btn {
+    font-size: 16px;
+}
+
 .hero-content p {
     font-size: 22px;
     color: var(--dim);
@@ -481,14 +527,35 @@ html[lang="zh"] .hero-content p {
     margin-bottom: 48px;
 }
 
-/* three featured mini-windows on the boot screen */
+/* four featured mini-windows on the boot screen (2 x 2 below 1024px, one column on phones) */
 .hero-featured {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 24px;
     max-width: 860px;
     margin: 0 auto;
     text-align: left;
+}
+
+/* one row of four on wide screens: the row is wider than the hero text column, centred on it */
+@media (min-width: 1025px) {
+    .hero-featured {
+        position: relative;
+        left: 50%;
+        width: min(960px, calc(100vw - 64px));
+        max-width: none;
+        margin: 0;
+        gap: 20px;
+        transform: translateX(-50%);
+    }
+}
+
+/* the window name stops short of the three title-bar squares */
+.mini-win[data-win]::before {
+    padding-right: 72px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .mini-win {
@@ -914,6 +981,13 @@ html[lang="zh"] .archive-link {
 }
 
 /* ---------- archive (wiki) ---------- */
+
+/* a one-line archive entry with no page of its own (Falling Kingdom) */
+.archive-note {
+    margin-top: 24px;
+    font-size: 20px;
+    color: var(--dim);
+}
 
 .archive-wiki {
     display: grid;
@@ -1531,6 +1605,10 @@ html[lang="zh"] .footer-bottom {
         padding-inline: 24px;
     }
 
+    .hero-featured {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .games-grid,
     .skills-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1692,17 +1770,9 @@ html[lang="zh"] .footer-bottom {
     }
 }
 
-@media (max-width: 480px) {
-    .container {
-        padding-inline: 16px;
-    }
-
-    .logo {
-        font-size: 12px;
-    }
-
-    /* phone legibility: nothing below 12px. Short pixel labels keep the pixel head font at 12px;
-       longer meta text switches to the narrower VT323 body font so nothing overflows */
+/* small-screen legibility (phones and small tablets, up to 768px): nothing below 12px. Short pixel labels keep the
+   pixel head font at 12px; longer meta text switches to the narrower VT323 body font so nothing overflows */
+@media (max-width: 768px) {
     .hero-content h2,
     .nav-links a,
     .lang-switcher,
@@ -1725,6 +1795,16 @@ html[lang="zh"] .footer-bottom {
         font-family: var(--f-body);
         font-size: 18px;
         letter-spacing: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding-inline: 16px;
+    }
+
+    .logo {
+        font-size: 12px;
     }
 
     .lang-switcher {

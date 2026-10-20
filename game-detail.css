@@ -126,13 +126,13 @@ html[lang="zh"] .game-category {
         order: 2;
     }
 
-    #section-facts {
+    .game-glance {
         order: 3;
+        margin-top: 0;
     }
 
-    .game-outcome-summary {
+    #section-facts {
         order: 4;
-        margin-top: 0;
     }
 
     .game-detail-image {
@@ -272,43 +272,84 @@ html[lang="zh"] .game-info-section h3 {
 .feature-list,
 .fact-value,
 .fact-tile-value,
-.game-outcome-summary p {
+.glance-list dd {
     font-family: var(--f-reading);
     overflow-wrap: anywhere;
 }
 
-.game-info-section p,
-.game-outcome-summary p {
+.game-info-section p {
     max-width: 68ch;
 }
 
-.game-outcome-summary {
-    margin-top: 20px;
-    padding: 16px;
-    width: min(100%, 760px);
-    background: var(--panel);
-    border: 4px solid var(--border);
-    box-shadow: 4px 4px 0 var(--hard);
+/* "At a glance": problem / my role / trade-off / outcome in one open window (the readme.txt window's frame).
+   Never collapsed or clipped; nothing in it below 14px (13px on phones) -- the title bar uses the body face for that */
+.game-glance {
+    margin-top: 24px;
+    width: min(100%, 1040px);
 }
 
-.game-outcome-summary[hidden] {
+.game-glance[hidden] {
     display: none;
 }
 
-.outcome-label {
-    display: block;
-    margin-bottom: 10px;
-    font-family: var(--f-head);
-    font-size: 10px;
-    line-height: 1.7;
-    color: var(--purple);
+.game-glance[data-win]::before {
+    font-family: var(--f-body);
+    font-size: 18px;
+    letter-spacing: 0;
+}
+
+.glance-list {
+    margin: 0;
+    padding: 6px 20px 10px;
+}
+
+.glance-row {
+    display: grid;
+    grid-template-columns: 128px minmax(0, 1fr);
+    gap: 16px;
+    padding: 10px 0;
+    border-bottom: 2px dashed var(--panel-2);
+}
+
+.glance-row:last-child {
+    border-bottom: 0;
+}
+
+.glance-list dt {
+    font-family: var(--f-body);
+    font-size: 20px;
+    line-height: 1.2;
+    color: var(--purple-deep);
     text-transform: uppercase;
 }
 
-.outcome-label::before {
+.glance-list dt::before {
     content: '►';
-    margin-right: 10px;
+    margin-right: 8px;
     color: var(--pink);
+    font-size: 14px;
+}
+
+.glance-list dd {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink);
+}
+
+@media (max-width: 600px) {
+    .glance-list {
+        padding: 4px 14px 8px;
+    }
+
+    .glance-row {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 4px;
+    }
+
+    .glance-list dd {
+        font-size: 14px;
+    }
 }
 
 /* at-a-glance fact tiles */
@@ -555,15 +596,14 @@ html[lang="zh"] .game-gallery h3 {
     }
 }
 
-/* phone legibility: nothing below 12px on the detail page either */
-@media (max-width: 480px) {
+/* small-screen legibility (up to 768px, like the site's): nothing below 12px on the detail page either */
+@media (max-width: 768px) {
     .game-link {
         font-size: 12px;
     }
 
     .game-category,
     .fact-label,
-    .outcome-label,
     .game-role-detail .role-value {
         font-family: var(--f-body);
         font-size: 18px;

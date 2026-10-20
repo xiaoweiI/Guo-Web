@@ -52,8 +52,12 @@
             <div class="container">
                 <div class="hero-content">
                     <h1><span data-i18n="hero_hello">Hello, I'm</span> <span class="highlight">Violet</span></h1>
-                    <h2 data-i18n="hero_title">GAME DESIGNER · AI-NATIVE PLAY</h2>
-                    <p data-i18n="hero_welcome">Game designer at Petch. Credits across NetEase Games, AI-native startups, and award-winning game jams.</p>
+                    <h2 data-i18n="hero_title" data-lane-text="title">GAME DESIGNER · AI-NATIVE PLAY</h2>
+                    <div class="lane-switch" role="group" aria-label="Positioning">
+                        <button type="button" class="lane-btn" data-lane="game" aria-pressed="true" data-i18n="lane_game">Game systems</button>
+                        <button type="button" class="lane-btn" data-lane="ai" aria-pressed="false" data-i18n="lane_ai">AI product</button>
+                    </div>
+                    <p data-i18n="hero_welcome" data-lane-text="welcome">Game designer at Petch. Credits across NetEase Games, AI-native startups, and award-winning game jams. The systems I design, I also build and run.</p>
                     <div class="cta-buttons">
                         <a href="#games" data-page="games" class="pixel-btn primary-btn" data-i18n="hero_view_work">View My Work</a>
                         <a href="assets/resume.pdf" class="pixel-btn secondary-btn" data-i18n="hero_resume" download>Download Résumé</a>
@@ -63,6 +67,10 @@
                         <a class="mini-win" data-win="dramai.exe" href="game-detail.html?id=dramai-ai">
                             <img src="assets/img/dramai.jpg" alt="Dramai.AI">
                             <span data-i18n="game_dramai_title">Dramai.AI</span>
+                        </a>
+                        <a class="mini-win" data-win="lifeportal.exe" href="game-detail.html?id=life-portal">
+                            <img src="assets/img/life-portal.jpg" alt="Life Portal">
+                            <span data-i18n="game_life_portal_title">Life Portal</span>
                         </a>
                         <a class="mini-win" data-win="got_winter.exe" href="game-detail.html?id=got-winter-is-coming">
                             <img src="assets/img/got-1.jpg" alt="Game of Thrones: Winter is Coming">
@@ -547,28 +555,6 @@
                         </div>
                     </div>
 
-                    <!-- Falling Kingdom -->
-                    <div class="game-card pixel-border" data-category="personal" data-win="falling_kingdom.exe" style="cursor: pointer;">
-                        <div class="game-image">
-                            <div class="image-placeholder">
-                                <img src="assets/img/falling-kingdom.svg" alt="Falling Kingdom" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
-                            </div>
-                        </div>
-                        <div class="game-info">
-                            <h3><a class="card-link" href="game-detail.html?id=falling-kingdom" data-i18n="game_falling_kingdom_title">Falling Kingdom</a></h3>
-                            <div class="game-role">
-                                <span class="role-label" data-i18n="role_label_role">Role:</span>
-                                <span class="role-value" data-i18n="game_falling_kingdom_role">Sole Designer</span>
-                            </div>
-                            <p data-i18n="game_falling_kingdom_desc">Physical board game designed and produced independently.</p>
-                            <div class="game-tags">
-                                <span class="tag">Board Game</span>
-                                <span class="tag">Physical</span>
-                                <span class="tag">Solo Project</span>
-                            </div>
-                        </div>
-                    </div>
-
                     <!-- Wallet War -->
                     <div class="game-card pixel-border" data-category="personal" data-win="wallet_war.exe" style="cursor: pointer;">
                         <div class="game-image">
@@ -760,6 +746,7 @@
 
                     </article>
                 </div>
+                <p class="archive-note" data-i18n="archive_falling_kingdom">Falling Kingdom — physical board game, solo design (photo to come)</p>
             </div>
         </section>
         
@@ -1034,6 +1021,7 @@
                         </div>
                         <div class="social-links">
                             <a href="https://www.linkedin.com/in/xiaowei-guo" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://github.com/xiaoweiI" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
                     <div class="contact-form pixel-border" data-win="send_message.exe">
@@ -1041,7 +1029,7 @@
                             <input type="hidden" name="_subject" value="New message from your Portfolio site">
                             <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
                             <input type="hidden" name="_template" value="table">
-                            <input type="hidden" name="_next" value="https://xiaoweii.github.io/Guo-Web/thanks.html">
+                            <input type="hidden" name="_next" value="https://pumpkinscone.com/Guo-Web/thanks.html">
                             <div class="form-group">
                                 <label for="name" data-i18n="contact_name">Name</label>
                                 <input type="text" id="name" name="name" required>

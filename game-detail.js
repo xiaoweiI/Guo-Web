@@ -670,6 +670,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     { t: '反馈驱动迭代', d: '与产品经理、玩法工程师、UI/UX 设计师持续协作迭代' }
                 ]
             },
+            tradeoff: {
+                en: 'Depth vs. lightness: 16 personality archetypes could carry a full roguelike PvP, but pet owners wanted something light, so builds stayed at trait pairs and the match-style board carried the depth.',
+                zh: '深度还是轻量：16 种性格原型足够撑起完整的 roguelike PvP，但宠物主人要的是轻量，所以构筑只留性格配对，深度交给消除式棋盘。'
+            },
             outcome: {
                 en: 'In active development (Jul 2025 – present) — playtested by roughly 1,000 players to date, iterating on live feedback.',
                 zh: '开发进行中（2025.7 至今）——累计约 1000 名玩家参与测试，基于真实反馈持续迭代。'
@@ -758,6 +762,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     { t: '视觉与 UX 管线', d: 'Lovart、Veo3、可灵、GPT 产出图像美术；Figma 梳理流程与 UX' }
                 ]
             },
+            tradeoff: {
+                en: 'Guardrails vs. surprise: I chose hard role constraints and conflict rules in the prompts, trading some agent spontaneity for fewer hallucinations and out-of-character lines.',
+                zh: '护栏还是惊喜：我选了在提示词里写死角色约束和冲突规则，用一部分智能体的即兴换来更少的幻觉和出戏台词。'
+            },
             outcome: {
                 en: 'Shipped as the platform\'s core experience — around 10 AI agents across two live scenes at dramai.world.',
                 zh: '成为平台核心体验——约 10 个 AI 智能体分布在两个上线场景，见 dramai.world。'
@@ -817,6 +825,79 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             ]
         },
+        'life-portal': {
+            title: {
+                en: 'Life Portal',
+                zh: 'Life Portal'
+            },
+            role: {
+                en: 'Solo designer & builder',
+                zh: '独立设计与实现'
+            },
+            category: {
+                en: 'AI life OS · Agents · Base-building game',
+                zh: 'AI 生活系统 · 智能体 · 基建游戏'
+            },
+            image: 'assets/img/life-portal.jpg',
+            gallery: ['assets/img/life-portal.jpg'],
+            facts: [
+                { label: { en: 'Role', zh: '职位' }, value: { en: 'Solo designer & builder', zh: '独立设计与实现' } },
+                { label: { en: 'Studio', zh: '公司' }, value: { en: 'Personal product · in daily use', zh: '个人产品 · 每天在用' } },
+                { label: { en: 'When', zh: '时间' }, value: { en: '2026 – present', zh: '2026 至今' } },
+                // solo: the "My role" line joins it without "with"
+                { label: { en: 'Worked with', zh: '协作' }, value: { en: 'No team — product, systems, backend, frontend, agents, art pipeline', zh: '无团队——产品、系统、后端、前端、智能体、美术管线' }, solo: true }
+            ],
+            challenge: {
+                en: 'I needed a life-management system I would actually keep using, so I built one that runs like a game: health, money, habits, work and wants are stats, finished tasks earn coins, coins buy real rewards and feed a base-building game.',
+                zh: '我需要一个自己真的会一直用的生活管理系统，所以把它做成了一场游戏：健康、钱、习惯、工作、想要的东西是属性，做完的事换金币，金币换现实奖励，也养一个基建游戏。'
+            },
+            tradeoff: {
+                en: 'Prompts vs. code: after the butler agent kept breaking its own rules, I moved every invariant — permissions, undo, idempotency — out of the prompt and into code gates.',
+                zh: '提示词还是代码：管家智能体反复违反自己的规则之后，我把所有不变量——权限、撤销、幂等——从提示词里挪进了代码闸门。'
+            },
+            designed: {
+                en: [
+                    { t: 'Stat bindings', d: 'energy bar = last night\'s sleep score; habit check-ins log events and earn points; coin modifier ×0.8 on sleep debt, ×1.2 when health is good' },
+                    { t: 'Two agents with different jobs', d: 'a companion that can read real data and a butler that creates tasks and reminders behind a permission gate' },
+                    { t: 'Invariants in code, not prompts', d: 'tool narrowing, input validation, idempotent writes, undo stack, program gates' },
+                    { t: 'Own eval and trace', d: 'invariant tests for permissions and persona, per-turn token and cost tracing to SQLite, no external service' },
+                    { t: 'Base-building game fed by real tasks', d: 'data-driven event engine, relationships, survival systems, chunked world' }
+                ],
+                zh: [
+                    { t: '属性绑定', d: '精力条=昨晚睡眠分；习惯打卡入账得分；睡眠债金币 ×0.8，状态好 ×1.2' },
+                    { t: '两个分工不同的智能体', d: '能看真实数据的陪伴者，和过权限门才能建任务提醒的管家' },
+                    { t: '不变量进代码而非提示词', d: '工具收窄、拒收校验、幂等、撤销栈、程序闸' },
+                    { t: '自研评测与追踪', d: '权限与人设不变量测试，逐轮 token 与花费写入 SQLite，不依赖外部服务' },
+                    { t: '由真实任务驱动的基建游戏', d: '数据驱动事件引擎、人际关系、生存系统、分块世界' }
+                ]
+            },
+            outcome: {
+                en: 'In daily use. 46 systems and 377 concepts mapped in the systems atlas; 919 backend tests; prompt caching cut API cost by 60–80%.',
+                zh: '每天在用。系统图谱覆盖 46 个系统、377 个概念；后端 919 项测试；提示词缓存把 API 成本降了 60–80%。'
+            },
+            description: {
+                en: 'Life Portal is a life-management system I designed and built on my own, and use every day. It treats a life like a character sheet: health, money, habits, work and wants are stats fed by real data, finished tasks earn coins, and coins buy real-world rewards or feed a base-building game.\n\nTwo AI agents live inside it: a companion that reads the data and talks it through, and a butler that creates tasks and reminders only after passing a permission gate. I built it because no productivity app ever stuck; making it play like a game did. Product, systems design, backend, frontend, agents, evals and the art pipeline are all my own work.',
+                zh: 'Life Portal 是我独立设计并实现、自己每天在用的生活管理系统。它把生活当成一张角色卡：健康、钱、习惯、工作和想要的东西是由真实数据驱动的属性；做完的事换金币，金币换现实奖励，也养一个基建游戏。\n\n系统里有两个 AI 智能体：能读数据、陪你把事情聊清楚的陪伴者，和必须先过权限门才能建任务、设提醒的管家。做它是因为没有一个效率工具让我坚持用下去，而做成游戏之后，我坚持下来了。产品、系统设计、后端、前端、智能体、评测和美术管线，全部由我一人完成。'
+            },
+            features: {
+                en: [],
+                zh: []
+            },
+            technologies: {
+                en: ['FastAPI', 'SQLite', 'Claude API', 'Prompt caching', 'Streaming TTS', 'Vanilla JS', 'Playwright'],
+                zh: ['FastAPI', 'SQLite', 'Claude API', 'Prompt caching', 'Streaming TTS', 'Vanilla JS', 'Playwright']
+            },
+            links: [
+                {
+                    text: {
+                        en: 'Systems atlas',
+                        zh: '系统图谱'
+                    },
+                    url: 'systems/',
+                    icon: 'fas fa-project-diagram'
+                }
+            ]
+        },
         'got-winter-is-coming': {
             title: {
                 en: 'Game of Thrones: Winter is Coming',
@@ -855,6 +936,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     { t: '引擎内实现', d: '使用 Unity + C# 实现 AI 行为' },
                     { t: '跨团队沟通', d: '用 Figma 梳理功能流程与设计文档，与项目负责人评审' }
                 ]
+            },
+            tradeoff: {
+                en: 'Scripted vs. systemic: instead of hand-scripting each encounter, I built one threat-evaluation and pacing model and tuned it per encounter type.',
+                zh: '脚本还是系统：不逐场手写脚本，而是做一套威胁评估和节奏模型，再按遭遇战类型分别调参。'
             },
             outcome: {
                 en: 'Delivered combat AI behaviors and tuning across multiple encounter types, reviewed and signed off with project leads.',
@@ -1098,6 +1183,74 @@ document.addEventListener('DOMContentLoaded', function() {
         canonical.href = pageUrl;
     }
 
+    // ---- "At a glance": problem / my role / trade-off / outcome, always open at the top of the page.
+    // Derived from the entry's own fields (challenge, facts, tradeoff, outcome); a row without data is left out.
+    const ROLE_FACTS = ['Role', 'Worked with'];
+    const GLANCE = {
+        title: { en: 'at_a_glance.txt', zh: '一眼看完.txt' },
+        problem: { en: 'Problem', zh: '问题' },
+        role: { en: 'My role', zh: '我的角色' },
+        tradeoff: { en: 'Trade-off', zh: '取舍' },
+        outcome: { en: 'Outcome', zh: '结果' }
+    };
+    const PROBLEM_MAX = { en: 220, zh: 160 };
+
+    // Leading whole sentences of the challenge, within the length limit. A first sentence that is already over the limit
+    // ends at its last clause break (colon / semicolon) before the limit instead, closed with a full stop.
+    function glanceProblem(text, lang) {
+        const max = PROBLEM_MAX[lang] || 220;
+        const sentences = String(text || '').match(lang === 'zh' ? /[^。！？]+[。！？]?/g : /[\s\S]+?(?:[.!?](?=\s|$)|$)\s*/g) || [];
+        let out = '';
+        for (const s of sentences) {
+            if ((out + s).trim().length > max) break;
+            out += s;
+        }
+        out = out.trim();
+        if (out) return out;
+        const first = (sentences[0] || '').trim();
+        const head = first.slice(0, max);
+        const cut = Math.max(head.lastIndexOf(lang === 'zh' ? '：' : ': '), head.lastIndexOf(lang === 'zh' ? '；' : '; '));
+        return cut > 0 ? head.slice(0, cut) + (lang === 'zh' ? '。' : '.') : first;
+    }
+
+    function glanceRole(game, lang) {
+        const facts = game.facts || [];
+        const role = facts.find(fact => fact.label.en === 'Role');
+        const team = facts.find(fact => fact.label.en === 'Worked with');
+        const roleText = role ? role.value[lang] : (game.role ? game.role[lang] : '');
+        if (!roleText) return '';
+        if (!team) return roleText;
+        if (team.solo) return `${roleText} · ${team.value[lang]}`;
+        return lang === 'zh' ? `${roleText} · 与${team.value[lang]}协作` : `${roleText} · with ${team.value[lang]}`;
+    }
+
+    function renderGlance(game, lang) {
+        const box = document.getElementById('game-glance');
+        const list = document.getElementById('game-glance-list');
+        if (!box || !list) return;
+        list.innerHTML = '';
+        const rows = [
+            ['problem', game.challenge ? glanceProblem(game.challenge[lang], lang) : ''],
+            ['role', glanceRole(game, lang)],
+            ['tradeoff', game.tradeoff ? game.tradeoff[lang] : ''],
+            ['outcome', game.outcome ? game.outcome[lang] : '']
+        ].filter(row => row[1]);
+        rows.forEach(([key, text]) => {
+            const row = document.createElement('div');
+            row.className = 'glance-row';
+            row.setAttribute('data-row', key);
+            const dt = document.createElement('dt');
+            dt.textContent = GLANCE[key][lang];
+            const dd = document.createElement('dd');
+            dd.textContent = text;
+            row.appendChild(dt);
+            row.appendChild(dd);
+            list.appendChild(row);
+        });
+        box.setAttribute('data-win', GLANCE.title[lang]);
+        box.hidden = rows.length < 2;
+    }
+
     // Function to load game details
     function loadGameDetails(gameId, lang) {
         const game = gameData[gameId];
@@ -1127,13 +1280,16 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('role-value').textContent = game.role[lang];
         }
 
-        // At-a-glance fact tiles: only shown when the game provides them
+        // At-a-glance fact tiles: only shown when the game provides them. Role and Worked with already lead the
+        // at-a-glance block ("My role"), so the tiles keep the rest (studio, dates) instead of repeating them
         const factsSection = document.getElementById('section-facts');
         const factsGrid = document.getElementById('game-facts');
         if (factsSection && factsGrid) {
             factsGrid.innerHTML = '';
-            if (game.facts && game.facts.length) {
-                game.facts.forEach(fact => {
+            const roleLine = glanceRole(game, lang);
+            const tiles = (game.facts || []).filter(fact => !(roleLine && ROLE_FACTS.includes(fact.label.en)));
+            if (tiles.length) {
+                tiles.forEach(fact => {
                     const tile = document.createElement('div');
                     tile.className = 'fact-tile';
                     const label = document.createElement('span');
@@ -1152,14 +1308,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
-        const outcomeSummary = document.getElementById('game-outcome-summary');
-        const outcomeSummaryText = document.getElementById('game-outcome-summary-text');
-        if (outcomeSummary && outcomeSummaryText && game.outcome?.[lang]) {
-            outcomeSummaryText.textContent = game.outcome[lang];
-            outcomeSummary.hidden = false;
-        } else if (outcomeSummary) {
-            outcomeSummary.hidden = true;
-        }
+        renderGlance(game, lang);
 
         // Optional case-study sections: only shown when the game provides them
         [
@@ -1215,9 +1364,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         (game.links || []).forEach(link => {
             const linkElement = document.createElement('a');
-            linkElement.href = link.url;
             linkElement.className = 'game-link pixel-btn';
-            linkElement.target = '_blank';
+            if (link.url.startsWith('systems/')) {
+                linkElement.href = `systems/?lang=${lang}`;
+            } else {
+                linkElement.href = link.url;
+                linkElement.target = '_blank';
+                linkElement.rel = 'noopener noreferrer';
+            }
             
             const icon = document.createElement('i');
             icon.className = link.icon;
@@ -1262,6 +1416,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Define game order for navigation
     const gameOrder = [
         'dramai-ai',
+        'life-portal',
         'got-winter-is-coming',
         'petch',
         'revelation',
@@ -1272,7 +1427,6 @@ document.addEventListener('DOMContentLoaded', function() {
         'dorm-unpacking',
         'zombie-juice',
         'beneath-ruins',
-        'falling-kingdom',
         'wallet-war',
         'princess-lianan',
         'above-fountain',

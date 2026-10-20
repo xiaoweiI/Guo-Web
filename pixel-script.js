@@ -1,3 +1,8 @@
+// Runtime state owned by this file (other pages' scripts only read it):
+//   language    localStorage 'preferredLanguage' ('en' | 'zh'); ?lang= in the address overrides it and is kept in sync
+//   hero lane   localStorage 'preferredLane' ('game' | 'ai'); ?lane= in the address overrides it (targeted links) and is
+//               kept in sync; default 'game'. Priority: ?lane > localStorage > default. Index page only (the h2/p marked
+//               data-lane-text and the .lane-btn[data-lane] buttons); the copy lives in the translations table (LANES -> keys)
 // Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
     // Page Navigation System
@@ -108,7 +113,11 @@ document.addEventListener('DOMContentLoaded', function() {
             // Hero section
             "hero_hello": "Hello, I'm",
             "hero_title": "GAME DESIGNER · AI-NATIVE PLAY",
-            "hero_welcome": "Game designer at Petch. Credits across NetEase Games, AI-native startups, and award-winning game jams.",
+            "hero_welcome": "Game designer at Petch. Credits across NetEase Games, AI-native startups, and award-winning game jams. The systems I design, I also build and run.",
+            "hero_title_ai": "AI PRODUCT DESIGNER · AGENTS THAT SHIP",
+            "hero_welcome_ai": "I design and build AI products end to end: a daily-use life OS with two agents, evals and real data bindings, plus multi-agent narrative at Dramai.AI and combat AI at NetEase.",
+            "lane_game": "Game systems",
+            "lane_ai": "AI product",
             "hero_view_work": "View My Work",
             "hero_resume": "Download Résumé",
             "hero_contact": "Contact Me",
@@ -167,6 +176,7 @@ document.addEventListener('DOMContentLoaded', function() {
             "game_got_title": "Game of Thrones: Winter is Coming",
             "game_got_desc": "Strategy MMO in the Game of Thrones universe. At NetEase Games I designed and tuned combat AI for NPCs and bots — decision-making logic, threat evaluation, and combat pacing across encounter types.",
             "game_petch_title": "Petch",
+            "game_life_portal_title": "Life Portal",
             "game_petch_desc": "AI-powered pet social platform. I architect the pet personality (MBTI) systems and a roguelike social PvP mode with a 16-tile match mechanic — personality-driven builds and strategic trait pairing.",
             "game_revelation_title": "Revelation",
             "game_revelation_desc": "Mobile MMO RPG by NetEase. I developed character kits and narrative arcs — aligning story, abilities, and worldbuilding.",
@@ -206,6 +216,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Archive section
             "archive_title": "Other Archive",
+            "archive_falling_kingdom": "Falling Kingdom — physical board game, solo design (photo to come)",
             "archive_gdd": "Game Design Documents",
             "archive_art": "Art & Concept Work",
             "archive_publications": "Publications & Talks",
@@ -361,7 +372,11 @@ document.addEventListener('DOMContentLoaded', function() {
             // Hero section
             "hero_hello": "你好，我是",
             "hero_title": "游戏设计师 · AI 原生玩法",
-            "hero_welcome": "现任 Petch 游戏设计师。履历横跨网易游戏、AI 原生创业公司与获奖 Game Jam 作品。",
+            "hero_welcome": "Petch 游戏设计师。经历覆盖网易游戏、AI 原生创业公司和获奖 game jam。我设计的系统，我自己做出来、跑起来。",
+            "hero_title_ai": "AI 产品设计师 · 能上线的智能体",
+            "hero_welcome_ai": "从设计到实现做完整的 AI 产品：每天在用的生活系统，带两个智能体、评测和真实数据绑定；还有 Dramai.AI 的多智能体叙事和网易的战斗 AI。",
+            "lane_game": "游戏系统",
+            "lane_ai": "AI 产品",
             "hero_view_work": "查看作品",
             "hero_resume": "下载简历",
             "hero_contact": "联系我",
@@ -420,6 +435,7 @@ document.addEventListener('DOMContentLoaded', function() {
             "game_got_title": "权力的游戏：凛冬将至",
             "game_got_desc": "权力的游戏宇宙中的策略 MMO。我在网易游戏负责设计并调校 NPC 与机器人战斗 AI——决策逻辑、威胁评估，以及多种遭遇战类型的战斗节奏。",
             "game_petch_title": "Petch",
+            "game_life_portal_title": "Life Portal",
             "game_petch_desc": "AI 宠物社交平台。我负责宠物性格（MBTI）系统与 roguelike 社交 PvP 模式的架构设计，结合 16 格消除式机制，实现性格驱动的构筑与特质搭配策略。",
             "game_revelation_title": "天谕",
             "game_revelation_desc": "网易旗下移动 MMORPG。我负责开发角色配套叙事与故事线——让剧情、技能与世界观设定保持一致。",
@@ -459,6 +475,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Archive section
             "archive_title": "其他档案",
+            "archive_falling_kingdom": "Falling Kingdom — 实体桌游，独立设计（照片待补）",
             "archive_gdd": "游戏设计文档",
             "archive_art": "艺术与概念作品",
             "archive_publications": "出版物与演讲",
@@ -664,6 +681,45 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize language based on localStorage or default to English
     updateLanguage(getCurrentLanguage());
+
+    // Hero positioning lane (state declared at the top of this file). The buttons carry only data-lane; the copy is looked
+    // up here: lane -> translation keys, which the h2/p take as their data-i18n so a later language switch follows the lane
+    const LANES = {
+        game: { title: 'hero_title', welcome: 'hero_welcome' },
+        ai: { title: 'hero_title_ai', welcome: 'hero_welcome_ai' }
+    };
+    function getCurrentLane() {
+        const fromUrl = new URLSearchParams(location.search).get('lane');
+        if (fromUrl && Object.prototype.hasOwnProperty.call(LANES, fromUrl)) return fromUrl;
+        let saved = null;
+        try { saved = localStorage.getItem('preferredLane'); } catch (e) { saved = null; }
+        return saved && Object.prototype.hasOwnProperty.call(LANES, saved) ? saved : 'game';
+    }
+    function applyLane(lane) {
+        if (!Object.prototype.hasOwnProperty.call(LANES, lane)) lane = 'game';
+        const lang = document.documentElement.lang === 'zh' ? 'zh' : 'en';
+        document.querySelectorAll('[data-lane-text]').forEach(el => {
+            const key = LANES[lane][el.getAttribute('data-lane-text')];
+            if (!key) return;
+            el.setAttribute('data-i18n', key);
+            if (translations[lang] && translations[lang][key]) el.textContent = translations[lang][key];
+        });
+        document.querySelectorAll('.lane-btn[data-lane]').forEach(btn => {
+            btn.setAttribute('aria-pressed', String(btn.getAttribute('data-lane') === lane));
+        });
+        try { localStorage.setItem('preferredLane', lane); } catch (e) { /* private mode: the lane still shows, it just is not kept */ }
+        const url = new URL(location.href);
+        if (url.searchParams.has('lane')) {
+            url.searchParams.set('lane', lane);
+            history.replaceState(history.state, '', url);
+        }
+    }
+    if (document.querySelector('[data-lane-text]')) {
+        applyLane(getCurrentLane());
+        document.querySelectorAll('.lane-btn[data-lane]').forEach(btn => {
+            btn.addEventListener('click', function() { applyLane(this.getAttribute('data-lane')); });
+        });
+    }
     
     // Mobile Navigation Toggle
     const hamburger = document.querySelector('.hamburger');
