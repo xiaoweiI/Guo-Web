@@ -322,6 +322,7 @@ button.tg{cursor:pointer;background:var(--sagel)}
 #walk .wplay .wpl[data-v=pause],#app[data-walkplay] #walk .wplay .wpl[data-v=play]{display:none}
 #app[data-walkplay] #walk .wplay .wpl[data-v=pause]{display:inline}
 #walk .wbt{cursor:pointer}
+#walk .wbt[aria-disabled=true]{opacity:.4;pointer-events:none;cursor:default}
 @media (prefers-reduced-motion:reduce){#walk .wnd{transition:none}}
 #app[data-persona=student] [data-pp]:not([data-pp=student]):not(.ppgo){display:none}#app[data-persona=worker] [data-pp]:not([data-pp=worker]):not(.ppgo){display:none}
 .pn3,.lb,.rn,.sk,.props>.pr,.ra,.lk:not([data-st=closed]),.rr[data-rr=left],.vq,.vnt{display:none}
@@ -2565,8 +2566,15 @@ button.tg{cursor:pointer;background:var(--sagel)}
       el.setAttribute('data-state', k === s ? 'cur' : last ? 'last' : k < s ? 'past' : 'fut');
     });
     Array.prototype.forEach.call(root.querySelectorAll('.wd,.wcap'), function (el) { if (+el.getAttribute('data-n') === s) el.setAttribute('data-on', ''); else el.removeAttribute('data-on'); });
-    if (WALK.play && s >= n) walkPlay(false);                 /* the last station: playing ends there */
+    walkEnd(root.querySelector('[data-action="walk-prev"]'), s <= 1);    /* v4: no way back from the first station, none on from the last */
+    walkEnd(root.querySelector('[data-action="walk-next"]'), s >= n);
     if (WALK.play && prev && s === prev + 1) walkDot(prev);   /* played forward: the dot runs along the strip just walked */
+    if (WALK.play && s >= n) walkPlay(false);                 /* the last station: playing ends there, the button shows "play" again */
+  }
+  function walkEnd(el, off) {                                  /* a prev / next slip at its end: aria-disabled, out of the Tab order (CSS dims it) */
+    if (!el) return;
+    if (off) { el.setAttribute('aria-disabled', 'true'); el.setAttribute('tabindex', '-1'); }
+    else { el.removeAttribute('aria-disabled'); el.setAttribute('tabindex', '0'); }
   }
   function walkGo(k, played) {
     if (!WALK) return;
